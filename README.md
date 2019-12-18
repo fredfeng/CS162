@@ -9,26 +9,26 @@ Friday, 11am, HFH-2157
 
 | Date  | Topic                                         | Slides | Read | Out | Due |
 |-------|-----------------------------------------------|--------|------|-----|-----|
-| 9/30  | Introduction                                  |  [lec1](lectures/lecture1.pdf)      |      |     |     |
-| 10/2  | Solver-Aided Programming I (Rosette)          |  [lec2](lectures/lecture2.pdf)      |  R1    |     |     |
-| 10/7  | Solver-Aided Programming II (Neo)             |  [lec3](lectures/lecture3.pdf)      |  R2    | HW1    |     |
-| 10/9  | SAT Solving Basics                            |  [lec4](lectures/lecture4.pdf)      |      |     | R1    |
-| 10/14 | A Modern SAT Solver                           |  [lec5](lectures/lecture5.pdf)      |      |     |     |
-| 10/16 | Applications of SAT                           |  [lec6](lectures/lecture6.pdf)      |   R3   |     |  HW1,R2   |
-| 10/21 | SAT Modulo Theories                           |  [lec7](lectures/lecture7.pdf)      |      |     |     |
-| 10/23 | Combining Theories              | [lec8](lectures/lecture8.pdf)        |   R5   |  [HW2](hw2/HW2.md)   |  R3   |
-| 10/28 | String solver (Tevfik Bultan)                            |        |      |     | Proposal    |
-| 10/30 | The DPLL(T) Framework                         | [lec10](lectures/lecture10.pdf)       |   R6   |     |     |
-| 11/4  | Reasoning about Programs using Hoare logic I  | [lec11](lectures/lecture11.pdf)        |      |     |   R5  |
-| 11/6  | Reasoning about Programs using Hoare logic II | [lec12](lectures/lecture12.pdf)       |      |     |  HW2   |
+| 9/30  | Hello, World!                                  |  [lec1](lectures/lecture1.pdf)      |      |     |     |
+| 10/2  | The Lambda Calculus          |  [lec2](lectures/lecture2.pdf)      |  R1    |     |     |
+| 10/7  | contd.             |  [lec3](lectures/lecture3.pdf)      |  R2    | HW1    |     |
+| 10/9  | contd.                            |  [lec4](lectures/lecture4.pdf)      |      |     | R1    |
+| 10/14 | A crash course in OCaml                           |  [lec5](lectures/lecture5.pdf)      |      |     |     |
+| 10/16 | Datatypes                           |  [lec6](lectures/lecture6.pdf)      |   R3   |     |  HW1,R2   |
+| 10/21 | Recursion                           |  [lec7](lectures/lecture7.pdf)      |      |     |     |
+| 10/23 | Higher Order Functions              | [lec8](lectures/lecture8.pdf)        |   R5   |  [HW2](hw2/HW2.md)   |  R3   |
+| 10/28 | Environments and Closures                            |        |      |     | Proposal    |
+| 10/30 | Polymorphism                         | [lec10](lectures/lecture10.pdf)       |   R6   |     |     |
+| 11/4  | Type Inference   | [lec11](lectures/lecture11.pdf)        |      |     |   R5  |
+| 11/6  | A crash course in Racket | [lec12](lectures/lecture12.pdf)       |      |     |  HW2   |
 | 11/11 | No class                          |        |      |     |     |
-| 11/13 | Symbolic Execution I                         | [lec13](lectures/lecture13.pdf)        |  R4     | [HW3](hw3/HW3.md)    |  R6   |
+| 11/13 | Meta-programming and Macros                         | [lec13](lectures/lecture13.pdf)        |  R4     | [HW3](hw3/HW3.md)    |  R6   |
 | 11/18 | Symbolic Profiling                 |        |      |     |     |
 | 11/20 | No class               |        |      |     |     |
 | 11/25 | Abstract Interpretation I        |        |      |     | R4   |
 | 11/27 | No class due to the Cave Fire                           |        |      |     |  HW3   |
-| 12/2  | Type-directed Program Synthesis         |        |      |     |     |
-| 12/4  | Project Demos                                 |        |      |     |  Final Report  |
+| 12/2  | Logical programming I         |        |      |     |     |
+| 12/4  | Logical programming II                               |        |      |     |  Final Report  |
 
 
 # Grading
@@ -72,52 +72,6 @@ For instance, cs292c-fall19-reading2-yu-feng
 Tips for writing paper [reviews](REVIEW.md).
 
 Tips for writing a project [proposal](PROPOSAL.md).
-
-# Other references
-
-[1] Aaron Bradley and Zohar Manna. The Calculus of Computation. 2010. 
-
-[2] Joao Marques-Silva, Ines Lynce, and Sharad Malik. Chapter 4: Conflict-Driven Clause Learning SAT Solvers. Handbook of Satisfiability. 2008. 
-
-[3] Edmund Clarke, Daniel Kroening, and Flavio Lerda. A Tool for Checking ANSI-C Programs. Tools and Algorithms for the Construction and Analysis of Systems (TACAS). 2004. Springer
-
-[4] Leonardo de Moura and Nikolaj Bjorner. Satisfiability Modulo Theories: Introduction and Applications. Communications of the ACM, vol. 54, no. 9. 2011. 
-
-[5] Clark Barrett, Roberto Sebastiani, Sanjit A. Seshia, and Cesare Tinelli. Chapter 12: Satisfiability Modulo Theories. Handbook of Satisfiability. 2008. 
-
-[6] C. A. R. Hoare. An axiomatic basis for computer programming. Communications of the ACM, vol. 12, no. 10. 1969. ACM DL. **Turing Award**
-
-[7] Roberto Baldoni, Emilio Coppa, Daniele Cono D’elia, Camil Demetrescu, and Irene Finocchi. A Survey of Symbolic Execution Techniques. ACM Computing Surveys (CSUR). 2018. ACM DL
-
-[8] Ali Sinan Köksal, Yewen Pu, Saurabh Srivastava, Rastislav Bodík, Jasmin Fisher, Nir Piterman. Synthesis of biological models from mutation experiments. Principles of Programming Languages (POPL). 2013. ACM DL
-
-[9] Sumit Gulwani, Oleksandr Polozov, and Rishabh Singh. Program Synthesis. Foundations and Trends in Programming Languages. 2017. 
-
-[10] Srivastava, Saurabh, Sumit Gulwani, and Jeffrey S. Foster. From program verification to program synthesis. POPL 2010.
-
-[11] Jha, Susmit, et al. Oracle-guided component-based program synthesis. ICSE 2010.
-
-[12] Gulwani, Sumit. Automating string processing in spreadsheets using input-output examples. POPL 2011.
-
-[13] Feng, Yu, et al. Component-based synthesis for complex APIs. POPL 2017.
-
-[14] Phothilimthana, Phitchaya Mangpo, et al. "Scaling up superoptimization." ASPLOS 2016.
-
-[15] Chandra, Kartik, and Rastislav Bodik. Bonsai: synthesis-based reasoning for type systems. POPL 2017.
-
-[16] Bornholt, James, et al. Optimizing synthesis with metasketches. POPL 2016.
-
-[17] Bielik, Pavol, Veselin Raychev, and Martin Vechev. Programming with big code: Lessons, techniques and applications. 1st Summit on Advances in Programming Languages (SNAPL 2015). Schloss Dagstuhl-Leibniz-Zentrum fuer Informatik, 2015.
-
-[18] Yaghmazadeh, Navid, et al. SQLizer: query synthesis from natural language. OOPSLA 2017. **Distinguished Paper Award**
-
-[19] Deepcoder: Learning to write programs. Matej, et al. ICLR'16.
-
-
-[20] Helgi Sigurbjarnarson, James Bornholt, Emina Torlak, and Xi Wang. Push-Button Verification of File Systems via Crash Refinement. OSDI 2016. **Best Paper Award**
-
-[21] Shaon Barman, Sarah E. Chasins, Rastislav Bodik, Sumit Gulwani. Ringer: web automation by demonstration. OOPSLA 2016.
-
 
 
 
