@@ -1,9 +1,10 @@
-# CS292C Computer-Aided Reasoning for Software
+# CS162 Programming Languages
 
-This course is a comprehensive introduction to solver-aided reasoning for software with a bit focus on program synthesis: an emerging area that sits at the intersection of systems, programming languages, HCI, and artificial intelligence. The goal of program synthesis is to generate programs automatically from high-level, potentially informal and incomplete descriptions. The course covers recent advances in synthesis techniques that differ in the kind of specifications (from input-output examples to formal correctness specifications), search strategies (enumerative, stochastic, or symbolic search), and information to guide the search (counter-example guided synthesis, type-driven synthesis, synthesis with machine learning). The course involves a project, 3 programming assignments, and reviewing research papers.
+Programming Languages are the duct tape, bricks, mortar and steel of the information age. Over the last thirty years, a variety of languages with diverse features have been developed, expressive radically different perspectives of the idea of computation. CSE 162 is an introduction to these different perspectives, the fundamental concepts of languages, and how modern language techniques and idioms can be used to engineer software systems. For this purpose, we shall focus on three different paradigms -- functional, object-oriented and logic programming as embodied in OCaml, Python and Datalog.
 
 # Office hour
-Instructor & TA: Yu Feng
+Instructor: Yu Feng
+TA: Yanju Chen
 
 Friday, 11am, HFH-2157
 
