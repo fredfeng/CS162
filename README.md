@@ -12,25 +12,25 @@ Friday, 11am, HFH-2157
 | Date  | Topic                                         | Slides | Read | Out | Due |
 |-------|-----------------------------------------------|--------|------|-----|-----|
 | 1/6  | Hello, World!                                  |  lec1     |      |     |     |
-| 1/8  | Lambda Calculus I          |  lec2      |  R1    |     |     |
-| 1/13  | Lambda Calculus II             |  lec3      |  R2    | HW1    |     |
-| 1/15  | A crash course in OCaml       |  lec4     |      |     | R1    |
-| 1/20 | MLK Jr. Day                    |  lec5    |      |     |     |
-| 1/22 | Datatypes                           |  lec6      |   R3   |     |  HW1,R2   |
-| 1/27 | Recursion                           |  lec7     |      |     |     |
-| 1/29 | Higher Order Functions              | lec8        |   R5   |  [HW2](hw2/HW2.md)   |  R3   |
-| 2/3 | Environments and Closures                            |        |      |     | Proposal    |
-| 2/5 | Polymorphism                         | lec10       |   R6   |     |     |
-| 2/10  | Type Inference   | lec11        |      |     |   R5  |
-| 2/12  | Midterm exam | lec12       |      |     |  HW2   |
-| 2/17 | A crash course in Racket                          |        |      |     |     |
-| 2/19 | Solver-aided programming I                        | lec13      |  R4     | [HW3](hw3/HW3.md)    |  R6   |
-| 2/24 | Solver-aided programming II                 |        |      |     |     |
+| 1/8  | Lambda Calculus I          |  lec2      |      |     |     |
+| 1/13  | Lambda Calculus II             |  lec3      |      |     |     |
+| 1/15  | A crash course in OCaml       |  lec4     |      |     |     |
+| 1/20 | MLK Jr. Day                    |      |      |     |     |
+| 1/22 | Datatypes                           |  lec5      |      |     |     |
+| 1/27 | Recursion                           |  lec6     |      |     |     |
+| 1/29 | Higher Order Functions              | lec7        |      |     |     |
+| 2/3 | Environments and Closures            |   lec8     |      |     |     |
+| 2/5 | Polymorphism                         | lec9       |      |     |     |
+| 2/10  | Type Inference   | lec10        |      |     |     |
+| 2/12  | Midterm exam | lec11       |      |     |     |
+| 2/17 | A crash course in Racket                          |    lec12    |      |     |     |
+| 2/19 | Solver-aided programming I                        | lec13      |       |     |     |
+| 2/24 | Solver-aided programming II                 |   lec14     |      |     |     |
 | 2/26 | Presidents' Day               |        |      |     |     |
-| 3/2 | A crash course in Python        |        |      |     | R4   |
-| 3/4 | Objects in Python                            |        |      |     |  HW3   |
-| 3/9  | Logical programming         |        |      |     |     |
-| 3/11  | Final review                               |        |      |     |  Final Report  |
+| 3/2 | A crash course in Python        |    lec15    |      |     |    |
+| 3/4 | Objects in Python                            |   lec16     |      |     |     |
+| 3/9  | Logical programming         |   lec17     |      |     |     |
+| 3/11  | Final review                               |        |      |     |    |
 | 3/16？  | Final exam                               |        |      |     |    |
 
 # Grading
