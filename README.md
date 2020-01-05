@@ -35,20 +35,14 @@ Friday, 11am, HFH-2157
 
 # Grading
 
-1. Programming assignments: 15%
+1. Programming assignments: 40%
  
-2. Midterm (Closed Book): 30%
+2. Midterm (Closed Book): 25%
      
 3. Final (Closed Book): 30%
   
 4. Class Participation: 5%
 
-### Submission
-1. Please submit your homework to: cs292cfall19@gmail.com
-2. All paper reviews should be in PDF.
-3. The subject of your email should be: cs292c-fall19-reading1|hw2|proposal-{firstname}-{lastname}.
-For instance, cs292c-fall19-reading2-yu-feng
-4. Due at **9am** before the lecture starts.
 
 
 # Homework
