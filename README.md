@@ -4,7 +4,8 @@ Programming Languages are the duct tape, bricks, mortar and steel of the informa
 
 # Office hour
 Instructor: Yu Feng
-TA: Yanju Chen
+
+TA: Yanju Chen, Yimeng Liu
 
 Friday, 11am, HFH-2157
 
