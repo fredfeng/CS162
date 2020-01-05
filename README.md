@@ -27,8 +27,8 @@ Friday, 11am, HFH-2157
 | 2/19 | Solver-aided programming I                        | lec13      |  R4     | [HW3](hw3/HW3.md)    |  R6   |
 | 2/24 | Solver-aided programming II                 |        |      |     |     |
 | 2/26 | Presidents' Day               |        |      |     |     |
-| 3/2 | TBD        |        |      |     | R4   |
-| 3/4 | TBD                           |        |      |     |  HW3   |
+| 3/2 | A crash course in Python        |        |      |     | R4   |
+| 3/4 | Objects in Python                            |        |      |     |  HW3   |
 | 3/9  | Logical programming         |        |      |     |     |
 | 3/11  | Final review                               |        |      |     |  Final Report  |
 | 3/16？  | Final exam                               |        |      |     |    |
