@@ -10,26 +10,26 @@ Friday, 11am, HFH-2157
 
 | Date  | Topic                                         | Slides | Read | Out | Due |
 |-------|-----------------------------------------------|--------|------|-----|-----|
-| 9/30  | Hello, World!                                  |  [lec1](lectures/lecture1.pdf)      |      |     |     |
-| 10/2  | The Lambda Calculus          |  [lec2](lectures/lecture2.pdf)      |  R1    |     |     |
-| 10/7  | contd.             |  [lec3](lectures/lecture3.pdf)      |  R2    | HW1    |     |
-| 10/9  | contd.                            |  [lec4](lectures/lecture4.pdf)      |      |     | R1    |
-| 10/14 | A crash course in OCaml                           |  [lec5](lectures/lecture5.pdf)      |      |     |     |
-| 10/16 | Datatypes                           |  [lec6](lectures/lecture6.pdf)      |   R3   |     |  HW1,R2   |
-| 10/21 | Recursion                           |  [lec7](lectures/lecture7.pdf)      |      |     |     |
-| 10/23 | Higher Order Functions              | [lec8](lectures/lecture8.pdf)        |   R5   |  [HW2](hw2/HW2.md)   |  R3   |
-| 10/28 | Environments and Closures                            |        |      |     | Proposal    |
-| 10/30 | Polymorphism                         | [lec10](lectures/lecture10.pdf)       |   R6   |     |     |
-| 11/4  | Type Inference   | [lec11](lectures/lecture11.pdf)        |      |     |   R5  |
-| 11/6  | A crash course in Racket | [lec12](lectures/lecture12.pdf)       |      |     |  HW2   |
-| 11/11 | No class                          |        |      |     |     |
-| 11/13 | Meta-programming and Macros                         | [lec13](lectures/lecture13.pdf)        |  R4     | [HW3](hw3/HW3.md)    |  R6   |
-| 11/18 | Symbolic Profiling                 |        |      |     |     |
-| 11/20 | No class               |        |      |     |     |
-| 11/25 | Abstract Interpretation I        |        |      |     | R4   |
-| 11/27 | No class due to the Cave Fire                           |        |      |     |  HW3   |
-| 12/2  | Logical programming I         |        |      |     |     |
-| 12/4  | Logical programming II                               |        |      |     |  Final Report  |
+| 1/6  | Hello, World!                                  |  [lec1](lectures/lecture1.pdf)      |      |     |     |
+| 1/8  | The Lambda Calculus          |  [lec2](lectures/lecture2.pdf)      |  R1    |     |     |
+| 1/13  | contd.             |  [lec3](lectures/lecture3.pdf)      |  R2    | HW1    |     |
+| 1/15  | A crash course in OCaml                      |  [lec4](lectures/lecture4.pdf)      |      |     | R1    |
+| 1/20 | （MLK Jr. Day）                    |  [lec5](lectures/lecture5.pdf)      |      |     |     |
+| 1/22 | Datatypes                           |  [lec6](lectures/lecture6.pdf)      |   R3   |     |  HW1,R2   |
+| 1/27 | Recursion                           |  [lec7](lectures/lecture7.pdf)      |      |     |     |
+| 1/29 | Higher Order Functions              | [lec8](lectures/lecture8.pdf)        |   R5   |  [HW2](hw2/HW2.md)   |  R3   |
+| 2/3 | Environments and Closures                            |        |      |     | Proposal    |
+| 2/5 | Polymorphism                         | [lec10](lectures/lecture10.pdf)       |   R6   |     |     |
+| 2/10  | Type Inference   | [lec11](lectures/lecture11.pdf)        |      |     |   R5  |
+| 2/12  | A crash course in Racket | [lec12](lectures/lecture12.pdf)       |      |     |  HW2   |
+| 2/17 | No class                          |        |      |     |     |
+| 2/19 | Meta-programming and Macros                         | [lec13](lectures/lecture13.pdf)        |  R4     | [HW3](hw3/HW3.md)    |  R6   |
+| 2/24 | Symbolic Profiling                 |        |      |     |     |
+| 2/26 | Presidents' Day               |        |      |     |     |
+| 3/2 | Abstract Interpretation I        |        |      |     | R4   |
+| 3/4 | No class due to the Cave Fire                           |        |      |     |  HW3   |
+| 3/9  | Logical programming I         |        |      |     |     |
+| 3/11  | Logical programming II                               |        |      |     |  Final Report  |
 
 
 # Grading
