@@ -37,11 +37,11 @@ Discussion session: Friday, 9-9:50am, Phelp-3526
 
 # Grading
 
-1. Programming assignments: 40%
+1. Programming assignments: 50%
  
-2. Midterm (Closed Book): 25%
+2. Midterm (Closed Book): 20%
      
-3. Final (Closed Book): 30%
+3. Final (Closed Book): 25%
   
 4. Class Participation: 5%
 
