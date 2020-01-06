@@ -3,13 +3,19 @@
 Programming Languages are the duct tape, bricks, mortar and steel of the information age. Over the last thirty years, a variety of languages with diverse features have been developed, expressive radically different perspectives of the idea of computation. CSE 162 is an introduction to these different perspectives, the fundamental concepts of languages, and how modern language techniques and idioms can be used to engineer software systems. For this purpose, we shall focus on three different paradigms -- functional, object-oriented and logic programming as embodied in OCaml, Python and Datalog.
 
 # Logistics
-Instructor: Yu Feng
+Instructor: Yu Feng (yufeng@cs.ucsb.edu)
 
-TA: Yanju Chen, Yimeng Liu
+TA: Yanju Chen (yanju@cs.ucsb.edu), Yimeng Liu (yimengliu@cs.ucsb.edu)
 
 Class: M,Wed, 9:30am, GIRV-2128
 
 Discussion session: Friday, 9-9:50am, Phelp-3526
+
+TA's office hour: Yimeng Liu (Mon, noon-2pm),  Yanju Chen (Wed, 1pm-3pm)
+
+TA Office: Trailer 936
+
+Instructor's office hour: Fri, 4pm-5pm, HFH-2157
 
 | Date  | Topic                                         | Slides | Read | Out | Due |
 |-------|-----------------------------------------------|--------|------|-----|-----|
