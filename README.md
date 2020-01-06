@@ -41,7 +41,7 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 3/4 | Objects in Python                            |   lec16     |      |     |     |
 | 3/9  | Logical programming         |   lec17     |      |     |     |
 | 3/11  | Final review                               |        |      |     |    |
-| 3/16？  | Final exam                               |        |      |     |    |
+| 3/18  | Final exam (8-11AM, GIRV 2128)             |        |      |     |    |
 
 # Grading
 
