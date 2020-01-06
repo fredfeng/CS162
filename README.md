@@ -17,6 +17,8 @@ TA Office: Trailer 936
 
 Instructor's office hour: Fri, 4pm-5pm, HFH-2157
 
+Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Types-Programming-Languages-MIT-Press/dp/0262162091)
+
 | Date  | Topic                                         | Slides | Read | Out | Due |
 |-------|-----------------------------------------------|--------|------|-----|-----|
 | 1/6  | Hello, World!                                  |  [lec1](lectures/lecture1.pdf)     |      |     |     |
