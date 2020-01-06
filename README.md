@@ -13,7 +13,7 @@ Discussion session: Friday, 9-9:50am, Phelp-3526
 
 | Date  | Topic                                         | Slides | Read | Out | Due |
 |-------|-----------------------------------------------|--------|------|-----|-----|
-| 1/6  | Hello, World!                                  |  lec1     |      |     |     |
+| 1/6  | Hello, World!                                  |  [lec1](lectures/lecture1.pdf)     |      |     |     |
 | 1/8  | Lambda Calculus I          |  lec2      |      |     |     |
 | 1/13  | Lambda Calculus II             |  lec3      |      |     |     |
 | 1/15  | A crash course in OCaml       |  lec4     |      |     |     |
