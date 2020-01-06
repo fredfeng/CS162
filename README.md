@@ -32,7 +32,7 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 2/3 | Environments and Closures            |   lec8     |      |     |     |
 | 2/5 | Polymorphism                         | lec9       |      |     |     |
 | 2/10  | Type Inference   | lec10        |      |     |     |
-| 2/12  | Midterm exam | lec11       |      |     |     |
+| 2/12  | Midterm exam (9:30-10:45AM, GIRV 2128) | lec11       |      |     |     |
 | 2/17 | A crash course in Racket                          |    lec12    |      |     |     |
 | 2/19 | Solver-aided programming I                        | lec13      |       |     |     |
 | 2/24 | Solver-aided programming II                 |   lec14     |      |     |     |
