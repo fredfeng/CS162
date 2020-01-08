@@ -13,7 +13,7 @@ Discussion session: Friday, 9-9:50am, Phelp-3526
 
 TA's office hour: Yimeng Liu (Mon, noon-2pm),  Yanju Chen (Wed, 1pm-3pm)
 
-TA Office: Trailer 936
+TA Office: Trailer 936 Room 104
 
 Instructor's office hour: Fri, 4pm-5pm, HFH-2157
 
