@@ -23,7 +23,7 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 |-------|-----------------------------------------------|--------|------|-----|-----|
 | 1/6  | Hello, World!                                  |  [lec1](lectures/lecture1.pdf)     |      |     |     |
 | 1/8  | Lambda Calculus I          |  [lec2](lectures/lecture2.pdf)      |      |     |     |
-| 1/13  | Lambda Calculus II             |  lec3      |      |     |     |
+| 1/13  | Lambda Calculus II             |  [lec3](lectures/lecture3.pdf)      |      |     |     |
 | 1/15  | A crash course in OCaml       |  lec4     |      |     |     |
 | 1/20 | MLK Jr. Day                    |      |      |     |     |
 | 1/22 | Datatypes                           |  lec5      |      |     |     |
