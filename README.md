@@ -33,10 +33,10 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 2/5 | Polymorphism                         | lec9       |      |     |     |
 | 2/10  | Type Inference   | lec10        |      |     |     |
 | 2/12  | Midterm exam (9:30-10:45AM, GIRV 2128) | lec11       |      |     |     |
-| 2/17 | A crash course in Racket                          |    lec12    |      |     |     |
-| 2/19 | Solver-aided programming I                        | lec13      |       |     |     |
-| 2/24 | Solver-aided programming II                 |   lec14     |      |     |     |
-| 2/26 | Presidents' Day               |        |      |     |     |
+| 2/17 | Presidents' Day                          |        |      |     |     |
+| 2/19 |  A crash course in Racket                        | lec12      |       |     |     |
+| 2/24 | Solver-aided programming I                 |   lec13     |      |     |     |
+| 2/26 |  Solver-aided programming II               |    lec14    |      |     |     |
 | 3/2 | A crash course in Python        |    lec15    |      |     |    |
 | 3/4 | Objects in Python                            |   lec16     |      |     |     |
 | 3/9  | Logical programming         |   lec17     |      |     |     |
