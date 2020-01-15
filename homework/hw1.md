@@ -65,3 +65,4 @@ Tip: To solve this problem, you might first want to write a function listReverse
 # listReverse ["a";"b";"c";"d"];;
 - : string list = ["d";"c";"b";"a"]
 ```
+You may also want to invoke my "explode" function to convert a string to a list of chars.
