@@ -7,7 +7,7 @@ Note: All the solutions can be done using the purely functional fragment of OCam
 
 It is a good idea to start this assignment early.
 
-## Problem #1: Digital Roots and Additive Persistence (numOps.ml)
+## Problem #1: Numbers (numOps.ml)
 (a) 10 points
 Now write an OCaml function sumList : int list -> int that takes an integer list l and returns the sum of the elements of l . Once you have implemented the function, you should get the following behavior at the OCaml prompt:
 ```
