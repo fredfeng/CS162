@@ -8,7 +8,8 @@ Note: All the solutions can be done using the purely functional fragment of OCam
 It is a good idea to start this assignment early.
 
 ## Problem #1: Numbers (numOps.ml)
-(a) 10 points
+(a) 10 points.
+
 Now write an OCaml function sumList : int list -> int that takes an integer list l and returns the sum of the elements of l . Once you have implemented the function, you should get the following behavior at the OCaml prompt:
 ```
 # sumList [];;
@@ -20,7 +21,8 @@ Now write an OCaml function sumList : int list -> int that takes an integer list
 # sumList [1;3;5;7;9;11];;
 - : int = 36
 ```
-(b) 10 points
+(b) 10 points.
+
 Write an OCaml function fibonacci : int -> int that takes an integer n as an argument and returns the fibonacci number of n:
 ```
 # fibonacci 10;;
@@ -30,7 +32,8 @@ Write an OCaml function fibonacci : int -> int that takes an integer n as an arg
 ```
 
 ## Problem #2: List manipulation (listOps.ml)
-(a) 10 points
+(a) 10 points.
+
 Without using any built-in OCaml functions, write an OCaml function Duplicate the elements of a list. (easy)
 Duplicate : 'a list -> 'a list that duplicates the elements of a list l. Once you have implemented the function, you should get the following behavior at the OCaml prompt:
 ```
@@ -39,8 +42,9 @@ Duplicate : 'a list -> 'a list that duplicates the elements of a list l. Once yo
 ```
 
 
-(b) 10 points
-A palindrome is a word that reads the same from left-to-right and right-to-left. Write an OCaml function palindrome : string -> bool that takes a string w and returns true if the string is a palindrome and false otherwise. Your function should be case sensitie. You may want to use the OCaml function explode . (Hint: You may call your listReverse function from your palindrome function.) Once you have implemented the function, you should get the following behavior at the OCaml prompt:
+(b) 10 points.
+
+A palindrome is a word that reads the same from left-to-right and right-to-left. Write an OCaml function palindrome : string -> bool that takes a string w and returns true if the string is a palindrome and false otherwise. Your function should be case sensitie. You may want to use the OCaml function explode. Once you have implemented the function, you should get the following behavior at the OCaml prompt:
 ```
 # palindrome "malayalam";;
 - : bool = true
