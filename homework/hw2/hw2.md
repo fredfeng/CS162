@@ -1,7 +1,7 @@
 # Programming Assignment #2
 
 
-The overall objective of this assignment is for you to get a deep understanding on lambda calculus. In particular, alpha-renaming and beta-reduction. All the functions require relatively little code ranging from 2 to 15 lines. If any function requires more than that, you can be sure that you need to rethink your solution. The file contains several core OCaml functions, with missing bodies, i.e. expressions, which currently contain the text failwith "to be written" . Your task is to replace the text in those files with the the appropriate OCaml code for each of those expressions.
+The overall objective of this assignment is for you to get a deep understanding on lambda calculus. In particular, alpha-renaming and beta-reduction. All the functions require relatively little code ranging from 5 to 20 lines. If any function requires more than that, you can be sure that you need to rethink your solution. The file contains several core OCaml functions, with missing bodies, i.e. expressions, which currently contain the text failwith "to be written" . Your task is to replace the text in those files with the the appropriate OCaml code for each of those expressions.
 
 Note: The assignment is in the file eval.ml and please do NOT modify other files.
 
