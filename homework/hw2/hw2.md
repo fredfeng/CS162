@@ -28,6 +28,8 @@ let rec reduce e =
 (* to be written *)
 ```
 
+HINT: You may want to consider α-renaming in the `subst` function.
+
 Happy hacking!
 
 Yu
