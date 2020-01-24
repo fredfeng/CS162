@@ -28,7 +28,7 @@ let rec reduce e =
 (* to be written *)
 ```
 
-HINT: You may want to consider α-renaming in the `subst` function.
+HINT: You may want to consider α-renaming in the `subst` function. You can also use the [List API](https://caml.inria.fr/pub/docs/manual-ocaml/libref/List.html) from OCaml.
 
 Happy hacking!
 
