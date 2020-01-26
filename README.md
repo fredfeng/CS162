@@ -27,8 +27,8 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 1/15  | A crash course in OCaml       |  [lec4](lectures/lecture4.pdf)     |      |  [hw1](homework/hw1.md)    |     |
 | 1/20 | MLK Jr. Day                    |      |      |     |     |
 | 1/22 | Datatypes                           |  [lec5](lectures/lecture5.pdf)      |      |  [hw2](homework/hw2/hw2.md)   |     |
-| 1/27 | Recursion                           |  lec6     |      |     |  hw1   |
-| 1/29 | Higher Order Functions              | lec7        |      |     |     |
+| 1/27 | Recursion                           |  [lec6](lectures/lecture6.pdf)     |      |     |  hw1   |
+| 1/29 | Higher Order Functions              | [lec7](lectures/lecture7.pdf)        |      |     |     |
 | 2/3 | Environments and Closures            |   lec8     |      |     |     |
 | 2/5 | Polymorphism                         | lec9       |      |     |  hw2   |
 | 2/10  | Type Inference   | lec10        |      |     |     |
