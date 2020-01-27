@@ -1,10 +1,16 @@
 (* Duplicate the elements of a list *)
-let duplicate list = 
-(* to be written *)
+let duplicate list =
+let rec fr el dup = match dup with
+| head::tail -> fr (el @ [head;head]) dup
+| [] -> el in
+fr [] list;;
 
 (* Reverse a list *)
 let rev list =
-(* to be written *)
+let rec fr el = function
+  | [] -> el
+  | head::tail -> fr (head::el) tail in
+fr [] list;;
 
 (* Converse a string to a list of characters. *)
 let explode s =
@@ -15,4 +21,4 @@ let explode s =
 
 (* Find out whether a list is a palindrome *)
 let is_palindrome str =
-(* to be written *)
+  explode (str) = rev (explode (str));;
