@@ -68,7 +68,7 @@ is_symmetric t2;;
 ```
 
 6. Problem #6 (10 points)
-N-Queen Problem: This is a classical problem in computer science. The objective is to place N queens on an N * N chessboard so that no two queens are attacking each other; i.e., no two queens are in the same row, the same column, or on the same diagonal.
+N-Queen Problem: Return *all solutions* of an N-Queen problem. This is a classical problem in computer science. The objective is to place N queens on an N * N chessboard so that no two queens are attacking each other; i.e., no two queens are in the same row, the same column, or on the same diagonal.
 
 Hint: Represent the positions of the queens as a list of numbers 1..N. Example: [4;2;7;3;6;8;5;1] means that the queen in the first column is in row 4, the queen in the second column is in row 2, etc. 
 ```
