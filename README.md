@@ -32,14 +32,14 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 2/3 | Environments and Closures            |   lec8     |      |     |     |
 | 2/5 | Polymorphism                         | lec9       |      |     |  hw2   |
 | 2/10  | Type Inference   | lec10        |      |     |     |
-| 2/12  | Midterm exam (9:30-10:45AM, GIRV 2128) | lec11       |      |     |   hw3  |
+| 2/12  | Midterm exam (9:30-10:45AM, GIRV 2128) |        |      |     |   hw3  |
 | 2/17 | Presidents' Day                          |        |      |     |     |
-| 2/19 |  A crash course in Racket                        | lec12      |       |     |     |
-| 2/24 | Solver-aided programming I                 |   lec13     |      |     |     |
-| 2/26 |  Solver-aided programming II               |    lec14    |      |     |     |
-| 3/2 | A crash course in Python        |    lec15    |      |     |    |
-| 3/4 | Objects in Python                            |   lec16     |      |     |     |
-| 3/9  | Logical programming         |   lec17     |      |     |     |
+| 2/19 |  A crash course in Racket                        | lec10      |       |     |     |
+| 2/24 | Solver-aided programming I                 |   lec11     |      |     |     |
+| 2/26 |  Solver-aided programming II               |    lec12    |      |     |     |
+| 3/2 | A crash course in Python        |    lec13    |      |     |    |
+| 3/4 | Objects in Python                            |   lec14     |      |     |     |
+| 3/9  | Logical programming         |   lec15     |      |     |     |
 | 3/11  | Final review                               |        |      |     |    |
 | 3/18  | Final exam (8-11AM, GIRV 2128)             |        |      |     |    |
 
