@@ -34,11 +34,9 @@ let rec fold f cur l =
      [] -> cur 
      | h::t -> fold f (f cur h) t;;
 
-let list_max = fold max 0;;
+let list_max = fold max 0 [1;2;3];;
 
-let concat = fold (^) "";;
-
-let multiplier = fold (*) 1;;
+let concat = fold (^) "" ["a";"b";"c"];;
 
 
 let rec map f l = 
