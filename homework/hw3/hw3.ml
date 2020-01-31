@@ -26,7 +26,7 @@ type 'a binary_tree =
     | Node of 'a * 'a binary_tree * 'a binary_tree;;
 
 (*Symmetric binary trees.*)
-let is_symmetric = 
+let is_symmetric t = 
 (* to be written *)
 
 
