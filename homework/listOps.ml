@@ -1,7 +1,7 @@
 (* Duplicate the elements of a list *)
 let duplicate list =
 let rec fr el dup = match dup with
-| head::tail -> fr (el @ [head;head]) dup
+| head::tail -> fr (el @ [head;head]) tail
 | [] -> el in
 fr [] list;;
 
@@ -16,8 +16,7 @@ fr [] list;;
 let explode s =
   let rec exp i l =
     if i < 0 then l else exp (i - 1) (s.[i] :: l) in
-  exp (String.length s - 1) []
-;;
+  exp (String.length s - 1) [];;
 
 (* Find out whether a list is a palindrome *)
 let is_palindrome str =
