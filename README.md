@@ -30,11 +30,11 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 1/27 | Recursion                           |  [lec6](lectures/lecture6.pdf)     |      |     |  hw1   |
 | 1/29 | Higher Order Functions              | [lec7](lectures/lecture7.pdf)        |      |  [hw3](homework/hw3/hw3.md)   |     |
 | 2/3 | Environments and Closures            |   [lec8](lectures/lecture8.pdf)     |      |     |     |
-| 2/5 | Type Inference                         | lec9       |      |  hw4   |  hw2   |
+| 2/5 | Type Inference                         | [lec9](lectures/lecture9.pdf)       |      |  hw4   |  hw2   |
 | 2/10  | Midterm review   |         |      |     |     |
 | 2/12  | Midterm exam (9:30-10:45AM, GIRV 2128) |        |      |     |   hw3  |
 | 2/17 | Presidents' Day                          |        |      |     |     |
-| 2/19 |  A crash course in Racket                        | lec11      |       |     |     |
+| 2/19 |  A crash course in Racket                        | lec11      |       |     |   hw4  |
 | 2/24 | Solver-aided programming I                 |   lec12     |      |     |     |
 | 2/26 |  Solver-aided programming II               |    lec13    |      |     |     |
 | 3/2 | A crash course in Python        |    lec14    |      |     |    |
