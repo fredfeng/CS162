@@ -34,6 +34,20 @@ let infer (e : expr) : typ =
 (* to be written *)
 ```
 
+#### How to compile and execute the project?
+```
+make
+./infer.exe
+
+fun x -> x : 'a -> 'a
+fun x -> fun y -> fun z -> x z (y z) : ('c -> 'e -> 'd) -> ('c -> 'e) -> 'c -> 'd
+fun x -> fun y -> x : 'a -> 'b -> 'a
+fun f -> fun g -> fun x -> f (g x) : ('e -> 'd) -> ('c -> 'e) -> 'c -> 'd
+Fatal error: exception Failure("not unifiable: circularity")
+
+```
+
+
 You can use any built-in APIs from OCaml. 
 
 #### Bonus: you will receive 50% extra scores for completing the functions that contains `BONUS`. If you don't want to work on the bonus points, please contact TA for the reference implementation.
