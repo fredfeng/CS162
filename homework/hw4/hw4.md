@@ -1,7 +1,7 @@
 # Programming Assignment #4
 
 
-The overall objective of this assignment is for you to get a deep understanding on Hindley–Milner type inference. In particular, constraint generation using typing rules and constraint solving using unificaiton. All the functions require relatively little code ranging from 5 to 25 lines. If any function requires more than that, you can be sure that you need to rethink your solution. The file contains several core OCaml functions, with missing bodies, i.e. expressions, which currently contain the text failwith "to be written" . Your task is to replace the text in those files with the the appropriate OCaml code for each of those expressions.
+The overall objective of this assignment is for you to get a deep understanding on [Hindley–Milner type inference](https://en.wikipedia.org/wiki/Hindley%E2%80%93Milner_type_system). In particular, constraint generation using typing rules and constraint solving using unificaiton. All the functions require relatively little code ranging from 5 to 25 lines. If any function requires more than that, you can be sure that you need to rethink your solution. The file contains several core OCaml functions, with missing bodies, i.e. expressions, which currently contain the text failwith "to be written" . Your task is to replace the text in those files with the the appropriate OCaml code for each of those expressions.
 
 Note: The assignment is in the files infer.ml and unify.ml. Please do NOT modify other files.
 
