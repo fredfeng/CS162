@@ -50,7 +50,7 @@ Fatal error: exception Failure("not unifiable: circularity")
 
 You can use any built-in APIs from OCaml. 
 
-#### Bonus: you will receive 50% extra scores for completing the functions that contains `BONUS`. If you don't want to work on the bonus points, please contact TA for the reference implementation.
+#### Bonus: you will receive a 50% extra score for completing the functions that contains `BONUS`. If you don't want to work on the bonus points, please contact TA for the reference implementation.
 
 Happy hacking!
 
