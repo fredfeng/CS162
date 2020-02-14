@@ -27,3 +27,9 @@ let rec unify_one (s : typ) (t : typ) : substitution =
 (* unify a list of pairs *)
 and unify (s : (typ * typ) list) : substitution =
 (* to be written *)
+
+(* collect the constraints and perform unification *)
+(* Hint: to call functions defined in infer.ml, use Infer. *)
+(* For example, Infer.annotate / Infer.collect *)
+let infer (e : expr) : typ =
+(* to be written *)

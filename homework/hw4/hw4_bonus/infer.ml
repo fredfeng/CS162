@@ -19,7 +19,8 @@ let type_of (ae : aexpr) : typ =
     AVar (_, a) -> a
   | AFun (_, _, a) -> a
   | AApp (_, _, a) -> a
-  
+
+
 (* annotate all subexpressions with types *)
 (* bv = stack of bound variables for which current expression is in scope *)
 (* fv = hashtable of known free variables *)
@@ -30,7 +31,4 @@ let annotate (e : expr) : aexpr =
 let rec collect (aexprs : aexpr list) (u : (typ * typ) list) : (typ * typ) list =
 (* to be written BONUS! *)
 
-(* top-level entry of HM algorithm *)
-let infer (e : expr) : typ =
-  reset_type_vars();
-(* to be written *)
+
