@@ -32,4 +32,5 @@ and unify (s : (typ * typ) list) : substitution =
 (* Hint: to call functions defined in infer.ml, use Infer. *)
 (* For example, Infer.annotate / Infer.collect *)
 let infer (e : expr) : typ =
+	Infer.reset_type_vars();
 (* to be written *)

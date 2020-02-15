@@ -34,7 +34,7 @@ let infer (e : expr) : typ =
 (* to be written *)
 ```
 
-#### Bonus: you will receive a 50% extra score for completing the functions that contains `BONUS`. If you don't want to work on the bonus points, please contact TA for the reference implementation.
+#### Bonus: you will receive a 50% extra score for completing the functions that contains `BONUS`. If you don't want to work on the bonus points, you can just fill in the functions in `hw4_basic`.
 
 #### How to compile and execute the project?
 
