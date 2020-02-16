@@ -47,13 +47,23 @@ make
 
 If you are shooting for the bonus points, enter the `hw4_bonus` folder instead and implement the missing functions (you can reuse your implementation in the `hw4_basic` folder). Then issue the same command to compile and run. 
 
-If your implementation is correct, you shall see the following output:
+If your implementation is correct, you shall see the following output (one line for each test case; see `repl.ml` for input and output for each test case):
 
 ```
 fun x -> x : 'a -> 'a
 fun x -> fun y -> fun z -> x z (y z) : ('c -> 'e -> 'd) -> ('c -> 'e) -> 'c -> 'd
 fun x -> fun y -> x : 'a -> 'b -> 'a
 fun f -> fun g -> fun x -> f (g x) : ('e -> 'd) -> ('c -> 'e) -> 'c -> 'd
+(fun x -> x) y : 'b
+x : 'a
+(fun x -> x) (fun y -> y) : 'b -> 'b
+(fun x -> x) (fun x -> x) : 'b -> 'b
+fun x -> (fun x -> x) x : 'a -> 'a
+fun x -> fun y -> (fun x -> x) y : 'a -> 'b -> 'b
+fun x -> fun x -> fun x -> x : 'a -> 'b -> 'c -> 'c
+(fun x -> fun x -> fun x -> x) x y z : 'b
+x (fun x -> x) : 'a
+x (fun x -> (fun y -> y) x) : 'a
 Fatal error: exception Failure("not unifiable: circularity")
 ```
 

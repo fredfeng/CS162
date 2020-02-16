@@ -5,22 +5,72 @@
 let parse (s : string) : Ast.expr =
   Parser.main Lexer.token (Lexing.from_string s)
   
-let test1 = "fun x -> x";;
-let test2 = "fun x -> fun y -> fun z -> x z (y z)";;
-let test3 = "fun x -> fun y -> x";;
-let test4 = "fun f -> fun g -> fun x -> f (g x)";;
-let test5 = "fun f -> (fun x -> f x x) (fun y -> f y y)";;
+let test1 = "(fun x -> x)";;
+(* 'a -> 'a *)
+
+let test2 = "(fun x -> fun y -> fun z -> x z (y z))";;
+(* ('c -> 'e -> 'd) -> ('c -> 'e) -> 'c -> 'd *)
+
+let test3 = "(fun x -> fun y -> x)";;
+(* 'a -> 'b -> 'a *)
+
+let test4 = "(fun f -> fun g -> fun x -> f (g x))";;
+(* ('e -> 'd) -> ('c -> 'e) -> 'c -> 'd *)
+
+let test5 = "(fun x -> x) y";;
+(* 'b *)
+
+let test6 = "x";;
+(* 'a *)
+
+let test7 = "(fun x -> x)(fun y -> y)";;
+(* 'b -> 'b *)
+
+let test8 = "(fun x -> x)(fun x -> x)";;
+(* 'b -> 'b *)
+
+let test9 = "(fun x -> (fun x -> x) x)";;
+(* 'a -> 'a *)
+
+let test10 = "(fun x -> fun y -> (fun x -> x) y)";;
+(* 'a -> 'b -> 'b *)
+
+let test11 = "(fun x -> (fun x -> (fun x -> x)))";;
+(* 'a -> 'b -> 'c -> 'c *)
+
+let test12 = "(fun x -> (fun x -> (fun x -> x))) x y z";;
+(* 'b *)
+
+let test13 = "x (fun x -> x)";;
+(* 'a *)
+
+let test14 = "x (fun x -> (fun y -> y) x)";;
+(* 'a *)
+
+let test99 = "fun f -> (fun x -> f x x) (fun y -> f y y)";;
+(* Fatal error: exception Failure("not unifiable: circularity") *)
 
 let printType str =   
 let e = parse str in
 let t = Unify.infer e in
     Printf.printf "%s : %s\n" (Ast.to_string e) (Ast.type_to_string t);;
 
-(printType test1);;
-(printType test2);;
-(printType test3);;
-(printType test4);;
-(printType test5);;
+(printType test1);; (* fun x -> x : 'a -> 'a *)
+(printType test2);; (* fun x -> fun y -> fun z -> x z (y z) : ('c -> 'e -> 'd) -> ('c -> 'e) -> 'c -> 'd *)
+(printType test3);; (* fun x -> fun y -> x : 'a -> 'b -> 'a *)
+(printType test4);; (* fun f -> fun g -> fun x -> f (g x) : ('e -> 'd) -> ('c -> 'e) -> 'c -> 'd *)
+(printType test5);; (* (fun x -> x) y : 'b *)
+(printType test6);; (* x : 'a *)
+(printType test7);; (* (fun x -> x) (fun y -> y) : 'b -> 'b *)
+(printType test8);; (* (fun x -> x) (fun x -> x) : 'b -> 'b *)
+(printType test9);; (* fun x -> (fun x -> x) x : 'a -> 'a *)
+(printType test10);; (* fun x -> fun y -> (fun x -> x) y : 'a -> 'b -> 'b *)
+(printType test11);; (* fun x -> fun x -> fun x -> x : 'a -> 'b -> 'c -> 'c *)
+(printType test12);; (* (fun x -> fun x -> fun x -> x) x y z : 'b *)
+(printType test13);; (* x (fun x -> x) : 'a *)
+(printType test14);; (* x (fun x -> (fun y -> y) x) : 'a *)
+
+(printType test99);; (* Fatal error: exception Failure("not unifiable: circularity") *)
 
 
 (*****************************
