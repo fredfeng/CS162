@@ -55,14 +55,11 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 
 
 
-# Homework
+# Useful resources
 
-1. Homework1
-2. Homework2
-3. Homework3
-4. Homework4
-5. Homework5
-6. Homework6
+1. Racket: https://racket-lang.org/
+2. The Rosette guide: https://docs.racket-lang.org/rosette-guide/index.html
+3. More about Rosette: https://emina.github.io/rosette/
 
 # Academic Integrity
 - Cheating WILL be taken seriously. It is not fair toward honest students to take cheating lightly, nor is it fair to the cheater to let him/her go on thinking that cheating is a reasonable alternative in life.
