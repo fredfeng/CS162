@@ -18,9 +18,9 @@ Where the correct result would be the list:
 
 ## Cartesian product of two lists (5 points)
 
-Show one or more idiomatic ways of generating the Cartesian product of two arbitrary lists in Racket.
-
+Write a function that generates the Cartesian product of two arbitrary lists in Racket.
 Demonstrate that your function/method correctly returns:
+
 ```
 {1, 2} × {3, 4} = {(1, 3), (1, 4), (2, 3), (2, 4)}
 ```
@@ -42,7 +42,6 @@ Also demonstrate, using your function/method, that the product of an empty list 
 
 
 A zig-zag array is a square arrangement of the first N^2 natural numbers, where the numbers increase sequentially as you zig-zag along the array's [anti-diagonals](https://en.wiktionary.org/wiki/antidiagonal).
-
 For example, given 5, produce this array:
 
 ```
@@ -86,7 +85,7 @@ So key 2 encrypts "HI" to "JK", but key 20 encrypts "HI" to "BC".
   
 ## Automated verification of systems code with Serval
 
-- This is an extra problem with 15 bonus points
+- This is an extra question with 15 bonus points
 
 - Read the Serval [paper](https://unsat.cs.washington.edu/papers/nelson-serval.pdf) at SOSP'19
 
