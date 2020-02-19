@@ -85,7 +85,7 @@ So key 2 encrypts "HI" to "JK", but key 20 encrypts "HI" to "BC".
   
 ## Automated verification of systems code with Serval
 
-- This is an extra problem with 15 bonus points
+- This is an extra question with 15 bonus points
 
 - Read the Serval [paper](https://unsat.cs.washington.edu/papers/nelson-serval.pdf) at SOSP'19
 
