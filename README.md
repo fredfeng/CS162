@@ -37,10 +37,10 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 2/19 |  A crash course in Racket                        | [lec11](lectures/lecture11.pdf)       |   1    |  [hw5](homework/hw5/README.md)   |   hw4  |
 | 2/24 | Solver-aided programming with Rosette I                 |   lec12     |  2-3    |     |     |
 | 2/26 |  Solver-aided programming with Rosette II               |    lec13    |      |     |     |
-| 3/2 | A crash course in Python        |    lec14    |      |  hw6   |  hw5  |
+| 3/2 | A crash course in Python        |    lec14    |      |  [hw6](homework/hw6/README.md)   |  hw5  |
 | 3/4 | Objects in Python                            |   lec15     |      |     |     |
 | 3/9  | Logical programming         |   lec16     |      |     |     |
-| 3/11  | Final review                               |        |      |     |    |
+| 3/11  | Final review                               |        |      |     |  hw6  |
 | 3/18  | Final exam (8-11AM, GIRV 2128)             |        |      |     |    |
 
 # Grading
