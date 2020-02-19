@@ -1,6 +1,6 @@
 # Programming Assignment #6
 
-- You have to implement all solutions in Datalog. 
+-  You have to implement all solutions in Datalog. 
 
 - Install [Souffle](https://souffle-lang.github.io/install).
 
