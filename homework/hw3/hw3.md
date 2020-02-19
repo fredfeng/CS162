@@ -7,14 +7,14 @@ Note: All the solutions can be done using the purely functional fragment of OCam
 
 It is a good idea to start this assignment early.
 
-1. Problem #1 (10 points): Now write an OCaml function interval : int int -> list that takes two integers i and j, and returns a list that contains the integers i through j inclusive. Once you have implemented the function, you should get the following behavior at the OCaml prompt:
+1. Problem #1 (5 points): Now write an OCaml function interval : int int -> list that takes two integers i and j, and returns a list that contains the integers i through j inclusive. Once you have implemented the function, you should get the following behavior at the OCaml prompt:
 ```
 # interval 3 2;;
 - : int list = []
 # interval 1 4;;
 - : int list = [1;2;3;4]
 ```
-2. Problem #2 (10 points): Use *tail-recursion* to write an OCaml function length : list -> int that computes the number of elements in the list:
+2. Problem #2 (5 points): Use *tail-recursion* to write an OCaml function length : list -> int that computes the number of elements in the list:
 ```
 # length [];;
 - : int = 0
@@ -54,15 +54,23 @@ Let us call a binary tree symmetric if you can draw a vertical line through the 
 
 Hint: We are only interested in the structure, not in the contents of the nodes.
 ```
-let example_tree =
-    Node('a', Node('b', Node('d', Empty, Empty), Node('e', Empty, Empty)),
-         Node('c', Empty, Node('f', Node('g', Empty, Empty), Empty)));;
+let t1 =
+    Node('b', Node('d', Node('e', Empty, Empty), Empty), Node('e', Empty, Empty));;
+               
+let t2 =
+    Node('b', Node('d', Empty, Empty), Node('e', Empty, Empty));;
+         
+is_symmetric t1;;
+- : bool = false
+
+is_symmetric t2;;
+- : bool = true
 ```
 
 6. Problem #6 (10 points)
-This is a classical problem in computer science. The objective is to place eight queens on a chessboard so that no two queens are attacking each other; i.e., no two queens are in the same row, the same column, or on the same diagonal.
+N-Queen Problem: Return *all solutions* of an N-Queen problem. This is a classical problem in computer science. The objective is to place N queens on an N * N chessboard so that no two queens are attacking each other; i.e., no two queens are in the same row, the same column, or on the same diagonal.
 
-Hint: Represent the positions of the queens as a list of numbers 1..N. Example: [4;2;7;3;6;8;5;1] means that the queen in the first column is in row 4, the queen in the second column is in row 2, etc. Use the generate-and-test paradigm.
+Hint: Represent the positions of the queens as a list of numbers 1..N. Example: [4;2;7;3;6;8;5;1] means that the queen in the first column is in row 4, the queen in the second column is in row 2, etc. 
 ```
 # queens_positions 4;;
 - : int list list = [[3; 1; 4; 2]; [2; 4; 1; 3]]

@@ -28,18 +28,18 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 1/20 | MLK Jr. Day                    |      |      |     |     |
 | 1/22 | Datatypes                           |  [lec5](lectures/lecture5.pdf)      |      |  [hw2](homework/hw2/hw2.md)   |     |
 | 1/27 | Recursion                           |  [lec6](lectures/lecture6.pdf)     |      |     |  hw1   |
-| 1/29 | Higher Order Functions              | [lec7](lectures/lecture7.pdf)        |      |     |     |
-| 2/3 | Environments and Closures            |   lec8     |      |     |     |
-| 2/5 | Polymorphism                         | lec9       |      |     |  hw2   |
-| 2/10  | Type Inference   | lec10        |      |     |     |
-| 2/12  | Midterm exam (9:30-10:45AM, GIRV 2128) | lec11       |      |     |     |
+| 1/29 | Higher Order Functions              | [lec7](lectures/lecture7.pdf)        |      |  [hw3](homework/hw3/hw3.md)   |     |
+| 2/3 | Environments and Closures            |   [lec8](lectures/lecture8.pdf)     |      |     |     |
+| 2/5 | Type Inference                         | [lec9](lectures/lecture9.pdf)       |      |  [hw4](homework/hw4/hw4.md)   |  hw2   |
+| 2/10  | Midterm review   |    [lec10](lectures/lecture10.pdf)      |      |     |     |
+| 2/12  | Midterm exam (9:30-10:45AM, GIRV 2128) |        |      |     |   hw3  |
 | 2/17 | Presidents' Day                          |        |      |     |     |
-| 2/19 |  A crash course in Racket                        | lec12      |       |     |     |
-| 2/24 | Solver-aided programming I                 |   lec13     |      |     |     |
-| 2/26 |  Solver-aided programming II               |    lec14    |      |     |     |
-| 3/2 | A crash course in Python        |    lec15    |      |     |    |
-| 3/4 | Objects in Python                            |   lec16     |      |     |     |
-| 3/9  | Logical programming         |   lec17     |      |     |     |
+| 2/19 |  A crash course in Racket                        | [lec11](lectures/lecture11.pdf)       |   1    |  [hw5](homework/hw5/README.md)   |   hw4  |
+| 2/24 | Solver-aided programming with Rosette I                 |   lec12     |  2-3    |     |     |
+| 2/26 |  Solver-aided programming with Rosette II               |    lec13    |      |     |     |
+| 3/2 | A crash course in Python        |    lec14    |      |  hw6   |  hw5  |
+| 3/4 | Objects in Python                            |   lec15     |      |     |     |
+| 3/9  | Logical programming         |   lec16     |      |     |     |
 | 3/11  | Final review                               |        |      |     |    |
 | 3/18  | Final exam (8-11AM, GIRV 2128)             |        |      |     |    |
 
@@ -55,14 +55,12 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 
 
 
-# Homework
+# Useful resources
 
-1. Homework1
-2. Homework2
-3. Homework3
-4. Homework4
-5. Homework5
-6. Homework6
+1. Racket: https://racket-lang.org/
+2. The Rosette guide: https://docs.racket-lang.org/rosette-guide/index.html
+3. More about Rosette: https://emina.github.io/rosette/
+4. Serval tutorial: https://github.com/uw-unsat/serval-tutorial-sosp19
 
 # Academic Integrity
 - Cheating WILL be taken seriously. It is not fair toward honest students to take cheating lightly, nor is it fair to the cheater to let him/her go on thinking that cheating is a reasonable alternative in life.
