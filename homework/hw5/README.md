@@ -92,7 +92,7 @@ So key 2 encrypts "HI" to "JK", but key 20 encrypts "HI" to "BC".
 
 - Go over Serval [tutorial](https://github.com/uw-unsat/serval-tutorial-sosp19)
 
-- Install Serval from source and replace the result in Figure 11 of the paper.
+- Install Serval from source and reproduce the result in Figure 11 in the original paper.
 
 
 
