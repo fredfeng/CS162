@@ -3,8 +3,8 @@
 You have to implement all solutions in Racket.
 
 ## Flatten a list (5 points)
-Write a function to flatten the nesting in an arbitrary list of values.
 
+Write a function to flatten the nesting in an arbitrary list of values.
 Your program should work on the equivalent of this list:
 ```
   [[1], 2, [[3, 4], 5], [[[]]], [[[6]]], 7, 8, []]
@@ -38,7 +38,7 @@ Also demonstrate, using your function/method, that the product of an empty list 
 {} × {1, 2} = {}
 ```
 
-##Zig-zag matrix (5 points)
+## Zig-zag matrix (5 points)
 
 
 A zig-zag array is a square arrangement of the first N^2 natural numbers, where the numbers increase sequentially as you zig-zag along the array's [anti-diagonals](https://en.wiktionary.org/wiki/antidiagonal).
@@ -53,7 +53,7 @@ For example, given 5, produce this array:
 10 18 19 23 24
 ```
 
-##Caesar cipher (5 points)
+## Caesar cipher (5 points)
 
 Implement a [Caesar cipher](https://en.wikipedia.org/wiki/Caesar_cipher), both encoding and decoding.
 The key is an integer from 1 to 25.
