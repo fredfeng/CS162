@@ -10,9 +10,9 @@
 (define (zigzag n)
   (error 'verify "not yet implemented!"))
 
-(define (encrypt s)
+(define (encrypt n s)
   (error 'verify "not yet implemented!"))
 
 
-(define (decrypt s)
+(define (decrypt n s)
   (error 'verify "not yet implemented!"))
