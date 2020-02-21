@@ -57,17 +57,17 @@ For example, given 5, produce this array:
 Implement a [Caesar cipher](https://en.wikipedia.org/wiki/Caesar_cipher), both encoding and decoding.
 The key is an integer from 1 to 25.
 
-This cipher rotates (either towards left or right) the letters of the alphabet (A to Z).
+This cipher rotates the letters of the alphabet (A to Z).
 
 The encoding replaces each letter with the 1st to 25th next letter in the alphabet (wrapping Z to A).
 So key 2 encrypts "HI" to "JK", but key 20 encrypts "HI" to "BC".
 
 
 ```
-> (define s (encrypt "The five boxing wizards jump quickly."))
+> (define s (encrypt 1 "The five boxing wizards jump quickly."))
 > s
 "Uif gjwf cpyjoh xjabset kvnq rvjdlmz."
-> (decrypt s)
+> (decrypt 25 s)
 "The five boxing wizards jump quickly."
 ```
 
