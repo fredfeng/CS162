@@ -7,7 +7,7 @@
 (provide decrypt)
 
 
-(define (flatten-list list)
+(define (flatten-list l1)
   (error 'verify "not yet implemented!"))
 
 (define (cartesian-product l1 l2)
