@@ -67,7 +67,7 @@ So key 2 encrypts "HI" to "JK", but key 20 encrypts "HI" to "BC".
 > (define s (encrypt 1 "The five boxing wizards jump quickly."))
 > s
 "Uif gjwf cpyjoh xjabset kvnq rvjdlmz."
-> (decrypt 25 s)
+> (decrypt 1 s)
 "The five boxing wizards jump quickly."
 ```
 
