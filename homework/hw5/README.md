@@ -77,6 +77,8 @@ So key 2 encrypts "HI" to "JK", but key 20 encrypts "HI" to "BC".
 
 - Check out the problem description in [here](verify.pdf).
 
+- Also you may want to go through the Z3 tutorial [here](https://rise4fun.com/z3/tutorial).
+
 - The `bvv` directory contains the solution skeleton for this problem:
   - See [examples.rkt](bvv/examples.rkt) for a quick tour of the types and procedures to use in your implementation.
   - See [tests.rkt](bvv/tests.rkt) for a suite of initial tests for your verifier. We will also test your code on additional benchmarks that are not included here.  To make sure that your verifier works correctly, you will need to write your own tests, eespecially for corner cases.
