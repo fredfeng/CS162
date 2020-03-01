@@ -61,6 +61,8 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 2. The Rosette guide: https://docs.racket-lang.org/rosette-guide/index.html
 3. More about Rosette: https://emina.github.io/rosette/
 4. Serval tutorial: https://github.com/uw-unsat/serval-tutorial-sosp19
+5. Hunter: https://fredfeng.github.io/Hunter/
+6: Trinity: https://github.com/fredfeng/Trinity
 
 # Academic Integrity
 - Cheating WILL be taken seriously. It is not fair toward honest students to take cheating lightly, nor is it fair to the cheater to let him/her go on thinking that cheating is a reasonable alternative in life.
