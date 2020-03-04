@@ -1,0 +1,11 @@
+.decl sunny(c:symbol)
+.decl hot(c:symbol)
+.decl dry(c:symbol)
+
+.output dry 
+
+sunny("goleta").
+sunny("ucsb").
+hot("ucsb").
+
+dry(c) :- sunny(c), hot(c).
