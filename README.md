@@ -38,7 +38,7 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 2/24 | Solver-aided programming with Rosette I                 |   [lec12](lectures/lecture12.pdf)     |  2-3    |     |     |
 | 2/26 |  Solver-aided programming with Rosette II               |    [lec13](lectures/lecture13.pdf)    |      |     |     |
 | 3/2 | Solver-aided applications & CS162 OSCAR        |    lec14    |      |  [hw6](homework/hw6/README.md)   |    |
-| 3/4 | A crash course in Datalog                              |   lec15     |      |     |  hw5   |
+| 3/4 | A crash course in Datalog                              |   [lec15](lectures/lecture15.pdf)      |      |     |  hw5   |
 | 3/9  | Program analysis in Datalog         |   lec16     |      |     |     |
 | 3/11  | Final review                               |        |      |     |  hw6  |
 | 3/18  | Final exam (8-11AM, GIRV 2128)             |        |      |     |    |
