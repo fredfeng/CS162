@@ -20,7 +20,7 @@ Complete the missing implementations in `anderson.dl`. For local testing, an inp
 
 Taint analysis (i.e., informational flow analysis) is the foundation for security and system research. In this assignment, you need to implement an interprocedural taint analysis using Datalog.
 
-Complete the missing implementations in `taint.dl`. For local testing, an input-output example is provided (see comments in `taint.dl` for details). Your program is supposed to take into all input facts in the folder `taint/` and output the computed `points-to` relation as shown in the file `taint.csv`.
+Complete the missing implementations in `taint.dl`. For local testing, an input-output example is provided (see comments in `taint.dl` for details). Your program is supposed to take into all input facts in the folder `taint/` and output the computed `flows-to` relation as shown in the file `taint.csv`.
 
 ## Notes for the above questions
 
