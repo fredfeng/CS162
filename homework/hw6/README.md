@@ -30,11 +30,6 @@ Complete the missing implementations in `taint.dl`. For local testing, an input-
 - Only submit `steensgaard.dl`, `anderson.dl` and `taint.dl`.
 
 
-## Integrate your taint analysis into real-world applications  (10 points)
-
-This is a bonus question.
-
-
 
 
 
