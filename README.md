@@ -9,9 +9,9 @@ TA: Bryan Tan (bryantan@ucsb.edu)
 
 Class: M,Wed, 9:30am, Zoom
 
-Discussion session: Friday, TBD
+Discussion session: Friday, 10-10:50am, Zoom
 
-TA's office hour: Bryan Tan (TBD)
+TA's office hour: Bryan Tan (Wed, 2pm-3pm)
 
 Instructor's office hour: Fri, 9am-10am
 
