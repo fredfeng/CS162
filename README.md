@@ -42,9 +42,8 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 
 # Grading
 
-1. Weekly Quizzes: 20%
+1. Weekly Quizzes: 25%
 2. Programming Assignments: 75%
-3. Class Participation: 5%
 4. Extra credit: 2%
 
 Below is a grading system used by CS162 (No curving).
