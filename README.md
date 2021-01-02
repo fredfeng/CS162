@@ -64,10 +64,14 @@ Credit: https://en.wikipedia.org/wiki/Academic_grading_in_the_United_States
 
 # Useful resources
 
-1. OCaml: https://ocaml.org/learn/
-2. Racket: https://racket-lang.org/
-3. The Rosette guide: https://docs.racket-lang.org/rosette-guide/index.html
-4. SMT-LIB: http://smtlib.cs.uiowa.edu/
+1. [OCaml From the Ground Up](https://ocamlbook.org/): this is a good step-by-step introduction to OCaml.
+2. [The OCaml system](https://ocaml.org/releases/4.11/htmlman/index.html): the official user manual for OCaml. Part I is helpful for seeing examples of what OCaml has to offer. You may also want to look at Part II, Chapter 17 for information on how to use the debugger.
+3. [OCaml official documentation](https://ocaml.org/learn/)
+
+For the extra credit assignment, these may be helpful:
+1. Racket: https://racket-lang.org/
+2. The Rosette guide: https://docs.racket-lang.org/rosette-guide/index.html
+3. SMT-LIB: http://smtlib.cs.uiowa.edu/
 
 # Academic Integrity
 - Cheating WILL be taken seriously. It is not fair toward honest students to take cheating lightly, nor is it fair to the cheater to let him/her go on thinking that cheating is a reasonable alternative in life.
