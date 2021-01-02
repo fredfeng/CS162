@@ -67,6 +67,7 @@ Credit: https://en.wikipedia.org/wiki/Academic_grading_in_the_United_States
 1. [OCaml From the Ground Up](https://ocamlbook.org/): this is a good step-by-step introduction to OCaml.
 2. [The OCaml system](https://ocaml.org/releases/4.11/htmlman/index.html): the official user manual for OCaml. Part I is helpful for seeing examples of what OCaml has to offer. You may also want to look at Part II, Chapter 17 for information on how to use the debugger.
 3. [OCaml official documentation](https://ocaml.org/learn/)
+4. [Learning OCaml in Y mins](https://learnxinyminutes.com/docs/ocaml/)
 
 For the extra credit assignment, these may be helpful:
 1. Racket: https://racket-lang.org/
