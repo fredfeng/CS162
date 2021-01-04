@@ -20,20 +20,20 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | Date  | Topic                                         | Slides | Read | Out | Due |
 |-------|-----------------------------------------------|--------|------|-----|-----|
 | 1/4  | Hello, World! & Introduction to λ<sup>+</sup>                                   |  [lec1](lectures/lecture1.pdf)     |      |     |     |
-| 1/6  | Lambda Calculus I          |  [lec2](#)      |      |     |     |
-| 1/11  | Lambda Calculus II             |  [lec3](#)      |      |  [hw1](#)    |     |
+| 1/6  | Lambda Calculus I          |  [lec2](#)      |  5.1-5.2    |     |     |
+| 1/11  | Lambda Calculus II             |  [lec3](#)      | 5.3     |  [hw1](#)    |     |
 | 1/13  | A crash course in OCaml       |  [lec4](#)     |      |     |     |
 | 1/18  | Introduction to Parsing      |  [lec5](#)     |      |   [hw2](#)   |  hw1   |
-| 1/20  | Operational Semantics I       |  [lec6](#)     |      |      |     |
-| 1/25  | Operational Semantics II       |  [lec7](#)     |      | [hw3](#)     |  hw2   |
-| 1/27  | Type checking I       |  [lec8](#)     |      |      |     |
-| 2/1  | Type checking II       |  [lec9](#)     |      |  [hw4](#)    |    |
+| 1/20  | Operational Semantics I       |  [lec6](#)     |  5.3    |      |     |
+| 1/25  | Operational Semantics II       |  [lec7](#)     |  11.12     | [hw3](#)     |  hw2   |
+| 1/27  | Type checking I       |  [lec8](#)     | 8.1,8.2, 9.1-9.3     |      |     |
+| 2/1  | Type checking II       |  [lec9](#)     | 10.3     |  [hw4](#)    |    |
 | 2/3 | MLK Jr. Day                    |      |      |     |  hw3   |
 | 2/8 | Datatypes                           |  [lec10](#)      |      |     |     |
 | 2/10 | Recursion, Higher Order Functions                           |  [lec11](#)     |      |     |    |
 | 2/15 | Presidents' Day              |         |      |     |     |
-| 2/17 | Type Inference & Polymorphism I                | [lec12](#)       |      |  [hw5](#)   |  hw4   |
-| 2/22 | Type Inference & Polymorphism II                  | [lec13](#)       |      |     |    |
+| 2/17 | Type Inference & Polymorphism I                | [lec12](#)       |   22.1-22.4   |  [hw5](#)   |  hw4   |
+| 2/22 | Type Inference & Polymorphism II                  | [lec13](#)       |  22.7    |     |    |
 | 2/24 | Environments and Closures            |   [lec14](#)     |      |     |     |
 | 3/1  | Course review   |    [lec15](#)      |      |     |     |
 | 3/3 | A crash course in Racket                              |   [lec16](#)      |      |  [hw6](#)   |  hw5  |
