@@ -11,6 +11,8 @@ The `lamp` binary provided on Gauchospace is compiled for Linux. This means that
 you will either need to 1) run it on CSIL; or 2) run it from your own Linux
 installation.
 
+### REPL
+
 Once you have downloaded it on to your Linux machine of choice, you can execute
 `lamp` directly to start a REPL (read-eval-print-loop):
 
@@ -54,3 +56,20 @@ in expression let x = !1 in 2 @ x
 
 Here, we are attempting to take the head of an integer, but this is not allowed
 because head is only defined for cons cells.
+
+Lastly, you can quit out of the interpreter by hitting <kbd>Ctrl</kbd><kbd>c</kbd>.
+
+### Program file mode
+
+`lamp` can also be used to execute an expression contained within a file. To do this, provide a file name as an argument to `lamp`, and it will evaluate and print out the expression in the file. The file must contain exactly one expression. For example:
+
+```plain
+[bryantan@csilvm-02 demo]$ cat demo.lp
+fun add_five with n =
+  n + 5
+in
+add_five 3
+[bryantan@csilvm-02 demo]$ ./lamp demo.lp
+8
+
+```
