@@ -9,12 +9,14 @@ versions when you are doing the homeworks.
 
 The `lamp` binary provided on Gauchospace is compiled for Linux. This means that
 you will either need to 1) run it on CSIL; or 2) run it from your own Linux
-installation.
+installation. Make sure to run `chmod +x` on `lamp` the first time you use it,
+or else you may get a `Permission denied` error. Please let the TA know if you
+have you have any questions about `lamp`.
 
 ### REPL
 
 Once you have downloaded it on to your Linux machine of choice, you can execute
-`lamp` directly to start a REPL (read-eval-print-loop):
+`lamp` directly to start a REPL (read-eval-print-loop). 
 
 ```plain
 [bryantan@csilvm-02 demo]$ ls
