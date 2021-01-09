@@ -2,7 +2,7 @@
 
 The main goal of the programming assignments in CS162 is to build λ<sup>+</sup>, a small programming language from scratch.
 
-1. Get familiar with λ<sup>+</sup>: 15% <br />
+1. [Get familiar with λ<sup>+</sup>: 15%](hw1.md) <br />
 Difficulty: * <br />
 In this assignment, you will be accomplishing some basic programming tasks (simple arithmetic, function calls, etc.) in λ<sup>+</sup>.
 
