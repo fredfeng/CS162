@@ -21,7 +21,7 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 |-------|-----------------------------------------------|--------|------|-----|-----|
 | 1/4  | Hello, World! & Introduction to λ<sup>+</sup>                                   |  [lec1](lectures/lecture1.pdf)     |      |     |     |
 | 1/6  | Lambda Calculus I          |  [lec2](lectures/lecture2.pdf), [lamp](lectures/lambda-plus.pdf)      |  5.1-5.2    |     |     |
-| 1/11  | Lambda Calculus II             |  [lec3](#)      | 5.3     |  [hw1](#)    |     |
+| 1/11  | Lambda Calculus II             |  [lec3](lectures/lecture3.pdf)      | 5.3     |  [hw1](#)    |     |
 | 1/13  | A crash course in OCaml       |  [lec4](#)     |      |     |     |
 | 1/18  | Introduction to Parsing      |  [lec5](#)     |      |   [hw2](#)   |  hw1   |
 | 1/20  | Operational Semantics I       |  [lec6](#)     |  5.3    |      |     |
