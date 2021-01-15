@@ -14,7 +14,9 @@ let my_function (x : int) : int =
   x + 5
   ;;
 
-(* Note: you don't actually need type annotations. OCaml can _infer_ all of them. *)
+(* Note: you don't actually need type annotations. OCaml can _infer_ all of
+   them. It's best practice to leave them off when the types are obvious and add
+   them on when the types are not obvious. *)
 let my_variable2 = 100
   ;;
 let my_function2 x = x + 5
@@ -49,7 +51,9 @@ let name = "foo" in
   The bread and butter of OCaml is algebraic data types. It's best shown by
   example. First, consider a simple example of an _option type_:
 *)
-type int_option = NoInt | SomeInt of int
+type int_option
+  = NoInt
+  | SomeInt of int
   ;;
 
 (*
@@ -85,33 +89,39 @@ match safe_div 10 5 with
   for cons. To specify multiple fields, separate them with a "*". Recall that
   "*" means "multiplication"; in this context, it's "Cartesian product."
 *)
-type int_list = IntNil | IntCons of int * int_list
+type int_list
+  = IntNil
+  | IntCons of int * int_list
   ;;
 
 let my_list = IntCons(1, IntCons(2, IntNil))
   ;;
 
-(* Again, we can use pattern matching to "deconstruct" a list: *)
+(* Again, we can use pattern matching to figure out whether our list is empty or
+   not: *)
 match my_list with
 | IntNil -> print_endline "This is an empty list"
 | IntCons(_, _) -> print_endline "This is not an empty list"
 ;;
 
-(*
-  Now let me explain why this is called "pattern matching."
+(* Now let me explain why this is called "pattern matching."
 
-  The left hand side of the arrow is called a pattern. Basically, it lets me
-  specify what "case" I want to look for in this match.
+   The left hand side of the arrow is called a _pattern_. Basically, it lets you
+   specify what "case" you want to look for in this match. In a match, the
+   expression will be matched against each pattern from top to bottom; the
+   overall match will evaluate to the right-hand side of the first matching
+   pattern.
 
-  The "_" is called a "wildcard" and will match any value.
+   The "_" is called a "wildcard" and will match any value.
 
-  A pattern can be a variable, a constant, a wildcard, a constructor (where
-  its arguments are replaced with patterns), and more.
+   A pattern can be a variable, a constant, a wildcard, a constructor (where its
+   arguments are replaced with patterns), and more. See Chapter 7.6 of "The
+   OCaml system" for more details.
 
-  See Chapter 7.6 of "The OCaml system"
+   You can think of a pattern match as a switch statement on steroids.
 
-  Here are examples of different patterns you could use:
-*)
+   Here are examples of different patterns you could use: *)
+
 (* ignore all of the fields *)
 match my_list with
 | IntNil -> 1
@@ -168,22 +178,23 @@ type 'a gen_list = Nil | Cons of 'a * 'a gen_list
 let my_names : string gen_list = Cons("hello", Cons("world", Nil))
   ;;
 
-(* using the standard library versions of list and option: *)
+(* Using the standard library versions of list and option, we can define
+   function to get the head of the list, if it exists: *)
 let safe_head (xs : 'a list) : 'a option =
   match xs with
   | [] -> None
   | h :: _ -> Some(h)
+;;
 
 (*
-  Ok, as a last thing, I want to show you examples of the standard
+  As a last thing, I want to show you examples of the standard
   library versions of list and option. Don't make your own in actual
   code.
 *)
 
 (*
   Option is defined as
-
-  type 'a option = None | Some of 'a
+   type 'a option = None | Some of 'a
 *)
 
 (* none *)
@@ -213,7 +224,7 @@ let _ = []
 [1; 2; 5]
   ;;
 
-(* append *)
+(* append (i.e. concatenate) *)
 List.append [1; 2; 3] [3; 4; 5]
   ;;
 (* reverse *)
