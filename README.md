@@ -23,11 +23,11 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 1/6  | Lambda Calculus I          |  [lec2](lectures/lecture2.pdf), [lamp](lectures/lambda-plus.pdf)      |  5.1-5.2    |     |     |
 | 1/11  | Lambda Calculus II             |  [lec3](lectures/lecture3.pdf)      | 5.3     |  [hw1](#)    |     |
 | 1/13  | A crash course in OCaml       |  [lec4](lectures/lecture4.pdf)     |      |     |     |
-| 1/18  | MLK Jr. Day      |  [lec5](#)     |      |   [hw2](#)   |  hw1   |
+| 1/18  | MLK Jr. Day      |  no class    |      |   [hw2](#)   |  hw1   |
 | 1/20  | Introduction to Parsing       |  [lec6](#)     |  5.3    |      |     |
-| 1/25  | Operational Semantics I       |  [lec7](#)     |  11.12     | [hw3](#)     |  hw2   |
-| 1/27  | Operational Semantics II       |  [lec8](#)     | 8.1,8.2, 9.1-9.3     |      |     |
-| 2/1  | Type checking I       |  [lec9](#)     | 10.3     |  [hw4](#)    |    |
+| 1/25  | Operational Semantics I       |  [lec6](#)     |  11.12     | [hw3](#)     |  hw2   |
+| 1/27  | Operational Semantics II       |  [lec7](#)     | 8.1,8.2, 9.1-9.3     |      |     |
+| 2/1  | Type checking I       |  [lec8](#)     | 10.3     |  [hw4](#)    |    |
 | 2/3 | Type checking II                    |      |      |     |  hw3   |
 | 2/8 | Datatypes                           |  [lec10](#)      |      |     |     |
 | 2/10 | Recursion, Higher Order Functions                           |  [lec11](#)     |      |     |    |
