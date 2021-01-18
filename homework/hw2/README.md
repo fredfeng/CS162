@@ -47,22 +47,31 @@ you do, you will not be awarded any points for completing this problem.
 
 ## Problem 2 (10 points)
 
-| File          | Goal of this exercise                                |
-| ---------     | ---------------------------------------------------- |
-| `simplify.ml` | Practice pattern matching and symbolic manipulation. |
+| File       | Goal of this exercise                                |
+| ---------  | ---------------------------------------------------- |
+| `arith.ml` | Practice pattern matching and symbolic manipulation. |
 
-Given the data type of arithmetic expressions in `expr.ml`, implement the
-`simplify` function that will simplify arithmetic expressions. In
-particular:
+Given the data type `expr` of arithmetic expressions, implement the `simplify`
+function that will simplify arithmetic expressions. In particular:
 
 * Operations on constants should be simplified, e.g. `1 + (1 * 3)` is simplified
   to `4`.
 * Addition and multiplication identities should be simplified, e.g. `1 * (x +
   0 + (5 * 0))` is simplified to `x`. Specifically, you need to handle addition
   by 0, multiplication by 0, and multiplication by 1.
+* All other combinations of addition and multiplication should be left as-is.
+  For example, you do not need to distribute multiplication (e.g. you should
+  leave `2 * (x + 1)` as-is). You should leave expressions such as `x + (2 * x)`
+  as-is.
 
 Although `Nat` is defined as carrying an `int`, you may assume that all `Nat`s
 are carrying non-negative numbers.
+
+Example:
+```
+# simplify (Add (Var "x", Add (Var "x", Mul(Nat 1, Add(Nat 0, Var "y")))));;
+- : expr = Add (Var "x", Add (Var "x", Var "y"))
+```
 
 ## Problem 3 (5 points)
 
