@@ -38,8 +38,8 @@ Implement a function `compress : ’a list -> ’a list` that takes a list and
 returns a new list with all consecutive duplicate elements removed. For example:
 
 ```ocaml
-# compress [“a”;“a”;“a”;“a”;“b”;“c”;“c”;“a”;“a”;“d”;“e”;“e”;“e”;“e”];;
-- : string list = [“a”; “b”; “c”; “a”; “d”; “e”]
+# compress ["a";"a";"a";"a";"b";"c";"c";"a";"a";"d";"e";"e";"e";"e"];;
+- : string list = ["a"; "b"; "c"; "a"; "d"; "e"]
 ```
 
 You are **not** allowed to use in built-in OCaml functions for this problem. If
