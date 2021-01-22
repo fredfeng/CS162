@@ -12,10 +12,10 @@ Complete each problem in the `.ml` files in this folder. Once you are done, turn
 them in on Gradescope.
 
 **Important notes**:
-* You can test your code by running each file in `ocaml` or `utop` and manually
-  entering some test cases. If you are willing to put in some additional work,
-  you could also set up unit tests using a package like
-  [Alcotest](https://github.com/mirage/alcotest).
+* You can test your code by running `ocaml` or `utop` to get a REPL, loading
+  your file with `#use filename.ml ;;`, and manually entering some test cases.
+  If you are willing to put in some additional work, you could also set up unit
+  tests using a package like [Alcotest](https://github.com/mirage/alcotest).
 * Because you are learning a new programming language and using features that
   may be unfamiliar to you, we recommend that you start early on this homework.
 * In terms of time, this homework will take longer to do than homework 1 but not
@@ -44,6 +44,8 @@ returns a new list with all consecutive duplicate elements removed. For example:
 
 You are **not** allowed to use in built-in OCaml functions for this problem. If
 you do, you will not be awarded any points for completing this problem.
+Exception: you may use `List.hd` and `List.tl`. However, be wary of edge cases
+if you do.
 
 ## Problem 2 (10 points)
 
