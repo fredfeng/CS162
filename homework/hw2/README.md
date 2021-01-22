@@ -30,9 +30,9 @@ them in on Gradescope.
 
 ## Problem 1 (5 points)
 
-| File          | Goal of this exercise          |
-| -----------   | ------------------------------ |
-| `compress.ml` | Practice basic tasks in OCaml. |
+| File                         | Goal of this exercise          |
+| ---------------------------- | ------------------------------ |
+| [`compress.ml`](compress.ml) | Practice basic tasks in OCaml. |
 
 Implement a function `compress : ’a list -> ’a list` that takes a list and
 returns a new list with all consecutive duplicate elements removed. For example:
@@ -49,9 +49,9 @@ if you do.
 
 ## Problem 2 (10 points)
 
-| File       | Goal of this exercise                                |
-| ---------  | ---------------------------------------------------- |
-| `arith.ml` | Practice pattern matching and symbolic manipulation. |
+| File                   | Goal of this exercise                                |
+| ---------------------- | ---------------------------------------------------- |
+| [`arith.ml`](arith.ml) | Practice pattern matching and symbolic manipulation. |
 
 Given the data type `expr` of arithmetic expressions, implement the `simplify`
 function that will simplify arithmetic expressions. In particular:
@@ -77,9 +77,9 @@ Example:
 
 ## Problem 3 (5 points)
 
-| File    | Goal of this exercise     |
-| ------- | ------------------------- |
-| `lc.ml` | Practice lambda calculus. |
+| File             | Goal of this exercise     |
+| ---------------- | ------------------------- |
+| [`lc.ml`](lc.ml) | Practice lambda calculus. |
 
 Using the [`Set`](https://caml.inria.fr/pub/docs/manual-ocaml/libref/Set.S.html)
 data structure, implement the `free_vars` function used to compute the set of
@@ -96,9 +96,9 @@ strings). Some of the functions which you may find useful are:
 
 ## Problem 4 (10 points)
 
-| File     | Goal of this exercise     |
-| -------- | ------------------------- |
-| `lc.ml`  | Practice lambda calculus. |
+| File             | Goal of this exercise     |
+| ---------------- | ------------------------- |
+| [`lc.ml`](lc.ml) | Practice lambda calculus. |
 
 Using the `free_vars` function in Problem 3, implement the `subst` function for
 substituting a variable with an expression. You can find this function on slide
