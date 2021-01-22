@@ -11,7 +11,7 @@ Class: M,Wed, 9:30am, Zoom
 
 Discussion session: Friday, 10-10:50am, Zoom (also recorded)
 
-TA's office hour: Bryan Tan (Wed, 3:30pm-4:30pm; or by appointment)
+TA's office hour: Bryan Tan (by appointment only)
 
 Instructor's office hour: Fri, 9am-10am
 
