@@ -107,7 +107,7 @@ substituting a variable with an expression. You can find this function on slide
 * You do not need to implement alpha renaming for this assignment. Instead, in
   the case of `[x -> s](\y. t1)` when `y` is a free variable in `s`, you should
   `raise` a `Capturing` exception and indicate the variable that is being
-  captured. For example, `subst "y" (Lam("x", Var("y"))) (Var("x"))` should
+  captured. For example, `subst "y" (Var("x")) (Lam("x", Var("y")))` should
   trigger a `Capturing("x")` exception.
 * You still need to account for the other capturing case when substituting. For
   example, `subst "x" (Var("y")) (Lam("x", Var("x")))` should evaluate to `(Lam("x",
