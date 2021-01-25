@@ -35,7 +35,7 @@ installed, copy this folder somewhere and open it in a terminal. Install the
 required OCaml dependencies using:
 
 ```
-opam install --depends-only .
+opam install --deps-only .
 ```
 
 The files are set up to be built with the [`dune` build
