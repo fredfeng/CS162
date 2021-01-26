@@ -26,7 +26,7 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 1/18  | MLK Jr. Day      |  no class    |      |   [hw2](homework/hw2/)   |  hw1   |
 | 1/20  | Introduction to Parsing       |  [lec5](lectures/lecture5.pdf)     |     |      |     |
 | 1/25  | Operational Semantics I       |  [lec6](lectures/lecture6.pdf)     |  11.12     | [hw3](homework/hw3/) |  hw2   |
-| 1/27  | Operational Semantics II       |  [lec7](#)     | 8.1,8.2, 9.1-9.3     |      |     |
+| 1/27  | Operational Semantics II       |  [lec7](lectures/lecture7.pdf)     | 8.1,8.2, 9.1-9.3     |      |     |
 | 2/1  | Type checking I       |  [lec8](#)     | 10.3     |  [hw4](#)    |    |
 | 2/3 | Type checking II                    |      |      |     |  hw3   |
 | 2/8 | Datatypes                           |  [lec10](#)      |      |     |     |
