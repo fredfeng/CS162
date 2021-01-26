@@ -89,7 +89,7 @@ assignment. To be consistent with the autograder, whenever you need to
 alpha-rename some argument `y` of an abstraction `\y. e`, you should rename `y`
 to `yn` where `n` is the smallest natural number such that using `yn` as an
 argument will not capture any variables. For example, `(\x. \y. x y) (\x. y)`
-will evaluate to `(\y0. x (\x. y))`.
+will evaluate to `(\y0. (\x. y) y0)`.
 
 Some of the things we will be looking for during grading are:
 * Your `eval` function evaluates expressions to the correct values, as described
