@@ -22,7 +22,7 @@ Gauchospace.
 * You will need to write about 150 lines of code for this assignment. However,
   you will realize (as you are writing the code) that most of it is repetitive.
 * Reminder: you have 10 penalty-free late days for this course. This assignment
-  would be the best one to use them on.
+  would be the best one to use some of them on.
 * To test your code, you can either compare your output against the reference
   interpreter or use the unit test helpers defined in `test.ml`. We will not be
   scoring how you test your code. Note that the reference interpreter has been
@@ -33,12 +33,15 @@ Gauchospace.
 For this assignment,
 [you will need to have `opam` installed](/sections/section1/install_ocaml.md).
 Once it is installed, copy this folder somewhere and open it in a terminal.
-Install the required OCaml dependencies using:
+Install the required OCaml dependencies from your homework 3 folder using:
 
+```bash
+# Make sure you run these from the homework 3 folder!
+opam install -y --deps-only .
+opam install -y --deps-only --with-test .
 ```
-opam install --deps-only .
-opam install --deps-only --with-test .
-```
+you can safely ignore the warning messages as long as the packages are installed
+successfully.
 
 The files are set up to be built with the [`dune` build
 tool](https://dune.readthedocs.io/en/stable/), which the above command will help
@@ -51,6 +54,9 @@ install for you.
 `dune` conveniently has a feature to automatically recompile/retest your code
 whenever you make a change. To use it, run `dune build --watch` or `dune
 runtests --watch`, respectively.
+
+You may also want to keep the reference interpreter from Gauchospace handy to
+check your implementation against.
 
 ### Organization of the code
 
