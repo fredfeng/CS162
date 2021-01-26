@@ -30,11 +30,13 @@ Gauchospace.
 
 ### Setting up
 
-For this assignment, you will need to have `opam` installed. Once it is
-installed, copy this folder somewhere and open it in a terminal. Install the
-required OCaml dependencies using:
+For this assignment,
+[you will need to have `opam` installed](/sections/section1/install_ocaml.md).
+Once it is installed, copy this folder somewhere and open it in a terminal.
+Install the required OCaml dependencies using:
 
 ```
+opam install --deps-only .
 opam install --deps-only --with-test .
 ```
 
