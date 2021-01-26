@@ -1,6 +1,6 @@
 # Homework Assignment 3
 
-**Due Wednesday, February 3 at 11:59 pm (pacific time)**
+**Due Wednesday, February 8 at 11:59 pm (pacific time)**
 
 In this assignment, you will use OCaml to implement the big-step operational
 semantics of λ<sup>+</sup>. You will need to refer to the manual posted on
