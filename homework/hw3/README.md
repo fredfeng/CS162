@@ -35,7 +35,7 @@ installed, copy this folder somewhere and open it in a terminal. Install the
 required OCaml dependencies using:
 
 ```
-opam install --deps-only .
+opam install --deps-only --with-test .
 ```
 
 The files are set up to be built with the [`dune` build
@@ -103,7 +103,8 @@ Some of the things we will be looking for during grading are:
   do the above successfully.
 * Lastly, implement the `Lambda` and `App` rules, which are the most complex
   implementation wise. In the process, you will need to implement `free_vars`
-  and `subst`. 
+  and `subst`; these will be similar to the ones you implemented in HW 2, just
+  with additional cases.
 
 ## Submission and Scoring
 
