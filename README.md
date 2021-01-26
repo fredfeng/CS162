@@ -27,9 +27,9 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 1/20  | Introduction to Parsing       |  [lec5](lectures/lecture5.pdf)     |     |      |     |
 | 1/25  | Operational Semantics I       |  [lec6](lectures/lecture6.pdf)     |  11.12     | [hw3](homework/hw3/) |  hw2   |
 | 1/27  | Operational Semantics II       |  [lec7](lectures/lecture7.pdf)     | 8.1,8.2, 9.1-9.3     |      |     |
-| 2/1  | Type checking I       |  [lec8](#)     | 10.3     |  [hw4](#)    |    |
-| 2/3 | Type checking II                    |      |      |     |  hw3   |
-| 2/8 | Datatypes                           |  [lec10](#)      |      |     |     |
+| 2/1  | Datatypes       |  [lec8](#)     | 10.3     |      |    |
+| 2/3 | Type checking I                    |      |      |   [hw4](#)  |     |
+| 2/8 | Type checking II                          |  [lec10](#)      |      |     |   hw3  |
 | 2/10 | Recursion, Higher Order Functions                           |  [lec11](#)     |      |     |    |
 | 2/15 | Presidents' Day              |         |      |     |     |
 | 2/17 | Type Inference & Polymorphism I                | [lec12](#)       |   22.1-22.4   |  [hw5](#)   |  hw4   |
