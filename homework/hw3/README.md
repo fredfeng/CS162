@@ -88,14 +88,19 @@ Unlike Homework 2, you will need to implement alpha renaming for this
 assignment. To be consistent with the autograder, whenever you need to
 alpha-rename some argument `y` of an abstraction `\y. e`, you should rename `y`
 to `yn` where `n` is the smallest natural number such that using `yn` as an
-argument will not capture any variables. For example, `(\x. \y. x y) (\x. y)`
-will evaluate to `(\y0. (\x. y) y0)`.
+argument will not capture any variables. You will also need to alpha rename in
+let-bound variables, if necessary. Here are some examples of alpha renaming:
+* `(lambda x, y. x y) (lambda x. y)` will evaluate to `(lambda y0. (lambda x. y) y0)`.
+* `(lambda x, y. x y y0) (lambda x. y)` will evaluate to `(lambda y1. ((lambda x. y) y1) y0)`
+* `(lambda f, y. let y0 = 5 in y) (lambda x. y)` will evaluate to `lambda y0. let y00 = 5 in y0`
 
 Some of the things we will be looking for during grading are:
 * Your `eval` function evaluates expressions to the correct values, as described
   by the manual.
 * Your `eval` function correctly raises a `Stuck` exception if no evaluation
   rule matches.
+* We will check for alpha-renaming, but there will only be a few test cases on the
+  edge cases (e.g. let bindings). 
 
 ## Tips
 
@@ -113,10 +118,12 @@ Some of the things we will be looking for during grading are:
   implementation wise. In the process, you will need to implement `free_vars`
   and `subst`; these will be similar to the ones you implemented in HW 2, just
   with additional cases.
+* Go back and update your `Let` rule so that it handles alpha renaming.
 
 ## Submission and Scoring
 
 The assignment will be submitted on Gradescope. Submissions and the autograder
 will be set up at a later time (ETA: the weekend before the due date). However,
 you can test your code with unit tests or compare the output against the
-reference interpreter.
+reference interpreter. Note that the reference interpreter may contain bugs: it
+is best to work out the program results with pencil and paper!
