@@ -58,6 +58,29 @@ runtests --watch`, respectively.
 You may also want to keep the reference interpreter from Gauchospace handy to
 check your implementation against.
 
+It is also possible to debug with `utop`. Start it using the following
+command:
+```
+dune utop -- .
+```
+This will open up `utop` with the homework code available, e.g.:
+```
+────────┬─────────────────────────────────────────────────────────────┬─────────
+        │ Welcome to utop version 2.6.0 (using OCaml version 4.10.0)! │         
+        └─────────────────────────────────────────────────────────────┘         
+
+Type #utop_help for help about using utop.
+
+─( 19:32:32 )─< command 0 >──────────────────────────────────────{ counter: 0 }─
+utop # open Eval ;; open Ast ;;
+─( 19:32:32 )─< command 1 >──────────────────────────────────────{ counter: 0 }─
+utop # eval (NumLit 5) empty_env ;;
+- : Ast.expr = Ast.NumLit 5
+─( 19:32:38 )─< command 2 >──────────────────────────────────────{ counter: 0 }─
+utop # eval (Binop(NumLit 5, Add, NumLit 10)) empty_env ;;
+- : Ast.expr = Ast.NumLit 15
+```
+
 ### Organization of the code
 
 In this folder, you will be provided a version of the reference interpreter
