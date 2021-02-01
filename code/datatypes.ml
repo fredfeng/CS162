@@ -77,7 +77,6 @@ type nat =
 
 Z;; (* represents 0 *)
 S Z;; (* represents 1 *)
-S S Z;; (* represents 2 *)
 S (S Z);; (* represents 2 *)
 
 
