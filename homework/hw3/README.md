@@ -117,13 +117,15 @@ let-bound variables, if necessary. Here are some examples of alpha renaming:
 * `(lambda x, y. x y y0) (lambda x. y)` will evaluate to `(lambda y1. ((lambda x. y) y1) y0)`
 * `(lambda f, y. let y0 = 5 in y) (lambda x. y)` will evaluate to `lambda y0. let y00 = 5 in y0`
 
-Some of the things we will be looking for during grading are:
-* Your `eval` function evaluates expressions to the correct values, as described
-  by the manual.
-* Your `eval` function correctly raises a `Stuck` exception if no evaluation
-  rule matches.
-* We will check for alpha-renaming, but there will only be a few test cases on the
-  edge cases (e.g. let bindings). 
+_(Feb. 4) One small note on alpha renaming_: you are expected to alpha rename
+let bindings contained inside of lambdas, e.g. the let-bound `x` in `(lambda z.
+lambda y. let x = 5 in z) (lambda y. x)` should be renamed to `x0`. However, due
+to an oversight in the assignment description, you can ignore alpha renaming for
+when substituting in the body of a let expression, e.g. you do not need to
+rename the `x` of the left lambda in `let x0 = 5 in (lambda f. lambda x. x)
+(lambda y. x)`. The `subst` function would need to be changed to take the
+environment as an argument to handle this case, and we thought it would be
+unfair to change the assignment description so close to the deadline.
 
 ## Tips
 
@@ -145,8 +147,27 @@ Some of the things we will be looking for during grading are:
 
 ## Submission and Scoring
 
-The assignment will be submitted on Gradescope. Submissions and the autograder
-will be set up at a later time (ETA: the weekend before the due date). However,
-you can test your code with unit tests or compare the output against the
-reference interpreter. Note that the reference interpreter may contain bugs: it
-is best to work out the program results with pencil and paper!
+Submit `eval.ml` on Gradescope, where an autograder will run your code on a set
+of test cases. _You should test your code with your own test cases before
+submitting it to the autograder. The autograder will only tell you if you are
+missing anything; if you are failing some test cases, it will not tell you why.
+Blindly guessing solutions will waste a lot of your time._
+
+You can test your code locally with unit tests (in `test.ml`) or compare the
+output against the reference interpreter (which may be buggy, so use your best
+judgment). The best way to construct test cases is to make up some programs and
+then put together a derivation tree with pencil and paper.
+
+As outlined in the grading policy, your score for this assignment will be the
+percentage of test cases passed, plus whatever additional credit is awarded to
+you for partially correct solutions that demonstrate understanding of the course
+material.
+
+Some of the things we will be looking for during grading are:
+* Your `eval` function evaluates expressions to the correct values, as described
+  by the manual.
+* Your `eval` function correctly raises a `Stuck` exception if no evaluation
+  rule matches. We reserve the right to deduct points if you hardcode Stuck
+  exceptions to avoid doing the rest of the assignment properly.
+* Alpha-renaming is performed correctly during substitution. This is worth a
+  relatively low but still significant number of points.
