@@ -14,7 +14,7 @@ Since you will use OCaml to implement your λ<sup>+</sup> programming language, 
 Difficulty: *** <br/>
 In this assignment, you will implement an interpreter for your λ<sup>+</sup> program using OCaml. The operational semantics of λ<sup>+</sup> can be found in its reference manual.
 
-4. Type check your λ<sup>+</sup> program: 15% <br/>
+4. [Type check your λ<sup>+</sup> program: 15%](hw4/) <br/>
 Difficulty: ** <br/>
 In this assignment, you will write a type checker for your λ<sup>+</sup> program such that your checker can reject ill-typed λ<sup>+</sup> programs. 
 

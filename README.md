@@ -29,7 +29,7 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 1/27  | Operational Semantics II       |  [lec7](lectures/lecture7.pdf)     | 8.1,8.2, 9.1-9.3     |      |     |
 | 2/1  | Datatypes       |  [lec8](lectures/lecture8.pdf)     |     |      |    |
 | 2/3 | Type checking I                    | [lec9](lectures/lecture9.pdf)     |  10.3    |    |     |
-| 2/8 | Type checking II                   |  [lec10](lectures/lecture10.pdf)      |      | [hw4](#)    |   hw3  |
+| 2/8 | Type checking II                   |  [lec10](lectures/lecture10.pdf)      |      | [hw4](homework/hw4/)    |   hw3  |
 | 2/10 | Recursion, Higher Order Functions                           |  [lec11](#)     |      |     |    |
 | 2/15 | Presidents' Day              |         |      |     |     |
 | 2/17 | Type Inference & Polymorphism I                | [lec12](#)       |   22.1-22.4   |  [hw5](#)   |  hw4   |
