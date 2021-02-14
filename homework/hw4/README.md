@@ -1,6 +1,6 @@
 # Homework Assignment 4
 
-**Due Wednesday, February 17 at 11:59 pm (pacific time)**
+**Due Monday, February 22 at 11:59 pm (pacific time)**
 
 In this assignment, you will use OCaml to implement the type system of
 λ<sup>+</sup>. You will need to refer to the latest version of the manual posted
