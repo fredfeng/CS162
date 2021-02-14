@@ -32,12 +32,12 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 2/8 | Type checking II                   |  [lec10](lectures/lecture10.pdf)      |      | [hw4](homework/hw4/)    |   hw3  |
 | 2/10 | Recursion, Higher Order Functions                           |  [lec11](#)     |      |     |    |
 | 2/15 | Presidents' Day              |         |      |     |     |
-| 2/17 | Type Inference & Polymorphism I                | [lec12](#)       |   22.1-22.4   |  [hw5](#)   |  hw4   |
-| 2/22 | Type Inference & Polymorphism II                  | [lec13](#)       |  22.7    |     |    |
+| 2/17 | Type Inference & Polymorphism I                | [lec12](#)       |   22.1-22.4   |    |     |
+| 2/22 | Type Inference & Polymorphism II                  | [lec13](#)       |  22.7    |   [hw5](#)  |  hw4  |
 | 2/24 | Environments and Closures            |   [lec14](#)     |      |     |     |
 | 3/1  | Course review   |    [lec15](#)      |      |     |     |
-| 3/3 | A crash course in Racket                              |   [lec16](#)      |      |  [hw6](#)   |  hw5  |
-| 3/8  | Solver-aided programming with Rosette        |   [lec17](#)     |      |     |     |
+| 3/3 | A crash course in Racket                              |   [lec16](#)      |      |  [hw6](#)   |    |
+| 3/8  | Solver-aided programming with Rosette        |   [lec17](#)     |      |     |   hw5  |
 | 3/10 | Programming with correctness guarantee         |   [lec18](#)     |      |     |  hw6   |
 
 # Grading
