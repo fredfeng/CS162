@@ -18,7 +18,7 @@ In this assignment, you will implement an interpreter for your λ<sup>+</sup> pr
 Difficulty: ** <br/>
 In this assignment, you will write a type checker for your λ<sup>+</sup> program such that your checker can reject ill-typed λ<sup>+</sup> programs. 
 
-5. Infer the types for your λ<sup>+</sup> code: 15% <br/>
+5. [Infer the types for your λ<sup>+</sup> code: 15%](hw5/) <br/>
 Difficulty: ** <br/>
 In this assignment, you will implement the type inference algorithm that we learn in the class.
 
