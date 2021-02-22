@@ -5,13 +5,13 @@ let ty_err = Typecheck.ty_err ;;
 
 (** Type AST used for type inference *)
 type ityp =
-  | (* Type variable *)
+  | (* Integer type *)
     IInt
   | (* Function type *)
     IFun of ityp * ityp
   | (* List type *)
     IList of ityp
-  | (* Integer type *)
+  | (* Type variable *)
     IVar of int
 
 (** Converts a typ into an ityp *)

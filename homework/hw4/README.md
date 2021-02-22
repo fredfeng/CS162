@@ -43,7 +43,7 @@ annotations in lambdas, let expressions, and nil.
 For example, the following are now valid λ<sup>+</sup> programs:
 
 * `let f: Int -> Int = lambda x: Int. x + 5 in f 0`
-* `fun f: List[Int] -> Int with l: List[Int] = if isnil l then !l else 0 in f Nil[Int]`
+* `fun f: List[Int] -> Int with l: List[Int] = if isnil l then 0 else !l in f Nil[Int]`
 
 The type annotations are necessary because it would otherwise be difficult to
 assign a type to an expression such as `Nil` or `lambda x. x`. It is possible to
