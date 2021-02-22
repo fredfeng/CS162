@@ -33,7 +33,7 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 2/10 | Recursion, Higher Order Functions                           |  [lec11](lectures/lecture11.pdf)     |      |     |    |
 | 2/15 | Presidents' Day              |         |      |     |     |
 | 2/17 | Type Inference & Polymorphism I                | [lec12](lectures/lecture12.pdf)       |   22.1-22.4   |    |     |
-| 2/22 | Type Inference & Polymorphism II                  | [lec13](#)       |  22.7    |   [hw5](#)  |  hw4  |
+| 2/22 | Type Inference & Polymorphism II                  | [lec13](lectures/lecture12.pdf)       |  22.7    |   [hw5](#)  |  hw4  |
 | 2/24 | Environments and Closures            |   [lec14](#)     |      |     |     |
 | 3/1  | Course review   |    [lec15](#)      |      |     |     |
 | 3/3 | A crash course in Racket                              |   [lec16](#)      |      |  [hw6](#)   |    |
