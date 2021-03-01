@@ -35,10 +35,10 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 2/17 | Type Inference & Polymorphism I                | [lec12](lectures/lecture12.pdf)       |   22.1-22.4   |    |     |
 | 2/22 | Type Inference & Polymorphism II                  | [lec13](lectures/lecture13.pdf)       |  22.7    |   [hw5](#)  |  hw4  |
 | 2/24 | Environments and Closures            |   [lec14](lectures/lecture14.pdf)     |      |     |     |
-| 3/1  | Course review   |    [lec15](#)      |      |     |     |
-| 3/3 | A crash course in Racket                              |   [lec16](#)      |      |  [hw6](#)   |    |
-| 3/8  | Solver-aided programming with Rosette        |   [lec17](#)     |      |     |   hw5  |
-| 3/10 | Programming with correctness guarantee         |   [lec18](#)     |      |     |  hw6   |
+| 3/1  | Course review & Software robustness   |    [lec15](lectures/lecture15.pdf)      |      |     |     |
+| 3/3 | Racket & Solver-aided programming                              |   lec16      |      |     |    |
+| 3/8  | No class        |        |      |     |   hw5  |
+| 3/10 | No class        |        |      |     |    |
 
 # Grading
 
