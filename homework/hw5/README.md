@@ -136,9 +136,6 @@ because `X2` is not a free variable with respect to the substitution, i.e. it is
 
 ## Submission and Scoring
 
-**Note: the autograder will be set up at a later time (ETA: the weekend before
-the deadline).**
-
 Submit `typeinfer.ml` on Gradescope, where an autograder will run your code on a
 set of test cases. _You should test your code with your own test cases before
 submitting it to the autograder. The autograder will only tell you if you are
@@ -165,3 +162,19 @@ Note: if you do not implement the occurs check correctly in your `unify`, you
 may easily end up with an infinite loop--in which case the autograder will time
 out and assign you a score of zero. Take extra care to ensure that your occurs
 check is _implemented and correct_ before you submit.
+
+### March 5, 2021 update
+
+* `unify` has been renamed to `unify_helper`, and a new function named `unify`
+  is used to invoke the helper. The `apply_sub` helper in `type_infer` has been
+  moved to `unify`. This ensures that the output of `unify` itself will be
+  "fully substituted", not just the output of `type_infer`. **If you started
+  before March 5, you must make a similar change to your existing code or else
+  your (correct) answers will not match the autograder's.**
+* Some people had difficulty getting their code compile with the autograder on
+  the previous assignments, despite their code being correct. We have just added
+  a `typeinfer.mli` file (note: *mli* not *ml*) that can be used to check if
+  your code will compile on the autograder. Just drop it into the same directory
+  as `typeinfer.ml` and run `make test`.
+* `test.ml` has been updated with an improved `unify` check and some additional
+  examples.

@@ -5,14 +5,21 @@ let ty_err = Typecheck.ty_err ;;
 
 (** Type AST used for type inference *)
 type ityp =
-  | (* Integer type *)
+  | (* Type variable *)
     IInt
   | (* Function type *)
     IFun of ityp * ityp
   | (* List type *)
     IList of ityp
-  | (* Type variable *)
+  | (* Integer type *)
     IVar of int
+
+module Dsl = struct
+  let i = IInt
+  let (=>) t1 t2 = IFun (t1, t2)
+  let l t = IList t
+  let v n = IVar n
+end
 
 (** Converts a typ into an ityp *)
 let rec ityp_of_typ = function
@@ -117,7 +124,24 @@ let sub_cons sub cons =
 
 (** Unification algorithm that computes a type substitution that solves the
    constraints, or raises a Type_error if there is no solution. *)
-let rec unify (cons : (ityp * ityp) list) : sub = failwith "TODO: hw5"
+let rec unify_helper (cons : (ityp * ityp) list) : sub = failwith "TODO: hw5"
+
+let unify cons =
+  let sub0 = unify_helper cons in
+  let bound_vars = List.map fst (Sub.bindings sub0) in
+  (* Replaces all type variables in the inferred type with concrete types,
+     allowing only "free" type variables. This works by substituting type
+     variables until a fixed point is reached (which is guaranteed since the
+     occurs check ensures that the solution graph is a DAG). *)
+  let rec apply_sub sub' =
+    let ty_vars = List.fold_left IntSet.union IntSet.empty
+        (List.map (fun (_, t) -> free_vars t) (Sub.bindings sub'))
+    in
+    if IntSet.is_empty (IntSet.inter ty_vars (IntSet.of_list bound_vars))
+    then sub'
+    else apply_sub (Sub.map (sub_ityp sub') sub')
+  in
+  apply_sub sub0
 
 (** Hindley-Milner type inference *)
 let type_infer (e : expr) : ityp * sub =
@@ -133,15 +157,4 @@ let type_infer (e : expr) : ityp * sub =
   List.iter (fun (i, t) -> Format.printf "%d => %s\n%!" i (string_of_ityp t))
     (Sub.bindings sub) ;
   *)
-  let bound_vars = List.map fst (Sub.bindings sub) in
-  (* Replaces all type variables in the inferred type with concrete types,
-     allowing only "free" type variables. This works by substituting type
-     variables until a fixed point is reached (which is guaranteed since the
-     occurs check ensures that the solution graph is a DAG). *)
-  let rec apply_sub ty' =
-    let ty_vars = free_vars ty' in
-    if IntSet.is_empty (IntSet.inter ty_vars (IntSet.of_list bound_vars))
-    then ty'
-    else apply_sub (sub_ityp sub ty')
-  in
-  (apply_sub ty, sub)
+  (sub_ityp sub ty, sub)
