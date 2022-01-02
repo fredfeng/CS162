@@ -19,7 +19,7 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 
 | Date  | Topic                                         | Slides | Read | Out | Due |
 |-------|-----------------------------------------------|--------|------|-----|-----|
-| 1/4  | Hello, World! & Introduction to λ<sup>+</sup>                                   |  [lec1](lectures/lecture1.pdf)     |      |     |     |
+| 1/4  | Hello, World! & Introduction to λ<sup>+</sup>                                   |  [lec1](#)     |      |     |     |
 | 1/6  | Lambda Calculus I          |  [lec2](#), [lamp](lectures/lambda-plus.pdf)      |  5.1-5.2    |     |     |
 | 1/11  | Lambda Calculus II             |  [lec3](#)      | 5.3     |  [hw1](#)    |     |
 | 1/13  | A crash course in OCaml       |  [lec4](#)     |      |     |     |
