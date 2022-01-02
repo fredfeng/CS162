@@ -5,46 +5,45 @@ Programming Languages are the bricks, mortar and steel of the information age. O
 # Logistics
 Instructor: Yu Feng (yufeng@cs.ucsb.edu)
 
-TA: Bryan Tan (bryantan@ucsb.edu)
+TA: Junrui Liu (junrui@ucsb.edu), Mehmet Emre (emre@cs.ucsb.edu)
 
-Class: M,Wed, 9:30am, Zoom
+Class: Tue,Thu, 9:30am, Zoom
 
-Discussion session: Friday, 10-10:50am, Zoom (also recorded)
+Discussion session: Friday, TBD, Zoom (also recorded)
 
-TA's office hour: Bryan Tan (by appointment only)
+TA's office hour: Junrui Liu (TBD), Mehmet Emre (TBD)
 
-Instructor's office hour: Fri, 9am-10am
+Instructor's office hour: Fri, 3pm-4pm
 
 Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Types-Programming-Languages-MIT-Press/dp/0262162091)
 
 | Date  | Topic                                         | Slides | Read | Out | Due |
 |-------|-----------------------------------------------|--------|------|-----|-----|
 | 1/4  | Hello, World! & Introduction to λ<sup>+</sup>                                   |  [lec1](lectures/lecture1.pdf)     |      |     |     |
-| 1/6  | Lambda Calculus I          |  [lec2](lectures/lecture2.pdf), [lamp](lectures/lambda-plus.pdf)      |  5.1-5.2    |     |     |
-| 1/11  | Lambda Calculus II             |  [lec3](lectures/lecture3.pdf)      | 5.3     |  [hw1](#)    |     |
-| 1/13  | A crash course in OCaml       |  [lec4](lectures/lecture4.pdf)     |      |     |     |
-| 1/18  | MLK Jr. Day      |  no class    |      |   [hw2](homework/hw2/)   |  hw1   |
-| 1/20  | Introduction to Parsing       |  [lec5](lectures/lecture5.pdf)     |     |      |     |
-| 1/25  | Operational Semantics I       |  [lec6](lectures/lecture6.pdf)     |  11.12     | [hw3](homework/hw3/) |  hw2   |
-| 1/27  | Operational Semantics II       |  [lec7](lectures/lecture7.pdf)     | 8.1,8.2, 9.1-9.3     |      |     |
+| 1/6  | Lambda Calculus I          |  [lec2](#), [lamp](lectures/lambda-plus.pdf)      |  5.1-5.2    |     |     |
+| 1/11  | Lambda Calculus II             |  [lec3](#)      | 5.3     |  [hw1](#)    |     |
+| 1/13  | A crash course in OCaml       |  [lec4](#)     |      |     |     |
+| 1/18  | TBD     |  no class    |      |   [hw2](homework/hw2/)   |  hw1   |
+| 1/20  | Introduction to Parsing       |  [lec5](#)     |     |      |     |
+| 1/25  | Operational Semantics I       |  [lec6](#)     |  11.12     | [hw3](homework/hw3/) |  hw2   |
+| 1/27  | Operational Semantics II       |  [lec7](#)     | 8.1,8.2, 9.1-9.3     |      |     |
 | 2/1  | Datatypes       |  [lec8](lectures/lecture8.pdf)     |     |      |    |
-| 2/3 | Type checking I                    | [lec9](lectures/lecture9.pdf)     |  10.3    |    |     |
-| 2/8 | Type checking II                   |  [lec10](lectures/lecture10.pdf)      |      | [hw4](homework/hw4/)    |   hw3  |
-| 2/10 | Recursion, Higher Order Functions                           |  [lec11](lectures/lecture11.pdf)     |      |     |    |
-| 2/15 | Presidents' Day              |         |      |     |     |
-| 2/17 | Type Inference & Polymorphism I                | [lec12](lectures/lecture12.pdf)       |   22.1-22.4   |    |     |
-| 2/22 | Type Inference & Polymorphism II                  | [lec13](lectures/lecture13.pdf)       |  22.7    |   [hw5](#)  |  hw4  |
-| 2/24 | Environments and Closures            |   [lec14](lectures/lecture14.pdf)     |      |     |     |
-| 3/1  | Course review & Software robustness   |    [lec15](lectures/lecture15.pdf)      |      |     |     |
-| 3/3 | Racket & Solver-aided programming       |   [lec16](lectures/lecture16.pdf)      |      |     |    |
+| 2/3 | Type checking I                    | [lec9](#)     |  10.3    |    |     |
+| 2/8 | Type checking II                   |  [lec10](#)      |      | [hw4](homework/hw4/)    |   hw3  |
+| 2/10 | Recursion, Higher Order Functions                 |  [lec11](#)     |      |     |    |
+| 2/15 | TBD              |         |      |     |     |
+| 2/17 | Type Inference & Polymorphism I                | [lec12](#)       |   22.1-22.4   |    |     |
+| 2/22 | Type Inference & Polymorphism II                  | [lec13](#)       |  22.7    |   [hw5](#)  |  hw4  |
+| 2/24 | Environments and Closures            |   [lec14](#)     |      |     |     |
+| 3/1  | Course review & Software robustness   |    [lec15](#)      |      |     |     |
+| 3/3 | Racket & Solver-aided programming       |   [lec16](#)      |      |     |    |
 | 3/8  | No class        |        |      |     |   hw5  |
 | 3/10 | No class        |        |      |     |    |
 
 # Grading
 
-1. Weekly Quizzes: 25%
-2. Programming Assignments: 75%
-4. Extra credit: 2%
+1. 6 Programming Assignments: 100%
+2. Extra credit: 2%
 
 Below is a grading system used by CS162 (No curving).
 
