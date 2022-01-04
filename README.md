@@ -9,9 +9,9 @@ TA: Junrui Liu (junrui@ucsb.edu), Mehmet Emre (emre@cs.ucsb.edu)
 
 Class: Tue,Thu, 9:30am, Zoom
 
-Discussion session: Friday, TBD, Zoom (also recorded)
+Discussion session: Friday, 9am and 10am, Zoom (also recorded)
 
-TA's office hour: Junrui Liu (TBD), Mehmet Emre (TBD)
+TA's office hour: Junrui Liu (Wed, 4pm-5pm), Mehmet Emre (Mon, 2pm-3pm)
 
 Instructor's office hour: Fri, 3pm-4pm
 
