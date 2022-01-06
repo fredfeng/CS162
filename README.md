@@ -17,28 +17,28 @@ Instructor's office hour: Fri, 3pm-4pm
 
 Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Types-Programming-Languages-MIT-Press/dp/0262162091)
 
-| Date  | Topic                                         | Slides | Read | Out | Due |
-|-------|-----------------------------------------------|--------|------|-----|-----|
-| 1/4  | Hello, World! & Introduction to λ<sup>+</sup>                                   |  [lec1](#)     |      |     |     |
-| 1/6  | Lambda Calculus I          |  [lec2](#), [lamp](lectures/lambda-plus.pdf)      |  5.1-5.2    |     |     |
-| 1/11  | Lambda Calculus II             |  [lec3](#)      | 5.3     |  [hw1](#)    |     |
-| 1/13  | A crash course in OCaml       |  [lec4](#)     |      |     |     |
-| 1/18  | TBD     |  no class    |      |   [hw2](homework/hw2/)   |  hw1   |
-| 1/20  | Introduction to Parsing       |  [lec5](#)     |     |      |     |
-| 1/25  | Operational Semantics I       |  [lec6](#)     |  11.12     | [hw3](homework/hw3/) |  hw2   |
-| 1/27  | Operational Semantics II       |  [lec7](#)     | 8.1,8.2, 9.1-9.3     |      |     |
-| 2/1  | Datatypes       |  [lec8](lectures/lecture8.pdf)     |     |      |    |
-| 2/3 | Type checking I                    | [lec9](#)     |  10.3    |    |     |
-| 2/8 | Type checking II                   |  [lec10](#)      |      | [hw4](homework/hw4/)    |   hw3  |
-| 2/10 | Recursion, Higher Order Functions                 |  [lec11](#)     |      |     |    |
-| 2/15 | TBD              |         |      |     |     |
-| 2/17 | Type Inference & Polymorphism I                | [lec12](#)       |   22.1-22.4   |    |     |
-| 2/22 | Type Inference & Polymorphism II                  | [lec13](#)       |  22.7    |   [hw5](#)  |  hw4  |
-| 2/24 | Environments and Closures            |   [lec14](#)     |      |     |     |
-| 3/1  | Course review & Software robustness   |    [lec15](#)      |      |     |     |
-| 3/3 | Racket & Solver-aided programming       |   [lec16](#)      |      |     |    |
-| 3/8  | No class        |        |      |     |   hw5  |
-| 3/10 | No class        |        |      |     |    |
+| Date | Topic                                          | Slides | Read | Out | Due |
+|------|------------------------------------------------|--------|------|-----|-----|
+| 1/4  | Hello, World! & Introduction to λ<sup>+</sup>  | [lec1](#) | | | |
+| 1/6  | Lambda Calculus I                              | [lec2](#) | 5.1-5.2 | | |
+| 1/11 | Lambda Calculus II                             | [lec3](#) | 5.3 | | |
+| 1/13 | A crash course in OCaml                        | [lec4](#)| | | |
+| 1/18 | TBD                                            | noclass | | | |
+| 1/20 | Introduction to Parsing                        | [lec5](#) | | | |
+| 1/25 | Operational Semantics I                        | [lec6](#) | 11.12 | | |
+| 1/27 | Operational Semantics II                       | [lec7](#) | 8.1,8.2, 9.1-9.3 | | |
+| 2/1  | Datatypes                                      | [lec8](lectures/lecture8.pdf) | | | |
+| 2/3  | Type checking I                                | [lec9](#) | 10.3 | | |
+| 2/8  | Type checking II                               | [lec10](#) | | | |
+| 2/10 | Recursion, Higher Order Functions              | [lec11](#) | | | |
+| 2/15 | TBD                                            | | | | |
+| 2/17 | Type Inference & Polymorphism I                | [lec12](#) | 22.1-22.4 | | |
+| 2/22 | Type Inference & Polymorphism II               | [lec13](#) | 22.7 | | |
+| 2/24 | Environments and Closures                      | [lec14](#) | | | |
+| 3/1  | Course review & Software robustness            | [lec15](#) | | | |
+| 3/3  | Racket & Solver-aided programming              | [lec16](#) | | | |
+| 3/8  | No class                                       | | | | |
+| 3/10 | No class                                       | | | | |
 
 # Grading
 
