@@ -19,15 +19,15 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 
 | Date | Topic                                          | Slides | Read | Out | Due |
 |------|------------------------------------------------|--------|------|-----|-----|
-| 1/4  | Hello, World! & Introduction to λ<sup>+</sup>  | [lec1](#) | | | |
-| 1/6  | OCaml crash course I                              | [lec2](#) | 5.1-5.2 | | |
-| 1/11 | OCaml crash course II                             | [lec3](#) | 5.3 | | |
+| 1/4  | Hello, World! & Introduction to λ<sup>+</sup>  | [lec1](lectures/lecture1.pdf) | | | |
+| 1/6  | OCaml crash course I                              | [lec2](lectures/lecture2.pdf) |  | | |
+| 1/11 | OCaml crash course II                             | [lec3](#) |  | | |
 | 1/13 | OCaml crash course III                        | [lec4](#)| | | |
-| 1/18 | Lambda Calculus I                                            | noclass | | | |
+| 1/18 | Lambda Calculus I                                            |  | | | |
 | 1/20 | Lambda Calculus II                        | [lec5](#) | | | |
 | 1/25 | Operational Semantics I                        | [lec6](#) | 11.12 | | |
 | 1/27 | Operational Semantics II                       | [lec7](#) | 8.1,8.2, 9.1-9.3 | | |
-| 2/1  | Datatypes                                      | [lec8](lectures/lecture8.pdf) | | | |
+| 2/1  | Datatypes                                      | [lec8](#) | | | |
 | 2/3  | Type checking I                                | [lec9](#) | 10.3 | | |
 | 2/8  | Type checking II                               | [lec10](#) | | | |
 | 2/10 | Recursion, Higher Order Functions              | [lec11](#) | | | |
