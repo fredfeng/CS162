@@ -71,5 +71,22 @@ Then `utop` should be available as a command.
 
 When you want to load a file in `utop` so that you can run the functions inside, use the `#use "file name"` directive. For example, to load `example.ml`, you'd type `#use "example.ml" ;;` on `utop`, like so:
 
-```
+```ocaml
+utop # #use "example.ml";;
+val answer : int = 42
+val double : int -> int = <fun>
+val square : int -> int = <fun>
+val nine : int = 9
+val abstract_value : int -> int = <fun>
+val abstract_value2 : int -> int = <fun>
+val math_values : int -> int list = <fun>
+val fact : int -> int = <fun>
+val even : int -> bool = <fun>
+val odd : int -> bool = <fun>
+- : int = 3
+- : int = 46
+type int_option = SomeInt of int | NoInt
+val safe_fact : int -> int_option = <fun>
+val inspect : int_option -> string = <fun>
+type 'a gen_list = Empty | Cons of 'a * 'a gen_list
 ```
