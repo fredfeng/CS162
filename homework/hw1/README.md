@@ -57,7 +57,7 @@ purposes of grading.
 
 Implement a function `max: int list -> int option` that will either find the largest element in a non-empty list, or will return `None` if the list is empty.
 
-For example, `max [9; 3; 15; 5]` will evaluate to `15`.
+For example, `max [9; 3; 15; 5]` will evaluate to `Some 15`.
 
 
 
