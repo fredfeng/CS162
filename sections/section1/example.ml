@@ -100,13 +100,16 @@ let inspect (o : int_option) = match o with (* match the value of `o` *)
 
 (* 'a is a type parameter, it is similar to a template parameter in C++
 
- * type name comes after the parameters, so this would become "int list",
- "string list" and so on. *)
-type 'a list = 
-  | Empty              (* a list is either empty *)
-  | Cons of 'a * list  (* or, it has a first element (the 'a portion) and
-                          contains a reference to the rest of the list (the list
-                          portion) *)
+ * type name comes after the parameters, so this would become "int gen_list",
+ * "string gen_list" and so on.
+ *
+ * gen_list stands for GENeric LIST.
+ *)
+type 'a gen_list = 
+  | Empty                  (* a list is either empty *)
+  | Cons of 'a * gen_list  (* or, it has a first element (the 'a portion)
+                              and contains a reference to the rest of the
+                              list (the list portion) *)
 
 (* For example, the following would be represented visually as:
 
