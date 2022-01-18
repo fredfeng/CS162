@@ -23,7 +23,7 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 1/6  | OCaml crash course I                              | [lec2](lectures/lecture2.pdf) |  | | |
 | 1/11 | OCaml crash course II                             | [lec3](lectures/lecture2.pdf) |  | AS1| |
 | 1/13 | OCaml crash course III                        | [lec4](lectures/lecture3.pdf)| | | |
-| 1/18 | Lambda Calculus I                                            |  | | | |
+| 1/18 | OCaml crash course III                                           | [lec5](lectures/lecture4.pdf) | | | |
 | 1/20 | Lambda Calculus II                        | [lec5](#) | | | AS1 |
 | 1/25 | Operational Semantics I                        | [lec6](#) | 11.12 | | |
 | 1/27 | Operational Semantics II                       | [lec7](#) | 8.1,8.2, 9.1-9.3 | | |
