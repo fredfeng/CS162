@@ -11,7 +11,7 @@ Class: Tue,Thu, 9:30am, Zoom
 
 Discussion session: Friday, 9am and 10am, Zoom (also recorded)
 
-TA's office hour: Junrui Liu (Wed, 4pm-5pm), Mehmet Emre (Mon, 2:30pm-3:30pm)
+TA's office hour: Junrui Liu (Wed, 4pm-5pm, [zoom link](https://ucsb.zoom.us/my/junrui)), Mehmet Emre (Mon, 2:30pm-3:30pm)
 
 Instructor's office hour: Fri, 3pm-4pm
 
