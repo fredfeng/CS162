@@ -8,6 +8,8 @@ of this assignment is to help you get familiar with λ<sup>+</sup> so that you
 will be able to implement an interpreter for it later. It will also help you
 practice recursion which will be vital for programming the upcoming assignments.
 
+Note: We will make the λ<sup>+</sup> interpreter available on Friday and set up Gradescope later this week. In the meantime, you can get started by downloading the language manual from GauchoSpace and reading it.
+
 ## Submission
 
 For each problem, place your solution in a separate file, with the following
@@ -69,7 +71,7 @@ in
 get_smaller_than
 ```
 
-For example, `smaller_than 3 (1 @ 5 @ 3 @ 4 @ 2 @ 0 @ Nil)` would evaluate to `1 @ 2 @ 0 @ Nil` because 1, 2, and 0 are less than 3 (and appear in that order in the list) but none of the other elements in the input are.
+For example, `get_smaller_than 3 (1 @ 5 @ 3 @ 4 @ 2 @ 0 @ Nil)` would evaluate to `1 @ 2 @ 0 @ Nil` because 1, 2, and 0 are less than 3 (and appear in that order in the list) but none of the other elements in the input are.
 
 ## Problem 3 (5 points)
 
