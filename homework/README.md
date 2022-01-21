@@ -6,11 +6,11 @@ The main goal of the programming assignments in CS162 is to build λ<sup>+</sup>
 Difficulty: ** <br />
 Since you will use OCaml to implement your λ<sup>+</sup> programming language, in this assignment, you will complete some basic programming tasks (e.g., recursions, pattern matching, data types, etc.) in OCaml as the warm-up.
 
-<!-- 2. [Get familiar with λ<sup>+</sup>: 15%](hw1.md) <br />
+2. [Get familiar with λ<sup>+</sup>: 15%](hw2/) <br />
 Difficulty: * <br />
 In this assignment, you will be accomplishing some basic programming tasks (simple arithmetic, function calls, etc.) in λ<sup>+</sup>.
 
-
+<!--
 3. [Interpreting your λ<sup>+</sup> code: 15%](hw3/) <br/>
 Difficulty: *** <br/>
 In this assignment, you will implement an interpreter for your λ<sup>+</sup> program using OCaml. The operational semantics of λ<sup>+</sup> can be found in its reference manual.
