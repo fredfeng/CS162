@@ -116,7 +116,7 @@ rev
 
 For example,
  - `largest_elems Nil` should evaluate to `Nil`.
- - `largest_elems (1 @ 2 @ Nil) @ Nil` should evaluate to `2 @ Nil`. (The given argument is a nested list, so we'd write it like `[[1; 2]]` in OCaml's friendlier syntax).
+ - `largest_elems ((1 @ 2 @ Nil) @ Nil)` should evaluate to `2 @ Nil`. (The given argument is a nested list, so we'd write it like `[[1; 2]]` in OCaml's friendlier syntax).
  - `largest_elems ((1 @ 2 @ Nil) @ Nil @ (4 @ 3 @ Nil) @ Nil)` should evaluate to `2 @ 4 @ Nil`. Using friendlier list syntax, the argument is the nested list `[[1; 2]; []; [4; 3]]` and `largest_elems` would return the list `[2; 4]` because the largest element in the first list is `2`, the second list doesn't have any elements, and the largest element in the third list is `4`.
 
 *Hint*: You can write a helper like the max function you had from the previous homework, but you need to change it because lambda+ doesn't have `option`, and you need to handle empty lists carefully.
