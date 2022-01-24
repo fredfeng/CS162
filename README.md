@@ -24,10 +24,10 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 1/11 | OCaml crash course II                             | [lec3](lectures/lecture2.pdf) |  | AS1| |
 | 1/13 | OCaml crash course III                        | [lec4](lectures/lecture3.pdf)| | | |
 | 1/18 | OCaml crash course III                                           | [lec5](lectures/lecture4.pdf) | | | |
-| 1/20 | Lambda Calculus II                        | [lec5](#) | | AS2 | AS1 |
-| 1/25 | Operational Semantics I                        | [lec6](#) | 11.12 | | |
-| 1/27 | Operational Semantics II                       | [lec7](#) | 8.1,8.2, 9.1-9.3 | | |
-| 2/1  | Datatypes                                      | [lec8](#) | | | |
+| 1/20 | OCaml crash course III & Introduction to λ<sup>+</sup>                        | [lec5](lectures/lecture4.pdf) | | AS2 | AS1 |
+| 1/25 | Lambda Calculus I                        | [lec5](lectures/lecture5.pdf) | 11.12 | | |
+| 1/27 | Lambda Calculus II                       | [lec6](lectures/lecture6.pdf) | 8.1,8.2, 9.1-9.3 | | |
+| 2/1  | Operational Semantics I                                      | [lec8](#) | | | |
 | 2/3  | Type checking I                                | [lec9](#) | 10.3 | | |
 | 2/8  | Type checking II                               | [lec10](#) | | | |
 | 2/10 | Recursion, Higher Order Functions              | [lec11](#) | | | |
