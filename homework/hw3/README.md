@@ -13,8 +13,7 @@ semantics for λ<sup>+</sup>. In this assignment, you will implement the subset 
 * The files required for this assignment are located in this folder. In
   particular, you will need to write all your code in [`eval.ml`](eval.ml).
   The only function you need to implement is `eval`.
-* You will need to write about X lines of code for this assignment. However,
-  you will realize (as you are writing the code) that most of it is repetitive.
+* You will need to write about 50 lines of code for this assignment.
 * To test your code, you can either compare your output against the reference
   interpreter or use the unit test helpers defined in `test.ml`. We will not be
   scoring how you test your code.
