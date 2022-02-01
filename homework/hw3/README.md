@@ -129,5 +129,3 @@ Some of the things we will be looking for during grading are:
 * Your `eval` function correctly raises a `Stuck` exception if no evaluation
   rule matches. We reserve the right to deduct points if you hardcode Stuck
   exceptions to avoid doing the rest of the assignment properly.
-* Alpha-renaming is performed correctly during substitution. This is worth a
-  relatively low but still significant number of points.
