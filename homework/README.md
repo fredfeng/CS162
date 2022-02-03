@@ -14,11 +14,11 @@ In this assignment, you will be accomplishing some basic programming tasks (simp
 Difficulty: ** <br/>
 In this assignment, you will use OCaml to implement an interpreter for a subset of λ<sup>+</sup> based on its operational semantics.
 
-<!--
 1. [Interpreting your λ<sup>+</sup> code (part 2): 20%](hw3/) <br/>
 Difficulty: *** <br/>
 In this assignment, you will finish the interpreter for the full λ<sup>+</sup> language.
 
+<!--
 1. [Type check your λ<sup>+</sup> program: 15%](hw4/) <br/>
 Difficulty: ** <br/>
 In this assignment, you will write a type checker for your λ<sup>+</sup> program such that your checker can reject ill-typed λ<sup>+</sup> programs. 
