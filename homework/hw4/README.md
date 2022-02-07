@@ -1,4 +1,4 @@
-# Homework Assignment 3
+# Homework Assignment 4
 
 **Due Thursday, February 17 at 11:59 pm (pacific time)**
 
