@@ -29,7 +29,7 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 1/27 | Lambda Calculus II                       | [lec6](lectures/lecture6.pdf) | 8.1,8.2, 9.1-9.3 | AS3 | AS2 |
 | 2/1  | Operational Semantics I                                      | [lec7](lectures/lecture7.pdf) | | | |
 | 2/3  | Operational Semantics II                                | [lec8](lectures/lecture8.pdf) | 10.3 | AS4 | AS3|
-| 2/8  | Operational Semantics III                               | [lec10](#) | | | |
+| 2/8  | Operational Semantics III                               | [lec9](lectures/lecture8.pdf) | | | |
 | 2/10 | Type Checking I              | [lec11](#) | | | |
 | 2/15 | Type Checking II                                            | | | | |
 | 2/17 | Type Inference & Polymorphism I                | [lec12](#) | 22.1-22.4 |AS5 | AS4 |
