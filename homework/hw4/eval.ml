@@ -30,11 +30,11 @@ let assert_value e =
 let rec free_vars (e : expr) : VarSet.t =
   failwith "TODO: homework" ;;
 
-(** Performs the substitution [x -> ex]e *)
+(** Performs the substitution [x -> e1]e2 *)
 let rec subst (x : string) (e1 : expr) (e2 : expr) : expr =
   failwith "TODO: homework" ;;
 
-(** Evaluates e under the environment env. You need to copy over your
+(** Evaluates e. You need to copy over your
    implementation of homework 3. *)
 let rec eval (e : expr) : expr =
   try
