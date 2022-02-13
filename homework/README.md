@@ -18,12 +18,12 @@ In this assignment, you will use OCaml to implement an interpreter for a subset 
 Difficulty: *** <br/>
 In this assignment, you will finish the interpreter for the full λ<sup>+</sup> language.
 
-<!--
 1. [Type check your λ<sup>+</sup> program: 15%](hw4/) <br/>
 Difficulty: ** <br/>
 In this assignment, you will write a type checker for your λ<sup>+</sup> program such that your checker can reject ill-typed λ<sup>+</sup> programs. 
 
-5. [Infer the types for your λ<sup>+</sup> code: 20%](hw5/) <br/>
+<!-- 
+1. [Infer the types for your λ<sup>+</sup> code: 20%](hw5/) <br/>
 Difficulty: ** <br/>
 In this assignment, you will implement the type inference algorithm that we learn in the class.
 

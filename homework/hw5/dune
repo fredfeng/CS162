@@ -1,0 +1,38 @@
+; Build configuration
+
+; Treat warnings as non-fatal
+(env
+ (dev
+  (flags (:standard -warn-error -A))))
+
+; ---------------
+; lamp main files
+(library
+ (name lamp)
+ (modules ast scanner parser eval typecheck)
+ (wrapped false))
+
+(ocamllex scanner)
+(ocamlyacc parser)
+
+; ---------------
+; generate date information
+(rule
+ (target build_metadata.ml)
+ (deps (universe))
+ (action (run bash "-c" "echo let date = \\\"$(date)\\\" > %{target}")))
+
+; ---------------
+; lamp repl
+(executable
+ (name repl)
+ (modules build_metadata repl)
+ (libraries lamp linenoise)
+ (modes exe))
+
+; ---------------
+; unit tests
+(test
+ (name test)
+ (libraries lamp alcotest)
+ (modules test))
