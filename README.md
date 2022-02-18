@@ -30,8 +30,8 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 2/1  | Operational Semantics I                                      | [lec7](lectures/lecture7.pdf) | | | |
 | 2/3  | Operational Semantics II                                | [lec8](lectures/lecture8.pdf) | 10.3 | AS4 | AS3|
 | 2/8  | Operational Semantics III                               | [lec9](lectures/lecture8.pdf) | | | |
-| 2/10 | Type Checking I              | [lec11](#) | | | |
-| 2/15 | Type Checking II                                            | | | | |
+| 2/10 | Type Checking I              | [lec10](lectures/lecture9.pdf) | | | |
+| 2/15 | Type Checking II                                            | [lec11](lectures/lecture10.pdf) | | | |
 | 2/17 | Type Inference & Polymorphism I                | [lec12](#) | 22.1-22.4 |AS5 | AS4 |
 | 2/22 | Type Inference & Polymorphism II               | [lec13](#) | 22.7 | | |
 | 2/24 | Environments and Closures                      | [lec14](#) | |AS6 | AS5 |
