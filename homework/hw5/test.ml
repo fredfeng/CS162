@@ -31,24 +31,19 @@ let check_ty_b env s () =
     Alcotest.fail ("type checked to " ^ string_of_typ t)
   with
   | Typecheck.Type_error _ -> ()
+;;
 
-
-
-let main () =
-  let open Alcotest in
-  (* Test that an expression has the expected type *)
-  let test_ty_t s exp = test_case s `Quick (check_ty_s Typecheck.Env.empty s exp) in
-  (* Test that an expression is ill-typed *)
-  let test_ty_b s = test_case s `Quick (check_ty_b Typecheck.Env.empty s) in
-  (* Test suite *)
-  run "lambda-plus" [
-    "well_typed", [
-      test_ty_t "5+10" TInt ;
-    ];
-    "ill_typed", [
-      test_ty_b "1 + Nil[Int]" ;
-    ]
+let open Alcotest in
+(* Test that an expression has the expected type *)
+let test_ty_t s exp = test_case s `Quick (check_ty_s Typecheck.Env.empty s exp) in
+(* Test that an expression is ill-typed *)
+let test_ty_b s = test_case s `Quick (check_ty_b Typecheck.Env.empty s) in
+(* Test suite *)
+run "lambda-plus" [
+  "well_typed", [
+    test_ty_t "5+10" TInt ;
+  ];
+  "ill_typed", [
+    test_ty_b "1 + Nil[Int]" ;
   ]
-
-
-main ()
+]
