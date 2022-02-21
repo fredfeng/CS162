@@ -21,25 +21,25 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 |------|------------------------------------------------|--------|------|-----|-----|
 | 1/4  | Hello, World! & Introduction to λ<sup>+</sup>  | [lec1](lectures/lecture1.pdf) | | | |
 | 1/6  | OCaml crash course I                              | [lec2](lectures/lecture2.pdf) |  | | |
-| 1/11 | OCaml crash course II                             | [lec3](lectures/lecture2.pdf) |  | AS1| |
+| 1/11 | OCaml crash course II                             | [lec3](lectures/lecture2.pdf) |  | HW1| |
 | 1/13 | OCaml crash course III                        | [lec4](lectures/lecture3.pdf)| | | |
 | 1/18 | OCaml crash course III                                           | [lec5](lectures/lecture4.pdf) | | | |
-| 1/20 | OCaml crash course III & Introduction to λ<sup>+</sup>                        | [lec5](lectures/lecture4.pdf) | | AS2 | AS1 |
+| 1/20 | OCaml crash course III & Introduction to λ<sup>+</sup>                        | [lec5](lectures/lecture4.pdf) | | HW2 | HW1 |
 | 1/25 | Lambda Calculus I                        | [lec5](lectures/lecture5.pdf) | 11.12 | | |
-| 1/27 | Lambda Calculus II                       | [lec6](lectures/lecture6.pdf) | 8.1,8.2, 9.1-9.3 | AS3 | AS2 |
+| 1/27 | Lambda Calculus II                       | [lec6](lectures/lecture6.pdf) | 8.1,8.2, 9.1-9.3 | HW3 | HW2 |
 | 2/1  | Operational Semantics I                                      | [lec7](lectures/lecture7.pdf) | | | |
-| 2/3  | Operational Semantics II                                | [lec8](lectures/lecture8.pdf) | 10.3 | AS4 | AS3|
+| 2/3  | Operational Semantics II                                | [lec8](lectures/lecture8.pdf) | 10.3 | HW4 | HW3|
 | 2/8  | Operational Semantics III                               | [lec9](lectures/lecture8.pdf) | | | |
 | 2/10 | Type Checking I              | [lec10](lectures/lecture9.pdf) | | | |
 | 2/15 | Type Checking II                                            | [lec11](lectures/lecture10.pdf) | | | |
-| 2/17 | Type Inference & Polymorphism I                | [lec12](#) | 22.1-22.4 |AS5 | AS4 |
+| 2/17 | Type Inference & Polymorphism I                | [lec12](#) | 22.1-22.4 |HW5 | HW4 |
 | 2/22 | Type Inference & Polymorphism II               | [lec13](#) | 22.7 | | |
-| 2/24 | Environments and Closures                      | [lec14](#) | |AS6 | AS5 |
-| 3/1  | Course review & Software robustness            | [lec15](#) | | | |
-| 3/3  | Racket & Solver-aided programming              | [lec16](#) | | |AS6 |
+| 2/24 | Environments and Closures                      | [lec14](#) | | |  |
+| 3/1  | Course review & Software robustness            | [lec15](#) | | HW6| HW5|
+| 3/3  | Racket & Solver-aided programming              | [lec16](#) | | | |
 | 3/8  | No class                                       | | | | |
 | 3/10 | No class                                       | | | | |
-
+| 3/11 |                                                | | | |HW6|
 # Grading
 
 1. 6 Programming Assignments: 100%
