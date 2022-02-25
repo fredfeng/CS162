@@ -32,9 +32,9 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 2/8  | Operational Semantics III                               | [lec9](lectures/lecture8.pdf) | | | |
 | 2/10 | Type Checking I              | [lec10](lectures/lecture9.pdf) | | | |
 | 2/15 | Type Checking II                                            | [lec11](lectures/lecture10.pdf) | | | |
-| 2/17 | Guest Lecture                | [lec12](#) | 22.1-22.4 |HW5 | HW4 |
-| 2/22 | Type Inference & Polymorphism I               | [lec13](#) | 22.7 | | |
-| 2/24 | Type Inference & Polymorphism II                     | [lec14](#) | | |  |
+| 2/17 | Guest Lecture                | [lec](#) | 22.1-22.4 |HW5 | HW4 |
+| 2/22 | Type Inference & Polymorphism I               | [lec12](lectures/lecture12.pdf) | 22.7 | | |
+| 2/24 | Type Inference & Polymorphism II                     | [lec13](lectures/lecture13.pdf) | | |  |
 | 3/1  | Course review & Software robustness            | [lec15](#) | | HW6| HW5|
 | 3/3  | Racket & Solver-aided programming              | [lec16](#) | | | |
 | 3/8  | No class                                       | | | | |
