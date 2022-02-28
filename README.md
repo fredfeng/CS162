@@ -35,8 +35,8 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 2/17 | Guest Lecture                | [lec](#) | 22.1-22.4 |HW5 | HW4 |
 | 2/22 | Type Inference & Polymorphism I               | [lec12](lectures/lecture12.pdf) | 22.7 | | |
 | 2/24 | Type Inference & Polymorphism II                     | [lec13](lectures/lecture13.pdf) | | |  |
-| 3/1  | Course review & Software robustness            | [lec15](#) | | HW6| HW5|
-| 3/3  | Racket & Solver-aided programming              | [lec16](#) | | | |
+| 3/1  | Polymorphism            | [lec14](#) | | HW6| HW5|
+| 3/3  | Racket & Solver-aided programming              | [lec15](#) | | | |
 | 3/8  | No class                                       | | | | |
 | 3/10 | No class                                       | | | | |
 | 3/11 |                                                | | | |HW6|
