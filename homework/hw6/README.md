@@ -1,4 +1,4 @@
-# Homework Assignment 5
+# Homework Assignment 6
 
 **Due Friday, March 11 at 11:59 pm (pacific time)**
 
