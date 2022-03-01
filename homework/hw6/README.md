@@ -15,6 +15,11 @@ latest version of the manual posted on Gauchospace.
   named `unify`. You don't need to modify this function at all, we provide it so
   that both the result of `unify` and the result of `type_infer` are fully
   substituted.
+* **When you need to do unification recursively inside `unify_helper`, you
+  should call `unify_helper` to satisfy the OCaml compiler.**  (If you want, and
+  if you are comfortable with `let rec ... and ...` syntax in OCaml, you can
+  also use the `let rec unify_helper = ... and unify = ...` to merge the
+  definitions, and call `unify` directly).
 * Most of the code for this assignment (including the "boilerplate" constraint
   typing rules) will be provided to you, with the crucial and interesting parts
   missing. While you will not have to write too much code (~90 lines), the
