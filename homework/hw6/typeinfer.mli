@@ -11,7 +11,7 @@ val string_of_ityp : ityp -> string
 module Env :
   sig
     type key = String.t
-    type 'a t = 'a Stdlib__map.Make(String).t
+    type 'a t = 'a Map.Make(String).t
     val empty : 'a t
     val is_empty : 'a t -> bool
     val mem : key -> 'a t -> bool
@@ -64,7 +64,7 @@ val gen_cons : Context.t -> Ast.expr -> ityp * Context.t
 module Sub :
   sig
     type key = Int.t
-    type 'a t = 'a Stdlib__map.Make(Int).t
+    type 'a t = 'a Map.Make(Int).t
     val empty : 'a t
     val is_empty : 'a t -> bool
     val mem : key -> 'a t -> bool
@@ -109,7 +109,7 @@ type sub = ityp Sub.t
 module IntSet :
   sig
     type elt = Int.t
-    type t = Stdlib__set.Make(Int).t
+    type t = Set.Make(Int).t
     val empty : t
     val is_empty : t -> bool
     val mem : elt -> t -> bool
