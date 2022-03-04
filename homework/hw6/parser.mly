@@ -3,6 +3,14 @@ open Ast
 let mk_lambdas (xs : (string * typ option) list) (e : expr) =
   let f (x, topt) e' = Lambda(x, topt, e') in
   List.fold_right f xs e
+let syntax_error () =
+  let start_pos = Parsing.rhs_start_pos 1 in
+  let end_pos = Parsing.rhs_end_pos 1 in
+  let sl = start_pos.pos_lnum
+  and sc = start_pos.pos_cnum - start_pos.pos_bol
+  and el = end_pos.pos_lnum
+  and ec = end_pos.pos_cnum - end_pos.pos_bol in
+  failwith (Printf.sprintf "Syntax error: %d.%d-%d.%d" sl sc el ec)
 %}
 
 /* Tokens */
@@ -17,7 +25,7 @@ let mk_lambdas (xs : (string * typ option) list) (e : expr) =
 %token <int> NUMBER
 %token <string> ID
 
-%nonassoc LPAREN ID NIL NUMBER TRUE FALSE LBRACK RBRACK
+%nonassoc LPAREN RPAREN ID NIL NUMBER TRUE FALSE LBRACK RBRACK
 %right LAMBDA
 %left AND OR
 %left LT GT EQ
@@ -38,6 +46,7 @@ let mk_lambdas (xs : (string * typ option) list) (e : expr) =
 
 main:
     | expr EOF { $1 }
+    | error EOF { syntax_error () }
 
 idlist:
     | ID              { [$1] }
@@ -73,10 +82,10 @@ tyarg_opt:
    */
 expr:
     | LAMBDA bindlist DOT expr %prec LAMBDA  { mk_lambdas $2 $4 }
-    | FUN bind WITH bindlist EQ expr IN expr { let (x, topt) = $2 in LetBind(x, topt, mk_lambdas $4 $6, $8) }
-    | LPAREN expr RPAREN                     { $2 }
+    | FUN bind WITH bindlist EQ expr IN expr { let (x, topt) = $2 in LetBind(x, topt, Fix (Lambda(x, topt, mk_lambdas $4 $6)), $8) }
     | IF expr THEN expr ELSE expr            { IfThenElse($2, $4, $6) }
     | LET bind EQ expr IN expr               { let (x, t) = $2 in LetBind(x, t, $4, $6) }
+    | binop                                  { $1 }
     | term                                   { $1 }
 
 atom:
@@ -85,21 +94,20 @@ atom:
     | NIL tyarg_opt                       { ListNil $2 }
 
 binop:
-    | term PLUS term                      { Binop($1, Add, $3) }
-    | term SUB term                       { Binop($1, Sub, $3) }
-    | term TIMES term                     { Binop($1, Mul, $3) }
-    | term LT term                        { Binop($1, Lt, $3) }
-    | term GT term                        { Binop($1, Gt, $3) }
-    | term EQ term                        { Binop($1, Eq, $3) }
-    | term AND term                       { Binop($1, And, $3) }
-    | term OR term                        { Binop($1, Or, $3) }
+    | expr PLUS expr                      { Binop($1, Add, $3) }
+    | expr SUB expr                       { Binop($1, Sub, $3) }
+    | expr TIMES expr                     { Binop($1, Mul, $3) }
+    | expr LT expr                        { Binop($1, Lt, $3) }
+    | expr GT expr                        { Binop($1, Gt, $3) }
+    | expr EQ expr                        { Binop($1, Eq, $3) }
+    | expr AND expr                       { Binop($1, And, $3) }
+    | expr OR expr                        { Binop($1, Or, $3) }
+    | expr CONS expr                      { ListCons($1, $3) }
 
 term:
     | atom                                { $1 }
-    | binop                               { $1 }
     | HEAD term                           { ListHead $2 }
     | TAIL term                           { ListTail $2 }
     | ISNIL term                          { ListIsNil $2 }
     | LPAREN expr RPAREN                  { $2 }
     | term term %prec APP                 { App($1, $2) }
-    | term CONS term                      { ListCons($1, $3) }
