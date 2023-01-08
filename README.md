@@ -5,41 +5,41 @@ Programming Languages are the bricks, mortar and steel of the information age. O
 # Logistics
 Instructor: Yu Feng (yufeng@cs.ucsb.edu)
 
-TA: Junrui Liu (junrui@ucsb.edu), Mehmet Emre (emre@cs.ucsb.edu)
+TA: Junrui Liu (junrui@ucsb.edu), Hongbo Wen (hongbo@ucsb.edu), Jingtao Xia (jingtao@ucsb.edu)
 
-Class: Tue,Thu, 9:30am, Zoom
+Class: Mon,Wed, 2pm, PHELPS 1160
 
-Discussion session: Friday, 9am and 10am, Zoom (also recorded)
+Discussion session: Friday, 9am and 10am
 
-TA's office hour: Junrui Liu (Wed, 4pm-5pm, [zoom link](https://ucsb.zoom.us/my/junrui)), Mehmet Emre (Mon, 2:30pm-3:30pm)
+TA's office hour: Junrui Liu (TBD), Hongbo Wen (TBD), Jingtao Xia (TBD)
 
-Instructor's office hour: Fri, 3pm-4pm
+Instructor's office hour: Wed, 3:30pm-4:30pm (PLSE LAB: PHELPS 3523)
 
 Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Types-Programming-Languages-MIT-Press/dp/0262162091)
 
 | Date | Topic                                          | Slides | Read | Out | Due |
 |------|------------------------------------------------|--------|------|-----|-----|
-| 1/4  | Hello, World! & Introduction to λ<sup>+</sup>  | [lec1](lectures/lecture1.pdf) | | | |
-| 1/6  | OCaml crash course I                              | [lec2](lectures/lecture2.pdf) |  | | |
-| 1/11 | OCaml crash course II                             | [lec3](lectures/lecture2.pdf) |  | HW1| |
-| 1/13 | OCaml crash course III                        | [lec4](lectures/lecture3.pdf)| | | |
-| 1/18 | OCaml crash course III                                           | [lec5](lectures/lecture4.pdf) | | | |
-| 1/20 | OCaml crash course III & Introduction to λ<sup>+</sup>                        | [lec5](lectures/lecture4.pdf) | | HW2 | HW1 |
-| 1/25 | Lambda Calculus I                        | [lec5](lectures/lecture5.pdf) | 11.12 | | |
-| 1/27 | Lambda Calculus II                       | [lec6](lectures/lecture6.pdf) | 8.1,8.2, 9.1-9.3 | HW3 | HW2 |
-| 2/1  | Operational Semantics I                                      | [lec7](lectures/lecture7.pdf) | | | |
-| 2/3  | Operational Semantics II                                | [lec8](lectures/lecture8.pdf) | 10.3 | HW4 | HW3|
-| 2/8  | Operational Semantics III                               | [lec9](lectures/lecture8.pdf) | | | |
-| 2/10 | Type Checking I              | [lec10](lectures/lecture9.pdf) | | | |
-| 2/15 | Type Checking II                                            | [lec11](lectures/lecture10.pdf) | | | |
-| 2/17 | Guest Lecture                | [lec](#) | 22.1-22.4 |HW5 | HW4 |
-| 2/22 | Type Inference & Polymorphism I               | [lec12](lectures/lecture12.pdf) | 22.7 | | |
-| 2/24 | Type Inference & Polymorphism II                     | [lec13](lectures/lecture13.pdf) | | |  |
-| 3/1  | Polymorphism            | [lec14](lectures/lecture14.pdf) | | HW6| HW5|
-| 3/3  | Racket & Solver-aided programming              | [lec15](lectures/lecture15.pdf) | | | |
-| 3/8  | No class                                       | | | | |
-| 3/10 | No class                                       | | | | |
-| 3/11 |                                                | | | |HW6|
+| 1/9  | Hello, World! & Introduction to λ<sup>+</sup>  | [lec1](lectures/lecture1.pdf) | | | |
+| 1/11  | OCaml crash course I                              |  |  | | |
+| 1/16 (MLK) | No class                            |  |  | HW1| |
+| 1/18 | OCaml crash course II                        | | | | |
+| 1/23 | OCaml crash course III                                           |  | | | |
+| 1/25 |  Introduction to λ<sup>+</sup>                        |  | | HW2 | HW1 |
+| 1/30 | Lambda Calculus I                        |  | 11.12 | | |
+| 2/1 | Lambda Calculus II                       |  | 8.1,8.2, 9.1-9.3 | HW3 | HW2 |
+| 2/6  | Operational Semantics I                                      |  | | | |
+| 2/8  | Operational Semantics II                                |  | 10.3 | HW4 | HW3|
+| 2/13  | Operational Semantics III                               |  | | | |
+| 2/15 | Type Checking I              |  | | | |
+| 2/20 (President) | No class                                            |  | | | |
+| 2/22 | Guest Lecture                |  | 22.1-22.4 |HW5 | HW4 |
+| 2/27 | Type Checking II               |  | 22.7 | | |
+| 3/1 | Guest Lecture                      |  | | |  |
+| 3/1  | Type Inference & Polymorphism I            |  | | HW6| HW5|
+| 3/6  | Type Inference & Polymorphism II              |  | | | |
+| 3/8  | Polymorphism                                       | | | | |
+| 3/13 | Racket & Solver-aided programming                                       | | | | |
+| 3/15 | Course Review                                             | | | |HW6|
 # Grading
 
 1. 6 Programming Assignments: 100%
