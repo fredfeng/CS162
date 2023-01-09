@@ -5,7 +5,7 @@ Programming Languages are the bricks, mortar and steel of the information age. O
 # Logistics
 Instructor: Yu Feng (yufeng@cs.ucsb.edu)
 
-TA: Junrui Liu (junrui@ucsb.edu), Hongbo Wen (hongbowen@ucsb.edu), Jingtao Xia (jingtao@ucsb.edu)
+TA: Junrui Liu (junrui@ucsb.edu), Hongbo Wen (hongbowen@ucsb.edu), Jingtao Xia (jingtaoxia@ucsb.edu)
 
 Class: Mon, Wed, 2pm, PHELPS 1160
 
