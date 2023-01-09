@@ -7,13 +7,16 @@ Instructor: Yu Feng (yufeng@cs.ucsb.edu)
 
 TA: Junrui Liu (junrui@ucsb.edu), Hongbo Wen (hongbo@ucsb.edu), Jingtao Xia (jingtao@ucsb.edu)
 
-Class: Mon,Wed, 2pm, PHELPS 1160
+Class: Mon, Wed, 2pm, PHELPS 1160
 
-Discussion session: Friday, 9am and 10am
-
-TA's office hour: Junrui Liu (TBD), Hongbo Wen (TBD), Jingtao Xia (TBD)
+Discussion session: Fri, 9-9:50am, 10-10:50am, and 11-11:50am
 
 Instructor's office hour: Wed, 3:30pm-4:30pm (PLSE LAB: PHELPS 3523)
+
+TA's office hours (location: PLSE Lab=Phelps 3523):
+- Junrui Liu: Fri 2-3pm
+- Hongbo Wen: Tue 11am-12pm
+- Jingtao Xia: Thurs 2-3pm
 
 Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Types-Programming-Languages-MIT-Press/dp/0262162091)
 
