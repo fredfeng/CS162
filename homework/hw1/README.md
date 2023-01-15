@@ -74,7 +74,7 @@ For example, `rev [10; 1; 3; 4]` will evaluate to `[4; 3; 1; 10]`.
 | ---------------------------- | ------------------------------ |
 | [`compress.ml`](compress.ml) | Practice recursion on lists.   |
 
-Implement a function `compress : ’a list -> ’a list` that takes a list and returns a new list with all consecutive duplicate elements removed. For example:
+Implement a function `compress : 'a list -> 'a list` that takes a list and returns a new list with all consecutive duplicate elements removed. For example:
 
 ```ocaml
 # compress ["a";"a";"a";"a";"b";"c";"c";"a";"a";"d";"e";"e";"e";"e"];;
@@ -90,7 +90,7 @@ Implement a function `compress : ’a list -> ’a list` that takes a list and r
 | [`choose.ml`](choose.ml)     | Practice recursion on lists and on natural numbers. |
 
 
-Implement a function `choose : ’a list -> int -> 'a list list` that will take a list `xs` representing a set of items and a natural number `n`, and list every possible way to choose `n` items from `xs`. Assume that elements in `xs` are distinct, and `n` is non-negative. The output order does not matter.
+Implement a function `choose : 'a list -> int -> 'a list list` that will take a list `xs` representing a set of items and a natural number `n`, and list every possible way to choose `n` items from `xs`. Assume that elements in `xs` are distinct, and `n` is non-negative. The output order does not matter.
 
 ```ocaml
 # choose ["a"; "b"; "c"] 2;;
@@ -105,7 +105,7 @@ Implement a function `choose : ’a list -> int -> 'a list list` that will take 
 | ---------------------------- | ------------------------------ |
 | [`graft.ml`](graft.ml)       | Practice recursion on trees.   |
 
-Implement a function `graft : ’a tree -> ’a tree -> 'a tree` that will replace every leaf of the first input tree with the second input tree. For example:
+Implement a function `graft : 'a tree -> 'a tree -> 'a tree` that will replace every leaf of the first input tree with the second input tree. For example:
 
 ```ocaml
 # graft (Node (0, Leaf 1, Leaf 2)) (Node (3, Leaf 4, Leaf 5));;
@@ -128,7 +128,7 @@ Visually,
 | ---------------------------- | ------------------------------ |
 | [`paths.ml`](paths.ml)       | Practice recursion on trees.   |
 
-Implement a function `paths : ’a tree -> 'a list list` that will return all paths from the root node to the leaves. Order the paths from left to right (i.e., in your returned list, the leftmost path should be the first path, and the rightmost path should be the last one).
+Implement a function `paths : 'a tree -> 'a list list` that will return all paths from the root node to the leaves. Order the paths from left to right (i.e., in your returned list, the leftmost path should be the first path, and the rightmost path should be the last one).
 
 ```ocaml
 # paths (Node (0, Node (1, Leaf 2, Leaf 3), Leaf 4));;
@@ -152,7 +152,7 @@ Visually,
 | [`relabel.ml`](relabel.ml)   | Practice recursion on trees and simulating state mutation in a functional way. |
 
 
-Implement a function `relabel : ’a tree -> int tree` that will label a tree according to the order in which a node is first visited by depth-first search. Labels start at 0 and are incremented by 1 each time.
+Implement a function `relabel : 'a tree -> int tree` that will label a tree according to the order in which a node is first visited by depth-first search. Labels start at 0 and are incremented by 1 each time.
 
 ```ocaml
 # relabel (Node ('r', Node ('e', Leaf 'l', Leaf 'a'), Node ('b', Leaf 'e', Leaf 'l')));;
