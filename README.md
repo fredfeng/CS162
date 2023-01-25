@@ -11,7 +11,7 @@ Class: Mon, Wed, 2pm, PHELPS 1160
 
 Discussion session: Fri, 9-9:50am, 10-10:50am, and 11-11:50am
 
-Instructor's office hour: Wed, 3:30pm-4:30pm (PLSE LAB: PHELPS 3523)
+Instructor's office hour: Wed, 3:30pm-4:30pm (HFH 2157)
 
 TA's office hours (location: PLSE Lab=Phelps 3523):
 - Junrui Liu: Fri 2-3pm
