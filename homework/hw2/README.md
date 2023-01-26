@@ -10,12 +10,12 @@ We will cover infinite lists in OCaml in [section 3](../../sections/sec03/README
 
 In what follows, we use the informal notation `[a; b; c; ...]` to refer to an infinite list containing `a`, `b`, `c`, and so on (note that we can't really write this in OCaml).
 
-In `inf.ml`, we implemented provided the type definition of infinite lists:
+In `inf.ml`, we provided the type definition of infinite lists:
 
 ```ocaml
 type 'a inf = Cons of (unit -> ('a * 'a inf))
 ```
-as well as a few examples of functions that operate over them (i.e., `cons`, `from`, and `map`). Your job is to implement the following functions. You may not use any OCaml library function except for `List.map`.
+as well as a few examples of functions that operate over them. Your job is to implement the following functions. You may not use any OCaml library function except for `List.map`.
 
 1. (1 pt) `val repeat : 'a -> 'a inf` takes an element `x` and returns an infinite list that only consists of `x`. 
 
