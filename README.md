@@ -31,10 +31,10 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 1/23 | OCaml crash course III                                           | [lec4](lectures/lecture4.pdf)  | | | |
 | 1/25 |  Introduction to λ<sup>+</sup>                        |  | | hw2 | hw1 |
 | 1/30 | Lambda Calculus I                        |  | 11.12 | | |
-| 2/1 | Lambda Calculus II                       |  | 8.1,8.2, 9.1-9.3 | hw3 | hw2 |
-| 2/6  | Operational Semantics I                                      |  | | | |
-| 2/8  | Operational Semantics II                                |  | 10.3 | hw4 | hw3|
-| 2/13  | Operational Semantics III                               |  | | | |
+| 2/1 | Lambda Calculus II                       |  | 8.1,8.2, 9.1-9.3 | | |
+| 2/6  | Operational Semantics I                                      |  | | hw3 | hw2 |
+| 2/8  | Operational Semantics II                                |  | 10.3 |  | |
+| 2/13  | Operational Semantics III                               |  | | hw4| hw3|
 | 2/15 | Type Checking I              |  | | | |
 | 2/20 (President) | No class                                            |  | | | |
 | 2/22 | Guest Lecture                |  | 22.1-22.4 |hw5 | hw4 |
