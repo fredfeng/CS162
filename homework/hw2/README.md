@@ -243,12 +243,12 @@ The same notion of power sets applies even if S is infinite, with one distinctio
 
 In what follows, you will implement the power set function for each case separately.
 
-1. (2 pts) Implement `pow_fin: 'a inf -> 'a list inf` that will take a list representing an infinite set, and enumerate all of its finite subsets. The order of enumeration doesn't matter, as long as each finite subset appears exactly once somewhere in the output. For example, one possible enumeration of `nat` can be
+1. (2 pts) Implement `pow_fin: 'a inf -> 'a list inf` that will take a list representing an infinite set, and enumerate all of its finite subsets. The order of enumeration doesn't matter, as long as each finite subset appears exactly once somewhere in the output. For example, one possible enumeration of finite subsets of `nat` can be
     ```ocaml
     [ []; [0]; [1]; [0;1]; [2]; [0;2]; [1;2]; [0;1;2]; ... ]
     ```
 
-2. (100 pts) Implement `pow_inf: 'a inf -> 'a inf inf` that will take a list representing an infinite set, and enumerate all of its infinite subsets. The order of enumeration doesn't matter, as long as each infinite subset appears exactly once somewhere in the output. For example, one possible enumeration of `nat` can be
+2. (100 pts) Implement `pow_inf: 'a inf -> 'a inf inf` that will take a list representing an infinite set, and enumerate all of its infinite subsets. The order of enumeration doesn't matter, as long as each infinite subset appears exactly once somewhere in the output. For example, one possible enumeration of infinite subsets of `nat` can be
     ```ocaml
     [ nat; even; odd; primes; ... ]
     ```
