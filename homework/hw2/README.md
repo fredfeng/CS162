@@ -79,7 +79,7 @@ Submit `inf.ml` on gradescope. You do not need to submit `inf.mli`.
 ---
 ## Part 2: λ<sup>+</sup>
 
-The purpose of this part of the assignment is to help you get familiar with λ<sup>+</sup> so that you will be able to implement an interpreter for it later.
+The purpose of this part of the assignment is to help you get familiar with λ<sup>+</sup> so that you will be able to implement an interpreter for it later. The λ<sup>+</sup> language is defined in [reference manual](../../misc/lambda-plus-reference-manual.pdf).
 
 ### Running the λ<sup>+</sup> interpreted
 
@@ -174,7 +174,7 @@ largest_elems
 ### Important notes
 * Please make sure you have the latest version of `lamp` so that you do not
   encounter any weird bugs that we may have fixed. The homework assignment will
-  be graded with the version of `lamp` compiled on **???**, which you will be able to copy to your machine from CSIL.
+  be graded with the version of `lamp` compiled on **Fri Mar 4 12:11:58 PST 2022**, which you will be able to copy to your machine from CSIL.
 * You may assume that a linked list is "well-typed", i.e. it is always of the
   form `n1 @ n2 @ ... @ Nil` where each `n` has the same type and there is a `Nil`
   at the end of the list. However, you must check to ensure that any linked list
