@@ -21,7 +21,7 @@ as well as a few examples of functions that operate over them. Your job is to im
 
     For example, `repeat 0` will return `[0; 0; 0; ...]`.
 
-1. (2 pt) `val fib : int inf` represents the Fibonacci sequence, starting from 0 and 1. That is, `fib` will be `[0; 1; 1; 2; 3; 5; 8; 13; ...]`.
+1. (2 pts) `val fib : int inf` represents the Fibonacci sequence, starting from 0 and 1. That is, `fib` will be `[0; 1; 1; 2; 3; 5; 8; 13; ...]`.
 
 1. (2 pts) `val firstn : int -> 'a inf -> 'a list` returns the first `n` elements of an infinite list.
     
@@ -31,7 +31,7 @@ as well as a few examples of functions that operate over them. Your job is to im
     
     For example, `interleave [0; 2; 4; ...] [1; 3; 5; ...]` will return `[0; 1; 2; 3; 4; 5; ...]`.
 
-1. (2 pt) `val z : int inf` enumerates the integers as:
+1. (2 pts) `val z : int inf` enumerates the integers as:
     ```ocaml
     [0; 1; -1; 2; -2; 3; -3; ...]
     ```
@@ -211,7 +211,7 @@ It turns out we can model a lot of interesting stuff with infinite lists. The fo
 
 ### Bonus Question 1: Turing Completeness
 
-(2 pts) A language is *Turing complete* if it can simulate arbitrary Turing machines. Fill the missing parts in `turing.ml` to simulate Turing machines and show OCaml is Turing-complete. Next, come up with a concrete Turing machine of your choice, and simulate it on the empty tape.
+(2 pts) A language is *Turing complete* if it can simulate arbitrary Turing machines. Fill the missing parts in `turing.ml` to simulate Turing machines, which will show that OCaml is Turing-complete. Next, come up with a concrete Turing machine of your choice, and simulate it on the empty tape.
 
 
 ### Bonus Question 2: Small Infinities
