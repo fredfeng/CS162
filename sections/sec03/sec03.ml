@@ -16,7 +16,7 @@ add 1
 ==> (replace name with definition)
 (fun x -> fun y -> x + y) 1
 ==> (application is substitution)
-fun y -> x + y
+fun y -> 1 + y
 *)
 let inc = add 1
 
@@ -25,11 +25,11 @@ let inc = add 1
    Use them and be cool *)
 
 (* val map: ('a -> 'b) -> 'a list -> 'b list *)
-assert (List.map inc [1;2;3] = [2;3;4])
+let _ = assert (List.map inc [1;2;3] = [2;3;4])
 
 (* Exercise: 2D increment *)
 let mystery = failwith "your code here"
-asert (List.map mystery [[1; 2; 3]; [4; 5; 6]] = [[2; 3; 4]; [5; 6; 7]])
+let _ = assert (List.map mystery [[1; 2; 3]; [4; 5; 6]] = [[2; 3; 4]; [5; 6; 7]])
 
 (* Solutions (all are equivalent): *)
 let mystery l = List.map inc l
