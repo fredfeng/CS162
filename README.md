@@ -31,7 +31,7 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 1/23 | OCaml crash course III                                           | [lec4](lectures/lecture4.pdf)  | | | |
 | 1/25 |  Lambda Calculus I                        | [lec5](lectures/lecture5.pdf) | | [hw2](./homework/hw2) | hw1 |
 | 1/30 | λ<sup>+</sup>, Inference Rules| [lec6](lectures/inference-rules.pdf)  | 11.12 | | |
-| 2/1 | Lambda Calculus II                       |  | 8.1,8.2, 9.1-9.3 | | |
+| 2/1 | Lambda Calculus II                       | [lec6](lectures/lecture6.pdf)  | 8.1,8.2, 9.1-9.3 | | |
 | 2/6  | Operational Semantics I                                      |  | | hw3 | hw2 |
 | 2/8  | Operational Semantics II                                |  | 10.3 |  | |
 | 2/13  | Operational Semantics III                               |  | | hw4| hw3|
