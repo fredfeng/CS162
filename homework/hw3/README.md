@@ -1,6 +1,6 @@
 # Homework Assignment 3
 
-**Due Monday, February 13 at 11:59 pm (pacific time)**
+**Due Wednesday, Feb 15 at 11:59PM**
 
 In HW3 and HW4, you will use OCaml to implement the big-step operational
 semantics for λ<sup>+</sup>. In this assignment, you will implement the subset of λ<sup>+</sup> involving arithmetic, boolean, and list operations, while let-bindings and functions will be the main focus of the next assignment.

@@ -34,8 +34,8 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 2/1 | Lambda Calculus II                       | [lec6](lectures/lecture6.pdf)  | 8.1,8.2, 9.1-9.3 | | |
 | 2/6  | Operational Semantics I                                      |  | | [hw3](homework/hw3/) | hw2 |
 | 2/8  | Operational Semantics II                                |  | 10.3 |  | |
-| 2/13  | Operational Semantics III                               |  | | hw4| hw3|
-| 2/15 | Type Checking I              |  | | | |
+| 2/13  | Operational Semantics III                               |  | | hw4| |
+| 2/15 | Type Checking I              |  | | |hw3 |
 | 2/20 (President) | No class                                            |  | | | |
 | 2/22 | Guest Lecture                |  | 22.1-22.4 |hw5 | hw4 |
 | 2/27 | Type Checking II               |  | 22.7 | | |
