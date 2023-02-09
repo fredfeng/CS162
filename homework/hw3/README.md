@@ -8,8 +8,7 @@ semantics for λ<sup>+</sup>. In this assignment, you will implement the subset 
 
 ## Overview
 
-* You will need to refer to section on operational semantics of the manual 
-  posted on Gauchospace.
+* You will need to refer to section on operational semantics of the [reference manual](../../misc/lambda-plus-reference-manual.pdf).
 * The files required for this assignment are located in this folder. In
   particular, you will need to write all your code in [`eval.ml`](eval.ml).
   The only function you need to implement is `eval`.
