@@ -35,7 +35,7 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 2/6  | Operational Semantics I                                      | [lec7](lectures/lecture7.pdf)   | | [hw3](homework/hw3/) | hw2 |
 | 2/8  | Operational Semantics II                                |  | 10.3 |  | |
 | 2/13  | Operational Semantics III                               | [lec8](lectures/lecture8.pdf) | | hw4| |
-| 2/15 | Type Checking I              |  | | [hw4](homework/hw4/)|hw3 |
+| 2/15 | Type Checking I              | [lec9](lectures/lecture9.pdf) | | [hw4](homework/hw4/)|hw3 |
 | 2/20 (President) | No class                                            |  | | | |
 | 2/22 | Guest Lecture                |  | 22.1-22.4 | |  |
 | 2/24 |                 |  | |hw5 | hw4 |
