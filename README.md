@@ -39,7 +39,7 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 2/20 (President) | No class                                            |  | | | |
 | 2/22 | Type checking I (continued)               |  [lec9](lectures/lecture9.pdf)| 22.1-22.4 | |  |
 | 2/24 |                 |  | |[hw5](homework/hw5/) | hw4 |
-| 2/27 | Guest Lecture                      |  | | | | |
+| 2/27 | Guest Lecture: Curry-Howard Correspondence | [ch](lectures/curry_howard.ml) | | | | |
 | 3/1 | Type Checking II               |  | 22.7 |  |
 | 3/1  | Type Inference & Polymorphism I            |  | | | |
 | 3/6  | Type Inference & Polymorphism II              |  | | hw6| hw5|
