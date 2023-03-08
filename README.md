@@ -42,10 +42,11 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 2/27 | Guest Lecture: Curry-Howard Correspondence | [ch](lectures/curry_howard.ml) | | | | |
 | 3/1 | Type Checking II               |  | 22.7 |  |
 | 3/1  | Type Inference & Polymorphism I            |  | | | |
-| 3/6  | Type Inference & Polymorphism II              |  | | hw6| hw5|
+| 3/6  | Type Inference & Polymorphism II              |  | | [hw6](homework/hw6)| hw5|
 | 3/8  | Polymorphism                                       | | | | |
 | 3/13 | Racket & Solver-aided programming                                       | | | | |
-| 3/15 | Course Review                                             | | | |hw6|
+| 3/15 | Course Review                                             | | | ||
+| 3/24 | | | | |hw6
 # Grading
 
 1. 6 Programming Assignments: 100%
