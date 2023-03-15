@@ -44,8 +44,8 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 3/1  | Type Inference & Polymorphism I            | [lec11](lectures/lecture11.pdf) | | | |
 | 3/6  | Type Inference & Polymorphism II              | [lec12](lectures/lecture12.pdf) | | [hw6](homework/hw6)| hw5|
 | 3/8  | Polymorphism                                       | [lec13](lectures/lecture13.pdf) | | | |
-| 3/13 | Racket & Solver-aided programming                                       | | | | |
-| 3/15 | Course Review                                             | | | ||
+| 3/13 | Racket & Solver-aided programming                                       | [lec14](lectures/lecture14.pdf)  | | | |
+| 3/15 | Course Review                                             | [lec15](lectures/lecture15.pdf)  | | ||
 | 3/24 | | | | |hw6
 # Grading
 
