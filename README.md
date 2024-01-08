@@ -44,8 +44,8 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 3/13             | TBD                                           | [lec14]                       |                  |     |     |
 # Grading
 
-1. 6 Programming Assignments: 100%
-2. Extra credit: 2%
+1. 5 Programming Assignments: 70%
+2. Midterm Exam: 30%
 
 Below is a grading system used by CS162 (No curving).
 
