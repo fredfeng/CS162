@@ -15,7 +15,7 @@ Instructor's office hour: Tue, 9am-10am (HFH 2157)
 
 TA's office hours (location: PLSE Lab=Phelps 3523):
 - Junrui Liu: Fri 2-3pm
-- Hongbo Wen: Tue 11am-12pm
+- Hongbo Wen: Thurs 1-2pm
 - Hanzhi Liu: Thurs 2-3pm
 
 Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Types-Programming-Languages-MIT-Press/dp/0262162091)
