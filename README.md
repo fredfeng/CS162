@@ -14,34 +14,34 @@ Discussion session: Fri, 9-9:50am, 10-10:50am, and 11-11:50am
 Instructor's office hour: Tue, 9am-10am (HFH 2157)
 
 TA's office hours (location: PLSE Lab=Phelps 3523):
-- Junrui Liu: Fri 2-3pm
+- Junrui Liu: Tue 11am-12pm
 - Hongbo Wen: Thurs 1-2pm
 - Hanzhi Liu: Thurs 2-3pm
 
 Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Types-Programming-Languages-MIT-Press/dp/0262162091)
 
-| Date | Topic                                          | Slides | Read | Out | Due |
-|------|------------------------------------------------|--------|------|-----|-----|
-| 1/8  | Hello, World! & Introduction to λ<sup>+</sup>  | [lec1](lectures/lecture1.pdf) | | | |
-| 1/10  | OCaml crash course I                              | [lec2]  |  | | |
-| 1/15 (MLK) | No class                            |  |  | | |
-| 1/17 | OCaml crash course II                        | [lec3] | | | |
-| 1/22 | OCaml crash course III                                           | [lec4]  | | | |
-| 1/24 |  Lambda Calculus I                        | [lec5] | | hw2 | hw1 |
-| 1/29 | λ<sup>+</sup>, Inference Rules| [notes](lectures/inference-rules.pdf)  | 11.12 | | |
-| 1/31 | Lambda Calculus II                       | [lec6]  | 8.1,8.2, 9.1-9.3 | | |
-| 2/5  | Operational Semantics I                                      | [lec7]   | | hw3 | hw2 |
-| 2/7  | Operational Semantics II                                |  | 10.3 |  | |
-| 2/12  | Operational Semantics III                               | [lec8] | | | |
-| 2/14 | Type Checking I              | [lec9] | | hw4|hw3 |
-| 2/19 (President) | No class                                            |  | | | |
-| 2/21 | Type Checking I (continued)               |  [lec9]| 22.1-22.4 | |  |
-| 2/26 | Midterm Review                |  | |hw5 | hw4 |
-| 2/28 | Midterm |  | | | | |
-| 3/4 | Type Checking II               |  | 22.7 |  |
-| 3/6  | Type Inference & Polymorphism II              | [lec12] | | hw6| hw5|
-| 3/11  | Polymorphism                                       | [lec13] | | | |
-| 3/13 | TBD                                      | [lec14]  | | | |
+| Date             | Topic                                         | Slides                        | Read             | Out | Due |
+| ---------------- | --------------------------------------------- | ----------------------------- | ---------------- | --- | --- |
+| 1/8              | Hello, World! & Introduction to λ<sup>+</sup> | [lec1](lectures/lecture1.pdf) |                  |     |     |
+| 1/10             | OCaml crash course I                          | [lec2]                        |                  |     |     |
+| 1/15 (MLK)       | No class                                      |                               |                  |     |     |
+| 1/17             | OCaml crash course II                         | [lec3]                        |                  |     |     |
+| 1/22             | OCaml crash course III                        | [lec4]                        |                  |     |     |
+| 1/24             | Lambda Calculus I                             | [lec5]                        |                  | hw2 | hw1 |
+| 1/29             | λ<sup>+</sup>, Inference Rules                |                               | 11.12            |     |     |
+| 1/31             | Lambda Calculus II                            | [lec6]                        | 8.1,8.2, 9.1-9.3 |     |     |
+| 2/5              | Operational Semantics I                       | [lec7]                        |                  | hw3 | hw2 |
+| 2/7              | Operational Semantics II                      |                               | 10.3             |     |     |
+| 2/12             | Operational Semantics III                     | [lec8]                        |                  |     |     |
+| 2/14             | Type Checking I                               | [lec9]                        |                  | hw4 | hw3 |
+| 2/19 (President) | No class                                      |                               |                  |     |     |
+| 2/21             | Type Checking I (continued)                   | [lec9]                        | 22.1-22.4        |     |     |
+| 2/26             | Midterm Review                                |                               |                  | hw5 | hw4 |
+| 2/28             | Midterm                                       |                               |                  |     |     |  |
+| 3/4              | Type Checking II                              |                               | 22.7             |     |
+| 3/6              | Type Inference & Polymorphism II              | [lec12]                       |                  | hw6 | hw5 |
+| 3/11             | Polymorphism                                  | [lec13]                       |                  |     |     |
+| 3/13             | TBD                                           | [lec14]                       |                  |     |     |
 # Grading
 
 1. 6 Programming Assignments: 100%
@@ -50,7 +50,7 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 Below is a grading system used by CS162 (No curving).
 
 | Letter | Percentage |
-|--------|------------|
+| ------ | ---------- |
 | A+     | 95–100%    |
 | A      | 90–94%     |
 | A-     | 85–89%     |
