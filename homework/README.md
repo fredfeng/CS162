@@ -2,9 +2,10 @@
 
 The main goal of the programming assignments in CS162 is to build λ<sup>+</sup>, a small programming language from scratch.
 
-<!-- 1. [Grab your weapon! OCaml in action: 15%](hw1/) <br />
-Since you will use OCaml to implement your λ<sup>+</sup> programming language, in this assignment, you will complete some basic programming tasks (e.g., recursions, pattern matching, data types, etc.) in OCaml as the warm-up.
+1. [Grab your weapon! OCaml in action](hw1/)
+   Since you will use OCaml to implement your λ<sup>+</sup> programming language, in this assignment, you will complete some basic programming tasks (e.g., recursions, pattern matching, data types, etc.) in OCaml as the warm-up.
 
+<!-- 
 1. [Higher order functions in OCaml + Getting familiar with λ<sup>+</sup>: 15%](hw2/) <br />
 In this assignment, you will first practice defining and using higher order functions in OCaml. Next, you will accomplish some basic programming tasks (simple arithmetic, function calls, etc.) in λ<sup>+</sup>.
 
