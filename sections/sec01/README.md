@@ -84,9 +84,9 @@ eval $(opam env)
 
 At this point, if everything went well, when you type `ocaml`, you should see a prompt like this when you type `ocaml`:
 
-```
-% ocaml
-        OCaml version 4.13.1
+```bash
+OCaml version 4.14.1
+Enter #help;; for help.
 
 #
 ```
