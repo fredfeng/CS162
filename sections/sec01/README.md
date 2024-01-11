@@ -91,13 +91,10 @@ At this point, if everything went well, when you type `ocaml`, you should see a 
 #
 ```
 
-Then, you can proceed to the next stage, installing [`utop`](https://opam.ocaml.org/blog/about-utop/).
-
 
 ### Step 3. Installing `dune` and `utop`.
 
-`dune` is a build system for OCaml. It is similar to `make` but is more suitable for OCaml projects. `utop` is an enhanced OCaml interpreter with features like autocompletion.
-`utop` is is an enhanced OCaml interpreter with features like autocompletion. Install them using
+`dune` is a build system for OCaml. It is similar to `make` but is more suitable for OCaml projects. `utop` is an enhanced OCaml interpreter with features like autocompletion. Install them using
 
 ```
 opam install dune utop
@@ -117,8 +114,10 @@ as a reponse. That is, OCaml infers that the expression we entered has type `int
 
 In REPL mode, every expression needs to be terminated with `;;` before you hit the enter key. Otherwise, you'll just start a new line by hitting enter, and `utop` will patiently wait for you to type `;;` before it can start interpreting the expression. This contrasts with file mode, in which you do not have to terminate every expression with `;;`.
 
+This is the only time you need to manually install dependencies using `opam install <package-name>`. For all homework assignments, we will provide you with a `.opam` file that lists all dependencies that can be automatically installed at once using a single command.
 
-### Loading an OCaml file in `utop`
+
+## Loading an OCaml file in `utop`
 
 Make a new file called `hello.ml` containing the following line:
 ```
@@ -127,7 +126,7 @@ print_endline "hello!"
 
 Now, open `utop` and load `hello.ml` with
 ```
-#use "hello.ml`;;
+#use "hello.ml";;
 ```
 
 You should see `hello!` printed on your console, along with
@@ -140,9 +139,9 @@ For homework assignments, you can use any text editor you like. We recommend [VS
 
 
 
-### Debugging HW1 with `utop`
+## Debugging HW1 with `utop`
 
-When completing a homework assignment, if you would like to load your program and run it interactively, you can run
+When completing hw1, if you would like to load your program and run it interactively, you can run
 ```bash
 dune utop lib
 ```
