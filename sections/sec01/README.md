@@ -53,16 +53,26 @@ Follow [these step](https://opam.ocaml.org/doc/Install.html#Binary-distribution)
 
 > **Note:** Use the commands below one-by-one, read the instructions on the screen and proceed accordingly, since some of the commands below are interactive.
 
-After installing `opam`, you need to first tell your shell where the stuff `opam` installs lives. Use the following command to initialize the environment:
+After installing `opam`, you need to initialize the environment. You need to have at least **1GB** of available disk space. Otherwise the initialization will fail with a weird error message.
+  - To confirm how much space is left on your CSIL account, run `quota -s`. If you have less than 1GB, you can run `du -h -d 1` to see which directories are taking up the most space, and delete some files to free up space. 
+  - Please refer to [this guide](https://ucsb-cs56-pconrad.github.io/topics/csil_disk_quota/) for diagnosing and fixing disk space issues.
+
+The initialization command will take **30-40 minutes** to run (one more reason to not wait until the last minute to start hw1).
+
+In order to prevent an SSH disconnection from interrupting the initialization and corrupting your environment, we recommend you run this command inside a `screen` session. 
+
+To start a `screen` session, run `screen` (and then press `Enter` to dismiss the welcome message if you see any). Then, run the following command:
 
 ```bash
 opam init
 ```
 
-**Important notes:**
-- You need to have at least **1GB** of available disk space. Otherwise the initialization will fail with a weird error message.
-- This command will take **30-40 minutes** to run. ~~One more reason to not wait until the last minute to start hw1.~~
-- Towards the end, it will prompt you once or twice. We highly recommend you **respond with Y to each prompt** to make your life easier later on.
+Once the initialization is going, you can leave it running on CSIL and safely disconnect the current SSH session by pressing `Ctrl-a` and then `d`. You can then safely log out of CSIL. To reconnect to the `screen` session, run `screen -r`.
+
+Towards the end, `opam` will prompt you once or twice. We highly recommend you **respond with Y to each prompt** to make your life easier later on. 
+
+Once the initialization is done, you can exit the `screen` session by pressing `Ctrl-a` and then `k`.
+
 
 After `opam init` is done, type the following command so you can have the OCaml tools in your current shell session:
 
@@ -82,7 +92,7 @@ After the command above is done, you need to tell your shell where OCaml is agai
 eval $(opam env)
 ```
 
-At this point, if everything went well, when you type `ocaml`, you should see a prompt like this when you type `ocaml`:
+At this point, if everything went well, you should see a prompt like this when you type `ocaml`:
 
 ```bash
 OCaml version 4.14.1
@@ -94,7 +104,7 @@ Enter #help;; for help.
 
 ### Step 3. Installing `dune` and `utop`.
 
-`dune` is a build system for OCaml. It is similar to `make` but is more suitable for OCaml projects. `utop` is an enhanced OCaml interpreter with features like autocompletion. Install them using
+`dune` is a build system for OCaml, similar `make` for C. `utop` is an enhanced OCaml interpreter with features like autocompletion. Install them using
 
 ```
 opam install dune utop
@@ -112,9 +122,9 @@ You should see
 ```
 as a reponse. That is, OCaml infers that the expression we entered has type `int`, and it evaluates the expression to `3`.
 
-In REPL mode, every expression needs to be terminated with `;;` before you hit the enter key. Otherwise, you'll just start a new line by hitting enter, and `utop` will patiently wait for you to type `;;` before it can start interpreting the expression. This contrasts with file mode, in which you do not have to terminate every expression with `;;`.
+In REPL mode (i.e. using the interpreter interactively), every expression needs to be terminated with `;;` before you hit the enter key. Otherwise, you'll just start a new line by hitting enter, and `utop` will patiently wait for you to type `;;` before it can start interpreting the expression. This contrasts with file mode, in which you do not have to terminate every expression with `;;`.
 
-This is the only time you need to manually install dependencies using `opam install <package-name>`. For all homework assignments, we will provide you with a `.opam` file that lists all dependencies that can be automatically installed at once using a single command.
+Lastly, note that this is the only time you need to manually install dependencies using `opam install <package-name>`. For all homework assignments, we will have provided you with a `.opam` file that lists all dependencies that can be automatically installed at once using a single command.
 
 
 ## Loading an OCaml file in `utop`
@@ -135,8 +145,9 @@ You should see `hello!` printed on your console, along with
 ```
 indicating that the result of evaluating `print_endline "hello!"` is the unit value `()`, whose type is the unit type. (The unit type is usually used to indicate that the expression has some side effect without procuding a concrete value.)
 
-For homework assignments, you can use any text editor you like. We recommend [VSCode](https://code.visualstudio.com/) with the [OCaml Platform plugin](https://marketplace.visualstudio.com/items?itemName=ocamllabs.ocaml-platform). In addition, if you are working remotely with CSIL, you might want to install the [remote SSH plugin](https://code.visualstudio.com/docs/remote/ssh-tutorial) on your laptop to avoid having to manually sync files between your computer and CSIL.
+For homework assignments, you can use any text editor you like. We recommend [VSCode](https://code.visualstudio.com/) with the [OCaml Platform plugin](https://marketplace.visualstudio.com/items?itemName=ocamllabs.ocaml-platform). This plugin works very well with the OCaml language serve (which can be installed with `opam install ocaml-lsp-server`) to provide real-time type checking and autocompletion suggestions, making your life *much* easier.
 
+In addition, if you are working remotely with CSIL, you might want to install the [remote SSH plugin](https://code.visualstudio.com/docs/remote/ssh-tutorial) on your laptop to avoid having to manually sync files between your computer and CSIL.
 
 
 ## Debugging HW1 with `utop`
