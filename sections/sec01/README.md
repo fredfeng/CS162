@@ -23,8 +23,6 @@ Windows users are recommended to use CSIL instead, since OCaml doesn't work too 
 
 #### CSIL
 
-> **Note:** If you had an unsuccessful installation of `opam`, please run `rm -rf ~/.opam` to clean up partial installation before retrying the steps below.
-
 Log onto a CSIL machine. Download the `opam` binary using:
 ```bash
 curl -LR 'https://github.com/ocaml/opam/releases/download/2.1.4/opam-2.1.4-x86_64-linux' -o opam
@@ -51,30 +49,43 @@ Follow [these step](https://opam.ocaml.org/doc/Install.html#Binary-distribution)
 
 ### Step 2. Installing OCaml, for real
 
-> **Note:** Use the commands below one-by-one, read the instructions on the screen and proceed accordingly, since some of the commands below are interactive.
+> **Note 1:** Use the commands below one-by-one, read the instructions on the screen and proceed accordingly, since some of the commands below are interactive.
+> 
+> **Note 2:** If you had an unsuccessful initialization of `opam`, please run `rm -rf ~/.opam` to clean up partial installation before retrying the steps below.
 
-After installing `opam`, you need to initialize the environment. You need to have at least **1GB** of available disk space. Otherwise the initialization will fail with a weird error message.
-  - To confirm how much space is left on your CSIL account, run `quota -s`. If you have less than 1GB, you can run `du -h -d 1` to see which directories are taking up the most space, and delete some files to free up space. 
-  - Please refer to [this guide](https://ucsb-cs56-pconrad.github.io/topics/csil_disk_quota/) for diagnosing and fixing disk space issues.
+After installing `opam`, you need to initialize the environment. You need to have at least **2GB** of available disk space. Otherwise the initialization will fail with a weird error message:
 
-The initialization command will take **30-40 minutes** to run (one more reason to not wait until the last minute to start hw1).
+```
+Failed to extract archive /tmp/opam-xxxx-xxx/index.tar.gz ...
+```
+To confirm how much space is already used on your CSIL account, run `quota -s`. The number in the `space` column shows how much has been used. Subtracting this number from the `quota` column tells you how much free space you have.
+  - If you have less than 2GB, you can run `du -h -d 1` to see which directories are taking up the most space, and delete some files to free up space.
+  - Very rarely, the initialization will fail because you have too many files in your home directory. In this case, you can run `/cs/faculty/pconrad/bin/countfiles` to see how many files you have, and delete some files to free up space. Try to keep the number under 30K.
+  - Please refer to [this guide](https://ucsb-cs56-pconrad.github.io/topics/csil_disk_quota/) for detailed guide on diagnosing and fixing disk space and file count issues.
 
-In order to prevent an SSH disconnection from interrupting the initialization and corrupting your environment, we recommend you run this command inside a `screen` session. 
+Keep in mind that the initialization process will take **30-40 minutes** (one more reason to not wait until the last minute to start hw1).
 
-To start a `screen` session, run `screen` (and then press `Enter` to dismiss the welcome message if you see any). Then, run the following command:
+In order to prevent an SSH disconnection from interrupting the ongoing initialization and corrupting your environment, we recommend you run this command inside a `screen` session. To start a `screen` session, run `screen` (and then press `Enter` to dismiss the welcome message if you see any). Then, run the following command:
 
 ```bash
-opam init
+opam init -vv -y --shell-setup --bare
 ```
 
-Once the initialization is going, you can leave it running on CSIL and safely disconnect the current SSH session by pressing `Ctrl-a` and then `d`. You can then safely log out of CSIL. To reconnect to the `screen` session, run `screen -r`.
+You should see something like this:
 
-Towards the end, `opam` will prompt you once or twice. We highly recommend you **respond with Y to each prompt** to make your life easier later on. 
+```bash
+<><> Fetching repository information ><><><><><><><><><><><><><><><><><><><><><>
+Processing  1/1: [default: http]
+```
+
+This screen will seem to "get stuck" for a while. This is normal. You can leave it running on CSIL and safely disconnect the current SSH session by pressing `Ctrl-a` and then `d`. You can then safely log out of CSIL. To reconnect to the `screen` session, run `screen -r`.
+
+The initialization is **not** done **unless** you see a new bash prompt in which you can enter new commands. **Do not force kill or quit the seesion if you only see a message like "Done" but don't see a new prompt**, which means the initialization is still running.
 
 Once the initialization is done, you can exit the `screen` session by pressing `Ctrl-a` and then `k`.
 
 
-After `opam init` is done, type the following command so you can have the OCaml tools in your current shell session:
+Type the following command so you can have the OCaml tools in your current shell session:
 
 ```bash
 eval $(opam env)
