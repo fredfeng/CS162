@@ -13,7 +13,6 @@ depends: [
   "dune" {>= "3.11"}
   "base"
   "alcotest"
-  "ocamlformat"
   "ppx_deriving"
   "ppx_import"
   "utop"

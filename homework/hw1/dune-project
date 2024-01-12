@@ -24,7 +24,6 @@
   dune
   base
   alcotest
-  ocamlformat
   ppx_deriving
   ppx_import
   utop

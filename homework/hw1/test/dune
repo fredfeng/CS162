@@ -1,6 +1,6 @@
 (test
  (name hw1_test)
- (libraries core fmt alcotest hw1)
+ (libraries fmt alcotest hw1)
  (preprocess
   (staged_pps ppx_import ppx_deriving.show ppx_deriving.eq))
  (modules hw1_test part1 part2 part3 part4))

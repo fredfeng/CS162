@@ -7,5 +7,5 @@
  (name hw1)
  (libraries base fmt)
  (preprocess
-  (staged_pps ppx_import ppx_deriving.show))
+  (pps ppx_deriving.show))
  (modules util part1 part2 part3 part4))
