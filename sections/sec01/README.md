@@ -185,13 +185,13 @@ utop #
 To run your code, say, for the `fib` function in Part 1, you can type the following into the interpreter:
 ```ocaml
 ─( 21:06:13 )─< command 0 >──────{ counter: 0 }─
-utop # #require "base";;
+utop # open Base;;
 ─( 21:06:13 )─< command 1 >──────{ counter: 0 }─
 utop # open Hw1.Part1;;
 ─( 21:06:20 )─< command 2 >──────{ counter: 0 }─
 utop # fib 10;;
 ```
-The first command `#require "base"` sets up the standard library, and the second command `open Hw1.Part1` loads types, values and functions defined in module `Hw1.Part1` (generated from `lib/part1.ml`) into the current namespace. You can then call your functions as usual.
+The first command `open Base;;` loads the standard library into the current session, and the second command `open Hw1.Part1;;` loads types, values and functions defined in module `Hw1.Part1` (generated from `lib/part1.ml`). You can then call your functions as usual.
 
 
 
