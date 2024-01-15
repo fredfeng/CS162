@@ -184,17 +184,18 @@ utop #
 
 To run your code, say, for the `fib` function in Part 1, you can type the following into the interpreter:
 ```ocaml
-utop # #require "base";; open Hw1.Part1;;
-─( 13:20:32 )─< command 1 >──────────────────────────────────────────────────────────────────────{ counter: 0 }─
+─( 21:06:13 )─< command 0 >──────{ counter: 0 }─
+utop # #require "base";;
+─( 21:06:13 )─< command 1 >──────{ counter: 0 }─
+utop # open Hw1.Part1;;
+─( 21:06:20 )─< command 2 >──────{ counter: 0 }─
 utop # fib 10;;
-- : int = 55
-─( 13:22:01 )─< command 2 >──────────────────────────────────────────────────────────────────────{ counter: 0 }─
 ```
 The first command `#require "base"` sets up the standard library, and the second command `open Hw1.Part1` loads types, values and functions defined in module `Hw1.Part1` (generated from `lib/part1.ml`) into the current namespace. You can then call your functions as usual.
 
 
 
-### School of `printf` debugging (advanced)
+## School of `printf` debugging (advanced)
 
 If you would like to see the intermediate steps of your program, you can insert print statements into your code. To print a value of type `t`, you first need to convert it into a string using an appropriate string-conversion function, and then print the string using `print_endline` (or, if you're familiar with C-style formatting, use `Format.printf`).
 
