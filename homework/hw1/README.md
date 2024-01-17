@@ -268,7 +268,7 @@ whereas the following two trees are not equal:
 
 ### Problem 2 (🧑‍💻, 5 points)
 
-Implement a function `timestamp : 'a tree -> (int, 'a) tree` that will label a tree according to the order in which a node is first visited by depth-first search. Labels start at 0 and are incremented by 1 each time. 
+Implement a function `timestamp : 'a tree -> (int * 'a) tree` that will label a tree according to the order in which a node is first visited by depth-first search. Labels start at 0 and are incremented by 1 each time. 
 For example,
 ```
 (Leaves not shown)
@@ -302,7 +302,7 @@ gives
                Node ((6,'l'), Leaf, Leaf)))
 ```
 
-*Hint*: The key to solving this problem is to have some kind of state that "remembers" which timestamps have already been used (or equivalently, what the next available timestamp is). To this end, define a helper function with type `int -> 'a tree -> (int, 'a) tree * int`, where the first argument is the next timestamp to use. The helper function returns a time-stamped tree, as well as the next available timestamp that hasn't been used by the returned tree. Be sure to maintain a consistent invariant (i.e., the meaning of the input `int` and that of the output `int`) throughout your code.
+*Hint*: The key to solving this problem is to have some kind of state that "remembers" which timestamps have already been used (or equivalently, what the next available timestamp is). To this end, define a helper function with type `int -> 'a tree -> (int * 'a) tree * int`, where the first argument is the next timestamp to use. The helper function returns a time-stamped tree, as well as the next available timestamp that hasn't been used by the returned tree. Be sure to maintain a consistent invariant (i.e., the meaning of the input `int` and that of the output `int`) throughout your code.
 
 
 
