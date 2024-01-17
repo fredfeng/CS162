@@ -23,10 +23,10 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | Date             | Topic                                         | Slides                        | Read             | Out                    | Due |
 | ---------------- | --------------------------------------------- | ----------------------------- | ---------------- | ---------------------- | --- |
 | 1/8              | Hello, World! & Introduction to λ<sup>+</sup> | [lec1](lectures/lecture1.pdf) |                  |                        |     |
-| 1/10             | OCaml crash course I                          | [lec2]                        |                  | [hw1](./homework/hw1/) |     |
+| 1/10             | OCaml crash course I                          | [lec2](lectures/lecture2.pdf)                       |                  | [hw1](./homework/hw1/) |     |
 | 1/15 (MLK)       | No class                                      |                               |                  |                        |     |
-| 1/17             | OCaml crash course II                         | [lec3]                        |                  |                        |     |
-| 1/22             | OCaml crash course III                        | [lec4]                        |                  |                        |     |
+| 1/17             | OCaml crash course II                         | [lec3](lectures/lecture3.pdf)                        |                  |                        |     |
+| 1/22             | OCaml crash course III                        | [lec4](lectures/lecture4.pdf)                        |                  |                        |     |
 | 1/24             | Lambda Calculus I                             | [lec5]                        |                  |                        | hw1 |
 | 1/29             | λ<sup>+</sup>, Inference Rules                |                               | 11.12            |                        |     |
 | 1/31             | Lambda Calculus II                            | [lec6]                        | 8.1,8.2, 9.1-9.3 |                        |     |
