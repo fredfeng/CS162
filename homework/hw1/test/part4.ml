@@ -60,6 +60,8 @@ let simplify_tests =
       DSL.(add x (add x x));
   ]
 
+let eval_poly_tests = [ test_eval_poly 3 [ 6; 7; 3 ] 54 ]
+
 let normalize_tests =
   [
     test_normalize
@@ -81,6 +83,7 @@ let tests =
   [
     ("eval_expr", eval_expr_tests);
     ("simplify", simplify_tests);
+    ("eval_poly", eval_poly_tests);
     ("normalize", normalize_tests);
     ("semantic_equiv", semantic_equiv_tests);
   ]
