@@ -55,14 +55,14 @@
 ### Problem 0
 1. With x = 1,
     ```ocaml
-    (3 * (4 + x); 1 + x + 5) * 2; 100 * x
-    == (3 * (4 + 1); 1 + x + 5) * 2; 100 * x
-    == (3 * 5;       1 + x + 5) * 2; 100 * x
-    == (15;          1 + x + 5) * 2; 100 * x
+       (3 * (4 + x); 1 + x + 5) * 2;  100 * x
+    == (3 * (4 + 1); 1 + x + 5) * 2;  100 * x
+    == (3 * 5;       1 + x + 5) * 2;  100 * x
+    == (15;          1 + x + 5) * 2;  100 * x
     == (             1 + 15 + 5) * 2; 100 * x
     ==                        21 * 2; 100 * x
     ==                            42; 100 * x
-    ==                                142
+    ==                                4200
     ```
 2. The concrete syntax is ambiguous for two reasons:
    1. The alien civilization may not know that `+` is left-associative, or right-associative. For example, `1 + 2 + 3` could be parsed as
@@ -157,5 +157,5 @@ let degree (p: poly) : int option =
         | _::t -> 1 + len t in
     match p with
     | [] -> None
-    | _ -> len p - 1
+    | _ -> Some (len p - 1)
 ```
