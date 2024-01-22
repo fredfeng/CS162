@@ -108,13 +108,13 @@
                     Const 3,
                     Add(
                         Const 4,
-                        Var "x"
+                        X
                     )
                 ),
                 Add(
                     Add(
                         Const 1,
-                        Var "x"
+                        X
                     ),
                     Const 5
                 )
@@ -123,7 +123,7 @@
         ),
         Mul(
             Const 100,
-            Var "x"
+            X
         )
     )
     ```
