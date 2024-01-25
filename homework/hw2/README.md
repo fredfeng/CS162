@@ -57,7 +57,9 @@ let singletons_tests =
 
 > Total: 5 points
 > 
-> **Important note**: You may not use recursion (i.e., the `rec` keyword) to solve problems in this part. If you do, you will not be awarded any points.
+> **Important notes**: 
+> 1. You may not use recursion (i.e., the `rec` keyword) to solve problems in this part. If you do, you will not be awarded any points.
+> 2. You only need to modify `lib/part1/part1.ml`.
 
 In OCaml, functions can take other functions as input, and return other functions as output. This is a very powerful feature that allows us to write very concise code. You have seen simple instances of higher-order function in HW1. For example, your `compress` has type `('a -> 'a -> bool) -> 'a list -> 'a list`, so it's a function whose first argument is another *function* of type `'a -> 'a -> bool`!
 
@@ -254,6 +256,8 @@ The TAs will thoroughly walk through this part of the assignment in the discussi
 ## Part 3. Lambda Calculus in OCaml
 
 > Total: 35 points + 3 ⭐️bonus⭐️ points
+>
+> **Important note**: You only need to modify `lib/lamp/eval.ml`.
 
 In this part, we will augment the simple arithmetic expression language defined in the previous assignment with lambda calculus. We'll call resulting language is $\lambda^+$. 
 
