@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Homework Assignment 2</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="homework-assignment-2">Homework Assignment 2</h1>
+<p><strong>Due Wednesday, Feb 7th at 11:59PM (Pacific Time)</strong></p>
+<h2 id="overview">Overview</h2>
+<p>In this assignment, you will augment the simple arithmetic language in the last assignment with lambda calculus. The resulting language is called <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>λ</mi><mo>+</mo></msup></mrow><annotation encoding="application/x-tex">\lambda^+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7713em;"></span><span class="mord"><span class="mord mathnormal">λ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7713em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span></span></span></span>. This language is so powerful that it can simulate the execution of any Turing machine, and thus any computer program in any programming language: C++, Python, Java, or your favorite programming language.</p>
+<p>This homework will consist of four parts.</p>
+<ul>
+<li>The first part gives you some practice with higher-order functions in OCaml.</li>
+<li>The second part is a review of the core concepts of lambda calculus with plenty of pen-and-paper exercises to reinforce your understanding.</li>
+<li>The third part asks you to implement an interpreter for <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>λ</mi><mo>+</mo></msup></mrow><annotation encoding="application/x-tex">\lambda^+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7713em;"></span><span class="mord"><span class="mord mathnormal">λ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7713em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span></span></span></span> in OCaml.</li>
+<li>The fourth part (bonus) walks you through a recipe that can be used to encode all kinds of fancy data structures into lambda calculus.</li>
+</ul>
+<h2 id="instructions">Instructions</h2>
+<ol>
+<li>Either clone this directory, or download the zipped directory using <a href="https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2Ffredfeng%2FCS162%2Ftree%2Fmaster%2Fhomework%2Fhw2">this link</a>.</li>
+<li>Run <code>opam install . --deps-only</code> in the root directory of this homework to install the necessary dependencies. <strong>You need to run this command again</strong>, since this assignment contains new dependencies that were not used in HW1.</li>
+<li>Complete <code>part1/part1.ml</code>, <code>lamp/eval.ml</code>, and (for bonus) <code>part4/*.lp</code> by replacing the placeholders denoted by <code>todo</code> or <code>bonus</code> with your own code. You must not change the type signatures of the original functions. Otherwise, your program will not compile. If you accidentally change the type signatures, you can refer to the corresponding <code>.mli</code> file to see what the expected type signatures are.</li>
+<li>Once you're done, submit <code>part1/part1.ml</code>, <code>lamp/eval.ml</code>, and (for bonus) <code>part4/*.lp</code> to Gradescope. If your program contains print statements, please remove them before submitting. You do not need to submit any other file, including any <code>.mli</code> file or test code. The autograder will automatically compile your code together with our testing infrastructure and run the tests.</li>
+</ol>
+<p><strong>Important notes</strong>:</p>
+<ul>
+<li>Problems marked with <code>📝</code> are pencil-and-paper problems, and are ungraded. There are X of them in total. You do not need to submit your solution. The goal is to review concepts that will help you solve subsequent problems, and/or to give you some practice with the kinds of questions that will appear on the midterm. Solutions to these problems will be released by the TAs and discussed in sections.</li>
+<li>Problems marked with <code>🧑‍💻</code> are programming tasks, and will be autograded on Gradescope. There are Y of them in total. In solving those problems:
+<ul>
+<li>You are <strong>not</strong> allowed to use in built-in OCaml library functions in your solutions. If you do, you will not be awarded any points. Note that language features like pattern-matching do not count as library functions. You may use library functions like <code>Format.printf</code> and <code>Int.equal</code> to test your code, but you must remove them before submitting.</li>
+<li>You are <strong>not</strong> allowed to use any kind of imperative features, including mutable state (e.g. references and arrays), loops, etc. If you do, you will not be awarded any points.</li>
+</ul>
+</li>
+<li>Problems marked with <code>⭐️bonus⭐️</code> are optional. You will receive extra credit by solving them. You will not be tested on them in the midterm <em>unless we explicitly say so</em>.</li>
+<li>The homework may appear to be long, but again, we decided to err on the more verbose side since we believe this might be more helpful. As usual, the TAs will go over a lot of the expository texts in the discussion sections.</li>
+<li>The actual programming problems were designed so that you won't write more than 100 lines of code in total, but they do require a deep understanding of the concepts covered in lectures.</li>
+<li>Some parts of the next assignment will build on the concepts and the code you wrote in this assignment, so it's important to get them right!</li>
+<li>If you are struggling, please do not hesitate to ask questions in the <code>#hw2</code> Slack channel or come to office hours.</li>
+</ul>
+<h2 id="testing">Testing</h2>
+<p>We have provided one unit test for each programming problem. To run all unit tests, simply run</p>
+<pre><code class="language-bash">dune runtest
+</code></pre>
+<p>in the root directory of this homework. This will compile your programs and report tests that fail.</p>
+<p>We highly encourage you to add your own tests, since the autograder won't show you what the official test cases are (only the identifiers of passed/failed cases will be shown). You can locate the provided test cases in <code>test/test_*.ml</code>. For example, in <code>test/test_part1.ml</code>, you will find the following line:</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">let</span> singletons_tests =
+  [
+    test_singletons <span class="hljs-comment">(* input *)</span> [ <span class="hljs-number">6</span>; <span class="hljs-number">7</span>; <span class="hljs-number">3</span> ]
+      <span class="hljs-comment">(* expected output *)</span> [ [ <span class="hljs-number">6</span> ]; [ <span class="hljs-number">7</span> ]; [ <span class="hljs-number">3</span> ] ];
+  ]
+</code></pre>
+<p><code>test_singletons</code> is a helper function that we defined for you. Its first argument is the input to your <code>singletons</code>, and its second argument is the expected output. You can add your own test cases by adding more elements to the list.</p>
+<h2 id="part-1-higher-order-functions-in-ocaml">Part 1. Higher-Order Functions in OCaml</h2>
+<blockquote>
+<p>Total: 5 points</p>
+<p><strong>Important note</strong>: You may not use recursion (i.e., the <code>rec</code> keyword) to solve problems in this part. If you do, you will not be awarded any points.</p>
+</blockquote>
+<p>In OCaml, functions can take other functions as input, and return other functions as output. This is a very powerful feature that allows us to write very concise code. You have seen simple instances of higher-order function in HW1. For example, your <code>compress</code> has type <code>('a -&gt; 'a -&gt; bool) -&gt; 'a list -&gt; 'a list</code>, so it's a function whose first argument is another <em>function</em> of type <code>'a -&gt; 'a -&gt; bool</code>!</p>
+<p><strong>Problem 1</strong> (📝): In OCaml, a function can be defined using <code>let</code>, in which case the function has a name. However, sometimes we just want to make a one-off function on-the-fly, without giving it a name. These functions are called <em>anonymous functions</em>, or <em>lambda functions</em>, and can be defined using the syntax</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">fun</span> &lt;arg1&gt; &lt;arg2&gt; ... &lt;argn&gt; -&gt; &lt;body&gt;
+</code></pre>
+<p>Using this syntax, write down a function of type <code>int -&gt; int -&gt; int</code> that takes two integers and returns their sum.</p>
+<p><strong>Problem 2</strong> (📝): Without looking at the lecture slides:</p>
+<ul>
+<li>Informally describe what each of <code>map</code>, <code>filter</code> and <code>fold</code> does, and give an example of how to use each of them.</li>
+<li>Write down the type signature of each of them. Check your solution against TODO. It's ok to reorder some of the arguments.</li>
+<li>Try writing down the implementation of each of them. Then compare what you wrote with the implementation in the lecture slides.</li>
+</ul>
+<p><strong>Problem 3</strong> (🧑‍💻, 1 point): Using <code>map</code> and an anonymous function, complete the implementation of</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">let</span> singletons (xs : <span class="hljs-symbol">&#x27;a</span> <span class="hljs-built_in">list</span>) : <span class="hljs-symbol">&#x27;a</span> <span class="hljs-built_in">list</span> <span class="hljs-built_in">list</span> = 
+    map .. ns
+</code></pre>
+<p>which takes a list and returns a list of singleton lists, each containing one element from the original list. For example, <code>singletons [6; 7; 3]</code> will evaluate to <code>[[6]; [7]; [3]]</code>.</p>
+<p>You may not use recursion or pattern matching in your solution. If you do, you will not be awarded any points.</p>
+<p><strong>Problem 4</strong> (🧑‍💻, 1 point): Using <code>map</code> and anonymous functions, define the function <code>map2d : ('a -&gt; 'b) -&gt; 'a list list -&gt; 'b list list</code> that applies a function to every element in a 2d list. Example:</p>
+<pre><code class="language-ocaml">map2d (<span class="hljs-keyword">fun</span> x -&gt; x + <span class="hljs-number">1</span>) [[<span class="hljs-number">1</span>; <span class="hljs-number">2</span>]; [<span class="hljs-number">3</span>; <span class="hljs-number">4</span>]] = [[<span class="hljs-number">2</span>; <span class="hljs-number">3</span>]; [<span class="hljs-number">4</span>; <span class="hljs-number">5</span>]]
+</code></pre>
+<p>You may not use recursion or pattern matching in your solution. If you do, you will not be awarded any points.</p>
+<p><em>Hint</em>: Use <code>map</code> twice.</p>
+<p><strong>Problem 5</strong> (🧑‍💻, 1 point): Using <code>map</code> and anonymous functions, define the function <code>product : 'a list -&gt; 'b list -&gt; ('a * 'b) list list</code> that computes the cartesian product of two lists. For exmaple, <code>product [1; 2] [true; false]</code> will evaluate to</p>
+<pre><code class="language-ocaml">[ 
+    [ (<span class="hljs-number">1</span>, <span class="hljs-literal">true</span>); (<span class="hljs-number">1</span>, <span class="hljs-literal">false</span>) ];
+    [ (<span class="hljs-number">2</span>, <span class="hljs-literal">true</span>); (<span class="hljs-number">2</span>, <span class="hljs-literal">false</span>) ]
+]
+</code></pre>
+<p>If we think of the first list as the row labels and the second list as the column labels, then the cartesian product is the table of all possible pairs of row and column labels. For example, the above example can be visualized as</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>true</th>
+<th>false</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>(1, true)</td>
+<td>(1, false)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>(2, true)</td>
+<td>(2, false)</td>
+</tr>
+</tbody>
+</table>
+<p>You may not use recursion or pattern matching in your solution. If you do, you will not be awarded any points.</p>
+<p><em>Hint</em>: Use <code>map</code> twice.</p>
+<hr>
+<p>Consider the recursion recipe we talked about <a href="../../sections/sec01/sec01.pdf">in the first section</a>:</p>
+<ol>
+<li>Identify the recursive structure of the problem</li>
+<li>Decompose the problem structure into:
+<ol>
+<li>Base case(s)</li>
+<li>Inductive/recursive case(s)</li>
+</ol>
+</li>
+<li>Solve the base case</li>
+<li>To solve the inductive case:
+<ol>
+<li>Apply the function to all recursive subproblems.</li>
+<li><em>Assuming that the solutions to all subproblems are correct</em>, combine them into a solution to the original problem.</li>
+</ol>
+</li>
+</ol>
+<p>If we specialize this recipe to the list data structure, we get the following &quot;template&quot;:</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">let</span> <span class="hljs-keyword">rec</span> solve (xs: <span class="hljs-symbol">&#x27;a</span> <span class="hljs-built_in">list</span>) : <span class="hljs-symbol">&#x27;result</span> =
+    <span class="hljs-keyword">match</span> xs <span class="hljs-keyword">with</span>
+    | <span class="hljs-literal">[]</span> -&gt; base_case
+    | x::xs&#x27; -&gt;
+        <span class="hljs-keyword">let</span> r = solve xs&#x27; <span class="hljs-keyword">in</span> 
+        combine x r
+</code></pre>
+<p>Note that the same template applies to a wide range of problems. The only difference is that each problem may differ by</p>
+<ol>
+<li>How we solve the base case (<code>base_case</code>)</li>
+<li>In the recursive case, how we combine the the current head value <code>x</code> and the solution to subproblem <code>y</code> to get a solution to the original problem (<code>combine x y</code>)</li>
+</ol>
+<p>Since those are the only places that might be different for each problem, we can turn them into parameters of the <code>solve</code> function:</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">let</span> <span class="hljs-keyword">rec</span> solve 
+    (base_case: <span class="hljs-symbol">&#x27;result</span>) 
+    (combine: <span class="hljs-symbol">&#x27;a</span> -&gt; <span class="hljs-symbol">&#x27;result</span> -&gt; <span class="hljs-symbol">&#x27;result</span>) 
+    (xs: <span class="hljs-symbol">&#x27;a</span> <span class="hljs-built_in">list</span>) : <span class="hljs-symbol">&#x27;result</span> =
+    <span class="hljs-keyword">match</span> xs <span class="hljs-keyword">with</span>
+    | <span class="hljs-literal">[]</span> -&gt; base_case
+    | x::xs&#x27; -&gt;
+        <span class="hljs-keyword">let</span> r = solve base_case combine xs&#x27; <span class="hljs-keyword">in</span> 
+        combine x r
+</code></pre>
+<p>Essentially, we are letting the specific problem dicates what to do with <code>base_case</code> and <code>combine</code>, which it can do by calling <code>solve</code> with an appropriate base case value and an appropriate <code>combine</code> function. Note that <code>solve</code> is a higher-order function since it takes another function (<code>combine</code>) as input.</p>
+<p>As an example, recall the <a href="https://github.com/fredfeng/CS162/tree/master/homework/hw1#problem-4--5-points"><code>lookup</code> function from HW1</a>. We can re-implement it without recursion by using <code>solve</code>:</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">let</span> lookup (equal: <span class="hljs-symbol">&#x27;k</span> -&gt; <span class="hljs-symbol">&#x27;k</span> -&gt; <span class="hljs-built_in">bool</span>) (k1: <span class="hljs-symbol">&#x27;k</span>) (d: (<span class="hljs-symbol">&#x27;k</span> * <span class="hljs-symbol">&#x27;v</span>) <span class="hljs-built_in">list</span>) : <span class="hljs-symbol">&#x27;v</span> option =
+    solve 
+        <span class="hljs-type">None</span> 
+        (<span class="hljs-keyword">fun</span> (k2,v) result -&gt; <span class="hljs-keyword">if</span> equal k1 k2 <span class="hljs-keyword">then</span> <span class="hljs-type">Some</span> v <span class="hljs-keyword">else</span> result)
+</code></pre>
+<p>Here, the <code>base_case</code> is <code>None</code>, since the empty dictionary cannot contain our query key. The <code>combine</code> function takes the first thing in our dictionary, which is a key-value pair, and a (correct!) result of recursively looking up the key in the rest of the dictionary. If the first key already matches, we return the value associated with it. Otherwise, we return the recursive result.</p>
+<p><strong>Problem 6</strong> (📝): Re-implement the following functions using <code>solve</code>, by calling it with the appropriate <code>base_case</code> and <code>combine</code> arguments:</p>
+<ol>
+<li><code>compress</code> from HW1</li>
+<li><code>max</code> from HW1</li>
+<li><code>join</code> from HW1</li>
+<li><code>map</code></li>
+<li><code>filter</code></li>
+</ol>
+<p>You must call <code>solve</code>. You may not use recursion in your solution.</p>
+<p><strong>Problem 7</strong> (🧑‍💻, 1 point): Implement the function <code>power : 'a list -&gt; 'a list list</code> that will take a list representing a set, and return a list representing the <em>power set</em> of the input set. The power set of set <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span> is the set of all subsets of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span>. For example, <code>power [1; 2; 3]</code> will evaluate to</p>
+<pre><code class="language-ocaml">[ <span class="hljs-literal">[]</span>; [ <span class="hljs-number">1</span> ]; [ <span class="hljs-number">2</span> ]; [ <span class="hljs-number">3</span> ]; [ <span class="hljs-number">1</span>; <span class="hljs-number">2</span> ]; [ <span class="hljs-number">1</span>; <span class="hljs-number">3</span> ]; [ <span class="hljs-number">2</span>; <span class="hljs-number">3</span> ]; [ <span class="hljs-number">1</span>; <span class="hljs-number">2</span>; <span class="hljs-number">3</span> ] ]
+</code></pre>
+<p>The order of the subsets do not matter for the purpose of grading.</p>
+<ol>
+<li>You may not use recursion (including defining recursive helper functions) in your solution.</li>
+<li>You may use <code>@</code> which concatenates two lists. For example, <code>[1;2;3] @ [4;5]</code> will evaluate to <code>[1;2;3;4;5]</code>.</li>
+</ol>
+<p><em>Hint</em>: Use <code>solve</code> and <code>map</code>.</p>
+<blockquote>
+<p><strong>Background note</strong>: In functional programming literature, <code>solve</code> usually goes by the name <code>fold_right</code>.</p>
+</blockquote>
+<hr>
+<p>Under the hood, &quot;multi-argument&quot; functions in OCaml are simply one-argument functions that return another function as its output. For example, under the hoold, <code>int -&gt; int -&gt; int</code> is the same as <code>int -&gt; (int -&gt; int)</code>, which is a one-argument function that takes an integer, and returns another <code>int -&gt; int</code> <em>function</em> as its output.</p>
+<p>For example,</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">fun</span> (x : <span class="hljs-built_in">int</span>) (y : <span class="hljs-built_in">int</span>) : <span class="hljs-built_in">int</span> 
+    -&gt; x + y
+</code></pre>
+<p>is secretely a function that takes an integer <code>x</code>, and returns another function that takes an integer <code>y</code> and returns <code>x + y</code>. I.e., it's exactly the same as</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">fun</span> (x : <span class="hljs-built_in">int</span>) : (<span class="hljs-built_in">int</span> -&gt; <span class="hljs-built_in">int</span>) 
+    -&gt; <span class="hljs-keyword">fun</span> (y : <span class="hljs-built_in">int</span>) : <span class="hljs-built_in">int</span> 
+        -&gt; x + y
+</code></pre>
+<p>A subtle but very useful corollary is that if we have a multi-argument function, we don't need to supply all of the arguments at once. We can supply one argument at a time, and get a function back which awaits the remaining arguments. For example,</p>
+<pre><code class="language-ocaml">(<span class="hljs-keyword">fun</span> x y -&gt; x + y) <span class="hljs-number">1</span> <span class="hljs-number">2</span>
+</code></pre>
+<p>supplies both arguments and evaluates to <code>3</code>, but</p>
+<pre><code class="language-ocaml">(<span class="hljs-keyword">fun</span> x y -&gt; x + y) <span class="hljs-number">1</span>
+</code></pre>
+<p>supplies only the first argument, and gives us a <em>function</em> back:</p>
+<pre><code class="language-ocaml">(<span class="hljs-keyword">fun</span> x y -&gt; x + y) <span class="hljs-number">1</span>
+== (<span class="hljs-keyword">fun</span> x -&gt; <span class="hljs-keyword">fun</span> y -&gt; x + y) <span class="hljs-number">1</span>
+== <span class="hljs-keyword">fun</span> y -&gt; <span class="hljs-number">1</span> + y
+</code></pre>
+<p>I.e., we get a function that always increment its input by <code>1</code>!</p>
+<p><strong>Problem 8</strong> (🧑‍💻, 1 point) Consider the function <code>join2</code>:</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">let</span> join2 (x: <span class="hljs-symbol">&#x27;a</span> option) (y: <span class="hljs-symbol">&#x27;b</span> option) : (<span class="hljs-symbol">&#x27;a</span> * <span class="hljs-symbol">&#x27;b</span>) option =
+    <span class="hljs-keyword">match</span> x, y <span class="hljs-keyword">with</span>
+    | <span class="hljs-type">Some</span> x, <span class="hljs-type">Some</span> y -&gt; <span class="hljs-type">Some</span> (x, y)
+    | _ -&gt; <span class="hljs-type">None</span>
+</code></pre>
+<p>The <code>join2</code> function takes two options, and if both are <code>Some</code>, it returns a <code>Some</code> that contains a pair of the two values. Otherwise, it returns <code>None</code>. This is similar to the <code>join</code> function you implemented in HW1, but for products instead of lists.</p>
+<p>You task is to re-implement <code>join2</code> as an explicitly one-argument function that returns another function as its output:</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">let</span> join2 : <span class="hljs-symbol">&#x27;a</span> option -&gt; (<span class="hljs-symbol">&#x27;b</span> option -&gt; (<span class="hljs-symbol">&#x27;a</span> * <span class="hljs-symbol">&#x27;b</span>) option) =
+    <span class="hljs-keyword">fun</span> x -&gt;
+       <span class="hljs-keyword">match</span> x <span class="hljs-keyword">with</span>
+       | <span class="hljs-type">Some</span> x -&gt; <span class="hljs-comment">(* todo *)</span>
+       | <span class="hljs-type">None</span> -&gt; <span class="hljs-comment">(* todo *)</span>
+</code></pre>
+<h2 id="part-2-names-bindings-and-substitution">Part 2. Names, Bindings, and Substitution</h2>
+<blockquote>
+<p><strong>This part only contains 📝 problems.</strong></p>
+<p>Total: N/A</p>
+</blockquote>
+<p>Read through the <a href="/sections/sec03/README.html">notes for section 3</a>, and do the exercises in the notes.</p>
+<p>The TAs will thoroughly walk through this part of the assignment in the discussion sections. However, you are encouraged to read through this part and take a stab at the exercises before the section, and write down any questions you have or problems/concepts you would like the TAs to go over in detail. This will help you get the most out of the sections.</p>
+<h2 id="part-3-lambda-calculus-in-ocaml">Part 3. Lambda Calculus in OCaml</h2>
+<blockquote>
+<p>Total: 35 points + 3 ⭐️bonus⭐️ points</p>
+</blockquote>
+<p>In this part, we will augment the simple arithmetic expression language defined in the previous assignment with lambda calculus. We'll call resulting language is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>λ</mi><mo>+</mo></msup></mrow><annotation encoding="application/x-tex">\lambda^+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7713em;"></span><span class="mord"><span class="mord mathnormal">λ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7713em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span></span></span></span>.</p>
+<p>Since this is not a toy language anymore, the language will have a well-defined syntax and semantics. We wrote a parser that turns concrete syntax into abstract syntax for you, so you can focus on building the interpreter that consumes abstract syntax trees as input. But it helps to understand the concrete syntax since it may be easier for you to write test programs using the concrete syntax.</p>
+<h3 id="31-concrete-syntax-and-informal-semantics">3.1 Concrete Syntax and Informal Semantics</h3>
+<p>You can read about the informal semantics and the concrete syntax of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>λ</mi><mo>+</mo></msup></mrow><annotation encoding="application/x-tex">\lambda^+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7713em;"></span><span class="mord"><span class="mord mathnormal">λ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7713em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span></span></span></span> in the Overview section of the <a href="./lamp.pdf"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>λ</mi><mo>+</mo></msup></mrow><annotation encoding="application/x-tex">\lambda^+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7713em;"></span><span class="mord"><span class="mord mathnormal">λ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7713em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span></span></span></span> language reference manual</a>. <strong>Only sections up to and including Section 2.3 (Named Function Definitions) are relevant for this assignment.</strong> The remaining language constructs will be the focus of the next assignment.You're encouraged to quickly scan through the reference manual first without worrying about the details. You can revisit it later when you're working on the problems in this part.</p>
+<p>The language itself is basically the arithmetic expression language you implemented in HW1 + lambda calculus, and it largely resembles OCaml (modulo some syntax differences). There are, however, a few things that are worth pointing out:</p>
+<ol>
+<li>
+<p>There's no unary minus operator, since we can just write <code>0 - x</code> instead of <code>-x</code>. This is just to make the parser and your interpreter simpler.</p>
+</li>
+<li>
+<p>Although the concrete syntax supports multi-argument lambdas, the parser will de-sugar them into curried single-argument lambdas. For example, the following concrete syntax</p>
+<pre><code class="language-ocaml">lambda x, y, z. x + y + z
+</code></pre>
+<p>will be desugared into something like this</p>
+<pre><code class="language-ocaml">lambda x. (lambda y. (lambda z. x + y + z))
+</code></pre>
+<p>So in the AST, you will only see single-argument lambdas.</p>
+</li>
+<li>
+<p>Similarly, a function application with multiple arguments will be parsed into a chain of single-argument function applications. For example, the following concrete syntax</p>
+<pre><code class="language-ocaml">f x y z
+</code></pre>
+<p>will be translated into something like this</p>
+<pre><code class="language-ocaml">((f x) y) z
+</code></pre>
+<p>So in the AST, you will only see binary function applications.</p>
+</li>
+<li>
+<p>Named function definitions like <code>fun f with x = e1 in e2</code> is just a syntactic sugar for <code>let f = lambda x. e1 in e2</code>. The parser will de-sugar them for you. So in the AST, you won't see function definitions being explicitly represented as one of the constructors.</p>
+</li>
+</ol>
+<h3 id="32-abstract-syntax">3.2 Abstract Syntax</h3>
+<p>A straightforwad way to represent the abstract syntax tree of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>λ</mi><mo>+</mo></msup></mrow><annotation encoding="application/x-tex">\lambda^+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7713em;"></span><span class="mord"><span class="mord mathnormal">λ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7713em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span></span></span></span> -- which we <em>won't</em> end up using -- is to modify the <code>expr</code> data type we defined back in HW1 with new constructors for lambda calculus and let-expression. For example, we <em>could</em> -- but won't -- augment <code>expr</code> like this:</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">type</span> binop = <span class="hljs-type">Add</span> | <span class="hljs-type">Sub</span> | <span class="hljs-type">Mul</span>
+<span class="hljs-keyword">type</span> expr = 
+          <span class="hljs-comment">(* arithmetic *)</span>
+          | <span class="hljs-type">Num</span> <span class="hljs-keyword">of</span> <span class="hljs-built_in">int</span>
+          | <span class="hljs-type">Binop</span> <span class="hljs-keyword">of</span> binop * expr * expr
+          <span class="hljs-comment">(* lambda calculus *)</span>
+          | <span class="hljs-type">Var</span> <span class="hljs-keyword">of</span> <span class="hljs-built_in">string</span>
+          | <span class="hljs-type">Lambda</span> <span class="hljs-keyword">of</span> <span class="hljs-built_in">string</span> * expr
+          | <span class="hljs-type">App</span> <span class="hljs-keyword">of</span> expr * expr
+          <span class="hljs-comment">(* let expression *)</span>
+          | <span class="hljs-type">Let</span> <span class="hljs-keyword">of</span> <span class="hljs-built_in">string</span> * expr * expr
+</code></pre>
+<p>Here,</p>
+<ul>
+<li>the <code>Var of string</code> case would represent a variable reference. We can use strings to represent variable names.</li>
+<li>the <code>Lambda of string * expr</code> case would represent a lambda abstraction that declares a variable name to be in scope in the body expression.</li>
+<li>the <code>App of expr * expr</code> case would represent a function application.</li>
+<li>the <code>Let of string * expr * expr</code> case would represent a let-expression that first binds a variable name to an expression, and makes the variable in scope in the body expression.</li>
+</ul>
+<p>For example, the concrete syntax <code>(lambda f. f 0) (lambda x. let y = x + 1 in y)</code> would be parsed into the following abstract syntax tree:</p>
+<pre><code class="language-ocaml"><span class="hljs-type">App</span> (
+    <span class="hljs-type">Lambda</span> (<span class="hljs-string">&quot;f&quot;</span>, <span class="hljs-type">App</span> (<span class="hljs-type">Var</span> <span class="hljs-string">&quot;f&quot;</span>, <span class="hljs-type">Num</span> <span class="hljs-number">0</span>)), 
+    <span class="hljs-type">Lambda</span> (<span class="hljs-string">&quot;x&quot;</span>, 
+        <span class="hljs-type">Let</span> (<span class="hljs-string">&quot;y&quot;</span>, <span class="hljs-type">Add</span> (<span class="hljs-type">Var</span> <span class="hljs-string">&quot;x&quot;</span>, <span class="hljs-type">Num</span> <span class="hljs-number">1</span>), 
+             <span class="hljs-type">Var</span> <span class="hljs-string">&quot;y&quot;</span>)))
+</code></pre>
+<p>Although this representation is conceptually simple, working with it would unfortunately result in a lot of code duplication. The reason is that both the <code>Lambda</code> and <code>Let</code> cases contain the <em>binding</em> operation of declaring a variable name to be in scope in some other expression. Thus, if we want to define substitution for <code>Lambda</code> and <code>Let</code>, then we would end up repeating a lot of code in the two cases. Furthermore, since the next assignment will augment <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>λ</mi><mo>+</mo></msup></mrow><annotation encoding="application/x-tex">\lambda^+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7713em;"></span><span class="mord"><span class="mord mathnormal">λ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7713em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span></span></span></span> with more features that involve binding, any code duplication would only be multiplied, if we don't prevent it now.</p>
+<p>Thus, we will factor out the common pattern of binding into separate constructors:</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">type</span> binop = <span class="hljs-type">Add</span> | <span class="hljs-type">Sub</span> | <span class="hljs-type">Mul</span>
+<span class="hljs-keyword">type</span> expr = 
+          <span class="hljs-comment">(* arithmetic *)</span>
+          | <span class="hljs-type">Num</span> <span class="hljs-keyword">of</span> <span class="hljs-built_in">int</span>
+          | <span class="hljs-type">Binop</span> <span class="hljs-keyword">of</span> binop * expr * expr
+          <span class="hljs-comment">(* binding *)</span>
+          | <span class="hljs-type">Var</span> <span class="hljs-keyword">of</span> <span class="hljs-built_in">string</span>
+          | <span class="hljs-type">Scope</span> <span class="hljs-keyword">of</span> <span class="hljs-built_in">string</span> * expr
+          <span class="hljs-comment">(* lambda calculus *)</span>
+          | <span class="hljs-type">Lambda</span> <span class="hljs-keyword">of</span> expr
+          | <span class="hljs-type">App</span> <span class="hljs-keyword">of</span> expr * expr
+          <span class="hljs-comment">(* let expression *)</span>
+          | <span class="hljs-type">Let</span> <span class="hljs-keyword">of</span> expr * expr
+</code></pre>
+<p>In this representation, the <code>Scope of string * expr</code> case represents the binding operation of declaring a variable name to be in scope in some body expression. The previous example <code>(lambda f. f 0) (lambda x. x + 1)</code> will be now parsed into the following <code>expr</code>:</p>
+<pre><code class="language-ocaml"><span class="hljs-type">App</span> (
+    <span class="hljs-type">Lambda</span> (<span class="hljs-type">Scope</span> (<span class="hljs-string">&quot;f&quot;</span>, <span class="hljs-type">App</span> (<span class="hljs-type">Var</span> <span class="hljs-string">&quot;f&quot;</span>, <span class="hljs-type">Num</span> <span class="hljs-number">0</span>))), 
+    <span class="hljs-type">Lambda</span> (<span class="hljs-type">Scope</span> (<span class="hljs-string">&quot;x&quot;</span>, 
+        <span class="hljs-type">Let</span> (<span class="hljs-type">Add</span> (<span class="hljs-type">Var</span> <span class="hljs-string">&quot;x&quot;</span>, <span class="hljs-type">Num</span> <span class="hljs-number">1</span>), 
+             <span class="hljs-type">Scope</span>(<span class="hljs-string">&quot;y&quot;</span>, <span class="hljs-type">Var</span> <span class="hljs-string">&quot;y&quot;</span>)))))
+</code></pre>
+<p>Note that for <code>Let</code>, the expression whose value will be bound to the variable is the <strong>first</strong> argument to the constructor, and the second argument is the <code>Scope</code> constructor that declares the variable name to be in scope in let-body. For example, if the above example were instead parsed into</p>
+<pre><code class="language-ocaml"><span class="hljs-type">Let</span> (
+    <span class="hljs-type">Scope</span> (<span class="hljs-string">&quot;x&quot;</span>, <span class="hljs-type">Num</span> <span class="hljs-number">2</span>),
+    <span class="hljs-type">Mul</span> (<span class="hljs-type">Num</span> <span class="hljs-number">3</span>, <span class="hljs-type">Var</span> <span class="hljs-string">&quot;x&quot;</span>)
+)
+</code></pre>
+<p>then we are saying that the variable <code>x</code> is in scope in the expression <code>2</code>, and out-of-scope in the expression <code>3 * x</code>, which is not what we want!</p>
+<p><strong>Problem 1</strong> (📝): Pretend you are the parser. For the following programs in concrete syntax, write down the abstract syntax tree as a value of type <code>expr</code>.</p>
+<ol>
+<li><code>let x = 2 in let y = x * x in x + y</code></li>
+<li><code>(lambda x, y. let z = x + y in z * z) 2 3</code></li>
+<li><code>fun f with x = let x = x + 1 in x in f f</code></li>
+</ol>
+<h3 id="33-well-formedness-of-asts">3.3 Well-Formedness of ASTs</h3>
+<p>A subtle point about the current <code>expr</code> type is that we can technically use the <code>expr</code> constructors to make non-sensical ASTs from a binding point of view. For example, we can write the following:</p>
+<pre><code class="language-ocaml"><span class="hljs-type">Lambda</span> (
+    <span class="hljs-type">Scope</span> (<span class="hljs-string">&quot;x&quot;</span>, <span class="hljs-type">Scope</span> <span class="hljs-string">&quot;y&quot;</span>, 
+        <span class="hljs-type">Num</span> <span class="hljs-number">1</span>))
+</code></pre>
+<p>or</p>
+<pre><code class="language-ocaml"><span class="hljs-type">Binop</span> (
+    <span class="hljs-type">Add</span>,
+    <span class="hljs-type">Scope</span> (<span class="hljs-string">&quot;x&quot;</span>, <span class="hljs-type">Num</span> <span class="hljs-number">1</span>),
+    <span class="hljs-type">Num</span> <span class="hljs-number">2</span>)
+</code></pre>
+<p>These expressions are not well-formed. However, because we wrote the parser ourselves that always generates well-formed ASTs, a malicious programmer cannot trick the parser into generating an ill-formed AST using some input program in concrete syntax.</p>
+<p>However, it <em>is</em> possible that, when you write your own interpreter, you may accidentally generate an ill-formed AST (e.g., as the output of the <code>subst</code> function) if you aren't careful. Thus, you should be very careful to maintain the well-formedness of ASTs <strong>as an invariant</strong>. An invariant like this is bit like a contract:</p>
+<ul>
+<li>You are allowed to assume that all input <code>expr</code> are well-formed</li>
+<li>In return, you must ensure that any output <code>expr</code> is well-formed</li>
+</ul>
+<p>Thus, it will be helpful to write a function that checks whether an <code>expr</code> is well-formed.</p>
+<p><strong>Problem 2</strong> (📝): Finish the definition of the <code>wf</code> function, which takes a list of in-scope variables <code>vs</code>, and checks if the input expression <code>e</code> is well-formed in terms of the binding structure.</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">let</span> <span class="hljs-keyword">rec</span> wf (vs: <span class="hljs-built_in">string</span> <span class="hljs-built_in">list</span>) (e: expr) : <span class="hljs-built_in">bool</span> =
+    | <span class="hljs-type">Num</span> _ -&gt; <span class="hljs-literal">true</span>
+    | <span class="hljs-type">Binop</span> (_, <span class="hljs-type">Scope</span> _, <span class="hljs-type">Scope</span> _) -&gt; 
+        <span class="hljs-comment">(* binop doesn&#x27;t bind anything *)</span>
+        <span class="hljs-literal">false</span>
+    | <span class="hljs-type">Binop</span> (_, e1, e2) -&gt; wf vs e1 &amp;&amp; wf vs e2
+    | <span class="hljs-type">Var</span> _ -&gt; <span class="hljs-comment">(* todo *)</span>
+    | <span class="hljs-type">Scope</span> (_, e) -&gt; 
+         <span class="hljs-comment">(* a binder by itself is ill-formed;  it must be part of 
+            another language construct that uses it *)</span>
+         <span class="hljs-literal">false</span>
+    | <span class="hljs-type">Lambda</span> (<span class="hljs-type">Scope</span> (x, body)) -&gt; <span class="hljs-comment">(* todo *)</span>
+    | <span class="hljs-type">Lambda</span> _ -&gt; <span class="hljs-literal">false</span>
+    | <span class="hljs-type">Let</span> (e1, <span class="hljs-type">Scope</span>(x, e2)) -&gt; 
+        <span class="hljs-comment">(* recursively check e1 is well-formed *)</span>
+        wf vs e1 &amp;&amp; ( <span class="hljs-comment">(* todo *)</span> )
+    | <span class="hljs-type">Let</span> _ -&gt; <span class="hljs-literal">false</span>
+</code></pre>
+<p>You should also check for out-of-scope references.</p>
+<p><em>Hints</em>:</p>
+<ol>
+<li>You may find it helpful to define helper functions that are similar to you did with list-based dictionaries in HW1. It's just that this time, we only need to keep track of the keys, not the values, so we use <code>string list</code> instead of <code>(string * 'v) list</code>.</li>
+<li>Each todo can be implemented with just 1 line of code, although that 1 line may be a call to a helper function. If you wrote more than 1 line, you are probably overthinking it.</li>
+</ol>
+<p><strong>Problem 3</strong> (📝): Give two examples of <code>e</code> for which <code>wf [&quot;x&quot;] e</code> will return <code>false</code>, and one example of <code>e</code> for which <code>wf [&quot;x&quot;] e</code> will return <code>true</code>.</p>
+<h3 id="34-semantics">3.4 Semantics</h3>
+<p><strong>Problem 4</strong> (🧑‍💻, 5 points): Implement the free variable function <code>free_vars: expr -&gt; Vars.t</code> that computes the set of free variable references in an expression. The <code>Vars</code> module provides a type (<code>Vars.t</code>) to represent a set of strings, and functions that operate on such sets, e.g.:</p>
+<pre><code class="language-ocaml"><span class="hljs-comment">(* the empty set *)</span>
+<span class="hljs-keyword">val</span> empty : <span class="hljs-type">Vars</span>.t
+<span class="hljs-comment">(* add a string to a set *)</span>
+<span class="hljs-keyword">val</span> add : <span class="hljs-built_in">string</span> -&gt; <span class="hljs-type">Vars</span>.t -&gt; <span class="hljs-type">Vars</span>.t
+<span class="hljs-comment">(* take the difference of two sets *)</span>
+<span class="hljs-keyword">val</span> diff : <span class="hljs-type">Vars</span>.t -&gt; <span class="hljs-type">Vars</span>.t -&gt; <span class="hljs-type">Vars</span>.t
+<span class="hljs-comment">(* check if a set contains a string *)</span>
+<span class="hljs-keyword">val</span> mem : <span class="hljs-built_in">string</span> -&gt; <span class="hljs-type">Vars</span>.t -&gt; <span class="hljs-built_in">bool</span>
+</code></pre>
+<p><em>Hint</em>: The only interesting cases are <code>Var</code> and <code>Scope</code>.</p>
+<p><strong>Problem 5</strong> (🧑‍💻, 15 points): Finish the implementation of the substitution function</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">let</span> <span class="hljs-keyword">rec</span> subst (x: <span class="hljs-built_in">string</span>) (e: expr) (c: expr) : expr = 
+    <span class="hljs-keyword">match</span> c <span class="hljs-keyword">with</span>
+    ...
+</code></pre>
+<p>You don't need to implement capture-avoiding substitution, or do any kind of alpha-renaming. You can also assume that <code>e</code> is well-formed, and you should maintain the invariant that <code>c</code> is part of a well-formed expression.</p>
+<p><em>Hint</em>: The only interesting cases are <code>Var</code> and <code>Scope</code>.</p>
+<p><strong>Problem 6</strong> (⭐️bonus⭐️, 3 points): Modify the <code>Scope (x, e)</code> case of your <code>subst</code> function to implement capture-avoiding substitution using alpha-renaming.</p>
+<blockquote>
+<p><strong>Important note</strong>: If you choose not to do this problem, you should still understand how to do alpha-renaming and capture-avoiding substitution on a conceptual level, since you may be asked to do so in the midterm.</p>
+</blockquote>
+<p>To be consistent with the autograder, whenever you need to alpha-rename some name <code>y</code> of a binder <code>scope y in e</code>, you should rename <code>y</code> to <code>yn</code> where <code>n</code> is the smallest natural number such that using <code>yn</code> as an argument will not capture any variables. Here are some examples of alpha renaming:</p>
+<ul>
+<li><code>(lambda x, y. x y) (lambda x. y)</code> will evaluate to <code>(lambda y0. (lambda x. y) y0)</code>.</li>
+<li><code>(lambda x, y. x y y0) (lambda x. y)</code> will evaluate to <code>(lambda y1. ((lambda x. y) y1) y0)</code></li>
+<li><code>(lambda f, y. let y0 = 5 in y) (lambda x. y)</code> will evaluate to <code>lambda y0. let y00 = 5 in y0</code></li>
+<li><code>(lambda z. lambda y. let x = 5 in z) (lambda y. x)</code> will evaluate to <code>lambda y. let x0 = 5 in lambda y. x</code></li>
+</ul>
+<p>We suggest implementing a helper function for finding the next available name and testing it separately. By default helper functions are not visible outside the file they are defined in. To make them visible, simply add the type signature of your helper function to <code>eval.mli</code>.</p>
+<p><strong>Problem 7</strong> (🧑‍💻, 15 points): Finish the implementation of the interpreter</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">let</span> <span class="hljs-keyword">rec</span> eval (e: expr) : expr = 
+    <span class="hljs-keyword">match</span> e <span class="hljs-keyword">with</span>
+    ...
+</code></pre>
+<p>You can assume that the input expression is well-formed. Also, you might want to refer to the operational semantics rules in the <a href="./lamp.pdf">language reference manual</a> for the precise meaning of each language construct.</p>
+<hr>
+<p>Now you have a working interpreter for a Turing-complete programming language! Since we've also written a parser for you, you can run your interpreter interactively like you run <code>utop</code>, or use it to run program files. To run it interactively, simply run</p>
+<pre><code class="language-bash">dune <span class="hljs-built_in">exec</span> lib/lamp/repl.exe
+</code></pre>
+<p>After which you should see a welcome message, and a prompt <code>&gt;</code> after which you can type in expressions to evaluate. For example:</p>
+<pre><code>Welcome to lambda+! Built on: Wed Jan 24 12:54:56 PST 2024
+&gt; 1 + 1
+&lt;== 1 + 1
+==&gt; 2
+</code></pre>
+<p>Use the ⬆️/⬇️ arrow keys to navigate the history of commands you typed in.</p>
+<p>You can also run your interpreter on a program file with</p>
+<pre><code class="language-bash">dune <span class="hljs-built_in">exec</span> lib/lamp/repl.exe -- &lt;path-to-file&gt;
+</code></pre>
+<p>We provided some example programs in <code>lib/lamp/examples</code>.</p>
+<p>We also wrote a reference interpreter located on CSIL at <code>~junrui/lamp</code> which you can use to compare the output of your interpreter.
+To run the reference interpreter, simply run <code>~junrui/lamp</code> (interactive mode) or <code>~junrui/lamp &lt;path-to-file&gt;</code> (file mode).</p>
+<blockquote>
+<p>If you discovered any bug in the reference interpreter, please let us know!</p>
+</blockquote>
+<h2 id="part-4-church-encoding">Part 4. Church Encoding</h2>
+<blockquote>
+<p>This part is completely optional.</p>
+<p>Total: 3 ⭐️bonus⭐️ points</p>
+</blockquote>
+<p>In lectures, we learned that lambda calculus is super powerful, and can express all kinds of data structures and operations, e.g., booleans, natural numbers, etc. Of course, lambda calculus doesn't support booleans or natural numbers natively, so we had to find a way to <em>encode</em> them into expressions that are valid in lambda calculus. Although those <em>Church encodings</em> don't look like their counterparts, they have the same <em>behavior</em> as their counterparts.</p>
+<blockquote>
+<p><em>Tip</em>: For this part, you'll be writing a lot of lambda calculus expressions. You can use our reference interpreter on CSIL to play the expressions you came up with. You may also find it helpful to use them as realistic cases to stress-test the interpreter you wrote in part 3.</p>
+</blockquote>
+<h3 id="41-why-should-i-care-about-church-encoding">4.1 Why Should I Care about Church Encoding?</h3>
+<p>Before diving into the Church encoding, let's first motivate why we care about it in the first place. After all, <em>half</em> of this README is taken by this bonus part on Church encoding that you don't even have to do, so it better be worth your time in case you choose to do it!</p>
+<p>Your first reaction to Church encoding might be:</p>
+<blockquote>
+<ol>
+<li>
+<p>Since almost every sensible programming language already has booleans and numbers built in, why should we even bother to go through the mental gymnastic of encoding booleans and natural numbers into the language? Why doesn't lambda calculus also just treat them as primitives, like every other language?</p>
+</li>
+<li>
+<p>Is Church encoding just some academic exercise that has no practical value? As a future software engineer, or someone who's probably not gonna use functional programming in my day job[^1], why should I care?</p>
+</li>
+</ol>
+</blockquote>
+<p>[^1]: unless you work at Jane Street, of course</p>
+<p>To answer the first question, note that when we encounter a new language, one of the most important questions we might want to ask is:</p>
+<p><em>&quot;How expressive is this language?&quot;</em></p>
+<p>For example, using this new language, can we do things like: integer arithmetic? branching? loops and recursion? procedural abstraction? mutable memory? message passing? generics?</p>
+<p>The programming language we choose will fundamentally shape the way we think about and solve problems. So we really want expressive languages that make it easy to express a wide range of problem-solving paradigms.</p>
+<p>However, the more features the language has, the more difficult for us to understand, master, and analyze it. This is because <em>every</em> language feature can potentially interact with <em>any other</em> feature, and may lead to complex behaviors that might not be apparent just by looking at the individual features in isolation. If the language has N features, then we may need to understand <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mi>N</mi></msup></mrow><annotation encoding="application/x-tex">2^N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8413em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">N</span></span></span></span></span></span></span></span></span></span></span> possible interactions between them!</p>
+<p>This leads to a fundamental tension of language design: we want <em>expressive</em> languages, but we also want <em>easily understandable</em> languages. This can be a very hard question for language designers.</p>
+<p>Fortunately, there's a simple trick that allows us to have the best of both worlds: say a language has both feature <code>X</code> and <code>Y</code>, and we know that <code>Y</code> can be realized by translating it to <code>X</code>. Then, we just need to study the language with feature <code>X</code>, and we can ignore <code>Y</code> completely, since any program that uses <code>Y</code> can be turned into an equivalent program that just uses <code>X</code>. In programming language theory, we call <code>Y</code> a <em>syntactic sugar</em>, and the process of turning <code>Y</code> into <code>X</code> is called <em>desugaring</em>.</p>
+<p>For example, you have probably learned that if a language has both for-loops and while-loops, then any program with for-loops can be translated into an equivalent one with <em>only</em> while-loops:</p>
+<pre><code class="language-Java"><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) {
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">10</span>; j++) {
+        System.out.println(i + j);
+    }
+}
+
+==[desugar]=&gt;
+
+<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+<span class="hljs-keyword">while</span> (i &lt; <span class="hljs-number">10</span>) {
+    <span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">while</span> (j &lt; <span class="hljs-number">10</span>) {
+        System.out.println(i + j);
+        j++;
+    }
+    i++;
+}
+</code></pre>
+<p>And we say that for-loops are just a syntactic sugar for while-loops.</p>
+<p>Intuitively, syntactic sugars do not make a language more expressive, because they can be desugared away into the primitive features of the language. Thus, we can make the following observation:</p>
+<p><em>Syntactic sugars do not change the expressive power of a language.</em></p>
+<p>Based on this observation, a language designer can reduce the full language into a <em>core language</em> that is as expressive as the full language, but it will have a more compact set of <em>primitive</em> features that are easier to understand and analyze.</p>
+<p>The process of encoding booleans and natural numbers into lambda calculus is the same deal: removing them from lambda calculus makes the language simpler, but the encoding shows that the smaller language retains the same expressive power as the full language. In fact, we shall see that in addition to booleans and natural numbers, we can Church-encode many other fancy data structures into lambda calculus, including</p>
+<ul>
+<li><code>option</code>,</li>
+<li>products like <code>bool * nat</code></li>
+<li><code>list</code>,</li>
+<li><code>tree</code> and ...</li>
+<li>... <em>wait for it</em> ...</li>
+<li>... <code>expr</code> itself!</li>
+</ul>
+<p>That is, we can represent a lambda calculus AST as a lambda function!</p>
+<p>In fact, we can further write the interpretation function <code>eval : expr -&gt; expr</code> as a lambda function. That is, you didn't have to write the <code>eval</code> function in OCaml at all -- lambda calculus is so powerful that we can just write the interpreter for lambda calculus, <em>in lambda calculus</em>!</p>
+<blockquote>
+<p><strong>Universality</strong>: If a language <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi></mrow><annotation encoding="application/x-tex">L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">L</span></span></span></span> is expressive enough to encode and interpret itself, we say that <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi></mrow><annotation encoding="application/x-tex">L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">L</span></span></span></span> is a <em>universal language</em>.</p>
+</blockquote>
+<p>Universality is like a singularity point: once a language achieves universality, it can start to simulate any other language (universal or not). This is the ultimate reason we care so much about encoding things into lambda calculus, because we can evenatually encode lambda calculus itself into lambda calculus, <strong>proving that lambda calculus is a universal language and hence Turing-complete</strong>!</p>
+<p>Now, a response to the second question (whether Church encoding has any practical value) is that, we're going to show you a recipe by which we'll use to derive the Church encoding of various data structures. As it turns out, the recipe will reveal a <em>deep connection</em> between functional program and, surprisingly, <strong>object-oriented programming</strong>! If you think you need to use an object-oriented language like Python, Java, or C++ in the future, then learning about Church encoding will allow you to see those languages in a new light.</p>
+<p>Anyway, we hope that's enough motivation to convince you to this part of the assignment will be worth your time. Although we'll just do Church encoding of <code>bool</code> and <code>option</code> in this assignment, we'll show you how to apply the same recipe to derive an encoding of <code>nat</code> (the simplest recursive data structure) and subsequently to all kinds of crazy data structures like lists, trees, and the ASTs of lambda calculus itself. So you've also got something to look forward to in the meantime!</p>
+<p>Let's get started!</p>
+<h3 id="42-making-something-vs-using-something">4.2 Making Something vs Using Something</h3>
+<p>In HW1, we learned that for every type, there are two kinds of operations that we can do with it:</p>
+<ol>
+<li><strong>Making</strong> something of that type</li>
+<li><strong>Using</strong> something of that type</li>
+</ol>
+<p>In programming languages and type theorey, people sometimes call the first kind of operations the <strong>introduction form</strong> of the type, and the second kind of operations the <strong>elimination form</strong> of the type.</p>
+<p>For example, we can <strong>make</strong></p>
+<ul>
+<li>a boolean with <code>true</code> or <code>false</code></li>
+<li>an <code>option</code> with <code>Some ..</code> or <code>None</code></li>
+<li>a product with <code>( , )</code></li>
+<li>a list with <code>[]</code> or <code>::</code></li>
+<li>a tree with <code>Leaf</code> or <code>Node</code></li>
+<li>an <code>expr</code> AST with <code>Num</code>, <code>Var</code>, <code>Binop</code>, <code>Lambda</code>, <code>App</code>, or <code>Let</code></li>
+</ul>
+<p>We say that <code>true</code> and <code>false</code> are the introduction form for <code>bool</code>, and <code>Some</code> and <code>None</code> are the introduction form for <code>option</code>, etc.</p>
+<p>And we can <strong>use</strong></p>
+<ul>
+<li>a boolean with <code>if</code> or <code>match</code></li>
+<li>an <code>option</code> with <code>match</code></li>
+<li>a product with <code>match</code></li>
+<li>a list with <code>match</code></li>
+<li>a tree with <code>match</code></li>
+<li>an <code>expr</code> AST with <code>match</code></li>
+</ul>
+<p>We say that <code>if</code> (or <code>match</code>) is the elimination form for <code>bool</code>, and <code>match</code> is the elimination form for <code>option</code>, etc.</p>
+<p><strong>Exercise</strong> (📝): Consider the function type <code>t1 -&gt; t2</code>. What is the introduction form and the elimination form for this type? I.e., how do you make a function of type <code>t1 -&gt; t2</code>, and given you possess a function of type <code>t1 -&gt; t2</code>, what can you do with it?</p>
+<p>The important thing to notice is that, in OCaml, a type is <em>defined</em> by its introduction form (aka constructors). For example, <code>option</code> is defined as</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">type</span> <span class="hljs-symbol">&#x27;a</span> option = <span class="hljs-type">Some</span> <span class="hljs-keyword">of</span> <span class="hljs-symbol">&#x27;a</span> | <span class="hljs-type">None</span>
+</code></pre>
+<p>in which we simply enumerate the two possible ways we can <em>make</em> an <code>option</code>.</p>
+<p>Once a type is defined in OCaml, we get its elimination form automatically, for free, using pattern match. For example, we never <em>defined</em> that <code>option</code> can be deconstructed with <code>match</code>. We just silently start to pattern-match on options as if it were built into the language.</p>
+<blockquote>
+<p><strong>Takeaway</strong>: In OCaml, a type or a data structure is defined by its introduction form, and we get its elimination form for free.</p>
+</blockquote>
+<p>Now, since we want to encode those fancy types and data structures into lambda calculus, we might want to first try to encode their introduction forms (i.e. constructors) as lambda expressions, right?</p>
+<p>Well, unfortunately, this is not going to work, as lambda calculus doesn't have the feature of &quot;data types&quot; built in, like OCaml does, so we can't possibly say &quot;a boolean is either true, or false&quot;, or &quot;a product t1 * t2 is both t1 and t2&quot; in lambda calculus.</p>
+<p>But!</p>
+<p>Note that introduction form is just one side of the story. We also have elimination form, which is in some sense <em>dual</em>, or <em>symmetrical</em>, to introduction form. Previously, we handed OCaml with the introduction form, and OCaml spits out the elimination form for free. Why don't we try the other direction? In other words, let's try <strong>defining a data structure by its elimination form</strong>, and see if we can get its introduction form for free. The hope is that, unlike introduction form, we might be able to encode elimination forms more easily into lambda calculus.</p>
+<h3 id="43-eliminating-booleans">4.3 Eliminating Booleans</h3>
+<p>To get a feel for elimination form, let's consider the simple example of booleans. Given a <code>bool</code>, its elimination form specifies how we can <strong>use</strong> it. In OCaml, assuming that we we have a <code>bool</code>, we can use it by branching on whether it's true or false via <code>if</code> or <code>match</code>. For example, we can write</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">if</span> b <span class="hljs-keyword">then</span> 
+    <span class="hljs-keyword">do</span> something 
+<span class="hljs-keyword">else</span> 
+    <span class="hljs-keyword">do</span> something <span class="hljs-keyword">else</span>
+</code></pre>
+<p>which is equivalent to</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">match</span> b <span class="hljs-keyword">with</span>
+| <span class="hljs-literal">true</span> -&gt; <span class="hljs-keyword">do</span> something
+| <span class="hljs-literal">false</span> -&gt; <span class="hljs-keyword">do</span> something <span class="hljs-keyword">else</span>
+</code></pre>
+<p>The above is the elimination form for <code>bool</code>. Ultimately, we want to encode those things into functions (which is the only thing lambda calculus has, mind you). Luckily, OCaml has a copy of lambda calculus inside it (e.g., <code>lambda x. e</code> is written as <code>fun x -&gt; e</code> in OCaml). So let's do some experiments in OCaml first. Once we're convinced we have a working solution, we'll translate it into lambda calculus.</p>
+<p>Let's try to turn <code>if</code> expressions -- the elimination form of <code>bool</code> -- into an OCaml function. Intuitively, this function should at least take three arguments: the boolean <code>b</code> we're branching on, the &quot;then&quot; branch, and the &quot;else&quot; branch. So we can write</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">let</span> if_as_a_function (b: <span class="hljs-built_in">bool</span>) (then_case: <span class="hljs-symbol">&#x27;a</span>) (else_case: <span class="hljs-symbol">&#x27;a</span>) : <span class="hljs-symbol">&#x27;a</span> = 
+    <span class="hljs-keyword">if</span> b <span class="hljs-keyword">then</span>
+        then_case
+    <span class="hljs-keyword">else</span>
+        else_case
+</code></pre>
+<p>This is a perfectly fine function, and it behaves the same as <code>if</code> expressions. That is, given any <code>if .. then .. else ..</code>, we could have replaced it with <code>if_as_a_function .. .. ..</code> and the program would still behave the same. (Small asterisk: the same most of the time, to be precise, but let's not worry about that now; we'll worrry about this in the next homework. The slight diffierence has to do with evaluation order).</p>
+<p>For example, if we have <code>if true then 1 else 2</code>, we can replace it with <code>if_as_a_function true 1 2</code>, and the program will behave the same.</p>
+<p>Actually, we're extremely close to encoding <code>bool</code> into lambda calculus, since now we have a <em>function</em> that corresponds exactly to the elimination form of <code>bool</code>. The last thing to do is to observe the type of <code>if_as_a_function</code>, which is</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">val</span> if_as_a_function : <span class="hljs-built_in">bool</span> -&gt; <span class="hljs-symbol">&#x27;a</span> -&gt; <span class="hljs-symbol">&#x27;a</span> -&gt; <span class="hljs-symbol">&#x27;a</span>
+</code></pre>
+<p>That is, <code>if_as_a_function</code> is a function that, given</p>
+<ul>
+<li>a boolean</li>
+<li>what to do in the &quot;then&quot; branch, which has type <code>'a</code></li>
+<li>what to do in the &quot;else&quot; branch, which also has type <code>'a</code></li>
+</ul>
+<p>gives us back</p>
+<ul>
+<li>a result depending on whether the boolean is <code>true</code> or <code>false</code>. The type of the result is the same as the type of the &quot;then&quot; branch and the &quot;else&quot; branch, so it's also an <code>'a</code>.</li>
+</ul>
+<p>Now comes the braintwister: this <code>if_as_a_function</code> assumes we already have <code>bool</code> as a previously defined type in our language; what we want to do instead is to encode <code>bool</code> in the first place, since lambda calculus doesn't have <code>bool</code>! So the magical move is to (pun intended) <em>move</em> <code>bool</code> from the argument list into the left-hand-side of an equation:</p>
+<pre><code class="language-ocaml"><span class="hljs-built_in">bool</span> -&gt; <span class="hljs-symbol">&#x27;a</span> -&gt; <span class="hljs-symbol">&#x27;a</span> -&gt; <span class="hljs-symbol">&#x27;a</span>
+==&gt;
+bool_encoding = <span class="hljs-symbol">&#x27;a</span> -&gt; <span class="hljs-symbol">&#x27;a</span> -&gt; <span class="hljs-symbol">&#x27;a</span>
+</code></pre>
+<p>Simple as that! That is, we <strong>define</strong> the encoding of <code>bool</code> to be any function of this type. Effectively, we're saying that <code>bool</code> is basically the same as a function that, if we tell it what to do in the &quot;then&quot; branch and what to do in the &quot;else&quot; branch, it will pick one branch and tell us what the result is going to be.</p>
+<p>This might seem paradoxical. We haven't even talked about how to make booleans -- all we said was that how to use them! But this is the magic of definition by elimination form: we define a type by how to use it, and after that we can derive the usual introduction form for free, which we do now.</p>
+<p>Since the introduction forms for <code>bool</code> in OCaml are <code>true</code> and <code>false</code>, we need to encode each of them into something of type <code>'a -&gt; 'a -&gt; 'a</code>. So we want to define</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">val</span> true_encoding : <span class="hljs-symbol">&#x27;a</span> -&gt; <span class="hljs-symbol">&#x27;a</span> -&gt; <span class="hljs-symbol">&#x27;a</span>
+<span class="hljs-keyword">val</span> false_encoding : <span class="hljs-symbol">&#x27;a</span> -&gt; <span class="hljs-symbol">&#x27;a</span> -&gt; <span class="hljs-symbol">&#x27;a</span>
+</code></pre>
+<p>The good thing is, there's no cleverness involved when we want to derive introduction form from elimination form, just as there wasn't any cleverness when OCaml derived the elimination from from the introduction form we provided! We can mechanically arive at the definition of <code>true_encoding</code> just based from what we have. To see what <code>true_encoding</code> has to be, all we need to do is to call the elimination function on <code>true</code>:</p>
+<pre><code class="language-ocaml">if_as_a_function <span class="hljs-literal">true</span> then_case else_case
+== <span class="hljs-keyword">if</span> <span class="hljs-literal">true</span> <span class="hljs-keyword">then</span> then_case <span class="hljs-keyword">else</span> else_case
+== then_case
+</code></pre>
+<p>To put it in another way, if we encode <code>true</code> into a function, it should behave the same as the function <code>if_as_a_function true</code>. This leads us to the following definition</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">let</span> true_encoding (then_case: <span class="hljs-symbol">&#x27;a</span>) (else_case: <span class="hljs-symbol">&#x27;a</span>) : <span class="hljs-symbol">&#x27;a</span> =
+    if_as_a_function <span class="hljs-literal">true</span> then_case else_case
+</code></pre>
+<p>which we saw was equivalent to</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">let</span> true_encoding (then_case: <span class="hljs-symbol">&#x27;a</span>) (else_case: <span class="hljs-symbol">&#x27;a</span>) : <span class="hljs-symbol">&#x27;a</span> =
+    then_case
+</code></pre>
+<p>The type of <code>true_encoding</code> is <code>'a -&gt; 'a -&gt; 'a</code>, which is what we want for the encoding of <code>bool</code> as functions :)</p>
+<p>To recap what we just did:</p>
+<ol>
+<li>We implemented the elimination form of <code>bool</code> as a function, whose type is <code>bool -&gt; 'a -&gt; 'a -&gt; 'a</code>.</li>
+</ol>
+<ul>
+<li>
+<p>Then, we changed <code>bool -&gt; 'a -&gt; 'a -&gt; 'a</code> into <code>bool_encoding = 'a -&gt; 'a -&gt; 'a</code>. I.e., we said that an encoded <code>bool</code> is basically just a function of type <code>'a -&gt; 'a -&gt; 'a</code>, whose first argument is what to do in the &quot;then&quot; branch and whose second argument is what to do in the &quot;else&quot; branch. This function gives the result depending on which branch we are in.</p>
+</li>
+<li>
+<p>Finally, we derived the usual introduction from from the elimination form. Specifically, we naturally obtained the function <code>true_encoding</code> that behaves the same as <code>true</code>, by simplying calling <code>if_as_a_function true</code>. According to this definition, <code>true_encoding</code> is a function that, given what to do in the &quot;then&quot; branch and what to do in the &quot;else&quot; branch, will always take the &quot;then&quot; branch and ignore the &quot;else&quot; branch.</p>
+</li>
+</ul>
+<p><strong>Problem 1</strong> (📝): Follow the same recipe and derive <code>false_encoding</code> as an OCaml function of type <code>'a -&gt; 'a -&gt; 'a</code>.</p>
+<h3 id="44-church-encoding-of-booleans">4.4 Church Encoding of Booleans</h3>
+<p>Now that we know how to encode booleans into functions in OCaml, we can repeat the same steps, but in lambda calculus. So let's translate <code>true_encoding</code> and <code>false_encoding</code> into lambda expressions!</p>
+<p>As an example, we defined <code>true_encoding</code> as</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">let</span> true_encoding (then_case: <span class="hljs-symbol">&#x27;a</span>) (else_case: <span class="hljs-symbol">&#x27;a</span>) : <span class="hljs-symbol">&#x27;a</span> =
+    then_case
+</code></pre>
+<p>This function definition is equivalent to a version that uses anonymous function syntax <code>fun x -&gt; e</code>:</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">let</span> true_encoding = 
+    <span class="hljs-keyword">fun</span> (then_case: <span class="hljs-symbol">&#x27;a</span>) (else_case: <span class="hljs-symbol">&#x27;a</span>) : <span class="hljs-symbol">&#x27;a</span> -&gt;
+        then_case
+</code></pre>
+<p>Using currying, the above can be seen as identical to:</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">let</span> true_encoding = 
+    <span class="hljs-keyword">fun</span> (then_case: <span class="hljs-symbol">&#x27;a</span>) -&gt; 
+        <span class="hljs-keyword">fun</span> (else_case: <span class="hljs-symbol">&#x27;a</span>) : <span class="hljs-symbol">&#x27;a</span> -&gt; 
+            then_case
+</code></pre>
+<p>Since lambda calculus doesn't have types (yet), we just erase them to get the lambda expression:</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>λ</mi><mtext mathvariant="sans-serif">ThenCase</mtext><mi mathvariant="normal">.</mi><mtext> </mtext><mi>λ</mi><mtext mathvariant="sans-serif">ElseCase</mtext><mi mathvariant="normal">.</mi><mtext> </mtext><mtext mathvariant="sans-serif">ThenCase</mtext></mrow><annotation encoding="application/x-tex">\lambda \textsf{ThenCase}.\ \lambda \textsf{ElseCase}.\ \textsf{ThenCase}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">λ</span><span class="mord text"><span class="mord textsf">ThenCase</span></span><span class="mord">.</span><span class="mspace"> </span><span class="mord mathnormal">λ</span><span class="mord text"><span class="mord textsf">ElseCase</span></span><span class="mord">.</span><span class="mspace"> </span><span class="mord text"><span class="mord textsf">ThenCase</span></span></span></span></span></span></p>
+<p>where we simply replaced <code>fun</code> with <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi></mrow><annotation encoding="application/x-tex">\lambda</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">λ</span></span></span></span>, and <code>-&gt;</code> with &quot;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">.</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.1056em;"></span><span class="mord">.</span></span></span></span>&quot;.</p>
+<p>This is exactly what you saw in lectures, modulo alpha-renaming:</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>λ</mi><mi>x</mi><mi mathvariant="normal">.</mi><mtext> </mtext><mi>λ</mi><mi>y</mi><mi mathvariant="normal">.</mi><mtext> </mtext><mi>x</mi></mrow><annotation encoding="application/x-tex">\lambda x.\ \lambda y.\ x
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">λ</span><span class="mord mathnormal">x</span><span class="mord">.</span><span class="mspace"> </span><span class="mord mathnormal">λ</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mord">.</span><span class="mspace"> </span><span class="mord mathnormal">x</span></span></span></span></span></p>
+<p><strong>Problem 2</strong> (📝): Translate <code>false_encoding</code> into lambda calculus.</p>
+<p><strong>Problem 3</strong> (📝): We said the <code>if_as_a_function</code> is the elimination form for boolean. In fact, it is <em>the most general</em> elimination form, since any other boolean functions you can think of can be implemented in terms of <code>if_as_a_function</code>. For example, the negation function <code>neg : bool -&gt; bool</code> can be defined as</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">let</span> neg (b: <span class="hljs-built_in">bool</span>) : <span class="hljs-built_in">bool</span> = 
+    if_as_a_function b <span class="hljs-literal">false</span> <span class="hljs-literal">true</span>
+</code></pre>
+<p>For this exercise, use <code>if_as_a_function</code> to define:</p>
+<ul>
+<li>AND <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∧</mo></mrow><annotation encoding="application/x-tex">\wedge</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5556em;"></span><span class="mord">∧</span></span></span></span> of type <code>bool -&gt; bool -&gt; bool</code></li>
+<li>OR <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∨</mo></mrow><annotation encoding="application/x-tex">\vee</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5556em;"></span><span class="mord">∨</span></span></span></span> of type <code>bool -&gt; bool -&gt; bool</code></li>
+<li>XOR <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⊕</mo></mrow><annotation encoding="application/x-tex">\oplus</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord">⊕</span></span></span></span> of type <code>bool -&gt; bool -&gt; bool</code></li>
+<li>IMPLY <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo></mrow><annotation encoding="application/x-tex">\Rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">⇒</span></span></span></span> of type <code>bool -&gt; bool -&gt; bool</code></li>
+</ul>
+<p>You should only use <code>if_as_a_function</code>, <code>true</code> and <code>false</code>. You may not use if expressions, or built-in boolean operators like <code>&amp;&amp;</code> or <code>||</code>.</p>
+<p><strong>Problem 4</strong> (⭐️bonus⭐️, 2 points):
+Based on our answers to the previous exercise, we can derive the lambda-calculus encodings of those boolean functions in a straightforward way.</p>
+<p>For example, <code>neg</code> was defined in OCaml as (equivalently) <code>fun b -&gt; if_as_a_function b false true</code>. Note that any <strong>encoded boolean</strong> in lambda calculus does exactly what <code>if_as_a_function b</code> does: taking two branches and decide which branch to take. So we just erase <code>if_as_a_function</code> and get</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>λ</mi><mi>b</mi><mi mathvariant="normal">.</mi><mtext> </mtext><mi>b</mi><mtext> </mtext><mtext mathvariant="sans-serif">False</mtext><mtext> </mtext><mtext mathvariant="sans-serif">True</mtext></mrow><annotation encoding="application/x-tex">\lambda b.\ b \ \textsf{False} \ \textsf{True}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">λb</span><span class="mord">.</span><span class="mspace"> </span><span class="mord mathnormal">b</span><span class="mspace"> </span><span class="mord text"><span class="mord textsf">False</span></span><span class="mspace"> </span><span class="mord text"><span class="mord textsf">True</span></span></span></span></span></span></p>
+<p>where <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="sans-serif">False</mtext></mrow><annotation encoding="application/x-tex">\textsf{False}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord textsf">False</span></span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="sans-serif">True</mtext></mrow><annotation encoding="application/x-tex">\textsf{True}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord textsf">True</span></span></span></span></span> are the lambda-calculus encodings of <code>false</code> and <code>true</code> which we already derived. So expanding everything out, we get the full encoding of the negation function</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>λ</mi><mi>b</mi><mi mathvariant="normal">.</mi><mtext> </mtext><mi>b</mi><mtext> </mtext><mo stretchy="false">(</mo><mi>λ</mi><mi>x</mi><mi mathvariant="normal">.</mi><mtext> </mtext><mi>λ</mi><mi>y</mi><mi mathvariant="normal">.</mi><mtext> </mtext><mi>y</mi><mo stretchy="false">)</mo><mtext> </mtext><mo stretchy="false">(</mo><mi>λ</mi><mi>x</mi><mi mathvariant="normal">.</mi><mtext> </mtext><mi>λ</mi><mi>y</mi><mi mathvariant="normal">.</mi><mtext> </mtext><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\lambda b.\ b \ (\lambda x.\ \lambda y.\ y) \ (\lambda x.\ \lambda y.\ x)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">λb</span><span class="mord">.</span><span class="mspace"> </span><span class="mord mathnormal">b</span><span class="mspace"> </span><span class="mopen">(</span><span class="mord mathnormal">λ</span><span class="mord mathnormal">x</span><span class="mord">.</span><span class="mspace"> </span><span class="mord mathnormal">λ</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mord">.</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mspace"> </span><span class="mopen">(</span><span class="mord mathnormal">λ</span><span class="mord mathnormal">x</span><span class="mord">.</span><span class="mspace"> </span><span class="mord mathnormal">λ</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mord">.</span><span class="mspace"> </span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span></span></p>
+<p>Your task is do the same for the other boolean functions you have defined in the previous exercise. Afterwards, run the lambda calculus expressions you came up with on our <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>λ</mi><mo>+</mo></msup></mrow><annotation encoding="application/x-tex">\lambda^+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7713em;"></span><span class="mord"><span class="mord mathnormal">λ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7713em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span></span></span></span> reference interpreter on CSIL or your own interpreter.</p>
+<p>To test your encoding, we provided the test program <code>test/test_part4.lp</code>. You can define replace <code>bonus</code> with your solution, enable one of the commented-out tests, and run the program using an interpreter. We provided the <code>to_int</code> function to convert a Church-encoded boolean into an integer constant, so you can more easily see what the output of your boolean functions are.</p>
+<p>Once you're done, copy and paste your solution into <code>lib/part4/*.lp</code>, and submit those files to gradescope.</p>
+<blockquote>
+<p><strong>Background note</strong>: If you're familiar with object-oriented programming (say in Python), what we did to encode <code>bool</code> into lambda calculus was basically first defining the following <code>Bool</code> abstract class:</p>
+<pre><code class="language-python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Bool</span>:
+<span class="hljs-meta">  @abstractmethod</span>
+  <span class="hljs-keyword">def</span> <span class="hljs-title function_">if_then_else</span>(<span class="hljs-params">self, thn, els</span>):
+    <span class="hljs-keyword">pass</span>
+</code></pre>
+<p>Then we basically defined a subclass <code>True</code> that implements <code>if_then_else</code> by always spitting out the first branch:</p>
+<pre><code class="language-python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">True</span>(<span class="hljs-title class_ inherited__">Bool</span>):
+  <span class="hljs-keyword">def</span> <span class="hljs-title function_">if_then_else</span>(<span class="hljs-params">self, thn, els</span>):
+    <span class="hljs-keyword">return</span> thn
+</code></pre>
+<p>Thus, a <code>True</code> object &quot;knows&quot; that when it's being <strong>used</strong>, it must always take the <code>then</code> branch. Similarly, we can define a <code>False</code> class, and any <code>False</code> object &quot;knows&quot; that when it is being used, it must always take the <code>else</code> branch.</p>
+<p>If we allow ourselves to generalize a bit, we can say object-oriented programming makes it natural to <strong>define the elimination forms of a type</strong>, whereas functional programming makes it natural to define types by their introduction form. The two approaches are complimentary, and are in fact dual to each other. Sometimes working with one form might be easier than working with the other, so it's good to know both.</p>
+<p>In fact, in the next assignment, we will see that the <a href="https://en.wikipedia.org/wiki/Visitor_pattern"><em>visitor design pattern</em></a> you may have seen in object-oriented programming is just the <em>elimination form of recursive data types</em>.</p>
+</blockquote>
+<h3 id="45-encoding-options">4.5 Encoding Options</h3>
+<p>Let's use the same recipe to derive the lambda calculus encoding of <code>option</code>, which will be quite similar to booleans.</p>
+<p>The elimination form of <code>'a option</code> is</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">match</span> opt <span class="hljs-keyword">with</span>
+| <span class="hljs-type">None</span> -&gt; <span class="hljs-keyword">do</span> something
+| <span class="hljs-type">Some</span> x -&gt; <span class="hljs-keyword">do</span> something <span class="hljs-keyword">else</span> <span class="hljs-keyword">with</span> x <span class="hljs-keyword">in</span> mind
+</code></pre>
+<p><strong>Problem 5</strong> (📝): Use pattern-match to define <code>elim_option</code> as an OCaml function:</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">let</span> elim_option 
+    (opt: <span class="hljs-symbol">&#x27;a</span> option) 
+    (none_case: <span class="hljs-symbol">&#x27;result</span>) 
+    (some_case: <span class="hljs-symbol">&#x27;a</span> -&gt; <span class="hljs-symbol">&#x27;result</span>) : <span class="hljs-symbol">&#x27;result</span> = <span class="hljs-comment">(* todo *)</span>
+</code></pre>
+<p>The type of <code>elim_option</code> is <code>'a option -&gt; 'result -&gt; ('a -&gt; 'result) -&gt; 'result</code>. That is, <code>elim_option</code> is a function that, given</p>
+<ul>
+<li>an <code>'a option</code></li>
+<li>what to return in the <code>None</code> case, which has type <code>'result</code></li>
+<li>what to return in the <code>Some</code> case, which is a function that takes the <code>'a</code> wrapped in the <code>Some</code> constructor and outputs a <code>'result</code></li>
+</ul>
+<p>and gives us back a <code>'result</code> depending on whether the input option was <code>None</code> or <code>Some</code>.</p>
+<p><strong>Problem 6</strong> (📝): Re-implement <code>join2 : 'a option -&gt; 'b option -&gt; ('a * 'b) option</code> from Part 1 using <code>elim_option</code> <strong>without using pattern-match on options</strong>.</p>
+<hr>
+<p>When encoding booleans, we had an elimination function <code>if_as_a_function: bool -&gt; 'a -&gt; 'a -&gt; 'a</code>. We then moved <code>bool</code> to the left-hand-side of an equation, and declared that</p>
+<pre><code class="language-ocaml">bool_encoding = <span class="hljs-symbol">&#x27;a</span> -&gt; <span class="hljs-symbol">&#x27;a</span> -&gt; <span class="hljs-symbol">&#x27;a</span>
+</code></pre>
+<p>Similarly, since the type of <code>elim_option</code> is <code>'a option -&gt; 'result -&gt; ('a -&gt; 'result) -&gt; 'result</code>, we can move <code>'a option</code> to the left-hand-side of the equation, and declare that</p>
+<pre><code class="language-ocaml">option_encoding = <span class="hljs-symbol">&#x27;result</span> -&gt; (<span class="hljs-symbol">&#x27;a</span> -&gt; <span class="hljs-symbol">&#x27;result</span>) -&gt; <span class="hljs-symbol">&#x27;result</span>
+</code></pre>
+<p>That is, in OCaml/lambda calculus, an encoded option is basically a function that, given</p>
+<ul>
+<li>what to do in the <code>None</code> case, which has type <code>'result</code></li>
+<li>what to do in the <code>Some</code> case, which takes some <code>'a</code> and gives us back a <code>'result</code></li>
+</ul>
+<p>gives us back a <code>'result</code> based on whether the option was <code>None</code> or <code>Some</code>.</p>
+<p><strong>Problem 7</strong> (📝): Define <code>none_encoding</code> as an OCaml function of type <code>'result -&gt; ('a -&gt; 'result) -&gt; 'result</code>. <em>Hint</em>: don't overthink; just derive its definition by expanding <code>elim_option None</code>, like what we did for <code>true_encoding</code>.</p>
+<p><strong>Problem 8</strong> (📝): Since the <code>Some</code> constructor is kinda like a function <code>'a -&gt; 'a option</code>, we can define <code>some_encoding</code> as an OCaml function with type</p>
+<pre><code class="language-ocaml"><span class="hljs-symbol">&#x27;a</span> -&gt; (<span class="hljs-symbol">&#x27;a</span> option_encoding)
+</code></pre>
+<p>Implement <code>some_encoding</code>. <em>Hint</em>: don't overthink; just derive its definition by expanding <code>elim_option (Some x)</code>.</p>
+<p><strong>Problem 9</strong> (⭐️bonus⭐️, 1 point): Translate <code>none_encoding</code> and <code>some_encoding</code> from OCaml to lambda calculus in <code>lib/part4/{none,some}.lp</code>. Once you're done, submit those files to gradescope.</p>
+
+            <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+            
+        </body>
+        </html>

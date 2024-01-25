@@ -1,0 +1,62 @@
+; Build configuration
+
+; Treat warnings as non-fatal
+
+(env
+ (dev
+  (flags
+   (:standard -warn-error -A))))
+
+(data_only_dirs examples)
+
+; ---------------
+; lamp main files
+
+(library
+ (name lamp)
+ (preprocess
+  (pps ppx_deriving.show ppx_deriving.eq))
+ (libraries base fmt)
+ (modules ast scanner parser parse_util vars eval err))
+
+(ocamllex scanner)
+
+(ocamlyacc parser)
+
+; ---------------
+; generate date information
+
+(rule
+ (target build_metadata.ml)
+ (deps (universe))
+ (action
+  (run bash "-c" "echo let date = \\\"$(date)\\\" > %{target}")))
+
+; ---------------
+; statically link the binary for CSIL if using musl libc
+
+(rule
+ (target build_flags)
+ (enabled_if
+  (= %{ocaml-config:c_compiler} "musl-gcc"))
+ (action
+  (write-file %{target} "(-ccopt -static)")))
+
+(rule
+ (target build_flags)
+ (enabled_if
+  (<> %{ocaml-config:c_compiler} "musl-gcc"))
+ (action
+  (write-file %{target} "()")))
+
+; ---------------
+; lamp repl
+
+(executable
+ (name repl)
+ (modules build_metadata repl)
+ (libraries lamp linenoise)
+ (flags
+  :standard
+  (:include build_flags))
+ (modes exe))

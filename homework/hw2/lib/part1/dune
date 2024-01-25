@@ -1,0 +1,9 @@
+(env
+ (dev
+  (flags
+   (:standard -warn-error -A))))
+
+(library
+ (name part1)
+ (libraries base fmt)
+ (modules part1 util))

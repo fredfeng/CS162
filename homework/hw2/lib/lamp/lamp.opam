@@ -1,0 +1,10 @@
+opam-version: "2.0"
+name: "lambda-plus"
+version: "0.1"
+synopsis: "Lambda+ programming language"
+depends: [
+  "alcotest" {with-test}
+  "linenoise"
+  "dune" {>= "2.4"}
+]
+maintainer: ["bryantan@ucsb.edu" "yufeng@cs.ucsb.edu"]
