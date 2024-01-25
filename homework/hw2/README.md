@@ -22,8 +22,8 @@ This homework will consist of four parts.
 
 
 **Important notes**:
-* Problems marked with `📝` are pencil-and-paper problems, and are ungraded. There are X of them in total. You do not need to submit your solution. The goal is to review concepts that will help you solve subsequent problems, and/or to give you some practice with the kinds of questions that will appear on the midterm. Solutions to these problems will be released by the TAs and discussed in sections.
-* Problems marked with `🧑‍💻` are programming tasks, and will be autograded on Gradescope. There are Y of them in total. In solving those problems:
+* Problems marked with `📝` are pencil-and-paper problems, and are ungraded. You do not need to submit your solution. The goal is to review concepts that will help you solve subsequent problems, and/or to give you some practice with the kinds of questions that will appear on the midterm. Solutions to these problems will be released by the TAs and discussed in sections.
+* Problems marked with `🧑‍💻` are programming tasks, and will be autograded on Gradescope. There are 8 of them in total. In solving those problems:
   * You are **not** allowed to use in built-in OCaml library functions in your solutions. If you do, you will not be awarded any points. Note that language features like pattern-matching do not count as library functions. You may use library functions like `Format.printf` and `Int.equal` to test your code, but you must remove them before submitting.
   * You are **not** allowed to use any kind of imperative features, including mutable state (e.g. references and arrays), loops, etc. If you do, you will not be awarded any points.
 * Problems marked with `⭐️bonus⭐️` are optional. You will receive extra credit by solving them. You will not be tested on them in the midterm *unless we explicitly say so*.
@@ -95,7 +95,7 @@ You may not use recursion or pattern matching in your solution. If you do, you w
 *Hint*: Use `map` twice.
 
 
-**Problem 5** (🧑‍💻, 1 point): Using `map` and anonymous functions, define the function `product : 'a list -> 'b list -> ('a * 'b) list list` that computes the cartesian product of two lists. For exmaple, `product [1; 2] [true; false]` will evaluate to
+**Problem 5** (🧑‍💻, 1 point): Using `map` and anonymous functions, define the function `product : 'a list -> 'b list -> ('a * 'b) list list` that computes the cartesian product of two lists. For example, `product [1; 2] [true; false]` will evaluate to
 ```ocaml
 [ 
     [ (1, true); (1, false) ];
@@ -123,8 +123,8 @@ Consider the recursion recipe we talked about [in the first section](../../secti
    2. Inductive/recursive case(s)
 3. Solve the base case
 4. To solve the inductive case:
-   1. Apply the function to all recursive subproblems.
-   2. *Assuming that the solutions to all subproblems are correct*, combine them into a solution to the original problem.
+   1. Apply the function to all recursive sub-problems.
+   2. *Assuming that the solutions to all sub-problems are correct*, combine them into a solution to the original problem.
 
 If we specialize this recipe to the list data structure, we get the following "template":
 ```ocaml
@@ -151,7 +151,7 @@ let rec solve
         let r = solve base_case combine xs' in 
         combine x r
 ```
-Essentially, we are letting the specific problem dicates what to do with `base_case` and `combine`, which it can do by calling `solve` with an appropriate base case value and an appropriate `combine` function. Note that `solve` is a higher-order function since it takes another function (`combine`) as input.
+Essentially, we are letting the specific problem dictates what to do with `base_case` and `combine`, which it can do by calling `solve` with an appropriate base case value and an appropriate `combine` function. Note that `solve` is a higher-order function since it takes another function (`combine`) as input.
 
 As an example, recall the [`lookup` function from HW1](https://github.com/fredfeng/CS162/tree/master/homework/hw1#problem-4--5-points). We can re-implement it without recursion by using `solve`:
 ```ocaml
@@ -159,6 +159,7 @@ let lookup (equal: 'k -> 'k -> bool) (k1: 'k) (d: ('k * 'v) list) : 'v option =
     solve 
         None 
         (fun (k2,v) result -> if equal k1 k2 then Some v else result)
+        d
 ```
 Here, the `base_case` is `None`, since the empty dictionary cannot contain our query key. The `combine` function takes the first thing in our dictionary, which is a key-value pair, and a (correct!) result of recursively looking up the key in the rest of the dictionary. If the first key already matches, we return the value associated with it. Otherwise, we return the recursive result.
 
@@ -191,14 +192,14 @@ The order of the subsets do not matter for the purpose of grading.
 
 
 ---
-Under the hood, "multi-argument" functions in OCaml are simply one-argument functions that return another function as its output. For example, under the hoold, `int -> int -> int` is the same as `int -> (int -> int)`, which is a one-argument function that takes an integer, and returns another `int -> int` *function* as its output.
+Under the hood, "multi-argument" functions in OCaml are simply one-argument functions that return another function as its output. For example, under the hood, `int -> int -> int` is the same as `int -> (int -> int)`, which is a one-argument function that takes an integer, and returns another `int -> int` *function* as its output.
 
 For example,
 ```ocaml
 fun (x : int) (y : int) : int 
     -> x + y
 ```
-is secretely a function that takes an integer `x`, and returns another function that takes an integer `y` and returns `x + y`. I.e., it's exactly the same as
+is secretly a function that takes an integer `x`, and returns another function that takes an integer `y` and returns `x + y`. I.e., it's exactly the same as
 ```ocaml
 fun (x : int) : (int -> int) 
     -> fun (y : int) : int 
@@ -278,7 +279,7 @@ The language itself is basically the arithmetic expression language you implemen
    ```ocaml
    lambda x, y, z. x + y + z
    ```
-   will be desugared into something like this
+   will be de-sugared into something like this
    ```ocaml
    lambda x. (lambda y. (lambda z. x + y + z))
    ```
@@ -300,7 +301,7 @@ The language itself is basically the arithmetic expression language you implemen
 
 ### 3.2 Abstract Syntax
 
-A straightforwad way to represent the abstract syntax tree of $\lambda^+$ -- which we *won't* end up using -- is to modify the `expr` data type we defined back in HW1 with new constructors for lambda calculus and let-expression. For example, we *could* -- but won't -- augment `expr` like this:
+A straightforward way to represent the abstract syntax tree of $\lambda^+$ -- which we *won't* end up using -- is to modify the `expr` data type we defined back in HW1 with new constructors for lambda calculus and let-expression. For example, we *could* -- but won't -- augment `expr` like this:
 ```ocaml
 type binop = Add | Sub | Mul
 type expr = 
@@ -376,7 +377,7 @@ then we are saying that the variable `y` is in scope in the expression `x+1`, an
 
 ### 3.3 Well-Formedness of ASTs
 
-A subtle point about the current `expr` type is that we can technically use the `expr` constructors to make non-sensical ASTs from a binding point of view. For example, we can write the following:
+A subtle point about the current `expr` type is that we can technically use the `expr` constructors to make non-sensible ASTs from a binding point of view. For example, we can write the following:
 ```ocaml
 Lambda (
     Scope ("x", Scope "y", 
@@ -572,7 +573,7 @@ while (i < 10) {
 And we say that for-loops are just a syntactic sugar for while-loops.
 
 
-Intuitively, syntactic sugars do not make a language more expressive, because they can be desugared away into the primitive features of the language. Thus, we can make the following observation:
+Intuitively, syntactic sugars do not make a language more expressive, because they can be de-sugared away into the primitive features of the language. Thus, we can make the following observation:
 
 *Syntactic sugars do not change the expressive power of a language.*
 
@@ -592,7 +593,7 @@ In fact, we can further write the interpretation function `eval : expr -> expr` 
 
 > **Universality**: If a language $L$ is expressive enough to encode and interpret itself, we say that $L$ is a *universal language*.
 
-Universality is like a singularity point: once a language achieves universality, it can start to simulate any other language (universal or not). This is the ultimate reason we care so much about encoding things into lambda calculus, because we can evenatually encode lambda calculus itself into lambda calculus, **proving that lambda calculus is a universal language and hence Turing-complete**!
+Universality is like a singularity point: once a language achieves universality, it can start to simulate any other language (universal or not). This is the ultimate reason we care so much about encoding things into lambda calculus, because we can eventually encode lambda calculus itself into lambda calculus, **proving that lambda calculus is a universal language and hence Turing-complete**!
 
 
 Now, a response to the second question (whether Church encoding has any practical value) is that, we're going to show you a recipe by which we'll use to derive the Church encoding of various data structures. As it turns out, the recipe will reveal a *deep connection* between functional program and, surprisingly, **object-oriented programming**! If you think you need to use an object-oriented language like Python, Java, or C++ in the future, then learning about Church encoding will allow you to see those languages in a new light.
@@ -609,7 +610,7 @@ In HW1, we learned that for every type, there are two kinds of operations that w
 1. **Making** something of that type
 2. **Using** something of that type
 
-In programming languages and type theorey, people sometimes call the first kind of operations the **introduction form** of the type, and the second kind of operations the **elimination form** of the type.
+In programming languages and type theory, people sometimes call the first kind of operations the **introduction form** of the type, and the second kind of operations the **elimination form** of the type.
 
 For example, we can **make**
 - a boolean with `true` or `false`
@@ -680,7 +681,7 @@ let if_as_a_function (b: bool) (then_case: 'a) (else_case: 'a) : 'a =
     else
         else_case
 ```
-This is a perfectly fine function, and it behaves the same as `if` expressions. That is, given any `if .. then .. else ..`, we could have replaced it with `if_as_a_function .. .. ..` and the program would still behave the same. (Small asterisk: the same most of the time, to be precise, but let's not worry about that now; we'll worrry about this in the next homework. The slight diffierence has to do with evaluation order).
+This is a perfectly fine function, and it behaves the same as `if` expressions. That is, given any `if .. then .. else ..`, we could have replaced it with `if_as_a_function .. .. ..` and the program would still behave the same. (Small asterisk: the same most of the time, to be precise, but let's not worry about that now; we'll worry about this in the next homework. The slight difference has to do with evaluation order).
 
 For example, if we have `if true then 1 else 2`, we can replace it with `if_as_a_function true 1 2`, and the program will behave the same.
 
@@ -696,7 +697,7 @@ That is, `if_as_a_function` is a function that, given
 gives us back 
 - a result depending on whether the boolean is `true` or `false`. The type of the result is the same as the type of the "then" branch and the "else" branch, so it's also an `'a`.
 
-Now comes the braintwister: this `if_as_a_function` assumes we already have `bool` as a previously defined type in our language; what we want to do instead is to encode `bool` in the first place, since lambda calculus doesn't have `bool`! So the magical move is to (pun intended) *move* `bool` from the argument list into the left-hand-side of an equation:
+Now comes the brain-twister: this `if_as_a_function` assumes we already have `bool` as a previously defined type in our language; what we want to do instead is to encode `bool` in the first place, since lambda calculus doesn't have `bool`! So the magical move is to (pun intended) *move* `bool` from the argument list into the left-hand-side of an equation:
 ```ocaml
 bool -> 'a -> 'a -> 'a
 ==>
@@ -711,7 +712,7 @@ Since the introduction forms for `bool` in OCaml are `true` and `false`, we need
 val true_encoding : 'a -> 'a -> 'a
 val false_encoding : 'a -> 'a -> 'a
 ```
-The good thing is, there's no cleverness involved when we want to derive introduction form from elimination form, just as there wasn't any cleverness when OCaml derived the elimination from from the introduction form we provided! We can mechanically arive at the definition of `true_encoding` just based from what we have. To see what `true_encoding` has to be, all we need to do is to call the elimination function on `true`:
+The good thing is, there's no cleverness involved when we want to derive introduction form from elimination form, just as there wasn't any cleverness when OCaml derived the elimination from from the introduction form we provided! We can mechanically arrive at the definition of `true_encoding` just based from what we have. To see what `true_encoding` has to be, all we need to do is to call the elimination function on `true`:
 ```ocaml
 if_as_a_function true then_case else_case
 == if true then then_case else else_case
@@ -735,7 +736,7 @@ To recap what we just did:
 
 - Then, we changed `bool -> 'a -> 'a -> 'a` into `bool_encoding = 'a -> 'a -> 'a`. I.e., we said that an encoded `bool` is basically just a function of type `'a -> 'a -> 'a`, whose first argument is what to do in the "then" branch and whose second argument is what to do in the "else" branch. This function gives the result depending on which branch we are in.
 
-- Finally, we derived the usual introduction from from the elimination form. Specifically, we naturally obtained the function `true_encoding` that behaves the same as `true`, by simplying calling `if_as_a_function true`. According to this definition, `true_encoding` is a function that, given what to do in the "then" branch and what to do in the "else" branch, will always take the "then" branch and ignore the "else" branch.
+- Finally, we derived the usual introduction from from the elimination form. Specifically, we naturally obtained the function `true_encoding` that behaves the same as `true`, by simply calling `if_as_a_function true`. According to this definition, `true_encoding` is a function that, given what to do in the "then" branch and what to do in the "else" branch, will always take the "then" branch and ignore the "else" branch.
 
 **Problem 1** (📝): Follow the same recipe and derive `false_encoding` as an OCaml function of type `'a -> 'a -> 'a`.
 
@@ -799,9 +800,14 @@ You should only use `if_as_a_function`, `true` and `false`. You may not use if e
 Based on our answers to the previous exercise, we can derive the lambda-calculus encodings of those boolean functions in a straightforward way. 
 
 For example, `neg` was defined in OCaml as (equivalently) `fun b -> if_as_a_function b false true`. Note that any **encoded boolean** in lambda calculus does exactly what `if_as_a_function b` does: taking two branches and decide which branch to take. So we just erase `if_as_a_function` and get 
-$$\lambda b.\ b \ \textsf{False} \ \textsf{True}$$
+```math
+\lambda b.\ b \ \textsf{False} \ \textsf{True}
+```
+
 where $\textsf{False}$ and $\textsf{True}$ are the lambda-calculus encodings of `false` and `true` which we already derived. So expanding everything out, we get the full encoding of the negation function
-$$\lambda b.\ b \ (\lambda x.\ \lambda y.\ y) \ (\lambda x.\ \lambda y.\ x)$$
+```math
+\lambda b.\ b \ (\lambda x.\ \lambda y.\ y) \ (\lambda x.\ \lambda y.\ x)
+```
 
 
 Your task is do the same for the other boolean functions you have defined in the previous exercise. Afterwards, run the lambda calculus expressions you came up with on our $\lambda^+$ reference interpreter on CSIL or your own interpreter.
