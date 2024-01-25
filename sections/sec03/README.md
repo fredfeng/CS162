@@ -158,9 +158,9 @@ for i in range(10):
 A declared name does not need to be immediately associated with an entity. You can just declare a name, and use it as a reference. Later, you might want to go back and do the association. 
 
 A prime example is when you are defining a mathematical function. You might write something like this:
-$$
+```math
 f(x, y) = xy + 1
-$$
+```
 Here, on the left-hand-side of $=$, both $x$ and $y$ are declaration of names. The $x$ and $y$ on the right-hand-side are references.
 
 **Exercise**: What is the scope of $x$ in the above equation?
@@ -168,15 +168,14 @@ Here, on the left-hand-side of $=$, both $x$ and $y$ are declaration of names. T
 Note that the name $x$ (as well as $y$) is only declared, but not associated with any entity. This is because we are defining a function, so we don't know what the input $x$ is yet. The act of associating $x$ with an entity happens when the function is evaluated with an input, and is achieved by substituting all references to a name with the entity.
 
 For example, the meaning of $f(2,3)$ is given by replacing all $x$ with $2$ and $y$ with 3:
-$$
+```math
 f(2,3) = 2 \times 3 + 1
-$$
+```
 
 Besides function notation, bindings are quite ubiquitous in math and logic. Here are some more examples:
 1. In integral calculus, you might write something like this:
-   $$
-   \int_0^1 \int_1^{y+1} 3x^2 + 4y\ dx\ dy
-   $$
+   
+   <img src="https://raw.githubusercontent.com/fredfeng/CS162/master/sections/sec03/res/int.png" alt="drawing" style="width:200px;"/>
 
     **Exercise**:
     1. Identify all the places where some name is declared, or referenced.
@@ -185,9 +184,8 @@ Besides function notation, bindings are quite ubiquitous in math and logic. Here
 
 
 3. In first-order logic, you might have encountered formulas like this:
-   $$
-   \forall x \exists y (x + y = 0) \implies x = 0
-   $$
+   
+   <img src="https://raw.githubusercontent.com/fredfeng/CS162/master/sections/sec03/res/fol.png" alt="drawing" style="width:300px;"/>
    
     **Exercise**:
     1. Identify all the places where some name is declared or referenced.
@@ -225,27 +223,27 @@ Note that this excerpt contains both bound and free references:
 #### Example: equations in maths
 
 Here's a system of math equations which you have probably learned how to solve:
-$$
+```math
 \begin{cases}
 3x + 5y = 2 \\
 x + 2y = 1
 \end{cases}
-$$
+```
 This system of equations contains references to names $x$ and $y$. Yet those two names are not declared anywhere in the equation. Thus, we say that the names $x$ and $y$ are *free* in this system of equations. 
 
 The consequence of being a free reference is that it can be substituted with *anything* by a surrounding context. For example, the context
-$$
+```math
 \textsf{let}\ x = 2\ \textsf{in}\
 \textsf{let}\ y = 1\ \textsf{in}\
 \ldots
-$$
+```
 plugs in the values $2$ and $1$ for $x$ and $y$, respectively, and results in the following system of equations that contains no more free variables:
-$$
+```math
 \begin{cases}
 3 \cdot 2 + 5 \cdot 1 = 2 \\
 2 + 2 \cdot 1 = 1
 \end{cases}
-$$
+```
 
 
 
@@ -253,13 +251,13 @@ $$
 #### Example 5: lambda calculus
 
 In lectures, you saw that the lambda calculus is defined by the following grammar:
-$$
+```math
 \begin{array}{rcll}
 e & ::= & x & \text{variable} \\
 & \mid & \lambda x. e & \text{abstraction} \\
 & \mid & e\ e & \text{application}
 \end{array} 
-$$
+```
 
 This language quite minimal. In fact, it seems that the first two of the two cases are just there to model the two kinds of binding syntax that we have seen:
 - The first case corresponds to a *reference* to some name $x$.
@@ -398,13 +396,13 @@ The technical term to describe this phenomenon, where a free reference becomes b
     ```
 
 3. Consider P1 = 
-   $$
+   ```math
    \int_0^1 \int_1^{y+1} 3x^2 + 4y\ dx\ dy
-   $$
+   ```
    and P2 = 
-    $$
+    ```math
     \int_1^{x+1} \int_0^1 3y^2 + 4x\ dy\ dx
-    $$
+    ```
 
 4. Consider P1 = 
    > You may provide input to the *Services* ("**Input**"), and receive output from the *Services* based on the *Input* ("**Output**"). *Input* and *Output* are collectively "**Content**." 
@@ -441,25 +439,32 @@ A substitution that enjoys this property is said to be *capture-avoiding*. Captu
 
 Capture-avoiding substitution is best illustrated in terms of pictures. First, fix some background language: programming langauge, mathematical notation, or natural language, whatever. Consider the space of all possible expressions in this language:
 
-![](res/programs.001.png)
+<img src="https://raw.githubusercontent.com/fredfeng/CS162/master/sections/sec03/res/programs.001.png" alt="drawing" style="width:400px;"/>
 
 Then alpha-equivalence partitions the space of all expressions in this language into non-overlapping groups (aka equivalence classes), where all expressions in the same group are alpha-equivalent to each other:
 
-![](res/programs.002.png)
+
+<img src="https://raw.githubusercontent.com/fredfeng/CS162/master/sections/sec03/res/programs.002.png" alt="drawing" style="width:400px;"/>
+
 
 A substitution can be visualized as an arrow that takes one expression to another expression:
 
-![](res/programs.003.png)
+
+<img src="https://raw.githubusercontent.com/fredfeng/CS162/master/sections/sec03/res/programs.003.png" alt="drawing" style="width:400px;"/>
+
 
 A capture-avoiding substitution preserves alpha-equivalence. This means that if we initiate this arrow from two expressions in the same group, then it must land them into the another group at the same time:
 
-![](res/programs.004.png)
+
+<img src="https://raw.githubusercontent.com/fredfeng/CS162/master/sections/sec03/res/programs.004.png" alt="drawing" style="width:400px;"/>
+
 
 The red edge between the starting points of the arrows denotes that the two input expressions are alpha-equivalent. There is another red edge between the ending points of the arrows, which denotes that the two output expressions are still alpha-equivalent.
 
 A non-capture-avoiding substitution can land two expressions into different groups, which means the output expressions are no longer alpha-equivalent:
 
-![](res/programs.005.png)
+
+<img src=https://raw.githubusercontent.com/fredfeng/CS162/master/sections/sec03/res/programs.005.png alt="drawing" style="width:400px;"/>
 
 <!-- This is important property for any alpha-renaming is that it does not capture any free variables after the renaming. In fact, this is a must-have property for any substitution in order to not inadvertently alter the meaning of a program. -->
 

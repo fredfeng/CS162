@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Section 3</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="section-3">Section 3</h1>
+<p>The core of lambda calculus is <strong>variable binding and substitution</strong> -- these concepts are not only fundamental to nearly all programming languages, but also a profound linguistic phenomenon that is ubiquitous in natural languages and mathematical discourse. Substitution is also extremely powerful -- a language with just binding and substitution is already Turing-complete, and can be used to simulate the execution of any computer program in any programming language.</p>
+<p>In this section, you will see that the strange-sounding terminology you learned about lambda calculus, such as alpha-renaming, beta-reduction, and capture-avoiding substitution, are actually very natural and intuitive concepts that you have been using all along in your previous programming exprience, math classes, and even daily life.</p>
+<h3 id="names-and-bindings">Names and Bindings</h3>
+<p>A <em>binding</em> is an association of a name with an entity. Syntactically, there are two operations you can do about a binding:</p>
+<ul>
+<li><em>declaration</em>, which introduces a name and (optionally) associates the name with an entity. This construct is also called a <em>binder</em>.</li>
+<li><em>reference</em>, which uses a name to retrieve to the entity associated with the name.</li>
+</ul>
+<p>Semantically, the meaning of a binding is given by <strong>substitution</strong>: when you use a name to retrieve the entity associated with it, you are essentially replacing the reference with the entity itself. Thus, to interpret the meaning of something that has a binder in it, simply replace all references to name <code>X</code> with the entity associated with <code>X</code>.</p>
+<h4 id="example-1-variable-binding-in-functional-languages">Example 1: variable binding in functional languages</h4>
+<p>In programming languages, the most common example of binding is variable binding. For example, consider the following OCaml program:</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">let</span> x = <span class="hljs-number">2</span> <span class="hljs-keyword">in</span> 
+<span class="hljs-keyword">let</span> y = x + <span class="hljs-number">1</span> <span class="hljs-keyword">in</span>
+x * y
+</code></pre>
+<p>The following binding syntax is used:</p>
+<ol>
+<li>The first <code>let</code> is a <em>declaration/binder</em> that declares the name <code>x</code>, and associates it with the OCaml value <code>2</code></li>
+<li>On the right-hand-side of the second <code>let</code>, we use the name <code>x</code> to <em>refer</em> to the value associated with <code>x</code>. Then, we declare a new name <code>y</code> and associate it with the value of <code>x + 1</code>.</li>
+<li>Finally, the last line uses the names <code>x</code> and <code>y</code> to retrieve the values associated with them.</li>
+</ol>
+<p>To see what the binding structure of this program means, we can perform substitution to replace all references with the entities that they refer to. First, we replace all references to <code>x</code> with <code>2</code>:</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">let</span> y = <span class="hljs-number">2</span> + <span class="hljs-number">1</span> <span class="hljs-keyword">in</span>
+<span class="hljs-number">2</span> * y
+</code></pre>
+<p>Next, we replace all references to <code>y</code> with <code>2 + 1</code>:</p>
+<pre><code class="language-ocaml"><span class="hljs-number">2</span> * (<span class="hljs-number">2</span> + <span class="hljs-number">1</span>)
+</code></pre>
+<p>Thus, the meaning of the original OCaml program is the same as the meaning of <code>2 * (2 + 1)</code>. Although we can give further meaning to <code>2 * (2 + 1)</code> by defining what <code>+</code> and <code>*</code> mean, those are orthogonal to the meaning of bindings. You will learn about how to give meaning to those kinds of non-binding expressions when we talk about <em>operational semantics</em> later in this course.</p>
+<h4 id="example-2-variable-assignment-in-imperative-languages">Example 2: variable assignment in imperative languages</h4>
+<p>The entities associated with names do not necessarily have to be immutable values as in OCaml. In your previous programming adventures, you mostly likely encountered mutable variables, as illustrates by the following Java/C program:</p>
+<pre><code class="language-java"><span class="hljs-type">int</span> <span class="hljs-variable">x</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>;
+x = x + <span class="hljs-number">1</span>
+</code></pre>
+<p>Surprisingly, this is also an instance of binding, except that a name is now associated with a <em>mutable memory box</em> that can be initialized, read, and updated:</p>
+<ol>
+<li>
+<p>With <code>int x = 2</code>, we create a binder by declaring a new name <code>x</code>, and associate it with a fresh memory box initialized with the value <code>2</code>.</p>
+<!-- If we represent this program in some imaginary "abstract syntax", it might look like this:
+ ```ocaml
+ Sequence(
+     Decl("x"),
+     Assoc("x", AllocMemoryBox(Int 2))
+)
+```
+where `Decl(x)` abstractly represents the operation of declaring a new name `x`, and `Assoc(x, e)` represents the operation of associating a name with an entity. Note that declaration and association is disjoint, since in Java/C it is legal to create a variable without initializing it, e.g. `int x;`, which might be represented by `Decl("x")` without `Assoc("x", _)`. 
+ > **Looking ahead**: You will later see important cases in which declaration and association are completely disjoint: we will declare names and immediately refer to them without associating them with any entity first. 
+ > 
+ > This might sound paradoxical and unsafe: how can you refer to something that doesn't seem to exist? However, we will see that this is the essence of procedural abstraction (functions, methods, procedures, etc.), and hence the lambda calculus. -->
+</li>
+<li>
+<p>In <code>x = x + 1</code>,</p>
+<ul>
+<li>on the right-hand-side of <code>=</code>, we use the name <code>x</code> to retrieve the memory box associated with <code>x</code>, and read the value stored in the memory box</li>
+<li>on the left-hand-side of <code>=</code>, we retrieve the memory box associated with the name <code>x</code> again, but this time we update the memory box by storing the value of <code>x + 1</code> in it.</li>
+</ul>
+ <!-- If we represent `x = x + 1` in some imaginary "abstract syntax" that uses `Ref x` to retrieve the entity associated with a name, then it  might be represented by
+```ocaml
+ Write(
+     Ref "x", 
+     Add(
+         Read(Ref "x"), 
+         Int 1))
+ ```
+ > **Background**: Note that the meaning of "x" is different depending on whether it is on the left-hand-side or the right-hand-side of `=`! This is the origin of the concept of *l-value* and *r-value* in C-like languages.  -->
+</li>
+</ol>
+<blockquote>
+<p>As you can see, in an imperative language, a variable actually de-sugars into a whole bunch of binding-related operations plus non-binding-related operations, depending on where that variable appears:</p>
+<ol>
+<li>If a variable appears in <code>int x</code>, then it desugars into
+<ul>
+<li><strong>declaring</strong> of a name <code>x</code>,</li>
+<li>allocating some memory box, and</li>
+<li><strong>associating</strong> the name with the memory box.</li>
+</ul>
+</li>
+<li>If a variable appears on the left-hand-side of <code>=</code>, then it means
+<ul>
+<li><strong>retrieving</strong> the memory box associated with the name, and</li>
+<li>updating the memory box with the value on the right-hand-side of <code>=</code>.</li>
+</ul>
+</li>
+<li>If a variable appears on the right-hand-side of <code>=</code>, then it means
+<ul>
+<li><strong>retrieving</strong> the memory box associated with the name, and</li>
+<li>reading the value stored in the memory box.</li>
+</ul>
+</li>
+</ol>
+<p>Notice that only half of the operations (which are <strong>bold-faced</strong>) are actually about binding! The other operations are about memory allocation and mutation, whose semantics are completly orthogonal to binding. If you still recall the very first time you learned about variables in your first programming class and you recall being confused at that time, this complexity might explain the confusion.</p>
+</blockquote>
+<p>As before, the meaning of the binding structure in</p>
+<pre><code class="language-java"><span class="hljs-type">int</span> <span class="hljs-variable">x</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>;
+x = x + <span class="hljs-number">1</span>
+</code></pre>
+<p>can be given in terms of substistution. Say we're using heap allocated memory, and we allocated address <code>0x1234</code> for the memory box associated with <code>x</code>. Then, after substituting <code>x</code> with <code>0x1234</code> and some de-sugaring, we get</p>
+<pre><code class="language-java">store (<span class="hljs-number">0x1234</span>, <span class="hljs-number">2</span>);
+store (<span class="hljs-number">0x1234</span>, load(<span class="hljs-number">0x1234</span>) + <span class="hljs-number">1</span>)
+</code></pre>
+<p>The remaining operations like <code>store</code> and <code>load</code> can be further interpreted, but the meaning of the binding structure has been completely specified.</p>
+<p>The takeaway is that even for imperative languages, &quot;mutable variables&quot; are just <em>an instance of binding</em>, which simply associates names to some kind of entity. In the case of functional programming, we saw the entities were immutable values; in the case of imperative programming, the entities are mutable memory boxes, or some stack- or heap-allocated memory.</p>
+<h3 id="scope">Scope</h3>
+<p>A <em>scope</em> of a binding is the duration for which the association between a name and an entity exists. In programming languages, dereferencing a name outside of its scope results in compiler errors like &quot;variable not found&quot; or &quot;variable out-of-scope&quot;.</p>
+<h4 id="example-variable-scope-in-ocaml">Example: variable scope in OCaml</h4>
+<p>Consider the following OCaml program:</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">let</span> y = (<span class="hljs-keyword">let</span> x = e1 <span class="hljs-keyword">in</span> e2) <span class="hljs-keyword">in</span> e3
+</code></pre>
+<p>You can use <code>x</code> as a reference in <code>e2</code>, but not in <code>e1</code> or <code>e3</code>. This is because OCaml stipulates that the scope of a let-bound variable is the expression that follows the <code>in</code> keyword. Similarly, the only place you can use <code>y</code> as a reference in in <code>e3</code>.</p>
+<h4 id="example-variable-scope-in-imperative-for-loops">Example: variable scope in imperative for-loops</h4>
+<p><strong>Exercise</strong>: Consider the following Java program:</p>
+<pre><code class="language-java">&lt;P&gt;
+<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) {
+    System.out.println(i);
+}
+&lt;Q&gt;
+</code></pre>
+<p>where <code>&lt;P&gt;</code> and <code>&lt;Q&gt;</code> are arbitrary Java programs.</p>
+<ol>
+<li>
+<p>Find all the places where some name is</p>
+<ul>
+<li>declared,</li>
+<li>used as a reference, or</li>
+<li>associated with an entity (what kind? memory box or immutable value?).</li>
+</ul>
+</li>
+<li>
+<p>What is the scope of the loop index variable <code>i</code>? (Hint: there is more than one place where <code>i</code> is in scope.)</p>
+</li>
+</ol>
+<p><strong>Exercise (Skip if you aren't familiar with Python)</strong>: Consider the following Python program:</p>
+<pre><code class="language-python">&lt;P&gt;
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>):
+    <span class="hljs-built_in">print</span>(i)
+&lt;Q&gt;
+</code></pre>
+<ol>
+<li>Find all the places where some name is
+<ul>
+<li>declared,</li>
+<li>used as a reference, or</li>
+<li>associated with an entity (what kind? memory box or immutable value?).</li>
+</ul>
+</li>
+<li>What is the scope of the loop index variable <code>i</code>? (Hint: there is more than one place where <code>i</code> is in scope.)</li>
+</ol>
+<h4 id="example-bindings-in-math">Example: bindings in math</h4>
+<p>A declared name does not need to be immediately associated with an entity. You can just declare a name, and use it as a reference. Later, you might want to go back and do the association.</p>
+<p>A prime example is when you are defining a mathematical function. You might write something like this:</p>
+<pre><code class="language-math">f(x, y) = xy + 1
+</code></pre>
+<p>Here, on the left-hand-side of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>=</mo></mrow><annotation encoding="application/x-tex">=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">=</span></span></span></span>, both <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> are declaration of names. The <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> on the right-hand-side are references.</p>
+<p><strong>Exercise</strong>: What is the scope of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> in the above equation?</p>
+<p>Note that the name <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> (as well as <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span>) is only declared, but not associated with any entity. This is because we are defining a function, so we don't know what the input <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> is yet. The act of associating <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> with an entity happens when the function is evaluated with an input, and is achieved by substituting all references to a name with the entity.</p>
+<p>For example, the meaning of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mn>2</mn><mo separator="true">,</mo><mn>3</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f(2,3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">3</span><span class="mclose">)</span></span></span></span> is given by replacing all <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> with <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> with 3:</p>
+<pre><code class="language-math">f(2,3) = 2 \times 3 + 1
+</code></pre>
+<p>Besides function notation, bindings are quite ubiquitous in math and logic. Here are some more examples:</p>
+<ol>
+<li>
+<p>In integral calculus, you might write something like this:</p>
+<img src="file:////Users/work/git/CS162/sections/sec03/res/int.png" alt="drawing" style="width:200px;"/>
+<p><strong>Exercise</strong>:</p>
+<ol>
+<li>Identify all the places where some name is declared, or referenced.</li>
+<li>What are the scopes of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> in the above integral?</li>
+<li>When do you substistute the variables with numerical entities? How many times does substitution happen?</li>
+</ol>
+</li>
+<li>
+<p>In first-order logic, you might have encountered formulas like this:</p>
+<img src="file:////Users/work/git/CS162/sections/sec03/res/fol.png" alt="drawing" style="width:300px;"/>
+<p><strong>Exercise</strong>:</p>
+<ol>
+<li>Identify all the places where some name is declared or referenced.</li>
+<li>What is the scope of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> in the above equation?</li>
+</ol>
+</li>
+</ol>
+<p><strong>Open-Ended Exercise</strong>: Identify an OCaml language feature -- besides <code>let</code> and functions -- that makes use of binding in some way. (Hint: You used this feature <em>a lot</em> in HW1.) Then, think about the following questions:</p>
+<ol>
+<li>Where and how do you declare a name to be in scope?</li>
+<li>What is the scope of a declared name?</li>
+<li>How do you reference a name?</li>
+<li>When do you associate the name with an entity?</li>
+</ol>
+<p><strong>Open-Ended Question</strong>: Repeat the previous exercise, but replace &quot;OCaml&quot; with &quot;your favorite programming language&quot;. If your favorite programming language <a href="https://www.youtube.com/shorts/pd-L6YVTUv8">happens to be OCaml</a>, then replace &quot;OCaml&quot; with &quot;your favorite programming language that isn't a functional language&quot;.</p>
+<h3 id="free-and-bound-references">Free and Bound References</h3>
+<p>A referenced name is <em>free</em> in an expression if it is not declared to be in scope. A referenced name is <em>bound</em> if it is not free, i.e., it has been declared to be in scope. Note that <strong>freeness and bound-ness are properties of references</strong>, not of declarations, since a name declaration is a &quot;binder&quot; and can be vacuously considered &quot;bound&quot;.</p>
+<h4 id="example-bindings-in-natural-languages">Example: bindings in natural languages</h4>
+<p>In natural languages, we also use names to refer to entities. Here's an except of the <a href="https://web.archive.org/web/20240110034600/https://openai.com/policies/terms-of-use">terms of use for OpenAI ChatGPT</a>:</p>
+<blockquote>
+<p>You may provide input to the <em>Services</em> (&quot;<strong>Input</strong>&quot;), and receive output from the <em>Services</em> based on the <em>Input</em> (&quot;<strong>Output</strong>&quot;). <em>Input</em> and <em>Output</em> are collectively &quot;<strong>Content</strong>.&quot;</p>
+<p>If you do not want us to use your <em>Content</em> to train our models, you can opt out by following the instructions in this Help Center article. Please note that in some cases this may limit the ability of our <em>Services</em> to better address your specific use case.</p>
+</blockquote>
+<p>Declarations/binders are <strong>bold-faced</strong>, while references are <em>italicized</em>.</p>
+<p>Note that this excerpt contains both bound and free references:</p>
+<ul>
+<li>The names <code>Input</code>, <code>Output</code>, <code>Content</code> are declared in the first paragraph. Their scope implicitly extends to the end of the excerpt, and hence subsequent references to <code>Input</code>, <code>Output</code>, <code>Content</code> are <em>bound</em>.</li>
+<li>The name <code>Services</code> is referenced a couple of times, but it is not declared in this excerpt. Thus, we say that the &quot;Services&quot; references are <em>free</em> in this excerpt.</li>
+</ul>
+<h4 id="example-equations-in-maths">Example: equations in maths</h4>
+<p>Here's a system of math equations which you have probably learned how to solve:</p>
+<pre><code class="language-math">\begin{cases}
+3x + 5y = 2 \\
+x + 2y = 1
+\end{cases}
+</code></pre>
+<p>This system of equations contains references to names <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span>. Yet those two names are not declared anywhere in the equation. Thus, we say that the names <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> are <em>free</em> in this system of equations.</p>
+<p>The consequence of being a free reference is that it can be substituted with <em>anything</em> by a surrounding context. For example, the context</p>
+<pre><code class="language-math">\textsf{let}\ x = 2\ \textsf{in}\
+\textsf{let}\ y = 1\ \textsf{in}\
+\ldots
+</code></pre>
+<p>plugs in the values <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> for <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span>, respectively, and results in the following system of equations that contains no more free variables:</p>
+<pre><code class="language-math">\begin{cases}
+3 \cdot 2 + 5 \cdot 1 = 2 \\
+2 + 2 \cdot 1 = 1
+\end{cases}
+</code></pre>
+<h4 id="example-5-lambda-calculus">Example 5: lambda calculus</h4>
+<p>In lectures, you saw that the lambda calculus is defined by the following grammar:</p>
+<pre><code class="language-math">\begin{array}{rcll}
+e &amp; ::= &amp; x &amp; \text{variable} \\
+&amp; \mid &amp; \lambda x. e &amp; \text{abstraction} \\
+&amp; \mid &amp; e\ e &amp; \text{application}
+\end{array} 
+</code></pre>
+<p>This language quite minimal. In fact, it seems that the first two of the two cases are just there to model the two kinds of binding syntax that we have seen:</p>
+<ul>
+<li>The first case corresponds to a <em>reference</em> to some name <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span>.</li>
+<li>The second case corresponds to a <em>declaration/binder</em> of a name <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> whose scope extends to the expression <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi></mrow><annotation encoding="application/x-tex">e</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">e</span></span></span></span> but not beyond. That is, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mi>x</mi><mi mathvariant="normal">.</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">\lambda x. e</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">λ</span><span class="mord mathnormal">x</span><span class="mord">.</span><span class="mord mathnormal">e</span></span></span></span> is the roughly same as <code>bind x in e</code>, or <code>declare x in e</code>, if you use a more readable syntax.</li>
+</ul>
+<p>The third case may be a bit more mysterious. But you have seen in lectures that the meaning of application is given <em>substitution</em>, which associates a name with an entity by replacing all references to the name with the entity. Thus, application is nothing more than the association operation, which gives meaning to binding via substitution.</p>
+<!-- > The only difference between lambda calculus and, say, a let-expression is that in a let-expression, an association is made immediately after the declaration, whereas in lambda calculus, during declaration, the association is delayed, and is made only when the function is applied to an argument. This gives the programmer to *control when subsitution happens*.
+> 
+> To summarize,
+> - $\lambda x. e$  = delayed association/substitution
+> - application = actually making the association/substitution -->
+<p>The upshot is that <strong>lambda calculus is just a language for manipulating bindings</strong>.</p>
+<p><strong>Exercise</strong>: For each of the following expressions, determine</p>
+<ul>
+<li>all the places where some variable is declared</li>
+<li>the scope of each variable</li>
+<li>all the places where some variable is referenced</li>
+<li>which variable references are free in which parts of the expression</li>
+<li>which variable references are bound in which parts of the expression</li>
+</ul>
+<ol>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>λ</mi><mi>y</mi><mi mathvariant="normal">.</mi><mo stretchy="false">(</mo><mi>λ</mi><mi>x</mi><mi mathvariant="normal">.</mi><mi>x</mi><mo>+</mo><mi>y</mi><mo stretchy="false">)</mo><mtext> </mtext><mi>y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(\lambda y. (\lambda x. x + y)\ y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">λ</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mord">.</span><span class="mopen">(</span><span class="mord mathnormal">λ</span><span class="mord mathnormal">x</span><span class="mord">.</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>λ</mi><mi>f</mi><mi mathvariant="normal">.</mi><mi>λ</mi><mi>x</mi><mi mathvariant="normal">.</mi><mi>f</mi><mtext> </mtext><mi>x</mi><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>λ</mi><mi>x</mi><mi mathvariant="normal">.</mi><mi>x</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo><mtext> </mtext><mn>1</mn></mrow><annotation encoding="application/x-tex">(\lambda f. \lambda x. f\ x) (\lambda x. x + 1)\ 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">λ</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord">.</span><span class="mord mathnormal">λ</span><span class="mord mathnormal">x</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mspace"> </span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mopen">(</span><span class="mord mathnormal">λ</span><span class="mord mathnormal">x</span><span class="mord">.</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace"> </span><span class="mord">1</span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>λ</mi><mi>f</mi><mi mathvariant="normal">.</mi><mo stretchy="false">(</mo><mi>λ</mi><mi>x</mi><mi mathvariant="normal">.</mi><mi>f</mi><mtext> </mtext><mi>x</mi><mtext> </mtext><mi>y</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mtext> </mtext><mi>f</mi></mrow><annotation encoding="application/x-tex">(\lambda f. (\lambda x. f\ x\ y))\ f</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">λ</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord">.</span><span class="mopen">(</span><span class="mord mathnormal">λ</span><span class="mord mathnormal">x</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mspace"> </span><span class="mord mathnormal">x</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">))</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span></li>
+</ol>
+<h3 id="alpha-renaming-and-alpha-equivalence">Alpha-Renaming and Alpha-Equivalence</h3>
+<p>Since the only purpose of names is to refer to the associated entities, the particular choice of names when we declare them should not matter. This also captures our programming intuition that the particular names of variables or function parameters don't matter. If you consistently replaced the name of variables or functional parameters with something else, the resulting program should mean the same thing.</p>
+<p>This notion of &quot;sameness-under-renaming&quot; is captured by <em>alpha-renaming</em> and <em>alpha-equivalence</em>:</p>
+<ul>
+<li>
+<p>Let <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi></mrow><annotation encoding="application/x-tex">q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span> be arbitrary expressions in some language. An <em>alpha-renaming</em> of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> into <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi></mrow><annotation encoding="application/x-tex">q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span> is a substitution of all declared names and their bound references in <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> into declared names and their bound references in <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi></mrow><annotation encoding="application/x-tex">q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span>.</p>
+<ul>
+<li>We write <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><msub><mo>→</mo><mi>α</mi></msub><mi>q</mi></mrow><annotation encoding="application/x-tex">p \to_\alpha q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mrel">→</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.0037em;">α</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span> to denote that <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> can be alpha-renamed into <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi></mrow><annotation encoding="application/x-tex">q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span>.</li>
+</ul>
+</li>
+<li>
+<p>Furthermore, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi></mrow><annotation encoding="application/x-tex">q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span> are said to be <em>alpha-equivalent</em> if <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><msub><mo>→</mo><mi>α</mi></msub><mi>q</mi></mrow><annotation encoding="application/x-tex">p \to_\alpha q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mrel">→</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.0037em;">α</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mo>→</mo><mi>α</mi></msub><mi>p</mi></mrow><annotation encoding="application/x-tex">q \to_\alpha p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mrel">→</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.0037em;">α</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>. That is, you can replace all bound names in <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> to get <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi></mrow><annotation encoding="application/x-tex">q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span>, and symmetrically you can replace all bound names in <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi></mrow><annotation encoding="application/x-tex">q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span> to get <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>.</p>
+<ul>
+<li>We write <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><msub><mo>=</mo><mi>α</mi></msub><mi>q</mi></mrow><annotation encoding="application/x-tex">p =_\alpha q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mrel">=</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.0037em;">α</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span> to denote that <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi></mrow><annotation encoding="application/x-tex">q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span> are alpha-equivalent.</li>
+</ul>
+</li>
+</ul>
+<p>An important point is that <strong>an alpha-renaming does not touch the free references in <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span></strong>. This is because a free reference in <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> or <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi></mrow><annotation encoding="application/x-tex">q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span> may have been given a particular association in the surrounding context, and we don't want to break that association. Since surrounding context can be arbitrary, we can't possibly know what the association is, so we better not touch the free references. We will see some examples to illustrate this and the bad things that can happen if we don't respect this rule.</p>
+<h4 id="example-alpha-renaming-in-ocaml">Example: alpha-renaming in OCaml</h4>
+<p>Recall the following OCaml program:</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">let</span> x = <span class="hljs-number">2</span> <span class="hljs-keyword">in</span>
+<span class="hljs-keyword">let</span> y = x + <span class="hljs-number">1</span> <span class="hljs-keyword">in</span>
+x * y
+</code></pre>
+<p>This program is &quot;essentially the same&quot; as the following program:</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">let</span> hello = <span class="hljs-number">2</span> <span class="hljs-keyword">in</span>
+<span class="hljs-keyword">let</span> world = hello + <span class="hljs-number">1</span> <span class="hljs-keyword">in</span>
+hello * world
+</code></pre>
+<p>This &quot;essential-sameness&quot; is captured by the following pair of alpha-renaming:</p>
+<ul>
+<li><code>x -&gt; hello, y -&gt; world</code> turns the first program into the second program</li>
+<li><code>hello -&gt; x, world -&gt; y</code> turns the second program into the first program</li>
+</ul>
+<p>You can verify that both programs mean the same thing by performing substitution. Both become <code>2 * (2 + 1)</code>.</p>
+<p>Here are some programs that are not alpha-equivalent to the first program.</p>
+<ol>
+<li>
+<p>Consider</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">let</span> hello = <span class="hljs-number">2</span> <span class="hljs-keyword">in</span>
+<span class="hljs-keyword">let</span> world = hello + <span class="hljs-number">1</span> <span class="hljs-keyword">in</span>
+x * world
+</code></pre>
+<p>We can't possibly exhibit a renaming from the original program to this one. This is because any renaming must map <code>x</code> to <code>hello</code> according to the first line, <code>y</code> into <code>world</code> according to the second line, but the third line forces us to map <code>x</code> into <code>x</code>. So there's a conflict as to what <code>x</code> should be mapped to.</p>
+</li>
+<li>
+<p>Consider</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">let</span> hello = <span class="hljs-number">2</span> <span class="hljs-keyword">in</span> 
+<span class="hljs-keyword">let</span> hello = hello + <span class="hljs-number">1</span> <span class="hljs-keyword">in</span>
+hello * hello
+</code></pre>
+<p>To alpha-rename the original program into this one, we map both <code>x</code> and <code>y</code> into <code>hello</code>. But no alpha-renaming exists in the other direction, since we can't map <code>hello</code> into both <code>x</code> and <code>y</code> at the same time!</p>
+<p>We can see this more clearly that these two programs are not the same if we perform substitution. The original program becomes</p>
+<pre><code class="language-ocaml"><span class="hljs-number">2</span> * (<span class="hljs-number">2</span> + <span class="hljs-number">1</span>)
+</code></pre>
+<p>while the other program becomes</p>
+<pre><code class="language-ocaml">(<span class="hljs-number">2</span> + <span class="hljs-number">1</span>) * (<span class="hljs-number">2</span> + <span class="hljs-number">1</span>)
+</code></pre>
+</li>
+</ol>
+<h4 id="example-alpha-renaming-in-ocaml-bad">Example: alpha-renaming in OCaml (bad)</h4>
+<p>To see why alpha-renaming only renames bound references and respects the free references, consider the following OCaml program:</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">let</span> x = <span class="hljs-number">2</span> <span class="hljs-keyword">in</span>
+print_int(x + y)
+</code></pre>
+<p>Let's say we &quot;renamed&quot; it into</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">let</span> y = <span class="hljs-number">2</span> <span class="hljs-keyword">in</span>
+print_int(y + y)
+</code></pre>
+<p>This is problematic because <code>y</code> was a free variable reference inside <code>print_int</code> in the original program, but it becomes a bound variable in the renamed program. In doing so, we actually changed the meaning of this program! Suppose there's a preceding context</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">let</span> y = <span class="hljs-number">100</span> <span class="hljs-keyword">in</span> 
+...
+</code></pre>
+<p>Then, the context plus the original program will print <code>102</code>, but the context plus the other program will print <code>4</code>.</p>
+<p>The technical term to describe this phenomenon, where a free reference becomes bound after substitution, is that a free reference is <em>captured</em>. This is a very bad thing, because the meaning of a program has been altered.</p>
+<p><strong>Exercise</strong>: For each of the pair (P1, P2) of expressions below, determine whether they are alpha-equivalent.</p>
+<ul>
+<li>If they are, give a pair of alpha-renaming that witnesses the alpha-equivalence.</li>
+<li>If they are not, explain why not, and come up with a third expression P3 that is alpha-equivalent to the first expression P1.</li>
+</ul>
+<ol>
+<li>
+<p>Consider P1 =</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">let</span> x = <span class="hljs-number">2</span> <span class="hljs-keyword">in</span> 
+<span class="hljs-keyword">let</span> y = (x + <span class="hljs-number">1</span> <span class="hljs-keyword">in</span> x) <span class="hljs-keyword">in</span> 
+x * y
+</code></pre>
+<p>and P2 =</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">let</span> y = <span class="hljs-number">2</span> <span class="hljs-keyword">in</span>
+<span class="hljs-keyword">let</span> x = (y + <span class="hljs-number">1</span> <span class="hljs-keyword">in</span> y) <span class="hljs-keyword">in</span>
+y * x
+</code></pre>
+</li>
+<li>
+<p>Consider the previous P1, and P2 =</p>
+<pre><code class="language-ocaml"><span class="hljs-keyword">let</span> y = <span class="hljs-number">2</span> <span class="hljs-keyword">in</span>
+<span class="hljs-keyword">let</span> x = (y + <span class="hljs-number">1</span> <span class="hljs-keyword">in</span> y) <span class="hljs-keyword">in</span>
+x * y
+</code></pre>
+</li>
+<li>
+<p>Consider P1 =</p>
+<pre><code class="language-math">\int_0^1 \int_1^{y+1} 3x^2 + 4y\ dx\ dy
+</code></pre>
+<p>and P2 =</p>
+<pre><code class="language-math">\int_1^{x+1} \int_0^1 3y^2 + 4x\ dy\ dx
+</code></pre>
+</li>
+<li>
+<p>Consider P1 =</p>
+<blockquote>
+<p>You may provide input to the <em>Services</em> (&quot;<strong>Input</strong>&quot;), and receive output from the <em>Services</em> based on the <em>Input</em> (&quot;<strong>Output</strong>&quot;). <em>Input</em> and <em>Output</em> are collectively &quot;<strong>Content</strong>.&quot;</p>
+<p>If you do not want us to use your <em>Content</em> to train our models, you can opt out by following the instructions in this Help Center article. Please note that in some cases this may limit the ability of our <em>Services</em> to better address your specific use case.</p>
+</blockquote>
+<p>and P2 =</p>
+<blockquote>
+<p>You may provide input to the <em>ChatGPTButIHaveNoIdeaHowItWorks</em> (&quot;<strong>YourPrivacy</strong>&quot;), and receive output from the <em>ChatGPTButIHaveNoIdeaHowItWorks</em> based on the <em>YourPrivacy</em> (&quot;<strong>NotPrivateAnymore</strong>&quot;). <em>YourPrivacy</em> and <em>NotPrivateAnymore</em> are collectively &quot;<strong>Stuff</strong>.&quot;</p>
+<p>If you do not want us to use your <em>Stuff</em> to train our models, you can opt out by following the instructions in this Help Center article. Please note that in some cases this may limit the ability of our <em>ChatGPTButIHaveNoIdeaHowItWorks</em> to better address your specific use case.</p>
+</blockquote>
+<p>(Disclaimer: The second excerpt is just designed for practice and is in no way representative the author's view of ChatGPT, or LLMs in general.)</p>
+</li>
+</ol>
+<p><strong>Exercise</strong>: Is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo>=</mo><mi>α</mi></msub></mrow><annotation encoding="application/x-tex">=_\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5169em;vertical-align:-0.15em;"></span><span class="mrel"><span class="mrel">=</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.0037em;">α</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> an equivalence relation? That is, is it reflexive, symmetric, and transitive? If so, informally argue why each property is satisifed. If not, give a counterexample for a property that is not satisfied.</p>
+<p><strong>Exercise</strong>: If you think <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo>=</mo><mi>α</mi></msub></mrow><annotation encoding="application/x-tex">=_\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5169em;vertical-align:-0.15em;"></span><span class="mrel"><span class="mrel">=</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.0037em;">α</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> is an equivalence relation, can you come up with a plausible canonical form such that all terms that are alpha-equivalent have the same representation?</p>
+<h3 id="capture-avoiding-substitution">Capture-Avoiding Substitution</h3>
+<p>A substistution replaces all references to a name in an expression with some entity. This operation is usually written as <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mo stretchy="false">[</mo><mi>x</mi><mo>↦</mo><mi>e</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">c[x \mapsto e]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">c</span><span class="mopen">[</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">↦</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">e</span><span class="mclose">]</span></span></span></span>, which means substituting all references to <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> with entity <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi></mrow><annotation encoding="application/x-tex">e</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">e</span></span></span></span> in the context expression <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">c</span></span></span></span>. In lambda-calculus, when a substitution is triggered by evaluating an application expression, the substitution is called a <em>beta-reduction</em>.</p>
+<p>If someone proposes an implementation of substitution to you, a natural question you can interrogate about their implementation is:</p>
+<blockquote>
+<p>If I have two programs that are essentially the same, and if I perform exactly the same substitution, do they remain essentially the same, as they should?</p>
+</blockquote>
+<p>This property can be states more concisely as <em>substitution should preserve alpha-equivalence</em>:</p>
+<blockquote>
+<p>if <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>c</mi><mn>1</mn></msub><msub><mo>=</mo><mi>α</mi></msub><msub><mi>c</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">c_1 =_\alpha c_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mrel">=</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.0037em;">α</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, then <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>c</mi><mn>1</mn></msub><mo stretchy="false">[</mo><mi>x</mi><mo>↦</mo><mi>e</mi><mo stretchy="false">]</mo><msub><mo>=</mo><mi>α</mi></msub><msub><mi>c</mi><mn>2</mn></msub><mo stretchy="false">[</mo><mi>x</mi><mo>↦</mo><mi>e</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">c_1[x \mapsto e] =_\alpha c_2[x \mapsto e]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">[</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">↦</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">e</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mrel">=</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.0037em;">α</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">[</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">↦</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">e</span><span class="mclose">]</span></span></span></span> for any <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi></mrow><annotation encoding="application/x-tex">e</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">e</span></span></span></span>.</p>
+</blockquote>
+<p>A substitution that enjoys this property is said to be <em>capture-avoiding</em>. Capture-avoiding substitution is extremely important because it does not alter the meaning of a program in unexpected ways, and is an integral part of many optimizing compilers, interpreters, and proof assistants.</p>
+<p>Capture-avoiding substitution is best illustrated in terms of pictures. First, fix some background language: programming langauge, mathematical notation, or natural language, whatever. Consider the space of all possible expressions in this language:</p>
+<img src="file:////Users/work/git/CS162/sections/sec03/res/programs.001.png" alt="drawing" style="width:400px;"/>
+<p>Then alpha-equivalence partitions the space of all expressions in this language into non-overlapping groups (aka equivalence classes), where all expressions in the same group are alpha-equivalent to each other:</p>
+<img src="file:////Users/work/git/CS162/sections/sec03/res/programs.002.png" alt="drawing" style="width:400px;"/>
+<p>A substitution can be visualized as an arrow that takes one expression to another expression:</p>
+<img src="file:////Users/work/git/CS162/sections/sec03/res/programs.003.png" alt="drawing" style="width:400px;"/>
+<p>A capture-avoiding substitution preserves alpha-equivalence. This means that if we initiate this arrow from two expressions in the same group, then it must land them into the another group at the same time:</p>
+<img src="file:////Users/work/git/CS162/sections/sec03/res/programs.004.png" alt="drawing" style="width:400px;"/>
+<p>The red edge between the starting points of the arrows denotes that the two input expressions are alpha-equivalent. There is another red edge between the ending points of the arrows, which denotes that the two output expressions are still alpha-equivalent.</p>
+<p>A non-capture-avoiding substitution can land two expressions into different groups, which means the output expressions are no longer alpha-equivalent:</p>
+<p><img src="file:////Users/work/git/CS162/sections/sec03/res/programs.005.png" alt=""></p>
+<!-- This is important property for any alpha-renaming is that it does not capture any free variables after the renaming. In fact, this is a must-have property for any substitution in order to not inadvertently alter the meaning of a program. -->
+<p>Despite its importance, implementing capture-avoiding substitution correctly is usually a very subtle yet intellectually unrewarding coding gymnastic. Hence, unlike previous quarters, we won't ask you implement capture-avoiding substitution in homework this time; but <strong>do understand the concept</strong>, as it may appear on the midterm.</p>
+<p>The heart of the difficulty of implementing capture-avoiding substitution boils down to correctly handling the case of <code>c [ x |-&gt; e ]</code> such that the context <code>c</code> is a binder like <code>bind y in e2</code> which binds <code>y</code> in scope <code>e2</code>. Examples of this kind of context includes all kinds of binders that we talked about (and a few more that we will introduce in the next assignment):</p>
+<ul>
+<li><code>lambda x. e</code>: <code>x</code> is bound in scope <code>e</code></li>
+<li><code>let x = e1 in e2</code>: <code>x</code> is bound in scope <code>e2</code></li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∀</mi><mi>x</mi><mi mathvariant="normal">.</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">\forall x. P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">∀</span><span class="mord mathnormal">x</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span>: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> is bound in scope <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi></mrow><annotation encoding="application/x-tex">P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mi mathvariant="normal">□</mi></mrow><annotation encoding="application/x-tex">f(x) = \square</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.675em;"></span><span class="mord amsrm">□</span></span></span></span>: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> is bound in scope <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">□</mi></mrow><annotation encoding="application/x-tex">\square</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.675em;"></span><span class="mord amsrm">□</span></span></span></span></li>
+</ul>
+<p>Let's use the second case (<code>lambda x. e</code>) to illustrate the subtlety. Let's say we are naive, and simply recursively do substitution <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mi>e</mi></mrow><annotation encoding="application/x-tex">x \mapsto e</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.522em;vertical-align:-0.011em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">↦</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">e</span></span></span></span> in the body of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mi>x</mi><mi mathvariant="normal">.</mi><msub><mi>e</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">\lambda x. e_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord mathnormal">λ</span><span class="mord mathnormal">x</span><span class="mord">.</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>. The body is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>e</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">e_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, but we are doing the substitution under the context of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mi>x</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">□</mi></mrow><annotation encoding="application/x-tex">\lambda x. \square</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">λ</span><span class="mord mathnormal">x</span><span class="mord">.</span><span class="mord amsrm">□</span></span></span></span>. Under this context, any reference using <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> has to be in-scope. A corner case is, what if <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi></mrow><annotation encoding="application/x-tex">e</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">e</span></span></span></span> contains <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> as a free reference? Then, after substitution, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi></mrow><annotation encoding="application/x-tex">e</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">e</span></span></span></span> will live inside the context <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mi>x</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">□</mi></mrow><annotation encoding="application/x-tex">\lambda x. \square</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">λ</span><span class="mord mathnormal">x</span><span class="mord">.</span><span class="mord amsrm">□</span></span></span></span>, and the free reference <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> will point to the <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> declared in-scope by the context. This makes a previously free reference no longer free! This is exactly the meaning-altering problem of variable-capture that we want to avoid.</p>
+<h4 id="example">Example</h4>
+<p>Say we're doing the substitution <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>λ</mi><mi>x</mi><mi mathvariant="normal">.</mi><mi>y</mi><mo stretchy="false">)</mo><mo stretchy="false">[</mo><mi>y</mi><mo>↦</mo><mi>x</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">(\lambda x. y)[ y \mapsto x]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">λ</span><span class="mord mathnormal">x</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">↦</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">x</span><span class="mclose">]</span></span></span></span>. If we recursively substitute in the body, we get <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mi>x</mi><mi mathvariant="normal">.</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">\lambda x. x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">λ</span><span class="mord mathnormal">x</span><span class="mord">.</span><span class="mord mathnormal">x</span></span></span></span>. Let's keep the result in mind.</p>
+<p>Now, since alpha-renaming shouldn't change the meaning of a program, if we do the same substitution on an alpha-equivalent term, the new result should be alpha-equivalent to our previous result, right?</p>
+<p>Well, since <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mi>x</mi><mi mathvariant="normal">.</mi><mi>y</mi><msub><mo>=</mo><mi>α</mi></msub><mi>λ</mi><mi>z</mi><mi mathvariant="normal">.</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">\lambda x. y =_\alpha \lambda z. y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">λ</span><span class="mord mathnormal">x</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mrel">=</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.0037em;">α</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">λ</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span>, if we do the same substitution on <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mi>z</mi><mi mathvariant="normal">.</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">\lambda z. y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">λ</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span>, we should get an equivalent result. Let's do <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>λ</mi><mi>z</mi><mi mathvariant="normal">.</mi><mi>y</mi><mo stretchy="false">)</mo><mo stretchy="false">[</mo><mi>y</mi><mo>↦</mo><mi>x</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">(\lambda z. y)[y \mapsto x]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">λ</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">↦</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">x</span><span class="mclose">]</span></span></span></span>. Again, we recursively substitute, giving us <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mi>z</mi><mi mathvariant="normal">.</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">\lambda z. x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">λ</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mord">.</span><span class="mord mathnormal">x</span></span></span></span>. But immediately, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mi>z</mi><mi mathvariant="normal">.</mi><mi>x</mi><mtext> </mtext><msub><mo>≠</mo><mi>α</mi></msub><mtext> </mtext><mi>λ</mi><mi>x</mi><mi mathvariant="normal">.</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">\lambda z. x\ {\not=}_\alpha\ \lambda x. x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9386em;vertical-align:-0.2441em;"></span><span class="mord mathnormal">λ</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mord">.</span><span class="mord mathnormal">x</span><span class="mspace"> </span><span class="mord"><span class="mord"><span class="mrel"><span class="mord vbox"><span class="thinbox"><span class="rlap"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="inner"><span class="mord"><span class="mrel"></span></span></span><span class="fix"></span></span></span></span></span><span class="mrel">=</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.0573em;"><span style="top:-2.4559em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.0037em;">α</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2441em;"><span></span></span></span></span></span></span><span class="mspace"> </span><span class="mord mathnormal">λ</span><span class="mord mathnormal">x</span><span class="mord">.</span><span class="mord mathnormal">x</span></span></span></span>! The free reference <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> is not captured in <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mi>z</mi><mi mathvariant="normal">.</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">\lambda z. x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">λ</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mord">.</span><span class="mord mathnormal">x</span></span></span></span>, but it is captured in <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mi>x</mi><mi mathvariant="normal">.</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">\lambda x. x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">λ</span><span class="mord mathnormal">x</span><span class="mord">.</span><span class="mord mathnormal">x</span></span></span></span>. This shows that implementing substitution naively very rarely gives you a capture-avoiding substitution.</p>
+<p>The reason the second input doesn't lead to a capture is because in <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mi>z</mi><mi mathvariant="normal">.</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">\lambda z. y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">λ</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span>, the choice of using <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi></mrow><annotation encoding="application/x-tex">z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span></span></span></span> as the parameter is lucky, as it doesn't appear as free reference in the expression <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span>. In contrast, in <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mi>x</mi><mi mathvariant="normal">.</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">\lambda x. x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">λ</span><span class="mord mathnormal">x</span><span class="mord">.</span><span class="mord mathnormal">x</span></span></span></span>, the choice of using <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> as the parameter is unlucky, because the name <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> is used as a free reference in expression <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span>.</p>
+<p>To fix our naive substitution implementation, we need to do exactly what we did above: first, <strong>alpha-rename</strong> the context expression <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">c</span></span></span></span> into another equivalent one <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>c</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup></mrow><annotation encoding="application/x-tex">c&#x27;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7519em;"></span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7519em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span>, such that no capturing is possible for the particular <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi></mrow><annotation encoding="application/x-tex">e</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">e</span></span></span></span> that we're substituting with.
+Then we go ahead and do the naive substitution for <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>c</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup></mrow><annotation encoding="application/x-tex">c&#x27;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7519em;"></span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7519em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span>. This time we won't run into any capture.</p>
+<p>But, there's another subtlety: alpha-renaming <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">c</span></span></span></span> into <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>c</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup></mrow><annotation encoding="application/x-tex">c&#x27;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7519em;"></span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7519em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span> is itself another substitution! So this substitution has to be capture-avoiding too, and in order to be capture-avoiding, we may need to alpha-rename again. That is, an alpha-renaming can trigger another alpha-renaming... This is where the implementation can get messy.</p>
+<p><strong>Exercise:</strong> On a piece of paper, perform the following substitution in a capture-avoiding manner. If you need to alpha-rename, follow the following convention:</p>
+<ul>
+<li>Rename <code>x</code> into <code>x0</code>, <code>x1</code>, <code>x2</code>, etc.</li>
+<li>Rename <code>y</code> into <code>y0</code>, <code>y1</code>, <code>y2</code>, etc.</li>
+<li>Rename <code>y0</code> into <code>y00</code>, <code>y01</code>, <code>y02</code>, etc.</li>
+</ul>
+<p>Perform the following substitutions:</p>
+<ol>
+<li><code>(lambda y. x y) [x |-&gt; lambda x. y]</code></li>
+<li><code>(lambda y. x y y0) [x |-&gt; lambda x. y]</code></li>
+<li><code>(lambda y. let y0 = 5 in y) [f |-&gt; lambda x. y]</code></li>
+<li><code>(lambda y. let x = 5 in z) [z |-&gt; lambda y. x]</code></li>
+</ol>
+<p>In one of the cases, an alpha-renaming will trigger another alpha-renaming. Which case is it?</p>
+<p><strong>Exercise:</strong> As mentioned, the capture-avoiding property can be broken in a substitution <code>c[x |-&gt; e]</code> exactly when:</p>
+<ul>
+<li>c is some kind of binder that would make certain free reference in <code>e</code> become bound, and</li>
+<li>we are naive and forget about alpha-renaming <code>c</code>.</li>
+</ul>
+<p>However, what if we are allowed to assume that <code>e</code> is a <em>closed expression</em> (meaning that <code>e</code> contains no free references, aka a <em>combinator</em> in lambda calculus)? Is it still possible for the naive substitution to exhibit variable-capture, even if we don't ever alpha-rename <code>c</code> or any of its sub-expression? If so, give an example. If not, argue informally why this is impossible.</p>
+
+            <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+            
+        </body>
+        </html>
