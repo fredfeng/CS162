@@ -349,7 +349,7 @@ type expr =
           | Let of expr * expr
 ```
 
-In this representation, the `Scope of string * expr` case represents the binding operation of declaring a variable name to be in scope in some body expression. The previous example `(lambda f. f 0) (lambda x. x + 1)` will be now parsed into the following `expr`:
+In this representation, the `Scope of string * expr` case represents the binding operation of declaring a variable name to be in scope in some body expression. The previous example `(lambda f. f 0) (lambda x. let y = x + 1 in y)` will be now parsed into the following `expr`:
 ```ocaml
 App (
     Lambda (Scope ("f", App (Var "f", Num 0))), 
@@ -361,11 +361,10 @@ App (
 Note that for `Let`, the expression whose value will be bound to the variable is the **first** argument to the constructor, and the second argument is the `Scope` constructor that declares the variable name to be in scope in let-body. For example, if the above example were instead parsed into
 ```ocaml
 Let (
-    Scope ("x", Num 2),
-    Mul (Num 3, Var "x")
-)
+    Scope("y", Add (Var "x", Num 1)),
+    Var "y")
 ```
-then we are saying that the variable `x` is in scope in the expression `2`, and out-of-scope in the expression `3 * x`, which is not what we want!
+then we are saying that the variable `y` is in scope in the expression `x+1`, and out-of-scope in the body expression `y`, which is not what we want!
 
 
 **Problem 1** (📝): Pretend you are the parser. For the following programs in concrete syntax, write down the abstract syntax tree as a value of type `expr`.
@@ -481,7 +480,7 @@ let rec eval (e: expr) : expr =
     match e with
     ...
 ```
-You can assume that the input expression is well-formed. Also, you might want to refer to the operational semantics rules in the [language reference manual](./lamp.pdf) for the precise meaning of each language construct. 
+You can assume that the input expression is well-formed. Also, you might want to refer to the operational semantics rules in the [language reference manual](../lamp.pdf) for the precise meaning of each language construct. 
 
 ---
 Now you have a working interpreter for a Turing-complete programming language! Since we've also written a parser for you, you can run your interpreter interactively like you run `utop`, or use it to run program files. To run it interactively, simply run
