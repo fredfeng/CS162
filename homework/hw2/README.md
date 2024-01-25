@@ -267,7 +267,7 @@ Since this is not a toy language anymore, the language will have a well-defined 
 
 ### 3.1 Concrete Syntax and Informal Semantics
 
-You can read about the informal semantics and the concrete syntax of $\lambda^+$ in the Overview section of the [$\lambda^+$ language reference manual](./lamp.pdf). **Only sections up to and including Section 2.3 (Named Function Definitions) are relevant for this assignment.** The remaining language constructs will be the focus of the next assignment.You're encouraged to quickly scan through the reference manual first without worrying about the details. You can revisit it later when you're working on the problems in this part.
+You can read about the informal semantics and the concrete syntax of $\lambda^+$ in the Overview section of the $\lambda^+$ [language reference manual](../lamp.pdf). **Only sections up to and including Section 2.3 (Named Function Definitions) are relevant for this assignment.** The remaining language constructs will be the focus of the next assignment.You're encouraged to quickly scan through the reference manual first without worrying about the details. You can revisit it later when you're working on the problems in this part.
 
 The language itself is basically the arithmetic expression language you implemented in HW1 + lambda calculus, and it largely resembles OCaml (modulo some syntax differences). There are, however, a few things that are worth pointing out:
 
@@ -599,7 +599,7 @@ Universality is like a singularity point: once a language achieves universality,
 Now, a response to the second question (whether Church encoding has any practical value) is that, we're going to show you a recipe by which we'll use to derive the Church encoding of various data structures. As it turns out, the recipe will reveal a *deep connection* between functional program and, surprisingly, **object-oriented programming**! If you think you need to use an object-oriented language like Python, Java, or C++ in the future, then learning about Church encoding will allow you to see those languages in a new light.
 
 
-Anyway, we hope that's enough motivation to convince you to this part of the assignment will be worth your time. Although we'll just do Church encoding of `bool` and `option` in this assignment, we'll show you how to apply the same recipe to derive an encoding of `nat` (the simplest recursive data structure) and subsequently to all kinds of crazy data structures like lists, trees, and the ASTs of lambda calculus itself. So you've also got something to look forward to in the meantime!
+Anyway, we hope that's enough motivation to convince you that this part of the assignment will be worthy of your time. Although we'll just do Church encoding of `bool` and `option` in this assignment, in HW3, we'll show you how to apply the same recipe to derive an encoding of `nat` (the simplest recursive data structure) and subsequently to all kinds of crazy data structures like lists, trees, and the ASTs of lambda calculus itself. So you've also got something to look forward to in the meantime!
 
 Let's get started!
 
