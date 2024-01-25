@@ -766,10 +766,11 @@ let true_encoding =
 ```
 
 Since lambda calculus doesn't have types (yet), we just erase them to get the lambda expression:
-$$
+```math
 \lambda \textsf{ThenCase}.\ \lambda \textsf{ElseCase}.\ \textsf{ThenCase}
-$$
-where we simply replaced `fun` with $\lambda$, and `->` with "$.$".
+```
+
+where we simply replaced `fun` with $\lambda$, and `->` with `.`.
 
 This is exactly what you saw in lectures, modulo alpha-renaming:
 
