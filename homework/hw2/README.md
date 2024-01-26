@@ -443,7 +443,10 @@ val add : string -> Vars.t -> Vars.t
 val diff : Vars.t -> Vars.t -> Vars.t
 (* check if a set contains a string *)
 val mem : string -> Vars.t -> bool
+...
 ```
+Please refer to `vars.mli` for the full list of functions in the `Vars` module.
+
 *Hint*: The only interesting cases are `Var` and `Scope`.
 
 
@@ -454,11 +457,11 @@ let rec subst (x: string) (e: expr) (c: expr) : expr =
     match c with
     ...
 ```
+Here, `subst x e c` denotes the substitution `c[x |-> e]`, i.e., substituting all free occurrences of `x` in context `c` with expression `e`.
 
 You don't need to implement capture-avoiding substitution, or do any kind of alpha-renaming. You can also assume that `e` is well-formed, and you should maintain the invariant that `c` is part of a well-formed expression.
 
 *Hint*: The only interesting cases are `Var` and `Scope`.
-
 
 
 **Problem 6** (⭐️bonus⭐️, 3 points): Modify the `Scope (x, e)` case of your `subst` function to implement capture-avoiding substitution using alpha-renaming.
@@ -481,7 +484,9 @@ let rec eval (e: expr) : expr =
     match e with
     ...
 ```
-You can assume that the input expression is well-formed. Also, you might want to refer to the operational semantics rules in the [language reference manual](../lamp.pdf) for the precise meaning of each language construct. 
+The `eval` function will "run" your program by performing binary operations, evaluating function arguments, applying arguments to functions using `subst`, etc. You might want to refer to Section 4 (Operational Semantics) of the [language reference manual](../lamp.pdf) for the precise meaning of each language construct. If no evaluation rule applies, then your interpreter should call `im_stuck` to signal that the interpreter is stuck.
+
+You can assume that the input expression is well-formed.
 
 ---
 Now you have a working interpreter for a Turing-complete programming language! Since we've also written a parser for you, you can run your interpreter interactively like you run `utop`, or use it to run program files. To run it interactively, simply run
