@@ -2,7 +2,7 @@
 
 The core of lambda calculus is **variable binding and substitution** -- these concepts are not only fundamental to nearly all programming languages, but also a profound linguistic phenomenon that is ubiquitous in natural languages and mathematical discourse. Substitution is also extremely powerful -- a language with just binding and substitution is already Turing-complete, and can be used to simulate the execution of any computer program in any programming language.
 
-In this section, you will see that the strange-sounding terminology you learned about lambda calculus, such as alpha-renaming, beta-reduction, and capture-avoiding substitution, are actually very natural and intuitive concepts that you have been using all along in your previous programming exprience, math classes, and even daily life.
+In this section, you will see that the strange-sounding terminology you learned about lambda calculus, such as alpha-renaming, beta-reduction, and capture-avoiding substitution, are actually very natural and intuitive concepts that you have been using all along in your previous programming experience, math classes, and even daily life.
 
 
 ### Names and Bindings
@@ -76,7 +76,7 @@ Surprisingly, this is also an instance of binding, except that a name is now ass
     > **Background**: Note that the meaning of "x" is different depending on whether it is on the left-hand-side or the right-hand-side of `=`! This is the origin of the concept of *l-value* and *r-value* in C-like languages.  -->
     
 > As you can see, in an imperative language, a variable actually de-sugars into a whole bunch of binding-related operations plus non-binding-related operations, depending on where that variable appears:
-> 1. If a variable appears in `int x`, then it desugars into
+> 1. If a variable appears in `int x`, then it de-sugars into
 >       - **declaring** of a name `x`, 
 >       - allocating some memory box, and 
 >       - **associating** the name with the memory box.
@@ -87,14 +87,14 @@ Surprisingly, this is also an instance of binding, except that a name is now ass
 >       - **retrieving** the memory box associated with the name, and
 >       - reading the value stored in the memory box.
 >
-> Notice that only half of the operations (which are **bold-faced**) are actually about binding! The other operations are about memory allocation and mutation, whose semantics are completly orthogonal to binding. If you still recall the very first time you learned about variables in your first programming class and you recall being confused at that time, this complexity might explain the confusion.
+> Notice that only half of the operations (which are **bold-faced**) are actually about binding! The other operations are about memory allocation and mutation, whose semantics are completely orthogonal to binding. If you still recall the very first time you learned about variables in your first programming class and you recall being confused at that time, this complexity might explain the confusion.
 
 As before, the meaning of the binding structure in
 ```java
 int x = 2;
 x = x + 1
 ```
-can be given in terms of substistution. Say we're using heap allocated memory, and we allocated address `0x1234` for the memory box associated with `x`. Then, after substituting `x` with `0x1234` and some de-sugaring, we get
+can be given in terms of substitution. Say we're using heap allocated memory, and we allocated address `0x1234` for the memory box associated with `x`. Then, after substituting `x` with `0x1234` and some de-sugaring, we get
 ```java
 store (0x1234, 2);
 store (0x1234, load(0x1234) + 1)
@@ -180,7 +180,7 @@ Besides function notation, bindings are quite ubiquitous in math and logic. Here
     **Exercise**:
     1. Identify all the places where some name is declared, or referenced.
     2. What are the scopes of $x$ and $y$ in the above integral?
-    3. When do you substistute the variables with numerical entities? How many times does substitution happen?
+    3. When do you substitute the variables with numerical entities? How many times does substitution happen?
 
 
 3. In first-order logic, you might have encountered formulas like this:
@@ -265,7 +265,7 @@ This language quite minimal. In fact, it seems that the first two of the two cas
 
 The third case may be a bit more mysterious. But you have seen in lectures that the meaning of application is given *substitution*, which associates a name with an entity by replacing all references to the name with the entity. Thus, application is nothing more than the association operation, which gives meaning to binding via substitution.
 
-<!-- > The only difference between lambda calculus and, say, a let-expression is that in a let-expression, an association is made immediately after the declaration, whereas in lambda calculus, during declaration, the association is delayed, and is made only when the function is applied to an argument. This gives the programmer to *control when subsitution happens*.
+<!-- > The only difference between lambda calculus and, say, a let-expression is that in a let-expression, an association is made immediately after the declaration, whereas in lambda calculus, during declaration, the association is delayed, and is made only when the function is applied to an argument. This gives the programmer to *control when substitution happens*.
 > 
 > To summarize,
 > - $\lambda x. e$  = delayed association/substitution
@@ -417,7 +417,7 @@ The technical term to describe this phenomenon, where a free reference becomes b
    (Disclaimer: The second excerpt is just designed for practice and is in no way representative the author's view of ChatGPT, or LLMs in general.)
 
 
-**Exercise**: Is $=_\alpha$ an equivalence relation? That is, is it reflexive, symmetric, and transitive? If so, informally argue why each property is satisifed. If not, give a counterexample for a property that is not satisfied.
+**Exercise**: Is $=_\alpha$ an equivalence relation? That is, is it reflexive, symmetric, and transitive? If so, informally argue why each property is satisfied. If not, give a counterexample for a property that is not satisfied.
 
 **Exercise**: If you think $=_\alpha$ is an equivalence relation, can you come up with a plausible canonical form such that all terms that are alpha-equivalent have the same representation?
 
@@ -425,7 +425,7 @@ The technical term to describe this phenomenon, where a free reference becomes b
 
 ### Capture-Avoiding Substitution
 
-A substistution replaces all references to a name in an expression with some entity. This operation is usually written as $c[x \mapsto e]$, which means substituting all references to $x$ with entity $e$ in the context expression $c$. In lambda-calculus, when a substitution is triggered by evaluating an application expression, the substitution is called a *beta-reduction*.
+A substitution replaces all references to a name in an expression with some entity. This operation is usually written as $c[x \mapsto e]$, which means substituting all references to $x$ with entity $e$ in the context expression $c$. In lambda-calculus, when a substitution is triggered by evaluating an application expression, the substitution is called a *beta-reduction*.
 
 If someone proposes an implementation of substitution to you, a natural question you can interrogate about their implementation is: 
 
@@ -437,7 +437,7 @@ This property can be states more concisely as *substitution should preserve alph
 
 A substitution that enjoys this property is said to be *capture-avoiding*. Capture-avoiding substitution is extremely important because it does not alter the meaning of a program in unexpected ways, and is an integral part of many optimizing compilers, interpreters, and proof assistants.
 
-Capture-avoiding substitution is best illustrated in terms of pictures. First, fix some background language: programming langauge, mathematical notation, or natural language, whatever. Consider the space of all possible expressions in this language:
+Capture-avoiding substitution is best illustrated in terms of pictures. First, fix some background language: programming language, mathematical notation, or natural language, whatever. Consider the space of all possible expressions in this language:
 
 <img src="https://raw.githubusercontent.com/fredfeng/CS162/master/sections/sec03/res/programs.001.png" alt="drawing" style="width:400px;"/>
 
