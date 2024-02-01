@@ -62,6 +62,8 @@ let test_stuck_s (e_str : string) = test_stuck (parse e_str)
 let free_vars_tests = [ test_free_vars_s "lambda x. y" [ "y" ] ]
 
 let subst_tests =
+  [ test_subst_s ~x:"var" ~e:"1" ~c:"var + var" (*expected *) "1 + 1" ]
+
 let eval_tests =
   let t = test_eval_s in
   [
