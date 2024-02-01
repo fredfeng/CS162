@@ -35,16 +35,14 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 2/12             | Operational Semantics III                     | [lec8]                        |                  |                        |     |
 | 2/14             | Type Checking I                               | [lec9]                        |                  |                        |     |
 | 2/19 (President) | No class                                      |                               |                  |                        |     |
-| 2/21             | Type Checking I (continued)                   | [lec9]                        | 22.1-22.4        | hw4                    | hw3 |
+| 2/21             | Type Checking I (continued)                   | [lec9]                        | 22.1-22.4        |                        |     |
 | 2/26             | Midterm Review                                |                               |                  |                        |     |
 | 2/28             | Midterm                                       |                               |                  |                        |     |  |
 | 3/4              | Type Checking II                              |                               | 22.7             |                        |
-| 3/6              | Type Inference & Polymorphism II              | [lec12]                       |                  | hw5                    | hw4 |
+| 3/6              | Type Inference & Polymorphism II              | [lec12]                       |                  |                        |     |
 | 3/11             | Polymorphism                                  | [lec13]                       |                  |                        |     |
 | 3/13             | TBD                                           | [lec14]                       |                  |                        |     |
-| 3/20             | -                                             |                               |                  |                        | hw5 |
-| 3/22             | Quarter ends                                  |                               |                  |
-| 3/26             | Grade submission deadline                     |
+
 # Grading
 
 1. 5 Programming Assignments: 70%
