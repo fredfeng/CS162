@@ -90,7 +90,6 @@ let eval_tests =
       "15";
   ]
 
-let eval_tests = [ test_eval_s (* input *) "1+2" (* expected *) "3" ]
 let eval_stuck_tests = [ test_stuck_s (* input *) "(lambda x. x) + 1" ]
 
 let subst_capture_tests =
