@@ -139,6 +139,10 @@ where `<P>` and `<Q>` are arbitrary Java programs.
 
 2. What is the scope of the loop index variable `i`? (Hint: there is more than one place where `i` is in scope.)
 
+> Solution: [^java-scope]
+
+[^java-scope]: 1. Declaration: `int i`. Reference: `i` in `i < 10`, `i++` and `System.out.println(i)`. Association: `i` is associated with a memory box upon look entry. 2. The scope of `i` includes: loop body `{ ... }`, loop condition `i < 10`, and loop update `i++`. The scope does not include `<P>` and `<Q>`.
+
 **Exercise (Skip if you aren't familiar with Python)**: Consider the following Python program:
 ```python
 <P>
@@ -152,6 +156,10 @@ for i in range(10):
    - associated with an entity (what kind? memory box or immutable value?).
 2. What is the scope of the loop index variable `i`? (Hint: there is more than one place where `i` is in scope.)
 
+> Solution: [^python-scope]
+
+[^python-scope]: 1. Declaration: `i` in `for i in ...`. Reference: `i` in `print(i)`. Association: during *each* loop iteration, `i` is associated with a *fresh* memory box whose content is the current number of iterations. That is: `for i in range(5): print(i); i+= 1` will print `0 1 2 3 4`, not `0 2 4 6 8`. 2. The scope of `i` includes: loop body `print(i)`, **and `<Q>` as well**!
+
 
 #### Example: bindings in math
 
@@ -164,6 +172,11 @@ f(x, y) = xy + 1
 Here, on the left-hand-side of $=$, both $x$ and $y$ are declaration of names. The $x$ and $y$ on the right-hand-side are references.
 
 **Exercise**: What is the scope of $x$ in the above equation?
+
+> Solution: [^math-func-scope]
+
+[^math-func-scope]: The scope of $x$ is the right-hand-side of the equation.
+
 
 Note that the name $x$ (as well as $y$) is only declared, but not associated with any entity. This is because we are defining a function, so we don't know what the input $x$ is yet. The act of associating $x$ with an entity happens when the function is evaluated with an input, and is achieved by substituting all references to a name with the entity.
 
@@ -181,16 +194,23 @@ Besides function notation, bindings are quite ubiquitous in math and logic. Here
     1. Identify all the places where some name is declared, or referenced.
     2. What are the scopes of $x$ and $y$ in the above integral?
     3. When do you substitute the variables with numerical entities? How many times does substitution happen?
+    
+    > Solution: [^integral-solution]
+
+[^integral-solution]: 1. Declaration: $dx$ declares variable `x` and $dy$ declares variable `x`. Reference: $x,y$ in $3x^2 + 4y$, and $y$ in $y+1$. 2. The scope of $x$ is $3x^2 + 4y$, and the scope of $y$ is $\int_1^{y+1} 3x^2 + 4y\ dx$. 3. Substitution happens when you evaluate the integral, and it happens infinitely many times assuming a Riemann sum interpretation of integrals.
 
 
-3. In first-order logic, you might have encountered formulas like this:
+1. In first-order logic, you might have encountered formulas like this:
    
    <img src="https://raw.githubusercontent.com/fredfeng/CS162/master/sections/sec03/res/fol.png" alt="drawing" style="width:300px;"/>
    
     **Exercise**:
     1. Identify all the places where some name is declared or referenced.
     2. What is the scope of $x$ and $y$ in the above equation?
+    
+    > Solution: [^fol-solution]
 
+[^fol-solution]: 1. Declaration: $x$ is declared by $\forall x$ and $y$ is declared by $\exists y$. Reference: $x,y$ are references in $x+y=0$, and $x$ is a reference in $x=0$. 2. The scope of $x$ is $\exists y. (x+y=0) \implies x=0$. The scope of $y$ is $(x+y=0)$. 
 
 **Open-Ended Exercise**: Identify an OCaml language feature -- besides `let` and functions -- that makes use of binding in some way. (Hint: You used this feature *a lot* in HW1.) Then, think about the following questions:
 1. Where and how do you declare a name to be in scope?
@@ -198,9 +218,24 @@ Besides function notation, bindings are quite ubiquitous in math and logic. Here
 3. How do you reference a name?
 4. When do you associate the name with an entity?
 
+> Solution: [^ocaml-binding]
+
+[^ocaml-binding]: One such feature is `match`, as in `match opt with Some x -> ...`. 1. You declare a name to be in scope in the pattern part of a `match` expression, i.e., the left-hand-side of `->`. 2. The scope of a declared name is the right-hand-side of the `->` in the pattern that declares the name. 3. In the right-hand-side of the `->`, you can freely reference the name declared in the left-hand-side pattern. 4. You associate the name with an entity when you evaluate the `match` expression, and it happens when you find a pattern that matches the input.
+
 
 **Open-Ended Question**: Repeat the previous exercise, but replace "OCaml" with "your favorite programming language". If your favorite programming language [happens to be OCaml](https://www.youtube.com/shorts/pd-L6YVTUv8), then replace "OCaml" with "your favorite programming language that isn't a functional language".
 
+
+> Solution: [^fav-lang-binding]
+
+[^fav-lang-binding]: In Java or C++, the generics feature makes use of binding. For example, when you define a generic list like
+```java
+class List<T> {
+    T head;
+    List<T> tail;
+}
+```
+The `T` in `List<T>` declares the name `T` to be in scope of the class definition. In the class definition, we use `T` as a reference in `T head`, and also in `List<T> tail`. The association of `T` with an entity happens when you instantiate the generic class with a concrete `T` (aka [monomorphization](https://en.wikipedia.org/wiki/Monomorphization)), e.g., `List<Integer> l = new List<Integer>()`.
 
 
 ### Free and Bound References
@@ -285,6 +320,13 @@ The upshot is that **lambda calculus is just a language for manipulating binding
 2. $(\lambda f. \lambda x. f\ x) (\lambda x. x + 1)\ 1$
 3. $(\lambda f. (\lambda x. f\ x\ y))\ f$
 
+
+> Solution: [^lambda-scope]
+
+[^lambda-scope]: 
+1. Declaration: $y$ is declared with $\lambda y$, and $x$ is declared with $\lambda x$. Scope: $y$ is in scope of $(\lambda x. x+y) y$, and $x$ is in scope of $x+y$. Reference: $x,y$ are referenced in $x+y$, and $y$ is also referenced in the last $y$ of the big expression. All references are bound in this expression.
+2. Declaration: $f$ is declared with $\lambda f$, and $x$ is declared with $\lambda x$ **twice**. Scope: the scope of $f$ is $(\lambda x. f\ x)$, the scope of the first declared $x$ is $f\ x$, and the scope of the second declared $x$ is $x+1$. Reference: $f,x$ are referenced in $f\ x$, and $x$ is referenced in $x+1$. All references are bound in this expression.
+3. Declaration: $f$ is declared with $\lambda f$, and $x$ is declared with $\lambda x$. Scope: the scope of $f$ is $(\lambda x. f\ x\ y)$, and the scope of $x$ is $f\ x\ y$. Reference: $f,x,y$ are referenced in $f\ x\ y$ where $f,x$ are bound but $y$ is free; $f$ is also referenced in the last $f$, where it is free!
 
 
 ### Alpha-Renaming and Alpha-Equivalence
@@ -388,12 +430,16 @@ The technical term to describe this phenomenon, where a free reference becomes b
     let x = (y + 1 in y) in
     y * x
     ```
+    > Solution: [^alpha-equivalence1]
+
 2. Consider the previous P1, and P2 = 
     ```ocaml
     let y = 2 in
     let x = (y + 1 in y) in
     x * y
     ```
+
+    > Solution: [^alpha-equivalence2]
 
 3. Consider P1 = 
    ```math
@@ -403,6 +449,8 @@ The technical term to describe this phenomenon, where a free reference becomes b
     ```math
     \int_1^{x+1} \int_0^1 3y^2 + 4x\ dy\ dx
     ```
+
+    > Solution: [^alpha-equivalence3]
 
 4. Consider P1 = 
    > You may provide input to the *Services* ("**Input**"), and receive output from the *Services* based on the *Input* ("**Output**"). *Input* and *Output* are collectively "**Content**." 
@@ -416,11 +464,16 @@ The technical term to describe this phenomenon, where a free reference becomes b
    
    (Disclaimer: The second excerpt is just designed for practice and is in no way representative the author's view of ChatGPT, or LLMs in general.)
 
+    > Solution: [^alpha-equivalence4]
+
 
 **Exercise**: Is $=_\alpha$ an equivalence relation? That is, is it reflexive, symmetric, and transitive? If so, informally argue why each property is satisfied. If not, give a counterexample for a property that is not satisfied.
 
 **Exercise**: If you think $=_\alpha$ is an equivalence relation, can you come up with a plausible canonical form such that all terms that are alpha-equivalent have the same representation?
 
+> Solution: [^alpha-equiv-normal]
+
+[^alpha-equiv-normal]: A popular canonical forms for alpha-equivalence is the [locally nameless representation](https://chargueraud.org/research/2009/ln/main.pdf). If you need to hand-write a compiler/interpreter/proof assistant in the future, use locally nameless representation; DO NOT USE STRINGS to represent variables like we do in CS162, because the naive string-based representation is extremely prone to all kinds of subtle ` substitution bugs.
 
 
 ### Capture-Avoiding Substitution
