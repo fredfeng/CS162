@@ -402,13 +402,14 @@ Thus, it will be helpful to write a function that checks whether an `expr` is we
 **Problem 2** (📝): Finish the definition of the `wf` function, which takes a list of in-scope variables `vs`, and checks if the input expression `e` is well-formed in terms of the binding structure.
 ```ocaml
 let rec wf (vs: string list) (e: expr) : bool =
+    match e with
     | Num _ -> true
     | Binop (_, Scope _, Scope _) -> 
         (* binop doesn't bind anything *)
         false
     | Binop (_, e1, e2) -> wf vs e1 && wf vs e2
-    | Var _ -> (* todo *)
-    | Scope (_, e) -> 
+    | Var x -> (* todo *)
+    | Scope _ -> 
          (* a binder by itself is ill-formed;  it must be part of 
             another language construct that uses it *)
          false
