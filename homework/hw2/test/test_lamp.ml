@@ -17,7 +17,14 @@ end
 (* Unit test utilities *)
 let texpr = Alcotest.testable Pretty.pp_expr equal_expr
 let tvars = Alcotest.testable Vars.pp Vars.equal
-let parse = Parse_util.parse
+
+let parse s =
+  try Parse_util.parse s
+  with _ -> Alcotest.fail (Fmt.str "parse failed for %s" s)
+
+let parse_file filename =
+  try Parse_util.parse_file filename
+  with _ -> Alcotest.fail (Fmt.str "parse failed for %s" filename)
 
 (** Test free variable function *)
 let test_free_vars (e : expr) (expected : string list) () =
@@ -98,11 +105,54 @@ let subst_capture_tests =
       (* expected output *) "lambda y0. (y0 (lambda x. y))";
   ]
 
+let test_church_bool (e_str : string) (expected : string) () =
+  let names = [ "tt"; "ff"; "bool_to_int"; "and"; "or"; "imply"; "xor" ] in
+  let fs =
+    List.map
+      ~f:(fun name -> (name, parse_file (Fmt.str "../lib/part4/%s.lp" name)))
+      names
+  in
+  let e = parse e_str in
+  let glued =
+    List.fold_right fs ~init:e ~f:(fun (name, f) e -> Dsl.let_ name f ~in_:e)
+  in
+  test_eval glued (parse expected) ()
+
+let church_bool_tests =
+  [
+    test_church_bool (* intput *) "bool_to_int tt" (* expected output *) "1";
+    test_church_bool (* intput *) "bool_to_int ff" (* expected output *) "0";
+    test_church_bool (* intput *) "bool_to_int (and tt tt)"
+      (* expected output *) "1";
+  ]
+
+let test_church_option (e_str : string) (expected : string) () =
+  let names = [ "none"; "some"; "option_to_int"; "join" ] in
+  let fs =
+    List.map
+      ~f:(fun name -> (name, parse_file (Fmt.str "../lib/part4/%s.lp" name)))
+      names
+  in
+  let e = parse e_str in
+  let glued =
+    List.fold_right fs ~init:e ~f:(fun (name, f) e -> Dsl.let_ name f ~in_:e)
+  in
+  test_eval glued (parse expected) ()
+
+let church_option_tests =
+  [
+    test_church_option (* intput *) "option_to_int none"
+      (* expected output *) "0";
+    test_church_option "option_to_int (some 6)" "60001";
+  ]
+
 let tests =
   [
     ("free_vars", free_vars_tests);
     ("subst", subst_tests);
     ("eval", eval_tests);
     ("eval_stuck", eval_stuck_tests);
-    ("<bonus> subst_capture", subst_capture_tests);
+    ("subst_capture", subst_capture_tests);
+    ("church_bool_tests", church_bool_tests);
+    ("church_option_tests", church_option_tests);
   ]
