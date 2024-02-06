@@ -268,7 +268,7 @@ Since this is not a toy language anymore, the language will have a well-defined 
 
 ### 3.1 Concrete Syntax and Informal Semantics
 
-You can read about the informal semantics and the concrete syntax of $\lambda^+$ in the Overview section of the $\lambda^+$ [language reference manual](../lamp.pdf). **Only sections up to and including Section 2.3 (Named Function Definitions) are relevant for this assignment.** The remaining language constructs will be the focus of the next assignment.You're encouraged to quickly scan through the reference manual first without worrying about the details. You can revisit it later when you're working on the problems in this part.
+You can read about the informal semantics and the concrete syntax of $\lambda^+$ in the Overview section of the $\lambda^+$ [language reference manual](https://github.com/fredfeng/CS162/blob/master/homework/lamp.pdf). **Only sections up to and including Section 2.3 (Named Function Definitions) are relevant for this assignment.** The remaining language constructs will be the focus of the next assignment.You're encouraged to quickly scan through the reference manual first without worrying about the details. You can revisit it later when you're working on the problems in this part.
 
 The language itself is basically the arithmetic expression language you implemented in HW1 + lambda calculus, and it largely resembles OCaml (modulo some syntax differences). There are, however, a few things that are worth pointing out:
 
@@ -485,7 +485,7 @@ let rec eval (e: expr) : expr =
     match e with
     ...
 ```
-The `eval` function will "run" your program by performing binary operations, evaluating function arguments, applying arguments to functions using `subst`, etc. You might want to refer to Section 4 (Operational Semantics) of the [language reference manual](../lamp.pdf) for the precise meaning of each language construct. If no evaluation rule applies, then your interpreter should call `im_stuck` to signal that the interpreter is stuck.
+The `eval` function will "run" your program by performing binary operations, evaluating function arguments, applying arguments to functions using `subst`, etc. You might want to refer to Section 4 (Operational Semantics) of the [language reference manual](https://github.com/fredfeng/CS162/blob/master/homework/lamp.pdf) for the precise meaning of each language construct. If no evaluation rule applies, then your interpreter should call `im_stuck` to signal that the interpreter is stuck.
 
 You can assume that the input expression is well-formed.
 
