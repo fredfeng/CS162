@@ -1,0 +1,28 @@
+; Build configuration
+
+; Treat warnings as non-fatal
+
+(env
+ (dev
+  (flags
+   (:standard -warn-error -A))))
+
+(library
+ (name meta)
+ (libraries base fmt lamp)
+ (modules meta encodings meta_lp)
+ (wrapped false))
+
+; ---------------
+; Convert meta.lp to an OCaml file
+
+(rule
+ (mode promote)
+ (target meta_lp.ml)
+ (deps
+  (:lp
+   (glob_files meta.lp))
+  (:sh
+   (glob_files lp_to_ml.sh)))
+ (action
+  (run bash -c "sh %{sh} > %{target}")))
