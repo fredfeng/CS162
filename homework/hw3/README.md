@@ -90,7 +90,7 @@ Several things to note:
         ```
 
 2. Pattern-match on lists must end with the `end` keyword, unlike in OCaml.
-3. You can only compare integers for equality. Boolean and list equality can easily be implemented with custom functions, so we don't include them as built-in features to reduce make the core language as elegant as possible.
+3. You can only compare integers for equality. Boolean and list equality can easily be implemented with custom functions, so we don't include them as built-in features to make the core language as compact as possible.
 
 
 ### 1.2 Abstract Syntax
@@ -345,42 +345,45 @@ By compatible, we mean that if $e \Downarrow v$ using the original rules, then w
 ## Part 2. Augmenting the Interpreter
 
 
-**Problem (🧑‍💻, 40 points)** Augment the interpreter you wrote for HW2 with support of booleans, lists, and recursion according to the operational semantics specified in the [language reference manual](https://github.com/fredfeng/CS162/blob/master/homework/lamp.pdf). Specifically, in the `free_vars`, `subst` and `eval` functions:
+**Problem (🧑‍💻, 40 points)** Augment the interpreter you wrote for HW2 with support of booleans, lists, and recursion according to the operational semantics specified in the [language reference manual](https://github.com/fredfeng/CS162/blob/master/homework/lamp.pdf). Specifically, for the `free_vars`, `subst` and `eval` functions:
 - Copy and paste the code you wrote in the previous assignment for `free_vars`, `subst` and `eval` into `lib/lamp/eval.ml`.
 - Fill in `todo ()` with fresh code. *Hint*: the new cases of `free_vars` and `subst` should be trivial; you shouldn't need to modify `Var` or `Scope`.
 - Ignore `hmm ()` for this problem.
 
-We included some unit tests as well as a couple of realistic $\lambda^+$ programs in [test/examples/](test/examples/) that you can use to test your interpreter. You can also run the interpreter interactively or in file mode as described in the previous assignments.
+There are two ways to test your interpreter:
 
+1. We included some unit tests as well as a couple of realistic $\lambda^+$ programs in [test/examples/](test/examples/) that you can use to test your interpreter. Simply run `dune runtest`.
 
-If you want to run your interpreter interactively, simply run the following command:
-```bash
-dune exec lib/lamp/repl.exe
-```
+2. You can also run the interpreter interactively (REPL) or in file mode as described in the previous assignments. For file mode, do `dune exec bin/repl.exe -- <filename>`. For REPL, simply run the following command:
+   ```bash
+   dune exec bin/repl.exe
+   ```
 
-We added some convenience commands to the REPL:
-- `<expr>` triggers your interpreter to evaluate the expression, as usual.
-- `let <var> = <expr>` evaluates the right-hand-side expression and adds the binding to the environment. Subsequent expressions can refer to this binding. For example
-    ```
-    > let x = 10
-    x = 10
+   We added some convenience commands to the REPL:
+   - `<expr>` triggers your interpreter to evaluate the expression, as usual.
+   - `let <var> = <expr>` evaluates the right-hand-side expression and adds the binding to the environment. Subsequent expressions can refer to this binding. For example
+       ```
+       > let x = 10
+       x = 10
 
-    > x + 1
-    <== x + 1
-    [eval] ==> 11
+       > x + 1
+       <== x + 1
+       [eval] ==> 11
 
-    > let x = 20
-    x = 20
+       > let x = 20
+       x = 20
 
-    > x + 1
-    <== x + 1
-    [eval] ==> 21
-    ```
-   Note that later bindings may shadow earlier ones, just like in OCaml.
-- `#print` shows the current binding environment.
-- `#clear` resets the binding environment.
-- `#save <filename>` saves the current history of commands to a file
-- `#load <filename>` loads a file containing a list of commands and replays them. Binding commands are also replayed, so you can create a file that contains a sequence of `let` commands and replay them to set up a particular environment. You can load multiple files by doing multiple `#load` commands.
+       > x + 1
+       <== x + 1
+       [eval] ==> 21
+       ```
+      Note that 
+        1. This syntax is only available in the REPL mode. Do not confuse it with the `let`-expression in the language itself, which you implemented in HW2.
+        2. Later bindings may shadow earlier ones, just like in OCaml.
+   - `#print` shows the current binding environment.
+   - `#clear` resets the binding environment.
+   - `#save <filename>` saves the current history of commands to a file
+   - `#load <filename>` loads a file containing a list of commands and replays them. Binding commands are also replayed, so you can create a file that contains a sequence of `let` commands and replay them to set up a particular environment. You can load multiple files by doing multiple `#load` commands.
 
 ## Part 3. Semantics Reverse-Engineering
 
@@ -986,7 +989,7 @@ To summarize, we now have three ways to evaluate $\lambda$-calculus expressions:
 
 <img src="https://github.com/fredfeng/CS162/blob/master/homework/hw3/diagram.png?raw=true" width="500">
 
-You can now run your meta-circular interpreter. Type `dune exec lib/lamp/repl.exe` in your terminal.
+You can now run your meta-circular interpreter. Type `dune exec bin/repl.exe` in your terminal.
 Once you're in the REPL, type `+meta` to enter meta-circular mode. In this mode, if you type an expression, the REPL will
 1. Desugar all integers, booleans, lists and products into lambda functions, using the encodings that you wrote in `encodings.ml`.
 2. Normalize the expression a little bit
@@ -995,7 +998,7 @@ Once you're in the REPL, type `+meta` to enter meta-circular mode. In this mode,
 
 For example, you can try the following:
 ```bash
-$ dune exec lib/lamp/repl.exe
+$ dune exec bin/repl.exe
 Welcome to lambda+! Built on: Wed Feb 7 18:19:16 PST 2024
 +settings: synth=off
 > +meta
