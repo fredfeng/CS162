@@ -1122,8 +1122,6 @@ Since we have an alternative elimination form, we should also be able to derive 
 The elimination function `elim_tree` supports primitive recursion. However, similar to natural numbers, we can also devise a non-recursive elimination form `elim_tree_nonrec` that only does pattern-matching. 
 
 **Problem (📝)**:
-First, write down the type of `elim_tree_nonrec`. Then, go to [visitor.py](visitor.py), which uses the object-oriented visitor design pattern to count the number of tree nodes. What are the types of the visitor functions? How does it compare to the type of `elim_tree_nonrec`?
-
-TBD: upload visitor.py.
+First, write down the type of `elim_tree_nonrec`. Then, go to [visitor.py](visitor.py), which uses the object-oriented visitor design pattern to count the number of tree nodes. What is the combined type of the visitor functions? How does it compare to the type of `elim_tree_nonrec`?
 
 
