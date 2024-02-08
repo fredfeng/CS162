@@ -31,14 +31,15 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 1/29             | λ<sup>+</sup>, Inference Rules                |                               | 11.12            |                        |     |
 | 1/31             | Lambda Calculus II                            | [lec6]                        | 8.1,8.2, 9.1-9.3 |                        |     |
 | 2/5              | Operational Semantics I                       | [lec7]                        |                  |                        |     |
-| 2/7              | Operational Semantics II                      |                               | 10.3             | hw3                    | hw2 |
+| 2/7              | Operational Semantics II                      |                               | 10.3             | [hw3](./homework/hw3)  | hw2 |
 | 2/12             | Operational Semantics III                     | [lec8]                        |                  |                        |     |
 | 2/14             | Type Checking I                               | [lec9]                        |                  |                        |     |
 | 2/19 (President) | No class                                      |                               |                  |                        |     |
+| 2/20             | -                                             |                               |                  | hw4                    | hw3 |  |
 | 2/21             | Type Checking I (continued)                   | [lec9]                        | 22.1-22.4        |                        |     |
 | 2/26             | Midterm Review                                |                               |                  |                        |     |
 | 2/28             | Midterm                                       |                               |                  |                        |     |  |
-| 3/4              | Type Checking II                              |                               | 22.7             |                        |
+| 3/4              | Type Checking II                              |                               | 22.7             | hw5                    | hw4 |
 | 3/6              | Type Inference & Polymorphism II              | [lec12]                       |                  |                        |     |
 | 3/11             | Polymorphism                                  | [lec13]                       |                  |                        |     |
 | 3/13             | TBD                                           | [lec14]                       |                  |                        |     |
@@ -63,8 +64,6 @@ Below is a grading system used by CS162 (No curving).
 | F      | <60%       |
 
 Credit: https://en.wikipedia.org/wiki/Academic_grading_in_the_United_States
-
-# λ<sup>+</sup>
 
 
 # Useful resources
