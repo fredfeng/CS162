@@ -236,7 +236,7 @@ An alternative is to have the following `App` rule:
 ```
 where we simply changed the first premise to an equation instead of an evaluation relation.
 
-Let us denote the original evaluation relation as "$\Downarrow$" and the alternative evaluation relation in which `App` is replaced by `App-Alt1` as "$\Downarrow_1$".
+Let us denote the original evaluation relation as $\Downarrow$ and the alternative evaluation relation in which `App` is replaced by `App-Alt1` as $\Downarrow_1$.
 
 Exhibit an expression $e$ such that $\exists v.\ e \Downarrow v$ but $\neg\exists v.\ e \Downarrow_1 v$, i.e., the evaluation of $e$ works fine with the original rule but gets stuck/doesn't terminate with the alternative rule.
 
@@ -251,7 +251,7 @@ Exhibit an expression $e$ such that $\exists v.\ e \Downarrow v$ but $\neg\exist
     (e1 e2) ↓↓ v'
 ```
 
-Let us denote the original evaluation relation as "$\Downarrow$" and the alternative evaluation relation in which `App` is replaced by `App-Alt2` as "$\Downarrow_2$".
+Let us denote the original evaluation relation as $\Downarrow$ and the alternative evaluation relation in which `App` is replaced by `App-Alt2` as $\Downarrow_2$.
 
 Exhibit an expression $e$ such that $\neg\exists v.\ e \Downarrow v$ but $\exists v.\ e \Downarrow_2 v$, i.e., the evaluation of $e$ gets stuck/doesn't terminate with the original rule but works fine with the alternative rule.
 
@@ -263,9 +263,9 @@ Exhibit an expression $e$ such that $\neg\exists v.\ e \Downarrow v$ but $\exist
 
 ![](./proof.png)
 
-Exhibit an expression $e$ such that $e$ evaluates to some value $v$ using both "$\Downarrow$" and "$\Downarrow_2$", but the size of the derivation tree for $e \Downarrow v$ is strictly smaller than the size of the derivation tree for $e \Downarrow_2 v$.
+Exhibit an expression $e$ such that $e$ evaluates to some value $v$ using both $\Downarrow$ and $\Downarrow_2$, but the size of the derivation tree for $e \Downarrow v$ is strictly smaller than the size of the derivation tree for $e \Downarrow_2 v$.
 
-In practical terms, this means that any interpreter that implements "$\Downarrow_2$" will take longer to evaluate $e$ than an interpreter that implements "$\Downarrow$".
+In practical terms, this means that any interpreter that implements $\Downarrow_2$ will take longer to evaluate $e$ than an interpreter that implements $\Downarrow$.
 
 
 **Problem (📝)**: Let's consider the rule for evaluating let-expressions:
@@ -285,13 +285,13 @@ and the alternative
 ```
 
 
-Let us denote the original evaluation relation as "$\Downarrow$" and the alternative evaluation relation in which `Let` is replaced by `Let-Alt` as "$\Downarrow_1$".
+Let us denote the original evaluation relation as $\Downarrow$ and the alternative evaluation relation in which `Let` is replaced by `Let-Alt` as $\Downarrow_1$.
 
 1. Does there exists an expression $e$ such that $\exists v.\ e \Downarrow v$ but $\neg\exists v.\ e \Downarrow_1 v$? If so, find one, and draw the derivation tree for $e \Downarrow v$. Then draw the partial derivation tree for $e \Downarrow_1 v$ and clearly indicate where it gets stuck/gets into infinite loop.
 
 2. Does there exists an expression $e$ such that $\neg\exists v.\ e \Downarrow v$ but $\exists v.\ e \Downarrow_1 v$? If so, find one, and draw the derivation tree for $e \Downarrow v$. Then draw the partial derivation tree for $e \Downarrow_1 v$ and clearly indicate where it gets stuck/gets into infinite loop.
 
-3. Exhibit an expression $e$ such that $e$ evaluates to some value $v$ using both "$\Downarrow$" and "$\Downarrow_1$", but the size of the derivation tree for $e \Downarrow v$ is strictly smaller than the size of the derivation tree for $e \Downarrow_1 v$.
+3. Exhibit an expression $e$ such that $e$ evaluates to some value $v$ using both $\Downarrow$ and $\Downarrow_1$, but the size of the derivation tree for $e \Downarrow v$ is strictly smaller than the size of the derivation tree for $e \Downarrow_1 v$.
 
 
 **Problem (📝)**: Recall the list-cons rule:
@@ -332,12 +332,12 @@ Your task is to design a new rule `MatchCons-Alt` that replaces `MatchCons` whil
     ↓↓ v3
 ```
 
-Let us denote the original evaluation relation as "$\Downarrow$" and the alternative evaluation relation as "$\Downarrow_1$" in which `Cons` and `MatchCons` are replaced by `Cons-Alt` and `MatchCons-Alt`.
+Let us denote the original evaluation relation as $\Downarrow$ and the alternative evaluation relation as $\Downarrow_1$ in which `Cons` and `MatchCons` are replaced by `Cons-Alt` and `MatchCons-Alt`.
 
 By compatible, we mean that if $e \Downarrow v$ using the original rules, then we should also have $e \Downarrow_1 v$ using the alternative rules. That is, for any expression $e$, the new rules should behave the same as the old rules if the old rules indeed evaluates $e$ to some value $v$, although the new rules can be more permissive, i.e., $e$ may get stuck with the old rules but works fine with the alternative rules.
 
 
-**Problem (📝)**: Consider "$\Downarrow_1$" which you just defined. Update your rules for the "is-value" relation, such that $v$ is a value according to the updated rules if and only if $v \Downarrow_1 v$.
+**Problem (📝)**: Consider $\Downarrow_1$ which you just defined. Update your rules for the "is-value" relation, such that $v$ is a value according to the updated rules if and only if $v \Downarrow_1 v$.
 
 
 
@@ -985,7 +985,8 @@ Once you're done, include `meta.lp` in your Gradescope submission.
 You have gained possession of the ultimate weapon: a self-interpreter for $\lambda$-calculus, an interpreter that interprets itself.
 
 To summarize, we now have three ways to evaluate $\lambda$-calculus expressions:
-![diagram](./diagram.png)
+
+<img src="https://github.com/fredfeng/CS162/blob/master/homework/hw3/diagram.png?raw=true" width="500">
 
 You can now run your meta-circular interpreter. Type `dune exec lib/lamp/repl.exe` in your terminal.
 Once you're in the REPL, type `+meta` to enter meta-circular mode. In this mode, if you type an expression, the REPL will
