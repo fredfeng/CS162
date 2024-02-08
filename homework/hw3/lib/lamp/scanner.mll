@@ -46,6 +46,7 @@ rule token = parse
  | ']'             { RBRACK }
  | '.'             { DOT }
  | ','             { COMMA }
+ | '#'             { SHARP }
  | "//"            { comment lexbuf }
  | eof             { EOF }
  | _               { raise (Err.Lexing {l = Lexing.lexeme_start lexbuf; s= Lexing.lexeme lexbuf} ) }

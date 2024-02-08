@@ -361,16 +361,16 @@ There are two ways to test your interpreter:
 
    We added some convenience commands to the REPL:
    - `<expr>` triggers your interpreter to evaluate the expression, as usual.
-   - `let <var> = <expr>` evaluates the right-hand-side expression and adds the binding to the environment. Subsequent expressions can refer to this binding. For example
+   - `#let <var> = <expr>` evaluates the right-hand-side expression and adds the binding to the environment. Subsequent expressions can refer to this binding. For example
        ```
-       > let x = 10
+       > #let x = 10
        x = 10
 
        > x + 1
        <== x + 1
        [eval] ==> 11
 
-       > let x = 20
+       > #let x = 20
        x = 20
 
        > x + 1
@@ -378,12 +378,12 @@ There are two ways to test your interpreter:
        [eval] ==> 21
        ```
       Note that 
-        1. This syntax is only available in the REPL mode. Do not confuse it with the `let`-expression in the language itself, which you implemented in HW2.
+        1. This syntax is only available in the REPL mode. Do not confuse it with `let`-expressions in the language itself, which you implemented in HW2.
         2. Later bindings may shadow earlier ones, just like in OCaml.
    - `#print` shows the current binding environment.
    - `#clear` resets the binding environment.
    - `#save <filename>` saves the current history of commands to a file
-   - `#load <filename>` loads a file containing a list of commands and replays them. Binding commands are also replayed, so you can create a file that contains a sequence of `let` commands and replay them to set up a particular environment. You can load multiple files by doing multiple `#load` commands.
+   - `#load <filename>` loads a file containing a list of commands and replays them. Binding commands are also replayed, so you can create a file that contains a sequence of `#let` commands and replay them to set up a particular environment. You can load multiple files by doing multiple `#load` commands.
 
 ## Part 3. Semantics Reverse-Engineering
 
@@ -718,11 +718,11 @@ There are two ways to test your solution.
 
 2. You can also verify your solution in $\lambda^+$ using your own interpreter or the reference interpreter on CSIL. It might be hard to tell which natural number is encoded by a lambda expression. To remedy this, we have provided a decoder function in `decoder.txt` to convert an encoded nat into a native integer in $\lambda^+$. For example, if you're using the REPL:
    ```ocaml
-   #load decoders.txt
+   > #load decoders.txt
 
-   > let zero = ...
+   > #let zero = ...
 
-   > let succ = ...
+   > #let succ = ...
 
    > dec_nat (succ (succ (zero))) // should evaluate to 2
    ```
@@ -1004,13 +1004,13 @@ Welcome to lambda+! Built on: Wed Feb 7 18:19:16 PST 2024
 > +meta
 . entering meta-circular mode
 
-meta> let tt = lambda x,y. x // true
+meta> #let tt = lambda x,y. x // true
 [meta] tt = lambda _0. lambda _1. _0
 
-meta> let ff = lambda x,y. y // false
+meta> #let ff = lambda x,y. y // false
 [meta] ff = lambda _0. lambda _1. _1
 
-meta> let not = lambda b. b ff tt // negation
+meta> #let not = lambda b. b ff tt // negation
 [meta] not = lambda _0.
               (_0 (lambda _1. lambda _2. _2)) (lambda _3. lambda _4. _3)
 
@@ -1024,10 +1024,10 @@ The `[meta] ==> <expr>` line shows the result of the meta-circular interpreter, 
 However, since the results are now encoded, it can be hard to tell what they represent. Luckily, the bindings created in the `meta` mode persist even if we leave the meta-circular mode. So you can invoke the appropriate decoder function `dec_*` to convert the encoded result back into a native value. For example, you can do
 ```ocaml
 ...
-meta> let x = not tt
+meta> #let x = not tt
 [meta] x = lambda _0. lambda _1. _1
 
-meta> let y = 2 * 3
+meta> #let y = 2 * 3
 [meta] y = ...
 
 meta> -meta

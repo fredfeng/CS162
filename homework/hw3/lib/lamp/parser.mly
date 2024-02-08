@@ -8,7 +8,7 @@ let mk_lambdas (xs : string list) (e : expr) =
 
 /* Tokens */
 
-%token EOF FUN REC MATCH BAR END GT EQ LT LPAREN RPAREN DOT COMMA
+%token EOF FUN REC MATCH BAR END GT EQ LT LPAREN RPAREN DOT COMMA SHARP
 %token AT FIX IS LBRACE RBRACE FST SND
 %token TRUE FALSE
 %token LET IN IF THEN ELSE WITH LAMBDA
@@ -40,7 +40,7 @@ let mk_lambdas (xs : string list) (e : expr) =
 
 
 letbind:
-    | LET bind EQ expr { ($2,$4) }
+    | SHARP LET bind EQ expr { ($3,$5) }
 
 main:
     | expr EOF { $1 }
