@@ -6,6 +6,7 @@ module Opts = struct
   let path : string option ref = ref None
   let fast : bool ref = ref false
   let meta : bool ref = ref false
+  let quiet : bool ref = ref false
 end
 
 let get_eval () e = if !Opts.fast then eval_fast e else eval e
@@ -59,6 +60,7 @@ let handle_expr l =
     (* the command is a normal expression *)
     let e = Parse_util.parse l in
     Fmt.pr "<== %a\n%!" Pretty.pp_expr e;
+    Fmt.pr "<== AST:\n%a\n%!" pp_expr e;
     let v = get_eval () (context_expr e) in
     (if !Opts.meta then
        let v' = Meta.eval (context_expr e) in
@@ -120,7 +122,12 @@ let rec repl () =
 
 let read_args () =
   let set_file s = Opts.path := Some s in
-  let opts = [ ("-fast", Arg.Set Opts.fast, "use eval_fast (default: off)") ] in
+  let opts =
+    [
+      ("-q", Arg.Set Opts.quiet, "don't print AST (default: off)");
+      ("-fast", Arg.Set Opts.fast, "use eval_fast (default: off)");
+    ]
+  in
   Arg.parse opts set_file ""
 
 let main () =
