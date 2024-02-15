@@ -1,5 +1,0 @@
-#let dec_bool = lambda b. (b true) false
-#let dec_nat = lambda n. (n 0) (lambda _. lambda r. r + 1)
-#let dec_list = lambda xs. (xs Nil) (lambda x. lambda _. lambda r. x :: r)
-#let dec_tree = lambda t. t Nil (lambda x,_,_,l,r. x::(l::r))
-#let dec_prod = lambda p. p (lambda x. lambda y. { x, y })

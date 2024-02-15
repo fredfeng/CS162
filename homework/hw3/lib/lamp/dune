@@ -15,7 +15,7 @@
  (preprocess
   (pps ppx_deriving.show ppx_deriving.eq))
  (libraries base fmt)
- (modules ast scanner parser parse_util vars eval err)
+ (modules ast scanner parser parse_util vars eval err cmd)
  (wrapped false))
 
 (ocamllex scanner)

@@ -10,19 +10,19 @@
 (library
  (name meta)
  (libraries base fmt lamp)
- (modules meta encodings meta_lp)
+ (modules meta encodings)
  (wrapped false))
 
 ; ---------------
-; Convert meta.lp to an OCaml file
+; Dump encodings.txt to an OCaml file
 
 (rule
  (mode promote)
- (target meta_lp.ml)
+ (target encodings.ml)
  (deps
-  (:lp
-   (glob_files meta.lp))
+  (:txt
+   (glob_files encodings.txt))
   (:sh
-   (glob_files lp_to_ml.sh)))
+   (glob_files txt_to_ml.sh)))
  (action
   (run bash -c "sh %{sh} > %{target}")))

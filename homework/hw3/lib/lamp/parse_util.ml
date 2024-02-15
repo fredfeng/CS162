@@ -8,6 +8,8 @@ let parse_file (f : string) : Ast.expr =
   close_in ch;
   parse contents
 
-(** Helper function for parsing a let-binding. Useful for testing. *)
-let parse_letbind (s : string) : string * Ast.expr =
-  Parser.letbind Scanner.token (Lexing.from_string s)
+let parse_cmd (s : string) : Cmd.t =
+  Parser.command Scanner.token (Lexing.from_string s)
+
+let parse_cmd_list (s : string) : Cmd.t list =
+  Parser.commands Scanner.token (Lexing.from_string s)

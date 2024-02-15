@@ -21,9 +21,9 @@ The final part will culminate in a [self-interpreter](https://en.wikipedia.org/w
 
 0. Make sure you download the latest version of the reference manual [using this link](https://github.com/fredfeng/CS162/blob/master/homework/lamp.pdf).
 1. Either clone this directory, or download the zipped directory using [this link](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2Ffredfeng%2FCS162%2Ftree%2Fmaster%2Fhomework%2Fhw3).
-2. You will be modifying `lib/lamp/eval.ml`, and (for bonus) `lib/meta/{encodings.ml,meta.lp}` by replacing the placeholders denoted by `todo`, `hmm`, or `bonus` with your own code.
+2. You will be modifying `lib/lamp/eval.ml`, and (for bonus) `lib/meta/encodings.txt` by replacing the placeholders denoted by `todo`, `hmm`, or `bonus` with your own code.
 3. You must not change the type signatures of the original functions. Otherwise, your program will not compile. If you accidentally change the type signatures, you can refer to the corresponding `.mli` file to see what the expected type signatures are.
-4. Once you're done, run `make`, which will create an archive called `submission.zip` containing `lib/lamp/eval.ml`, and (for bonus) `lib/meta/{encodings.ml,meta.lp}`. Submit the zip file to Gradescope. If your program contains print statements, please remove them before submitting. You do not need to submit any other file, including any `.mli` file or test code. The autograder will automatically compile your code together with our testing infrastructure and run the tests.
+4. Once you're done, run `make`, which will create an archive called `submission.zip` containing `lib/lamp/eval.ml`, and (for bonus) `lib/meta/encodings.txt`. Submit the zip file to Gradescope. If your program contains print statements, please remove them before submitting. You do not need to submit any other file, including any `.mli` file or test code. The autograder will automatically compile your code together with our testing infrastructure and run the tests.
 
 
 ## Important Notes
@@ -419,7 +419,9 @@ In addition, you should ensure that the augmented set of rules is
 
 Note that the above two conditions imply that derivation using your rules should get stuck if and only if the reference interpreter gets stuck.
 
-You can either typeset your solution using LaTeX's `ebproof` package (**recommended**), or hand-write your rules on a piece of paper and take a picture. If you take the hand-write route, you must make sure that the writing is clean and legible for the TAs to read.
+You can either typeset your solution using LaTeX's `ebproof` package (**recommended**), or hand-write your rules on a piece of paper and take a picture. You can find a LaTeX template for this part of the homework in [template.tex](./template.tex). If you take the hand-write route, you must make sure that the writing is clean and legible for the TAs to read.
+
+Once you're done, submit your rules to the Gradescope assignment called "HW3 (Part 3 Written Problem)".
 
 As an example of using LaTeX's `ebproof` package, the following derivation:
 
@@ -440,6 +442,7 @@ can be typeset with
 \end{prooftree}
 ```
 where `infer<n>` denotes the usage of a rule with `n` hypotheses.
+
 
 
 Once you're satisfied with your rules, you can optionally implement the `Pair`, `Fst`, and `Snd` cases of the `eval` function, although none of the autograder tests involve those cases.
@@ -706,19 +709,19 @@ Given that we have found the elimination form for natural numbers, we should be 
 ---
 
 **Problem (⭐️bonus⭐️, 0.5 points)**:
-Translate `zero_encoding` and `succ_encoding` from OCaml to $\lambda$-calculus. 
+Translate `zero_encoding` and `succ_encoding` from OCaml to $\lambda^+$. 
 
-*Hint*: for `succ_encoding`, remember that any occurrence of `elim_nat n <args>` in OCaml simply becomes `n <args>` in $\lambda$-calculus, since an encoded natural number is, by definition, its elimination form!
+*Hint*: for `succ_encoding`, remember that any occurrence of `elim_nat n <args>` in OCaml simply becomes `n <args>` in $\lambda^+$, since an encoded natural number is, by definition, its elimination form!
 
-Provide your solutions in `lib/meta/encodings.ml`. Specifically, locate the entries `("zero",  "0")` and `("succ", "0")` in the OCaml list called `encodings`, and replace `"0"` with a concrete $\lambda^+$ expression. 
+Provide your solutions in [lib/meta/encodings.txt](./lib/meta/encodings.txt). Specifically, locate the bindings `#let zero = bonus` and `#let succ = bonus`, and replace `bonus` with concrete $\lambda^+$ expressions. 
 
 There are two ways to test your solution.
 
-1. The test file `test/test_meta.ml` defines a list called `nat_tests` which has some unit tests. Please feel free to add more.
+1. The test file [test/test_meta.ml](./test/test_meta.ml) defines a list called `nat_tests` which has some unit tests. Please feel free to add more.
 
-2. You can also verify your solution in $\lambda^+$ using your own interpreter or the reference interpreter on CSIL. It might be hard to tell which natural number is encoded by a lambda expression. To remedy this, we have provided a decoder function in `decoder.txt` to convert an encoded nat into a native integer in $\lambda^+$. For example, if you're using the REPL:
+2. You can also verify your solution in $\lambda^+$ using your own interpreter or the reference interpreter on CSIL. It might be hard to tell which natural number is encoded by a lambda expression. To remedy this, we have provided a decoder function in [lib/meta/encodings.txt](./lib/meta/encodings.txt) to convert an encoded nat into a native integer in $\lambda^+$. For example, if you're using the REPL:
    ```ocaml
-   > #load decoders.txt
+   > #load lib/meta/encodings.txt
 
    > #let zero = ...
 
@@ -727,9 +730,6 @@ There are two ways to test your solution.
    > dec_nat (succ (succ (zero))) // should evaluate to 2
    ```
 
-    This function is also defined in `lib/meta/meta.ml`.
-
-    Note that it might be more convenient to write your solution in `encodings.txt`, and load them into the REPL using `#load encodings.txt`. Once you're satisfied with your solution, you can copy and paste it into `lib/meta/encodings.ml`.
 
 ---
 
@@ -740,7 +740,7 @@ Using this encoding scheme of natural numbers, implement the following functions
 - multiplication
 - factorial
 
-Provide your solution in `lib/meta/encodings.ml`. You may find it helpful to first define those functions in OCaml using `elim_nat`, and then translate them into $\lambda$-calculus.
+Provide your solution in `lib/meta/encodings.txt`. You may find it helpful to first define those functions in OCaml using `elim_nat`, and then translate them into $\lambda^+$.
 
 Feel free to add unit tests in `test/test_meta.ml`. You can also verify your solution in $\lambda^+$ using your own interpreter or the reference interpreter on CSIL.
 
@@ -750,13 +750,13 @@ Finally, compare your encoding with the ones shown in lectures. They will be sli
 
 
 **Problem (⭐️bonus⭐️, 0.5 points)**:
-In lectures, we didn't talk about subtraction or comparison of natural numbers. Let's do them here. Define the following functions using our encoding of natural numbers:
+In lectures, we didn't talk about subtraction or comparison of natural numbers. Let's do them here. In [lib/meta/encodings.txt](./lib/meta/encodings.txt), define the following functions using our encoding of natural numbers:
 - `pred` which computes the predecessor of a natural number. If the input is zero, simply return zero.
 - `sub` which computes the difference of two natural numbers. If the first number is smaller than the second, simply return zero.
 - `leq` which determines whether the first number is less than or equal to the second number. Return a Church-encoded booleans (which you wrote in HW2) instead of native booleans. You can simply refer to `tt` and `ff`, and those have been previously defined in the `encodings` list.
 - `eq` which determines whether the first number is equal to the second number. Use Church booleans.
 
-You may find it helpful to first define those functions in OCaml using `elim_nat`, and then translate them into $\lambda$-calculus.
+You may find it helpful to first define those functions in OCaml using `elim_nat`, and then translate them into $\lambda^+$.
 
 
 
@@ -784,20 +784,19 @@ type 'a list = Nil | Cons of 'a * 'a list
 
 
 **Problem (⭐️bonus⭐️, 0.5 points)**: 
-In $\lambda^+$,
+Define the following functions in $\lambda^+$:
+
 1. Implement the encoding of `Nil` and that of the `Cons` constructor.
 
 We have provided a function called `dec_list` that converts an encoded list to a native list:
    ```ocaml
-   let nil = ... in
-   let cons = ... in
-   in (dec_list (cons 1 (cons 2 (cons 3 nil ))))
+    (dec_list (cons 1 (cons 2 (cons 3 nil ))))
    ```
-   The above program constructs the encoding of the list containing 1, 2, and 3, and then calls `dec_list` to convert it into the native list `1::2::3::Nil`. You can find the definition of `dec_list` in `decoders.txt`, or in `lib/meta/meta.ml`.
+   The above program constructs the encoding of the list containing 1, 2, and 3, and then calls `dec_list` to convert it into the native list `1::2::3::Nil`. You can find the definition of `dec_list` in `encodings.txt`.
 
 1. Implement a function `length` that computes the length of encoded lists, without using `fix` or `rec`. Your function should return encoded natural numbers, instead of native integers.
 
-Provide your solutions in `lib/meta/encodings.ml`. The test file `test/test_meta.ml` contains some unit tests. Feel free to add more. 
+Provide your solutions in [lib/meta/encodings.txt](./lib/meta/encodings.txt). The test file `test/test_meta.ml` contains some unit tests. Feel free to add more. 
 
 
 [^solve:] People usually call the `solve` function from HW2 `fold_right`, and they sometimes claim that `fold_right` is the most general recursive function on lists. So, next time when you're walking in the street and hear people making such claims, you can now show them that your `elim_list` is strictly more powerful than their `fold_right`, by challenging them to a duel of defining the `tail` function on lists using `elim_list` vs using `fold_right` :)
@@ -835,7 +834,7 @@ In $\lambda^+$:
 1. Implement the encoding of `Leaf` and that of the `Node` constructor.
 2. Implement a function `size` that computes the size of encoded binary trees, without using `fix` or `rec`. Your function should return encoded natural numbers, instead of native integers.
 
-Provide your solutions in `lib/meta/encodings.ml`. We have provided a `dec_tree` function (defined in `lib/meta/meta.ml`) that converts an encoded binary tree to a native list: leaves are mapped to `Nil`, and a node with value `v`, left subtree `l`, and right subtree `r` is mapped to the list `v::(l::r)`.
+Provide your solutions in [lib/meta/encodings.txt](./lib/meta/encodings.txt). We have provided a `dec_tree` function in the same file that converts an encoded binary tree to a native list: leaves are mapped to `Nil`, and a node with value `v`, left subtree `l`, and right subtree `r` is mapped to the list `v::(l::r)`.
 
 The test file `test/test_meta.ml` has a list called `tree_tests` which contains some unit tests. Feel free to add more.
 
@@ -926,18 +925,21 @@ let elim_ast
 ---
 
 **Problem (⭐️bonus⭐️, 0.5 points)**:
-Derive the introduction forms `var_enc`, `lam_enc`, `app_enc` from `elim_ast`. Translate them into $\lambda$-calculus. Provide your solutions in `lib/meta/meta.lp`.
+Derive the introduction forms `var_enc`, `lam_enc`, `app_enc` from `elim_ast`. Translate them into $\lambda^+$, and provide your solutions in [lib/meta/encodings.txt](./lib/meta/encodings.txt).
 
 ---
-**Problem (⭐️bonus⭐️, 0.5 points)**: In `meta.lp`, implement `subst` which takes an integer $i$ representing a variable, an encoded expression $\lceil e\rceil$, and an encoded context expression $\lceil c \rceil$. Your function should return the encoding of the result of the substitution $c [i \to e]$.
+**Problem (⭐️bonus⭐️, 0.5 points)**: In [lib/meta/encodings.txt](./lib/meta/encodings.txt), fill in the definition of `subst` which takes an integer $i$ representing a variable, an encoded expression $\lceil e\rceil$, and an encoded context expression $\lceil c \rceil$. Your function should return the encoding of the result of the substitution $c [i \to e]$.
 
 *Hint*: The logic should be almost the same as the `subst` function you wrote in HW2, the only difference being the `Scope` case is collapsed into the `Lambda` case.
 
 ---
-**Problem (⭐️bonus⭐️, 0.5 points)**: In `meta.lp`, implement `eval` which takes some encoding $\lceil e \rceil$ and returns the encoding of the result of evaluating $e$.
+**Problem (⭐️bonus⭐️, 0.5 points)**: In [lib/meta/encodings.txt](./lib/meta/encodings.txt), finish the implementation of `eval` which takes some encoding $\lceil e \rceil$ and returns the encoding of the result of evaluating $e$.
 
 
-Once you're done, include `meta.lp` in your Gradescope submission.
+Once you're done, include [lib/meta/encodings.txt](./lib/meta/encodings.txt) in your Gradescope submission.
+
+
+The test file `test/test_meta.ml` has two lists -- `meta_encoding_tests` and `meta_eval_tests` which contain some unit tests. Feel free to add more. Interactive debugging will be explained in the next section.
 
 
 >  Given your definitions of `var_enc`, `lam_enc`, and `app_enc`, it will be easy to manually turn a $\lambda$-calculus expression into its encoding. For example, the $\lambda$-calculus term $\lambda x. \lambda y. y\ x$ can be encoded as
@@ -947,7 +949,7 @@ Once you're done, include `meta.lp` in your Gradescope submission.
 >
 >  To fully automate this, we have written an `encode` function in OCaml in `lib/meta/meta.ml` that, given an `expr`, uses your `*_enc` definitions and outputs the encoding of the input expression.
 >
->  Also, it can be hard to tell what an encoding actually represents. We previously wrote functions like `to_int` (to convert encoded booleans and encoded natural numbers into native integers) and `to_list` (to convert encoded lists and trees into native lists). For this part, we have provided similar function in OCaml called `decode` to turn an encoded $\lambda$-calculus expression into the actual $\lambda$-calculus expression it represents.
+>  Also, it can be hard to tell what an encoding actually represents. We previously wrote functions like `dec_nat` (to convert encoded booleans and encoded natural numbers into native integers) and `dec_list` (to convert encoded lists into native lists). For this part, we have provided similar function in OCaml called `decode` to turn an encoded $\lambda$-calculus expression into the actual $\lambda$-calculus expression it represents.
 >
 >  Note that `encode` and `decode` both perform some normalization to ensure variable names are distinct. For example,
 >  ```ocaml
@@ -991,9 +993,9 @@ To summarize, we now have three ways to evaluate $\lambda$-calculus expressions:
 
 You can now run your meta-circular interpreter. Type `dune exec bin/repl.exe` in your terminal.
 Once you're in the REPL, type `+meta` to enter meta-circular mode. In this mode, if you type an expression, the REPL will
-1. Desugar all integers, booleans, lists and products into lambda functions, using the encodings that you wrote in `encodings.ml`.
+1. Desugar all integers, booleans, lists and products into lambda functions, using the encodings that you wrote in `encodings.txt`.
 2. Normalize the expression a little bit
-3. Invoke the meta-circular interpreter you wrote in `meta.lp`, instead of the OCaml `eval` function, to perform the evaluation.
+3. Invoke the meta-circular interpreter (consisting of `subst` and `eval`) you wrote in `encodings.txt`, instead of the OCaml `eval` function, to perform the evaluation.
 4. Print the result of the meta-circular interpreter.
 
 For example, you can try the following:
@@ -1033,8 +1035,8 @@ meta> #let y = 2 * 3
 meta> -meta
 . exiting meta-circular mode
 
-> #load decoders.txt
-. history loaded from decoders.txt
+> #load lib/meta/encodings.txt
+. history loaded from lib/meta/encodings.txt
 . replaying history...
 dec_bool = lambda b. (b true) false
 dec_nat = lambda n. (n 0) (lambda _. lambda r. r + 1)
@@ -1050,7 +1052,7 @@ dec_prod = lambda p. p (lambda x. lambda y. { x, y })
 <== dec_nat y
 [eval] ==> 6
 ```
-The provided `decoders.txt` contains the decoding functions for bool, nat, list and pair. And indeed, the negation of `true` is `false`, and `2 * 3` is `6`!
+The provided `lib/meta/encodings.txt` contains the decoding functions for bool, nat, list and pair. And indeed, the negation of `true` is `false`, and `2 * 3` is `6`!
 
 Happy hacking and meta-circulating!
 

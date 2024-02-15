@@ -1,6 +1,6 @@
 .PHONY: zip
 
-FILES := lib/lamp/eval.ml lib/meta/encodings.ml lib/meta/meta.lp
+FILES := lib/lamp/eval.ml lib/meta/encodings.txt
 ARCHIVE := submission.zip
 
 $(ARCHIVE): $(FILES)

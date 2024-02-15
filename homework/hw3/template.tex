@@ -1,0 +1,67 @@
+\documentclass[12pt, dvipsnames]{exam}
+
+
+\printanswers
+
+
+\usepackage{ebproof}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathpartir}
+
+\pagestyle{myheadings}
+
+% \pagestyle{empty}
+\pagenumbering{arabic}
+
+\begin{document}
+
+\thispagestyle{empty}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\renewcommand{\solutiontitle}{\noindent\textbf{Explanation:}\enspace}
+
+\newcommand{\eval}[2]{#1 \Downarrow #2}
+
+
+\[
+    \inferrule*[Right=E-Pair]{
+        \quad\fbox{\phantom{{\Large This is my answer and This is my answer}}}\quad
+    } {
+        \eval{\{e_1, e_2\}}{\fbox{\phantom{{\Large This is my answer}}}}
+    }
+\]
+\begin{solutionorbox}
+    \vspace*{4em}
+\end{solutionorbox}
+
+\vspace{3em}
+
+\[
+    \inferrule*[Right=E-Fst]{
+        \quad\fbox{\phantom{{\Large This is my answer and This is my answer}}}\quad
+    } {
+        \eval{\textsf{fst}\ e}{\fbox{\phantom{{\Large This is my answer}}}}
+    }
+\]
+\begin{solutionorbox}
+    \vspace*{4em}
+\end{solutionorbox}
+
+\vspace{3em}
+
+\[
+    \inferrule*[Right=E-Snd]{
+        \quad\fbox{\phantom{{\Large This is my answer and This is my answer}}}\quad
+    } {
+        \eval{\textsf{snd}\ e}{\fbox{\phantom{{\Large This is my answer}}}}
+    }
+\]
+\begin{solutionorbox}
+    \vspace*{4em}
+\end{solutionorbox}
+
+\end{document}

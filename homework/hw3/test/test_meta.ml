@@ -1,12 +1,12 @@
 open Base
 module T = Test_lamp
 
-let get_dec x = List.Assoc.find_exn Meta.decodings x ~equal:String.equal
+let get_dec x = List.Assoc.find_exn Meta.meta_defs x ~equal:String.equal
 
 (* Load the encoding and decoding functions, and check
    whether an expression evaluates to expected *)
 let test_encoding (e_str : string) (expected : string) () =
-  let defs = Encodings.encodings @ Meta.decodings in
+  let defs = Meta.meta_defs in
   let glue =
     List.fold_right defs ~init:(T.parse e_str) ~f:(fun (x, def) e ->
         Eval.subst x def e)
@@ -19,10 +19,20 @@ let test_meta (e_str : string) (expected : string) () =
     (expected |> T.parse |> Meta.finalize)
     ()
 
+(** Test meta encoders *)
+let test_meta_encoding (e_str : string) (expected : string) () =
+  let glue e =
+    List.fold_right Meta.meta_defs ~init:e ~f:(fun (x, def) e ->
+        Eval.subst x def e)
+  in
+  Test_lamp.test_eval_with
+    ~f:(fun e -> Eval.eval (glue (Ast.App (T.parse "dec_ast", e))))
+    (T.parse e_str) (T.parse expected) ()
+
 (* Test the meta-circular interpreter and decode the result before comparing it with expected *)
 let test_meta_with_decoder (e_str : string) (expected : string) ~decoder () =
   let glue e =
-    List.fold_right Meta.decodings ~init:e ~f:(fun (x, def) e ->
+    List.fold_right Meta.meta_defs ~init:e ~f:(fun (x, def) e ->
         Eval.subst x def e)
   in
   Test_lamp.test_eval_with
@@ -50,7 +60,9 @@ let tree_tests =
       "dec_nat (size (node 1 (node 2 leaf leaf) (node 3 leaf leaf)))" "7";
   ]
 
-let meta_tests =
+let meta_encoding_tests = [ test_meta_encoding "var_enc 100" "0::100" ]
+
+let meta_eval_tests =
   [
     test_meta
       (* input *)
@@ -69,8 +81,9 @@ let meta_tests =
 
 let tests =
   [
-    (* ("nat_encoding", nat_tests);
-       ("list_encoding", list_tests);
-       ("tree_encoding", tree_tests); *)
-    ("meta_encoding", meta_tests);
+    ("(bonus) nat", nat_tests);
+    ("(bonus) list", list_tests);
+    ("(bonus) tree", tree_tests);
+    ("(bonus) meta_encoding", meta_encoding_tests);
+    ("(bonus) meta_eval", meta_eval_tests);
   ]

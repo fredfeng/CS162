@@ -41,33 +41,34 @@ let context_expr e =
     ~f:(fun e (x, def) -> Ast.Dsl.let_ x def ~in_:e)
     !(get_context ())
 
-let handle_expr l =
-  (* the command is a let-binding "let x = e" *)
-  try
-    let x, def = Parse_util.parse_letbind l in
-    let def_v = get_eval () (context_expr def) in
-    let def_v' =
-      if !Opts.meta then (
-        let def_v' = Meta.eval (context_expr def) in
-        Fmt.pr "[meta] %s = %a\n%!" x Meta.pp_large def_v';
-        def_v')
-      else (
-        Fmt.pr "%s = %a\n%!" x Pretty.pp_expr def_v;
-        def_v)
-    in
-    get_context () := (x, def_v') :: !(get_context ())
-  with _ ->
-    (* the command is a normal expression *)
-    let e = Parse_util.parse l in
-    Fmt.pr "<== %a\n%!" Pretty.pp_expr e;
-    Fmt.pr "<== AST:\n%a\n%!" pp_expr e;
-    let v = get_eval () (context_expr e) in
-    (if !Opts.meta then
-       let v' = Meta.eval (context_expr e) in
-       Fmt.pr "[meta] ==> %a\n%!" Meta.pp_large v');
-    Fmt.pr "[eval] ==> %a\n%!" Pretty.pp_expr v
+let handle_let_or_eval (c : Cmd.t) =
+  match c with
+  | CLet (x, def) ->
+      let def_v' =
+        if !Opts.meta then (
+          let def_v' = Meta.eval (context_expr def) in
+          Fmt.pr "[meta] %s = %a\n%!" x Meta.pp_large def_v';
+          def_v')
+        else
+          let def_v = get_eval () (context_expr def) in
+          Fmt.pr "%s = %a\n%!" x Pretty.pp_expr def_v;
+          def_v
+      in
+      get_context () := (x, def_v') :: !(get_context ())
+  | CEval e ->
+      Fmt.pr "<== %a\n%!" Pretty.pp_expr e;
+      if not !Opts.quiet then Fmt.pr "<== AST:\n%a\n%!" pp_expr e;
+
+      if !Opts.meta then
+        let v' = Meta.eval (context_expr e) in
+        Fmt.pr "[meta] ==> %a\n%!" Meta.pp_large v'
+      else
+        let v = get_eval () (context_expr e) in
+        Fmt.pr "[eval] ==> %a\n%!" Pretty.pp_expr v
+  | _ -> failwith "Impossible"
 
 let commands = [ "+meta"; "-meta"; "#print"; "#clear"; "#load"; "#save" ]
+let replayable = function Cmd.CLet _ -> true | _ -> false
 
 let rec repl () =
   try
@@ -78,45 +79,38 @@ let rec repl () =
     | Some l ->
         LNoise.history_add l |> ignore;
         handler (fun () ->
-            let l = Base.String.strip l in
-            if l = "+meta" then (
-              Opts.meta := true;
-              Fmt.pr ". entering meta-circular mode\n%!")
-            else if l = "-meta" then (
-              Opts.meta := false;
-              context := !meta_context @ !context;
-              Fmt.pr ". exiting meta-circular mode\n%!")
-            else if l = "#print" then print_context ()
-            else if l = "#clear" then (
-              get_context () := [];
-              Fmt.pr ". context cleared\n%!")
-            else if Base.String.is_prefix ~prefix:"#load" l then
-              let f = Base.String.drop_prefix l 5 |> Base.String.strip in
-              match LNoise.history_load ~filename:f with
-              | Ok () ->
-                  Fmt.pr ". history loaded from %s\n%!" f;
-                  Fmt.pr ". replaying history...\n%!";
-                  (* load content of file f and split it into lines *)
-                  let ch = open_in f in
-                  let contents =
-                    really_input_string ch (in_channel_length ch)
-                  in
-                  close_in ch;
-                  contents |> Base.String.split ~on:'\n'
-                  |> Base.List.filter ~f:(fun c ->
-                         Base.List.for_all commands ~f:(fun c' ->
-                             not @@ Base.String.is_prefix c ~prefix:c'))
-                  |> Base.List.iter ~f:(fun l ->
-                         let l = Base.String.strip l in
-                         try handle_expr l with _ -> ());
-                  Fmt.pr ". history replayed\n%!"
-              | Error e -> Fmt.pr ". error loading history: %s\n%!" e
-            else if Base.String.is_prefix ~prefix:"#save" l then
-              let f = Base.String.drop_prefix l 5 |> Base.String.strip in
-              match LNoise.history_save ~filename:f with
-              | Ok () -> Fmt.pr ". history saved to %s\n%!" f
-              | Error e -> Fmt.pr ". error saving history: %s\n%!" e
-            else handle_expr l);
+            match Parse_util.parse_cmd l with
+            | CMeta ->
+                Opts.meta := true;
+                Fmt.pr ". entering meta-circular mode\n%!"
+            | CExitMeta ->
+                Opts.meta := false;
+                context := !meta_context @ !context;
+                Fmt.pr ". exiting meta-circular mode\n%!"
+            | CPrint -> print_context ()
+            | CClear ->
+                get_context () := [];
+                Fmt.pr ". context cleared\n%!"
+            | CLoad f ->
+                (* match LNoise.history_load ~filename:f with
+                   | Ok () -> *)
+                Fmt.pr ". loading history from %s\n%!" f;
+                Fmt.pr ". replaying history...\n%!";
+                (* load content of file f and split it into lines *)
+                let ch = open_in f in
+                let contents = really_input_string ch (in_channel_length ch) in
+                close_in ch;
+                contents |> Parse_util.parse_cmd_list
+                |> Base.List.filter ~f:replayable
+                |> Base.List.iter ~f:(fun c ->
+                       try handle_let_or_eval c with _ -> ());
+                Fmt.pr ". history replayed\n%!"
+                (* | Error e -> Fmt.pr ". error loading history: %s\n%!" e) *)
+            | CSave f -> (
+                match LNoise.history_save ~filename:f with
+                | Ok () -> Fmt.pr ". history saved to %s\n%!" f
+                | Error e -> Fmt.pr ". error saving history: %s\n%!" e)
+            | (CLet _ | CEval _) as c -> handle_let_or_eval c);
         repl ()
   with Stdlib.Sys.Break -> repl ()
 

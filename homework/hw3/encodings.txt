@@ -1,6 +1,0 @@
-// you can put your encodings here and load them into 
-// the REPL to do interactive testing
-// Example:
-#let tt = lambda x,y. x
-#let ff = lambda x,y. y
-// feel free to add more!

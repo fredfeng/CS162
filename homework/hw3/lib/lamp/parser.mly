@@ -14,10 +14,12 @@ let mk_lambdas (xs : string list) (e : expr) =
 %token LET IN IF THEN ELSE WITH LAMBDA
 %token NIL CONS
 %token TYINT TYBOOL TYLIST THINARROW COLON LBRACK RBRACK
+%token CLET CPRINT CCLEAR CLOAD CSAVE CPLUSMETA CMINUSMETA
 
 %token PLUS SUB TIMES APP
 %token <int> NUMBER
 %token <string> ID
+%token <string> FILE
 
 %nonassoc LPAREN RPAREN ID NIL NUMBER TRUE FALSE LBRACK RBRACK
 %right LAMBDA
@@ -29,18 +31,35 @@ let mk_lambdas (xs : string list) (e : expr) =
 
 %right THINARROW TYLIST
 
-%start letbind
-%type <(string * Ast.expr)> letbind
-
-
 %start main
 %type <Ast.expr> main
 
+%start command
+%type <Cmd.t> command
+
+%start commands
+%type <Cmd.t list> commands
+
+
 %%
 
+command:
+    | CLET bind EQ expr { let x = $2 in Cmd.CLet(x,$4) }
+    | CPRINT  { Cmd.CPrint}
+    | CCLEAR { Cmd.CClear}
+    | CLOAD FILE { Cmd.CLoad $2 }
+    | CSAVE FILE { Cmd.CSave $2 }
+    | CPLUSMETA { Cmd.CMeta }
+    | CMINUSMETA { Cmd.CExitMeta }
+    | expr {Cmd.CEval $1 }
 
-letbind:
-    | SHARP LET bind EQ expr { ($3,$5) }
+command_list:
+    | { [] }
+    | command commands { $1 :: $2 }
+
+commands:
+    | command_list EOF { $1 }
+    | error EOF { Err.syntax_error () }
 
 main:
     | expr EOF { $1 }
