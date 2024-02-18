@@ -222,7 +222,7 @@ In this part, we will explore some of the "road not taken" in the design of $\la
 ```
     e1 ↓↓ \lambda x.e1' 
     e2 ↓↓ v   
-    e1'[x -> v] ↓↓ v'
+    e1'[x |-> v] ↓↓ v'
 ------------------------ (App)
     (e1 e2) ↓↓ v'
 ```
@@ -230,7 +230,7 @@ An alternative is to have the following `App` rule:
 ```
     e1 = \lambda x.e1' 
     e2 ↓↓ v   
-    e1'[x -> v] ↓↓ v'
+    e1'[x |-> v] ↓↓ v'
 ------------------------ (App-Alt1)
     (e1 e2) ↓↓ v'
 ```
@@ -246,9 +246,9 @@ Exhibit an expression $e$ such that $\exists v.\ e \Downarrow v$ but $\neg\exist
 **Problem (📝)**: Another alternative to the `App` rule is to have the following rule:
 ```
     e1 ↓↓ \lambda x.e1'   
-    e1'[x -> e2] ↓↓ v'
+    e1'[x |-> e2] ↓↓ v
 -------------------------- (App-Alt2)
-    (e1 e2) ↓↓ v'
+    (e1 e2) ↓↓ v
 ```
 
 Let us denote the original evaluation relation as $\Downarrow$ and the alternative evaluation relation in which `App` is replaced by `App-Alt2` as $\Downarrow_2$.
@@ -272,15 +272,15 @@ In practical terms, this means that any interpreter that implements $\Downarrow_
 
 ```
     e1 ↓↓ v1
-    e2[v1/x] ↓↓ v2
------------------------- (Let)
+    e2[x |-> v1] ↓↓ v2
+--------------------------- (Let)
     let x = e1 in e2 ↓↓ v2
 ```
 
 and the alternative
 ```
-    e2[e1/x] ↓↓ v2
------------------------- (Let-Alt)
+    e2[x |-> e1] ↓↓ v2
+--------------------------- (Let-Alt)
     let x = e1 in e2 ↓↓ v2
 ```
 
@@ -311,7 +311,7 @@ and consider the alternative
 Then, recall the cons case of the list-match rule:
 ```
     e1 ↓↓ v1::v2
-    e3[v1/x][v2/y] ↓↓ v3
+    e3[x |-> v1][y |-> v2] ↓↓ v3
 ------------------------ (MatchCons)
     match e1 with 
     | Nil -> e2 
