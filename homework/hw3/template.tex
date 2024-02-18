@@ -26,13 +26,15 @@
 
 \newcommand{\eval}[2]{#1 \Downarrow #2}
 
-
 \[
-    \inferrule*[Right=E-Pair]{
-        \quad\fbox{\phantom{{\Large This is my answer and This is my answer}}}\quad
-    } {
-        \eval{\{e_1, e_2\}}{\fbox{\phantom{{\Large This is my answer}}}}
-    }
+    \begin{prooftree}
+        \hypo{\fbox{\phantom{{\Large This is my first hypothesis}}}}
+        % feel free to add more hypotheses if you need to
+        % \hypo{\fbox{\phantom{{\Large This is my second hypothesis}}}}
+        % ...
+        % change 1 to N, where N is the number of hypotheses
+        \infer1[E-Pair]{\eval{\{e_1, e_2\}}{\fbox{\phantom{{\Large Final value}}}}}
+    \end{prooftree}
 \]
 \begin{solutionorbox}
     \vspace*{4em}
@@ -41,11 +43,14 @@
 \vspace{3em}
 
 \[
-    \inferrule*[Right=E-Fst]{
-        \quad\fbox{\phantom{{\Large This is my answer and This is my answer}}}\quad
-    } {
-        \eval{\textsf{fst}\ e}{\fbox{\phantom{{\Large This is my answer}}}}
-    }
+    \begin{prooftree}
+        \hypo{\fbox{\phantom{{\Large This is my first hypothesis}}}}
+        % feel free to add more hypotheses if you need to
+        % \hypo{\fbox{\phantom{{\Large This is my second hypothesis}}}}
+        % ...
+        % change 1 to N, where N is the number of hypotheses
+        \infer1[E-Fst]{\eval{\textsf{fst}\ e}{\fbox{\phantom{{\Large Final value}}}}}
+    \end{prooftree}
 \]
 \begin{solutionorbox}
     \vspace*{4em}
@@ -54,11 +59,14 @@
 \vspace{3em}
 
 \[
-    \inferrule*[Right=E-Snd]{
-        \quad\fbox{\phantom{{\Large This is my answer and This is my answer}}}\quad
-    } {
-        \eval{\textsf{snd}\ e}{\fbox{\phantom{{\Large This is my answer}}}}
-    }
+    \begin{prooftree}
+        \hypo{\fbox{\phantom{{\Large This is my first hypothesis}}}}
+        % feel free to add more hypotheses if you need to
+        % \hypo{\fbox{\phantom{{\Large This is my second hypothesis}}}}
+        % ...
+        % change 1 to N, where N is the number of hypotheses
+        \infer1[E-Snd]{\eval{\textsf{snd}\ e}{\fbox{\phantom{{\Large Final value}}}}}
+    \end{prooftree}
 \]
 \begin{solutionorbox}
     \vspace*{4em}

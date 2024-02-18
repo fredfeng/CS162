@@ -9,7 +9,11 @@ The main goal of the programming assignments in CS162 is to build λ<sup>+</sup>
 
 2. [Higher order functions in OCaml + Interpreting λ<sup>+</sup>](hw2/) <br />
 
-In this assignment, you will first practice defining and using higher order functions in OCaml. Next, you will implement an interpreter for a subset of λ<sup>+</sup> based on its operational semantics.
+   In this assignment, you will first practice defining and using higher order functions in OCaml. Next, you will implement an interpreter for a subset of λ<sup>+</sup> based on its operational semantics.
+
+3. [Interpreting λ<sup>+</sup> (continued)](hw3/) <br />
+
+   In this assignment, you will  finish the interpreter for the full λ<sup>+</sup> language.
 
 <!-- 
 1. [Interpreting your λ<sup>+</sup> code (part 1): 15%](hw3/) <br/>

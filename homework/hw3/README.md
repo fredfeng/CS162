@@ -191,7 +191,7 @@ Your inference rules should be
 And the is-value relation defined by your rules should satisfy the following property: `e val` if and only if $e \Downarrow e$.
 
 
-**Problem (📝)** When we say $\exists v. e \Downarrow v$, we mean that there exists a value $v$ for which we can draw the derivation tree that shows $e \Downarrow v$ holds using the inference rules. What do we mean when we say $\neg\exists v. v \Downarrow v$? In which cases can we *not* draw the derivation tree?
+**Problem (📝)** When we say $\exists v. e \Downarrow v$, we mean that there exists a value $v$ for which we can draw the derivation tree that shows $e \Downarrow v$ holds using the inference rules. What do we mean when we say $\neg\exists v. e \Downarrow v$? In which cases can we *not* draw the derivation tree?
 
 *Hint*: There are at least two distinct cases.
 
@@ -352,7 +352,7 @@ By compatible, we mean that if $e \Downarrow v$ using the original rules, then w
 
 There are two ways to test your interpreter:
 
-1. We included some unit tests as well as a couple of realistic $\lambda^+$ programs in [test/examples/](test/examples/) that you can use to test your interpreter. Simply run `dune runtest`.
+1. We included some unit tests as well as a couple of realistic $\lambda^+$ programs in [test/examples/](./test/examples/) that you can use to test your interpreter. Simply run `dune runtest`.
 
 2. You can also run the interpreter interactively (REPL) or in file mode as described in the previous assignments. For file mode, do `dune exec bin/repl.exe -- <filename>`. For REPL, simply run the following command:
    ```bash
@@ -361,6 +361,8 @@ There are two ways to test your interpreter:
 
    We added some convenience commands to the REPL:
    - `<expr>` triggers your interpreter to evaluate the expression, as usual.
+   - CTRL-C interrupts the REPL and initiate a new prompt. This is useful if your interpreter enters an infinite loop, or you simply want to throw away the current input expression and start anew.
+   - CTRL-D quits the REPL.
    - `#let <var> = <expr>` evaluates the right-hand-side expression and adds the binding to the environment. Subsequent expressions can refer to this binding. For example
        ```
        > #let x = 10
@@ -436,12 +438,14 @@ can be typeset with
 \begin{prooftree}
     \infer0[\textsc{Int}]{1 \Downarrow 1}
     \infer0[\textsc{Int}]{2 \Downarrow 2}
-    \infer2[\textsc{Add}]{1 + 2 \Downarrow 3}
+    \hypo{1+2 = 3}
+    \infer3[\textsc{Add}]{1 + 2 \Downarrow 3}
     \infer0[\textsc{Int}]{4 \Downarrow 4}
-    \infer2[\textsc{Add}]{(1 + 2) + 4 \Downarrow 7}
+    \hypo{3+4 = 7}
+    \infer3[\textsc{Add}]{(1 + 2) + 4 \Downarrow 7}
 \end{prooftree}
 ```
-where `infer<n>` denotes the usage of a rule with `n` hypotheses.
+where `infer<n>` denotes the usage of a rule with `n` hypotheses, and `hypo` is a statement with no bar line above it.
 
 
 
@@ -723,10 +727,6 @@ There are two ways to test your solution.
    ```ocaml
    > #load lib/meta/encodings.txt
 
-   > #let zero = ...
-
-   > #let succ = ...
-
    > dec_nat (succ (succ (zero))) // should evaluate to 2
    ```
 
@@ -744,10 +744,10 @@ Provide your solution in `lib/meta/encodings.txt`. You may find it helpful to fi
 
 Feel free to add unit tests in `test/test_meta.ml`. You can also verify your solution in $\lambda^+$ using your own interpreter or the reference interpreter on CSIL.
 
-Finally, compare your encoding with the ones shown in lectures. They will be slightly different. Where do they differ? Why do you think they differ? Think about this for a moment; we'll examine this question very soon.
+Finally, compare your encodings of `zero`, `succ`, and `add` with the ones shown in lectures. They will be slightly different. Where do they differ? Why do you think they differ? Think about this for a second; we'll examine this question in the first appendix.
 
 
-
+---
 
 **Problem (⭐️bonus⭐️, 0.5 points)**:
 In lectures, we didn't talk about subtraction or comparison of natural numbers. Let's do them here. In [lib/meta/encodings.txt](./lib/meta/encodings.txt), define the following functions using our encoding of natural numbers:
@@ -771,7 +771,7 @@ type 'a list = Nil | Cons of 'a * 'a list
 **Problem (📝)**:
 1. In OCaml, define `elim_list` in a way similar to how we defined `elim_nat`. The function should takes two arguments: what to do in the `Nil` case, and what to do in the `Cons` case. The `Cons` case should take as arguments the current head, the current tail, and the recursive reuslt. Your `elim_list` should have type
     ```ocaml
-    'a list -> 'result -> ('a -> 'a list -> 'result -> 'result) -> 'result` 
+    'a list -> 'result -> ('a -> 'a list -> 'result -> 'result) -> 'result
     ```
     and it should be powerful enough to express all structurally terminating recursion on lists. 
 2. Compare your `elim_list` with the `solve` function from HW2. What is the difference? Which one is more expressive?[^solve]
@@ -782,19 +782,20 @@ type 'a list = Nil | Cons of 'a * 'a list
 
 4. Starting from the type of `elim_list`, write down `list_encoding`, type of functions that encode lists, like what we did for natural numbers and `nat_encoding`. Then, derive `nil_encoding` and `cons_encoding` from `elim_list` in OCaml.
 
+---
 
 **Problem (⭐️bonus⭐️, 0.5 points)**: 
 Define the following functions in $\lambda^+$:
 
 1. Implement the encoding of `Nil` and that of the `Cons` constructor.
 
-We have provided a function called `dec_list` that converts an encoded list to a native list:
+   We have provided a function called `dec_list` that converts an encoded list to a native list:
    ```ocaml
     (dec_list (cons 1 (cons 2 (cons 3 nil ))))
    ```
    The above program constructs the encoding of the list containing 1, 2, and 3, and then calls `dec_list` to convert it into the native list `1::2::3::Nil`. You can find the definition of `dec_list` in `encodings.txt`.
 
-1. Implement a function `length` that computes the length of encoded lists, without using `fix` or `rec`. Your function should return encoded natural numbers, instead of native integers.
+2. Implement a function `length` that computes the length of encoded lists, without using `fix` or `rec`. Your function should return encoded natural numbers, instead of native integers.
 
 Provide your solutions in [lib/meta/encodings.txt](./lib/meta/encodings.txt). The test file `test/test_meta.ml` contains some unit tests. Feel free to add more. 
 
@@ -817,10 +818,11 @@ type 'a tree =
     ```ocaml
     'a tree ->
     'result -> 
-    ('a -> 'a tree -> 'a tree -> 'result -> 'result) ->
+    ('a -> 'a tree -> 'a tree -> 'result -> 'result -> 'result) ->
     'result
     ```
     and it should be powerful enough to express all structurally terminating recursion on binary trees. 
+
 1. What is the type of your `elim_tree`?
 2. Define the following functions using `elim_tree`. You may not use `rec` in your definition of these functions, or any pattern matching on trees.
    - `size: 'a tree -> nat` that will count the number of nodes in the tree. Both a `Leaf` and a `Node` contribute one to the size.
@@ -829,6 +831,7 @@ type 'a tree =
 3. Starting from the type of `elim_tree`, write down `tree_encoding`, type of functions that encode trees, like what we did for natural numbers and lists. Then, derive `leaf_encoding` and `node_encoding` from `elim_tree` in OCaml.
 
 
+---
 **Problem (⭐️bonus⭐️, 0.5 point)**:
 In $\lambda^+$:
 1. Implement the encoding of `Leaf` and that of the `Node` constructor.
@@ -995,7 +998,7 @@ You can now run your meta-circular interpreter. Type `dune exec bin/repl.exe` in
 Once you're in the REPL, type `+meta` to enter meta-circular mode. In this mode, if you type an expression, the REPL will
 1. Desugar all integers, booleans, lists and products into lambda functions, using the encodings that you wrote in `encodings.txt`.
 2. Normalize the expression a little bit
-3. Invoke the meta-circular interpreter (consisting of `subst` and `eval`) you wrote in `encodings.txt`, instead of the OCaml `eval` function, to perform the evaluation.
+3. Invoke the meta-circular interpreter (consisting of `subst` and `eval`) you wrote in `encodings.txt` to perform the evaluation.
 4. Print the result of the meta-circular interpreter.
 
 For example, you can try the following:
@@ -1006,31 +1009,39 @@ Welcome to lambda+! Built on: Wed Feb 7 18:19:16 PST 2024
 > +meta
 . entering meta-circular mode
 
-meta> #let tt = lambda x,y. x // true
+meta> #let tt = lambda x,y. x // Church-encoding of true
 [meta] tt = lambda _0. lambda _1. _0
 
-meta> #let ff = lambda x,y. y // false
+meta> #let ff = lambda x,y. y // Church-encoding of false
 [meta] ff = lambda _0. lambda _1. _1
 
 meta> #let not = lambda b. b ff tt // negation
 [meta] not = lambda _0.
               (_0 (lambda _1. lambda _2. _2)) (lambda _3. lambda _4. _3)
 
-meta> not tt
-<== not tt
-[meta] ==> lambda _0. lambda _1. _1
-[eval] ==> lambda _1. lambda _2. _2
+meta> #let x = not tt
+[meta] x = lambda _0. lambda _1. _1
 ```
-The `[meta] ==> <expr>` line shows the result of the meta-circular interpreter, while `[eval] ==> <eval>` shows the result of your `eval` function. You can compare them and check that they are the same (up to $\alpha$-equivalence). In this case, the meta-circular interpreter correctly evaluated `not tt` to `lambda _0. lambda _1. _1`, which is the encoding of `false`.
+The `[meta] x = <expr>` line shows the result of the meta-circular interpreter. In this case, the meta-circular interpreter correctly evaluated `not tt` to `lambda _0. lambda _1. _1`, which is indeed the Church encoding of `false`!
 
-However, since the results are now encoded, it can be hard to tell what they represent. Luckily, the bindings created in the `meta` mode persist even if we leave the meta-circular mode. So you can invoke the appropriate decoder function `dec_*` to convert the encoded result back into a native value. For example, you can do
+We can also do
+```bash
+meta> #let y = 2 * 3
+[meta] y = <huge-expr>
+```
+The meta-circular interpreter will:
+1. call the lambda functions `zero`, `succ`, and `mul` you wrote to desugar `2 * 3` into their encodings as a bunch of lambda functions, application, and variable references,
+2. call the lambda functions `var_enc`, `lam_enc`, and `app_enc` you wrote to encode the AST of the expression `2 * 3` as a gigantic lambda expression,
+3. evaluate using the meta-circular interpreter `eval` you wrote in `encodings.txt`.
+
+The result is the *encoding* of 6, which is a gigantic lambda function, so the REPL decides against printing it out. Luckily, the bindings created in the `meta` mode persist even if we leave the meta-circular mode. So you can invoke the appropriate decoder function `dec_*` to convert the encoded result back into a native value. For example, you can do
 ```ocaml
 ...
 meta> #let x = not tt
 [meta] x = lambda _0. lambda _1. _1
 
 meta> #let y = 2 * 3
-[meta] y = ...
+[meta] y = <huge-expr>
 
 meta> -meta
 . exiting meta-circular mode
@@ -1040,8 +1051,7 @@ meta> -meta
 . replaying history...
 dec_bool = lambda b. (b true) false
 dec_nat = lambda n. (n 0) (lambda _. lambda r. r + 1)
-dec_list = lambda xs. (xs Nil) (lambda x. lambda _. lambda r. x :: r)
-dec_prod = lambda p. p (lambda x. lambda y. { x, y })
+...
 . history replayed
 
 > dec_bool x
@@ -1052,15 +1062,15 @@ dec_prod = lambda p. p (lambda x. lambda y. { x, y })
 <== dec_nat y
 [eval] ==> 6
 ```
-The provided `lib/meta/encodings.txt` contains the decoding functions for bool, nat, list and pair. And indeed, the negation of `true` is `false`, and `2 * 3` is `6`!
+where we use the provided the decoding functions for bool and nat in `lib/meta/encodings.txt`. And indeed, `x`, which is encodes the negation of `true`, turns out to represent `false` after decoding, and `y`, which encodes the number `2 * 3`, turns out to `6` after decoding!
 
 Happy hacking and meta-circulating!
 
 ![sicp](https://www.sicpdistilled.com/images/sicp2-07ad7dbe.jpg)
 
 
-#### Appendix I. Which Elimination Form Should I Use?
 
+#### Appendix I. Which Elimination Form Should I Use?
 
 When designing the encoding of natural numbers, we have seen two possible elimination forms for `nat`. Our first attempt
 ```ocaml
@@ -1126,6 +1136,6 @@ Since we have an alternative elimination form, we should also be able to derive 
 The elimination function `elim_tree` supports primitive recursion. However, similar to natural numbers, we can also devise a non-recursive elimination form `elim_tree_nonrec` that only does pattern-matching. 
 
 **Problem (📝)**:
-First, write down the type of `elim_tree_nonrec`. Then, go to [visitor.py](visitor.py), which uses the object-oriented visitor design pattern to count the number of tree nodes. What is the combined type of the visitor functions? How does it compare to the type of `elim_tree_nonrec`?
+First, write down the type of `elim_tree_nonrec`. Then, go to [visitor.py](./visitor.py), which uses the object-oriented visitor design pattern to count the number of tree nodes. What is the combined type of the visitor functions? How does it compare to the type of `elim_tree_nonrec`?
 
 
