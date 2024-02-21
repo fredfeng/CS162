@@ -1,0 +1,8 @@
+(test
+ (name hw4_test)
+ (libraries fmt alcotest lamp meta)
+ (preprocess
+  (staged_pps ppx_import ppx_deriving.show ppx_deriving.eq ppx_deriving.ord))
+ (modules hw4_test test_typing)
+ (deps
+  (source_tree examples)))
