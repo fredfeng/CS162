@@ -35,11 +35,12 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 2/12             | Operational Semantics III                     | [lec8]                        |                  |                        |     |
 | 2/14             | Type Checking I                               | [lec9]                        |                  |                        |     |
 | 2/19 (President) | No class                                      |                               |                  |                        |     |
-| 2/20             | -                                             |                               |                  | hw4                    | hw3 |  |
+| 2/20             | -                                             |                               |                  | [hw4](./homework/hw4)  | hw3 |  |
 | 2/21             | Type Checking I (continued)                   | [lec9]                        | 22.1-22.4        |                        |     |
-| 2/26             | Type Checking II                                |                               |                  |                        |     |
-| 2/28             | Midterm Review                                       |                               |                  |                        |     |  |
-| 3/4              | Midterm                              |                               | 22.7             | hw5                    | hw4 |
+| 2/26             | Type Checking II                              |                               |                  |                        |     |
+| 2/28             | Midterm Review                                |                               |                  |                        |     |  |
+| 3/1              |                                               |                               |                  |                        | hw4 |
+| 3/4              | Midterm                                       |                               | 22.7             | hw5                    |     |
 | 3/6              | Type Inference & Polymorphism II              | [lec12]                       |                  |                        |     |
 | 3/11             | Polymorphism                                  | [lec13]                       |                  |                        |     |
 | 3/13             | TBD                                           | [lec14]                       |                  |                        |     |
