@@ -58,7 +58,7 @@ module Pretty = struct
 
   and pp_nested pp ppf t =
     let is_complex_ty = function TFun _ | TProd _ -> true | _ -> false in
-    if is_complex_ty t then (parens pp) ppf t
+    if is_complex_ty t then (parens pp) ppf t else pp ppf t
 
   let show_ty = to_to_string pp_ty
 
@@ -107,8 +107,7 @@ module Pretty = struct
     | Comp (op, e1, e2) ->
         pf ppf "@[<2>%a@ %a %a@]" (pp_nested pp_expr) e1 pp_relop op
           (pp_nested pp_expr) e2
-    | ListNil topt ->
-        pf ppf "Nil%a" (option (brackets (const string ": " ++ pp_ty))) topt
+    | ListNil topt -> pf ppf "Nil%a" (option (brackets pp_ty)) topt
     | ListCons (e1, e2) ->
         pf ppf "@[<2>%a ::@ %a@]" (pp_nested pp_expr) e1 (pp_nested pp_expr) e2
     | ListMatch (e1, e2, Scope (h, Scope (t, e3))) ->
