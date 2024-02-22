@@ -60,25 +60,26 @@ For each of the following expressions $e$, determine
 - whether there exists a type $T$ such that $\vdash e: T$.
 - if no such $T$ exists, determine whether there exists a combination of $\Gamma$ and $T$ such that $\Gamma \vdash e: T$:
 
-1. `lambda x. x + 2 * y`
+1. `lambda x: Bool. x + 2 * x`
 2. `x`
-3. `(lambda x. x + 2 * y) 3`
+3. `(lambda x: Int. x + 2 * y) 3`
 4. `10 < 10`
-5. `1::2::3+4::Nil`
-6. `Nil::(Nil::lambda x.x)::true::1`
-7.  `if true then false else true`
-8.  `match Nil with Nil -> Nil | _::_ -> Nil end`
+5. `1::2::3+4::Nil[Int]`
+6. `Nil[Bool]::(lambda x:Bool.x::Nil[Bool->Bool])::true::Nil[Bool]`
+7. `if true then false else true`
+8. `match Nil[Bool] with Nil -> Nil[Bool] | _::_ -> Nil[Int] end`
 1. `(if 3>4 then 5 else 7+10*3) = 10`.
 2. `let f = lambda x:Bool. if x then false else true in f (10 > 0)`
-3. `1 :: 10 :: Nil :: Nil`
-4. `(1::10) :: Nil :: Nil`
-5. `match 1::Nil with Nil -> 0 | hd::_ -> hd end`
-6. `match 1::Nil with Nil -> 0 | _::tl -> tl end`
+3. `1 :: 10 :: Nil[Int] :: Nil[Int]`
+4. `(1::10) :: Nil[Int] :: Nil[List[Int]]`
+5. `match 1::Nil[Int] with Nil -> 0 | hd::_ -> hd end`
+6. `match 1::Nil[Int] with Nil -> 0 | _::tl -> tl end`
 7. `match 1::2 with Nil -> 3 | x::y -> x+y end`
-8. `(lambda n. if n < 1 then 1 else recur (n-1) + recur (n-2)) 2`.
-9.  `(fix recur is lambda xs. match xs with Nil -> 0 | _::ys -> 1 + recur ys end) (false::true::Nil)`
-10. `(fix recur is lambda n. recur (n-1) 10`
-11. `(fix recur is lambda n. n-1) 10`
+8. `(fix recur: Int -> Int is lambda n: Int. if n < 1 then 1 else recur (n-1) + recur (n-2)) 2`.
+9.  `(fix recur:List[Bool] -> Int is lambda xs: List[Bool]. match xs with Nil -> 0 | _::ys -> 1 + recur ys end) (false::true::Nil)`
+10. `(fix recur:List[List[Int]] -> Int is lambda xs: List[List[Int]]. match xs with Nil -> 0 | _::ys -> 1 + recur ys end) Nil[List[Int]]`
+11. `(fix recur: Int -> Int -> Bool is lambda n: Int. recur (n-1) 10`
+12. `(fix recur: Int -> Int is lambda n: Int. n-1) 10`
 
 
 
