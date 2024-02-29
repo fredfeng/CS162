@@ -38,7 +38,7 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 2/20             | -                                             |                               |                  | [hw4](./homework/hw4)  | hw3 |  |
 | 2/21             | Type Checking I (continued)                   | [lec9]                        | 22.1-22.4        |                        |     |
 | 2/26             | Type Checking II                              |                               |                  |                        |     |
-| 2/28             | Midterm Review                                |                               |                  |                        |     |  |
+| 2/28             | Midterm Review                                |  [midterm](lectures/midterm-review.pdf)                             |                  |                        |     |  |
 | 3/1              |                                               |                               |                  |                        | hw4 |
 | 3/4              | Midterm                                       |                               | 22.7             | hw5                    |     |
 | 3/6              | Type Inference & Polymorphism II              | [lec12]                       |                  |                        |     |
