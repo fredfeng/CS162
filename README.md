@@ -27,21 +27,21 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 1/15 (MLK)       | No class                                      |                               |                  |                        |     |
 | 1/17             | OCaml crash course II                         | [lec3](lectures/lecture3.pdf) |                  |                        |     |
 | 1/22             | OCaml crash course III                        | [lec4](lectures/lecture4.pdf) |                  |                        |     |
-| 1/24             | Lambda Calculus I                             | [lec5]                        |                  | [hw2](./homework/hw2/) | hw1 |
+| 1/24             | Lambda Calculus I                             | [lec5](lectures/lecture5.pdf)                        |                  | [hw2](./homework/hw2/) | hw1 |
 | 1/29             | λ<sup>+</sup>, Inference Rules                |                               | 11.12            |                        |     |
-| 1/31             | Lambda Calculus II                            | [lec6]                        | 8.1,8.2, 9.1-9.3 |                        |     |
-| 2/5              | Operational Semantics I                       | [lec7]                        |                  |                        |     |
+| 1/31             | Lambda Calculus II                            | [lec6](lectures/lecture6.pdf)                        | 8.1,8.2, 9.1-9.3 |                        |     |
+| 2/5              | Operational Semantics I                       | [lec7](lectures/lecture7.pdf)                        |                  |                        |     |
 | 2/7              | Operational Semantics II                      |                               | 10.3             | [hw3](./homework/hw3)  | hw2 |
-| 2/12             | Operational Semantics III                     | [lec8]                        |                  |                        |     |
-| 2/14             | Type Checking I                               | [lec9]                        |                  |                        |     |
+| 2/12             | Operational Semantics III                     | [lec8](lectures/lecture8.pdf)                        |                  |                        |     |
+| 2/14             | Type Checking I                               | [lec9](lectures/lecture9.pdf)                        |                  |                        |     |
 | 2/19 (President) | No class                                      |                               |                  |                        |     |
 | 2/20             | -                                             |                               |                  | [hw4](./homework/hw4)  | hw3 |  |
-| 2/21             | Type Checking I (continued)                   | [lec9]                        | 22.1-22.4        |                        |     |
-| 2/26             | Type Checking II                              |                               |                  |                        |     |
+| 2/21             | Type Checking I (continued)                   | [lec10](lectures/lecture10.pdf)                        | 22.1-22.4        |                        |     |
+| 2/26             | Type Checking II                              |   [lec11](lectures/lecture11.pdf)                            |                  |                        |     |
 | 2/28             | Midterm Review                                |  [midterm](lectures/midterm-review.pdf)                             |                  |                        |     |  |
 | 3/1              |                                               |                               |                  |                        | hw4 |
 | 3/4              | Midterm                                       |                               | 22.7             | hw5                    |     |
-| 3/6              | Type Inference & Polymorphism II              | [lec12]                       |                  |                        |     |
+| 3/6              | Type Inference & Polymorphism II              | [lec12](lectures/lecture12.pdf)                       |                  |                        |     |
 | 3/11             | Polymorphism                                  | [lec13]                       |                  |                        |     |
 | 3/13             | TBD                                           | [lec14]                       |                  |                        |     |
 
