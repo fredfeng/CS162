@@ -37,7 +37,7 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 2/19 (President) | No class                                      |                               |                  |                        |     |
 | 2/20             | -                                             |                               |                  | [hw4](./homework/hw4)  | hw3 |  |
 | 2/21             | Type Checking I (continued)                   | [lec10](lectures/lecture10.pdf)                        | 22.1-22.4        |                        |     |
-| 2/26             | Type Checking II                              |   [lec11](lectures/lecture11.pdf)                            |                  |                        |     |
+| 2/26             | Type Inference I                              |   [lec11](lectures/lecture11.pdf)                            |                  |                        |     |
 | 2/28             | Midterm Review                                |  [midterm](lectures/midterm-review.pdf)                             |                  |                        |     |  |
 | 3/1              |                                               |                               |                  |                        | hw4 |
 | 3/4              | Midterm                                       |                               | 22.7             | hw5                    |     |
