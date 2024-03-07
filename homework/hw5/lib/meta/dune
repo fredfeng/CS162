@@ -1,0 +1,28 @@
+; Build configuration
+
+; Treat warnings as non-fatal
+
+(env
+ (dev
+  (flags
+   (:standard -warn-error -A))))
+
+(library
+ (name meta)
+ (libraries base fmt lamp)
+ (modules meta encodings)
+ (wrapped false))
+
+; ---------------
+; Dump encodings.txt to an OCaml file
+
+(rule
+ (mode promote)
+ (target encodings.ml)
+ (deps
+  (:txt
+   (glob_files encodings.txt))
+  (:sh
+   (glob_files txt_to_ml.sh)))
+ (action
+  (run bash -c "sh %{sh} > %{target}")))

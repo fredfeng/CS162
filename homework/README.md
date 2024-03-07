@@ -17,15 +17,18 @@ The main goal of the programming assignments in CS162 is to build λ<sup>+</sup>
 
 
 4. [Type check your λ<sup>+</sup> program](hw4/) <br/>
-In this assignment, you will write a type checker for your λ<sup>+</sup> program such that your checker can reject ill-typed λ<sup>+</sup> programs. 
+
+   In this assignment, you will write a type checker for your λ<sup>+</sup> program such that your checker can reject ill-typed λ<sup>+</sup> programs. 
+
+5. [Infer the types for your λ<sup>+</sup>](hw5/) <br/>
+
+   In this assignment, you will implement the type inference algorithm that we learn in the class.
 
 <!-- 
 
-
-1. [Infer the types for your λ<sup>+</sup> code: 20%](hw6/) <br/>
-In this assignment, you will implement the type inference algorithm that we learn in the class. -->
+ -->
 
 <!-- 
-6. (**Optional**) Verify your λ<sup>+</sup> code (Extra credit): 2% <br/>
+1. (**Optional**) Verify your λ<sup>+</sup> code (Extra credit): 2% <br/>
 Difficulty: **** <br/>
 In this assignment, you will leverage an existing symbolic evaluation engine (i.e., Rosette) to verify the correctness of your λ<sup>+</sup> programs. -->

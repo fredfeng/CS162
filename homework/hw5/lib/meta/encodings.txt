@@ -1,0 +1,92 @@
+// ************************
+// ******* Decoders *******
+// ************************
+
+#let dec_bool = lambda b. (b true) false
+#let dec_nat = lambda n. (n 0) (lambda _. lambda r. r + 1)
+#let dec_list = lambda xs. (xs Nil) (lambda x. lambda _. lambda r. x :: r)
+#let dec_tree = lambda t. t Nil (lambda x,_,_,l,r. x::(l::r))
+#let dec_prod = lambda p. p (lambda x. lambda y. { x, y })
+
+// Convert an encoded lambda-calculus term into a tagged list
+#let dec_ast = fun rec dec_ast with e =
+    e 
+        (lambda i. 0::i)
+        (lambda i,e1. 1::i::(dec_ast e1))
+        (lambda e1,e2. 2::(dec_ast e1::dec_ast e2)) in dec_ast
+
+
+
+
+// ************************
+// ******* Encoders *******
+// ************************
+
+// boolean
+#let tt = lambda x,y. x
+#let ff = lambda x,y. y
+
+#let bonus = 0
+
+// nat
+#let zero = bonus
+#let succ = bonus
+#let add = bonus
+#let mul = bonus
+#let factorial = bonus
+#let pred = bonus
+#let sub = bonus
+#let is_zero = lambda m. m tt (lambda _,_. ff)
+#let leq = bonus
+#let eq = bonus
+#let lt = lambda n,m. (leq n (pred m))
+#let gt = lambda n,m. lt m n
+
+// list
+#let nil = bonus
+#let cons = bonus
+#let length = bonus
+
+// tree
+#let leaf = bonus
+#let node = bonus
+#let size = bonus
+
+// product
+#let pair = lambda x,y,f. f x y
+#let fst_enc = lambda p. p (lambda x,y. x)
+#let snd_enc = lambda p. p (lambda x,y. y)
+
+// fix
+#let fix_z = lambda f. (lambda x. f (lambda v. x x v)) (lambda x. f (lambda v. x x v))
+
+
+
+// *****************************************
+// ******* Meta-Circular Interpreter *******
+// *****************************************
+
+#let fail = lambda _. true + 1
+#let force = lambda f. f false
+
+// AST encoders
+#let var_enc = bonus
+#let lam_enc = bonus
+#let app_enc = bonus
+
+#let subst = fun rec subst with i, e, c = 
+    bonus
+in subst
+
+#let eval = fun rec eval with e = 
+    e 
+        // free variable
+        (lambda _. force fail)
+        // lambda
+        bonus
+        // application
+        (lambda e1,e2. 
+            (eval e1)
+                (lambda _. force fail)
+                bonus
+                (lambda _,_. force fail)) in eval
