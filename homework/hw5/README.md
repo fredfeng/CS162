@@ -352,7 +352,7 @@ You may find `List.map` especially handy in some of these cases.
 ## Testing your code
 
 * You should construct your own test cases and run your own tests locally (although we will not be grading your testing).
-* You can find unit test helpers in `test/test_typing.ml`, and you can execute unit tests with `dune runtest`. For convenience, we have provided a `DSL` module in `ast.ml` that will help you concisely construct test cases, should you choose to use it.
+* You can find unit test helpers in `test/test_typing.ml` (to test the overall type inference algorithm), and `test/test_solving.ml` (to test the constraint solver indepdently). You can execute unit tests with `dune runtest`. For convenience, we have provided a `DSL` module in `ast.ml` that will help you concisely construct test cases, should you choose to use it.
 * **Make sure you test your constraint generation and your constraint solver separately.** If you generate incorrect constraints, your unification will not produce the correct answers ("garbage in, garbage out"). Likewise, if your unification is incorrect, you will obviously get the wrong answers.
 * We **highly recommend** that you write unit tests for each helper function you defined.
 * Afterwards, you should test your constraint generation and unification together, so that you can get a sense of how well they do as an actual type inference procedure (which is the goal of this assignment).
@@ -479,7 +479,7 @@ This is where types come to rescue. Types are, in fact, a form of specification,
 
 Provide your code in the function called `helper`, which takes an environment mapping type `t` to some known expression `e` that has type `t`, and input type `t0`. If an expression of type `t0` can be synthesized, then `helper` should return `Some e0`, where `e0` is the synthesized expression. Otherwise, `helper` should return `None`.
 
-This is a challenging problem, as suggested by the high point value. You are not expected to solve this problem perfectly. Fortunately, the difficulty of this problem can vary greatly, depending how ambitious you want to be.  The autograder will award points based on the percentage of types for which you can synthesize a program. A simple algorithm will be enough to solve a sizable portion, if not all, of the test cases. You will be given a 1-second timeout per test case. You may ignore list types for this problem.
+This is a challenging problem, as suggested by the high point value. You are not expected to solve this problem perfectly. Fortunately, the difficulty of this problem can vary greatly, depending how ambitious you want to be.  The autograder will award points based on the percentage of types for which you can synthesize a program. A simple algorithm will be enough to solve a non-trivial portion, if not all, of the test cases. You will be given a 1-second timeout per test case. You may ignore list types for this problem.
 
 To help you debug your implementation interactively, we have added a `#synth <ty>` command to the REPL interpreter. For example,
 ```
