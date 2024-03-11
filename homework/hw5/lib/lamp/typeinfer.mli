@@ -16,7 +16,7 @@ val equal_cons : cons -> cons -> bool
 val compare_cons : cons -> cons -> int
 val show_cons : cons -> string
 
-type sigma = (string * ty) list
+type sigma = (string * ty) list [@@deriving eq, ord, show]
 
 val pp_sigma : sigma Fmt.t
 
