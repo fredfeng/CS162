@@ -46,17 +46,17 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 2/20             | -                                             |                               |                  |     |     |  |
 | 2/19             | Type Checking I (continued)                   | [lec10]                       | 22.1-22.4        |     |     |
 | 2/24             | Type Inference I                              | [lec11]                       |                  |     |     |
-| 2/26             | Midterm Review                                | [midterm]                     |                  |     |     |  |
-| 3/3              | Midterm                                       |                               |                  |     |     |
-| 3/5              | TBD                                           |                               | 22.7             |     |     |
-| 3/10             | Type Inference & Polymorphism II              | [lec12]                       |                  |     |     |
-| 3/12             | Polymorphism                                  | [lec13]                       |                  |     |     |
-| 3/18             | -                                             |                               |                  |     |     |
+| 2/26             | TBD                                |                      |                  |     |     |  |
+| 3/3              | TBD                                      |                               |                  |     |     |
+| 3/5              | Type Inference & Polymorphism II                                           |                               | 22.7             |     |     |
+| 3/10             | Polymorphism              | [lec12]                       |                  |     |     |
+| 3/12             | Final Review                                  | [lec13]                       |                  |     |     |
+| 3/18             | Final                                             |                               |                  |     |     |
 
 # Grading
 
-1. 5 Programming Assignments: 70%
-2. Midterm Exam: 30%
+1. 5 Programming Assignments: 60%
+2. Final Exam: 40%
 
 Below is the grading system used by CS162 (No curving).
 
