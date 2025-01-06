@@ -62,9 +62,8 @@ Below is the grading system used by CS162 (No curving).
 
 | Letter | Percentage |
 | ------ | ---------- |
-| A+     | 95–100%    |
-| A      | 90–94%     |
-| A-     | 85–89%     |
+| A      | 93–100%     |
+| A-     | 85–92%     |
 | B+     | 80–84%     |
 | B      | 75–79%     |
 | B-     | 70–74%     |
