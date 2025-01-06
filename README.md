@@ -27,20 +27,20 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 1/20 (MLK)       | No class                                      |                                        |                  |                        |     |
 | 1/13             | OCaml crash course II                         | [lec3]         |                  |                        |     |
 | 1/15             | OCaml crash course III                        | [lec4]          |                  |                        |     |
-| 1/22             | Lambda Calculus I                             | [lec5]          |                  | [hw2](./homework/hw2/) | hw1 |
+| 1/22             | Lambda Calculus I                             | [lec5]          |                  | [hw2] | hw1 |
 | 1/27             | λ<sup>+</sup>, Inference Rules                |                                        | 11.12            |                        |     |
 | 1/29             | Lambda Calculus II                            | [lec6]          | 8.1,8.2, 9.1-9.3 |                        |     |
 | 2/3              | Operational Semantics I                       | [lec7]          |                  |                        |     |
-| 2/5              | Operational Semantics II                      |                                        | 10.3             | [hw3](./homework/hw3)  | hw2 |
+| 2/5              | Operational Semantics II                      |                                        | 10.3             | [hw3]  | hw2 |
 | 2/10             | Operational Semantics III                     | [lec8]         |                  |                        |     |
 | 2/12             | Type Checking I                               | [lec9]         |                  |                        |     |
 | 2/17 (President) | No class                                      |                                        |                  |                        |     |
-| 2/20             | -                                             |                                        |                  | [hw4](./homework/hw4)  | hw3 |  |
+| 2/20             | -                                             |                                        |                  | [hw4]  | hw3 |  |
 | 2/19             | Type Checking I (continued)                   | [lec10]       | 22.1-22.4        |                        |     |
 | 2/24             | Type Inference I                              | [lec11]       |                  |                        |     |
 | 2/26             | Midterm Review                                | [midterm] |                  |                        |     |  |
 | 3/3              | Midterm                                             |                                        |                  |                        | hw4 |
-| 3/5              | TBD                                       |                                        | 22.7             | [hw5](./homework/hw5)  |     |
+| 3/5              | TBD                                       |                                        | 22.7             | [hw5]  |     |
 | 3/10              | Type Inference & Polymorphism II              | [lec12]       |                  |                        |     |
 | 3/12             | Polymorphism                                  | [lec13]                                |                  |                        |     |
 | 3/18             | -                                             |                                        |                  |                        | hw5 |
