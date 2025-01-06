@@ -1,1 +1,0 @@
-lambda o. o 0 (lambda i. i * 10000 + 1)

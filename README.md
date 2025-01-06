@@ -4,53 +4,61 @@ Programming Languages are the bricks, mortar and steel of the information age. O
 
 # Logistics
 Instructor: Yu Feng (yufeng@cs.ucsb.edu)
-
-TA: Junrui Liu (junrui@ucsb.edu), Hongbo Wen (hongbowen@ucsb.edu), Hanzhi Liu (hanzhi@ucsb.edu)
+Instructor's office hour: Tue, 9am-10am (HFH 2157)
 
 Class: Mon, Wed, 5pm, Theater & Dance West, 1701 
 
-Discussion session: Fri, 9-9:50am, 10-10:50am, and 11-11:50am
+Discussion sections (Fridays):
+- 10-10:50am, GIRV 2128
+- 11-11:50am, GIRV 2128
+- 12-12:50pm, GIRV 1115
+- 1-1:50pm, GIRV 1112
 
-Instructor's office hour: Tue, 9am-10am (HFH 2157)
+TAs:
+- Junrui Liu (junrui@ucsb.edu)
+- Hongbo Wen (hongbowen@ucsb.edu)
+- Hanzhi Liu (hanzhi@ucsb.edu)
+- Jiaming Shan
 
-TA's office hours (location: PLSE Lab=Phelps 3523):
-- Junrui Liu: Tue 11am-12pm
-- Hongbo Wen: Thurs 1-2pm
-- Hanzhi Liu: Thurs 2-3pm
+TA office hours:
+- Junrui Liu: time TBD at place TBD
+- Hongbo Wen: time TBD at place TBD
+- Hanzhi Liu: time TBD at place TBD
+- Jiaming Shan: time TBD at place TBD
 
 Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Types-Programming-Languages-MIT-Press/dp/0262162091)
 
-| Date             | Topic                                         | Slides                                 | Read             | Out                    | Due |
-| ---------------- | --------------------------------------------- | -------------------------------------- | ---------------- | ---------------------- | --- |
-| 1/6              | Hello, World! & Introduction to λ<sup>+</sup> | [lec1](lectures/lecture1.pdf)          |                  |                        |     |
-| 1/8             | OCaml crash course I                          | [lec2]         |                  | [hw1](./homework/hw1/) |     |
-| 1/13             | OCaml crash course II                         | [lec3]         |                  |                        |     |
-| 1/15             | OCaml crash course III                        | [lec4]          |                  |                        |     |
-| 1/20 (MLK)       | No class                                      |                                        |                  |                        |     |
-| 1/22             | Lambda Calculus I                             | [lec5]          |                  | [hw2] | hw1 |
-| 1/27             | λ<sup>+</sup>, Inference Rules                |                                        | 11.12            |                        |     |
-| 1/29             | Lambda Calculus II                            | [lec6]          | 8.1,8.2, 9.1-9.3 |                        |     |
-| 2/3              | Operational Semantics I                       | [lec7]          |                  |                        |     |
-| 2/5              | Operational Semantics II                      |                                        | 10.3             | [hw3]  | hw2 |
-| 2/10             | Operational Semantics III                     | [lec8]         |                  |                        |     |
-| 2/12             | Type Checking I                               | [lec9]         |                  |                        |     |
-| 2/17 (President) | No class                                      |                                        |                  |                        |     |
-| 2/20             | -                                             |                                        |                  | [hw4]  | hw3 |  |
-| 2/19             | Type Checking I (continued)                   | [lec10]       | 22.1-22.4        |                        |     |
-| 2/24             | Type Inference I                              | [lec11]       |                  |                        |     |
-| 2/26             | Midterm Review                                | [midterm] |                  |                        |     |  |
-| 3/3              | Midterm                                             |                                        |                  |                        | hw4 |
-| 3/5              | TBD                                       |                                        | 22.7             | [hw5]  |     |
-| 3/10              | Type Inference & Polymorphism II              | [lec12]       |                  |                        |     |
-| 3/12             | Polymorphism                                  | [lec13]                                |                  |                        |     |
-| 3/18             | -                                             |                                        |                  |                        | hw5 |
+| Date             | Topic                                         | Slides                        | Read             | Out | Due |
+| ---------------- | --------------------------------------------- | ----------------------------- | ---------------- | --- | --- |
+| 1/6              | Hello, World! & Introduction to λ<sup>+</sup> | [lec1](lectures/lecture1.pdf) |                  |     |     |
+| 1/8              | OCaml crash course I                          | [lec2]                        |                  |     |     |
+| 1/13             | OCaml crash course II                         | [lec3]                        |                  |     |     |
+| 1/15             | OCaml crash course III                        | [lec4]                        |                  |     |     |
+| 1/20 (MLK)       | No class                                      |                               |                  |     |     |
+| 1/22             | Lambda Calculus I                             | [lec5]                        |                  |     |     |
+| 1/27             | λ<sup>+</sup>, Inference Rules                |                               | 11.12            |     |     |
+| 1/29             | Lambda Calculus II                            | [lec6]                        | 8.1,8.2, 9.1-9.3 |     |     |
+| 2/3              | Operational Semantics I                       | [lec7]                        |                  |     |     |
+| 2/5              | Operational Semantics II                      |                               | 10.3             |     |     |
+| 2/10             | Operational Semantics III                     | [lec8]                        |                  |     |     |
+| 2/12             | Type Checking I                               | [lec9]                        |                  |     |     |
+| 2/17 (President) | No class                                      |                               |                  |     |     |
+| 2/20             | -                                             |                               |                  |     |     |  |
+| 2/19             | Type Checking I (continued)                   | [lec10]                       | 22.1-22.4        |     |     |
+| 2/24             | Type Inference I                              | [lec11]                       |                  |     |     |
+| 2/26             | Midterm Review                                | [midterm]                     |                  |     |     |  |
+| 3/3              | Midterm                                       |                               |                  |     |     |
+| 3/5              | TBD                                           |                               | 22.7             |     |     |
+| 3/10             | Type Inference & Polymorphism II              | [lec12]                       |                  |     |     |
+| 3/12             | Polymorphism                                  | [lec13]                       |                  |     |     |
+| 3/18             | -                                             |                               |                  |     |     |
 
 # Grading
 
 1. 5 Programming Assignments: 70%
 2. Midterm Exam: 30%
 
-Below is a grading system used by CS162 (No curving).
+Below is the grading system used by CS162 (No curving).
 
 | Letter | Percentage |
 | ------ | ---------- |
@@ -86,10 +94,6 @@ These resources are helpful for learning OCaml:
 4. [OCaml official documentation](https://ocaml.org/learn/)
 5. [Learning OCaml in Y mins](https://learnxinyminutes.com/docs/ocaml/)
 
-For the extra credit assignment, these may be helpful:
-1. Racket: https://racket-lang.org/
-2. The Rosette guide: https://docs.racket-lang.org/rosette-guide/index.html
-3. SMT-LIB: http://smtlib.cs.uiowa.edu/
 
 # Academic Integrity
 - Cheating WILL be taken seriously. It is not fair toward honest students to take cheating lightly, nor is it fair to the cheater to let him/her go on thinking that cheating is a reasonable alternative in life.

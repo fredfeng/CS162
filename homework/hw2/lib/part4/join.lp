@@ -1,1 +1,0 @@
-lambda o1, o2. o1 none (lambda x. o2 none (lambda y. some (x * y)))
