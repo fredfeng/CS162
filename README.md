@@ -22,7 +22,7 @@ TAs:
 
 TA office hours:
 - Junrui Liu: time TBD at place TBD
-- Hongbo Wen: time TBD at place TBD
+- Hongbo Wen: Thursday 2-3pm at CSIL (Harold Frank Hall 1138)
 - Hanzhi Liu: time TBD at place TBD
 - Jiaming Shan: time TBD at place TBD
 
