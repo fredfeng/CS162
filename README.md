@@ -31,7 +31,7 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | Date             | Topic                                         | Slides                        | Read             | Out | Due |
 | ---------------- | --------------------------------------------- | ----------------------------- | ---------------- | --- | --- |
 | 1/6              | Hello, World! & Introduction to λ<sup>+</sup> | [lec1](lectures/lecture1.pdf) |                  |     |     |
-| 1/8              | OCaml crash course I                          | [lec2]                        |                  |     |     |
+| 1/8              | OCaml crash course I                          | [lec2](lectures/lecture2.pdf)                        |                  |     |     |
 | 1/13             | OCaml crash course II                         | [lec3]                        |                  |     |     |
 | 1/15             | OCaml crash course III                        | [lec4]                        |                  |     |     |
 | 1/20 (MLK)       | No class                                      |                               |                  |     |     |
