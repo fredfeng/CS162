@@ -24,7 +24,7 @@ TA office hours:
 - Junrui Liu: time TBD at place TBD
 - Hongbo Wen: Thursday 2-3pm at CSIL (Harold Frank Hall 1138)
 - Hanzhi Liu: time TBD at place TBD
-- Jiaming Shan: time TBD at place TBD
+- Jiaming Shan: Sunday 2-3pm at CSIL (Harold Frank Hall 1138)
 
 Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Types-Programming-Languages-MIT-Press/dp/0262162091)
 
