@@ -20,7 +20,7 @@ TAs:
 - Hongbo Wen ([hongbowen@ucsb.edu](mailto:hongbowen@ucsb.edu))
   - Office hours: Thursday 2-3pm at CSIL
 - Hanzhi Liu ([hanzhi@ucsb.edu](mailto:hanzhi@ucsb.edu))
-  - Office hours: time TBD at place TBD
+  - Office hours: Thursday 3-4pm at CSIL
 
 Reader:
 - Jiaming Shan
