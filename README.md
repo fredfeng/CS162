@@ -4,54 +4,54 @@ Programming Languages are the bricks, mortar and steel of the information age. O
 
 # Logistics
 Instructor: Yu Feng (yufeng@cs.ucsb.edu)
-Instructor's office hour: Tue, 9am-10am (HFH 2157)
+- Office hour: Tue, 9am-10am (HFH 2157)
 
 Class: Mon, Wed, 5pm, Theater & Dance West, 1701 
 
-Discussion sections (Fridays):
+Discussion sections (Friday):
 - 10-10:50am, GIRV 2128
 - 11-11:50am, GIRV 2128
 - 12-12:50pm, GIRV 1115
 - 1-1:50pm, GIRV 1112
 
 TAs:
-- Junrui Liu (junrui@ucsb.edu)
-- Hongbo Wen (hongbowen@ucsb.edu)
-- Hanzhi Liu (hanzhi@ucsb.edu)
+- Junrui Liu ([junrui@ucsb.edu](mailto:junrui@ucsb.edu))
+  - (**Tentative**) Office hours: Monday 3-4pm and Thursday 10:30-11:30am at CSIL
+- Hongbo Wen ([hongbowen@ucsb.edu](mailto:hongbowen@ucsb.edu))
+  - Office hours: Thursday 2-3pm at CSIL
+- Hanzhi Liu ([hanzhi@ucsb.edu](mailto:hanzhi@ucsb.edu))
+  - Office hours: time TBD at place TBD
+
+Reader:
 - Jiaming Shan
 
-TA office hours:
-- Junrui Liu: time TBD at place TBD
-- Hongbo Wen: Thursday 2-3pm at CSIL (Harold Frank Hall 1138)
-- Hanzhi Liu: time TBD at place TBD
-- Jiaming Shan: time TBD at place TBD
 
 Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Types-Programming-Languages-MIT-Press/dp/0262162091)
 
-| Date             | Topic                                         | Slides                        | Read             | Out | Due |
-| ---------------- | --------------------------------------------- | ----------------------------- | ---------------- | --- | --- |
-| 1/6              | Hello, World! & Introduction to λ<sup>+</sup> | [lec1](lectures/lecture1.pdf) |                  |     |     |
-| 1/8              | OCaml crash course I                          | [lec2](lectures/lecture2.pdf)                        |                  |     |     |
-| 1/13             | OCaml crash course II                         | [lec3]                        |                  |     |     |
-| 1/15             | OCaml crash course III                        | [lec4]                        |                  |     |     |
-| 1/20 (MLK)       | No class                                      |                               |                  |     |     |
-| 1/22             | Lambda Calculus I                             | [lec5]                        |                  |     |     |
-| 1/27             | λ<sup>+</sup>, Inference Rules                |                               | 11.12            |     |     |
-| 1/29             | Lambda Calculus II                            | [lec6]                        | 8.1,8.2, 9.1-9.3 |     |     |
-| 2/3              | Operational Semantics I                       | [lec7]                        |                  |     |     |
-| 2/5              | Operational Semantics II                      |                               | 10.3             |     |     |
-| 2/10             | Operational Semantics III                     | [lec8]                        |                  |     |     |
-| 2/12             | Type Checking I                               | [lec9]                        |                  |     |     |
-| 2/17 (President) | No class                                      |                               |                  |     |     |
-| 2/20             | -                                             |                               |                  |     |     |  |
-| 2/19             | Type Checking I (continued)                   | [lec10]                       | 22.1-22.4        |     |     |
-| 2/24             | Type Inference I                              | [lec11]                       |                  |     |     |
-| 2/26             | TBD                                |                      |                  |     |     |  |
-| 3/3              | TBD                                      |                               |                  |     |     |
-| 3/5              | Type Inference & Polymorphism II                                           |                               | 22.7             |     |     |
-| 3/10             | Polymorphism              | [lec12]                       |                  |     |     |
-| 3/12             | Final Review                                  | [lec13]                       |                  |     |     |
-| 3/18             | Final                                             |                               |                  |     |     |
+# Schedule 
+| Date             | Topic                          | Slides                        | Read             | Out | Due |
+| ---------------- | ------------------------------ | ----------------------------- | ---------------- | --- | --- |
+| 1/6              | Hello, World!                  | [lec1](lectures/lecture1.pdf) |                  |     |     |
+| 1/8              | OCaml crash course I           | [lec2](lectures/lecture2.pdf) |                  |     |     |
+| 1/13             | OCaml crash course II          | [lec3]                        |                  | hw1 |     |
+| 1/15             | OCaml crash course III         | [lec4]                        |                  |     |     |
+| 1/20 (MLK)       | No class                       |                               |                  |     |     |
+| 1/22             | Lambda Calculus I              | [lec5]                        |                  | hw2 | hw1 |
+| 1/27             | Lambda Calculus II             | [lec6]                        | 8.1,8.2, 9.1-9.3 |     |     |
+| 1/29             | λ<sup>+</sup>, Inference Rules |                               |                  |     |     |
+| 2/3              | Operational Semantics I        | [lec7]                        |                  |     |     |
+| 2/5              | Operational Semantics II       |                               | 10.3             | hw3 | hw2 |
+| 2/10             | Operational Semantics III      | [lec8]                        |                  |     |     |
+| 2/12             | Type Checking                  | [lec9]                        |                  |     |     |
+| 2/17 (President) | No class                       |                               |                  |     |     |
+| 2/19             | Type Checking  (continued)     | [lec10]                       | 22.1-22.4        | hw4 | hw3 |
+| 2/24             | Type Inference                 | [lec11]                       |                  |     |     |
+| 2/26             | Type Inference (continued)     |                               |                  |     |     |
+| 3/3              | Polymorphism                   |                               |                  | hw5 | hw4 |
+| 3/5              | Polymorphism (continued)       |                               | 22.7             |     |     |
+| 3/10             | TBD                            | [lec12]                       |                  |     |     |
+| 3/12             | Final Review                   | [lec13]                       |                  |     |     |
+| 3/18             | Final                          |                               |                  |     | hw5 |
 
 # Grading
 
@@ -63,7 +63,7 @@ Below is the grading system used by CS162 (No curving).
 
 | Letter | Percentage |
 | ------ | ---------- |
-| A      | 93–100%     |
+| A      | 93–100%    |
 | A-     | 85–92%     |
 | B+     | 80–84%     |
 | B      | 75–79%     |
