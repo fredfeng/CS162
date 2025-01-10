@@ -1,33 +1,33 @@
-# Section 1
 
-## Setting up OCaml
+
+# Setting up OCaml
 
 > Adapted from [this guide](https://github.com/fredfeng/CS162/blob/winter-2021/sections/section1/install_ocaml.md) written by Bryan Tan.
 
 
-### Step 1. Installing `opam`
+## Step 1. Installing `opam`
 
 First, you need to install `opam`, OCaml's package manager, which allows you to install OCaml-related tools.
 
 
-#### macOS
+### macOS
 Make sure you have [homebrew](https://brew.sh/). Then run
 ```
 brew install opam
 ```
 
 
-#### Windows
+### Windows
 Windows users are recommended to use [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/install), and then follow the instructions under the **(Non-CSIL) Linux** section, since OCaml doesn't work too well on Windows.
 
 As a last resort, you can also try CSIL, although some students have found it difficult to set up the environment on CSIL.
 
 
-#### (Non-CSIL) Linux
+### (Non-CSIL) Linux
 Follow [these step](https://opam.ocaml.org/doc/Install.html#Binary-distribution), under the "Binary distribution" section. Make sure you install opam version >= 2.1.0.
 
 
-#### CSIL
+### CSIL
 
 Log onto a CSIL machine. Download the `opam` binary using:
 ```bash
@@ -51,7 +51,7 @@ Check to make sure it's on `PATH`:
 
 
 
-### Step 2. Installing OCaml, for real
+## Step 2. Installing OCaml, for real
 
 > **Note:** Use the commands below one-by-one, read the instructions on the screen and proceed accordingly, since some of the commands below are interactive.
 
@@ -98,7 +98,7 @@ Enter #help;; for help.
 Then, you can proceed to the next stage, installing [`utop`](https://opam.ocaml.org/blog/about-utop/).
 
 
-### Step 3. Installing `utop`.
+## Step 3. Installing `utop`.
 
 `utop` is is an enhanced REPL interpreter for OCaml with features like autocompletion. Install it with
 
@@ -121,7 +121,7 @@ as a reponse. That is, OCaml infers that the expression we entered has type `int
 In REPL mode, every expression needs to be terminated with `;;` before you hit the enter key. Otherwise, you'll just start a new line by hitting enter, and `utop` will patiently wait for you to type `;;` before it can start interpreting the expression. This contrasts with file mode, in which you do not have to terminate every expression with `;;`.
 
 
-### Loading an OCaml file in `utop`
+## Loading an OCaml file in `utop`
 
 Make a new file called `hello.ml` containing the following line:
 ```
