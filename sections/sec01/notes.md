@@ -285,6 +285,7 @@ But wait!! If you do this, OCaml compiler will throw a type error. Pause and thi
 
 <details>
 <summary>Answer</summary>
+
 This is because we have annotated the return type of `add` to be `rational`, which are *represented* as a pair of integers. Thus, we need to return something of type `int * int`, not just an integer. So, we need to pack the numerator and denominator back into a pair:
 ```ocaml
 ...
@@ -292,6 +293,7 @@ let (a, b) = x in
 let (c, d) = y in
 (a*d + b*c, b*d)
 ```
+
 </details>
 
 
@@ -341,9 +343,9 @@ or
 ```
 
 
-#### Q3: How to build data of type `C`?
+#### Q3: How to build data of enum types?
 
-Let's say our `c` is:
+Let's say our enum type `c` is:
 ```ocaml
 type c = 
     | Either of int
@@ -379,19 +381,22 @@ However, the above code will throw a type error. Pause and think why this is the
 
 <details>
 <summary>Answer</summary>
+
 This is because the function is supposed to return a `result`, which is an enum type. However, in the `else` branch, we're returning an integer, which is not a `result`. We need to wrap the integer in a `Success` tag:
 ```ocaml
 ...
 else
     Success (num / denom)
 ```
+
 A useful analogy is that the envelope is the `result`, and the integer is the letter inside the envelope. You can't just hand the post office (which expects an evelope) a bare letter. You need to put the letter in an envelope, and stamp it with the appropriate tag so that the post office can deliver it to the right place.
+
 </details>
 
 
-#### Q4: How to use data of type `C`?
+#### Q4: How to use data of enum types?
 
-Let's say our `c` is:
+Let's say our enum type `c` is:
 ```ocaml
 type c = 
     | Either of int
@@ -426,20 +431,22 @@ where `Failure _` means "any `Failure` value, I don't care about the exact error
 ### Summary
 
 Understand the following table, and you're golden for the rest of the course:
-| Type                                   | Logical interpretation | How to build data            | How to use data                               |
-| -------------------------------------- | ---------------------- | ---------------------------- |
-| Product A * B                          | AND                    | `(a, b)`                     | `let (x, y) = pair in ...`                    |
-| Enum `type c = TagA of A \| TagB of B` | OR                     | Either `TagA a`, or `TagB b` | `match x with TagA x -> ... \| TagB y -> ...` |
+
+| Type                                   | Logical interpretation | How to build data            | How to use data                                       |
+| -------------------------------------- | ---------------------- | ---------------------------- | ----------------------------------------------------- |
+| Product A * B                          | AND                    | `(a, b)`                     | `let (x, y) = pair in ...`                            |
+| Enum `type c = TagA of A \| TagB of B` | OR                     | Either `TagA a`, or `TagB b` | `match x with TagA a -> <use a> \| TagB b -> <use b>` | --> |
+
 
 
 ## Useful Data Structures
 Believe it or not, these two types are all you need to build (almost) any data structure you can think of. To define your favorite data structure, you can first give the data structure a logical interpretation, and then translate them by mapping AND to products and OR to enums.
 
 
-For example, a singly linked list is **either** empty, **or** <it has **both** a head element and a tail, which is another singly linked list>. To map this to OCaml, observe that
+For example, a singly linked list is **either** empty, **or** <it has **both** a head element **and** a tail, which is another singly linked list>. To map this to OCaml, observe that
 - the outer structure is a logical OR, so we use one tag for the empty case, and another tag for the non-empty case. 
 - the non-empty case is further an AND, so we use a product to package the head and tail together.
-In OCaml, this is just:
+In OCaml, this is:
 ```ocaml
 type singly_linked_list = 
     | Empty
