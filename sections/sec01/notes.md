@@ -422,3 +422,69 @@ let increment (x: result) : result =
     | Failure _ -> x
 ```
 where `Failure _` means "any `Failure` value, I don't care about the exact error message".
+
+### Summary
+
+Understand the following table, and you're golden for the rest of the course:
+| Type                                   | Logical interpretation | How to build data            | How to use data                               |
+| -------------------------------------- | ---------------------- | ---------------------------- |
+| Product A * B                          | AND                    | `(a, b)`                     | `let (x, y) = pair in ...`                    |
+| Enum `type c = TagA of A \| TagB of B` | OR                     | Either `TagA a`, or `TagB b` | `match x with TagA x -> ... \| TagB y -> ...` |
+
+
+## Useful Data Structures
+Believe it or not, these two types are all you need to build (almost) any data structure you can think of. To define your favorite data structure, you can first give the data structure a logical interpretation, and then translate them by mapping AND to products and OR to enums.
+
+
+For example, a singly linked list is **either** empty, **or** <it has **both** a head element and a tail, which is another singly linked list>. To map this to OCaml, observe that
+- the outer structure is a logical OR, so we use one tag for the empty case, and another tag for the non-empty case. 
+- the non-empty case is further an AND, so we use a product to package the head and tail together.
+In OCaml, this is just:
+```ocaml
+type singly_linked_list = 
+    | Empty
+    | NonEmpty of int * singly_linked_list
+```
+assuming the list contains integers. (Next week we'll see how to make this definition generic, so that you can have lists of any type of element with a single definition.)
+
+Since `singly_linked_list` is a type, we can ask:
+1. How to build a `singly_linked_list`?
+2. How to use a `singly_linked_list`?
+
+To answer the first question, we can examine the type definition.
+- First and foremost, a `singly_linked_list` is an enum type. To build an enum, we need to use one of the tags, i.e., either `Empty` or `NonEmpty`.
+- In the `NonEmpty` case, we have the product `int * singly_linked_list`, so we need to provide an integer and another `singly_linked_list` to build the pair.
+
+For example, below are some `singly_linked_list`s:
+```ocaml
+let empty = Empty;;
+let one_element = NonEmpty (1, Empty);;
+let two_elements = NonEmpty (1, NonEmpty (2, Empty));;
+```
+
+To answer the second question, since `singly_linked_list` is an enum type, we need to use pattern matching to figure out which case we're in, and extract the content in the envelope accordingly. For example, if we want to compute the length of a `singly_linked_list`, we can do this as follows:
+```ocaml
+let rec length (l: singly_linked_list) : int = 
+    match l with
+    | Empty -> 0
+    | NonEmpty pair -> ??
+```
+In the base case, the length of an empty list is 0. Let's figure out what to do in the `NonEmpty` case. First, what is the type of `pair`? According to the type definition, it should be `int * singly_linked_list`. So, we can extract the head and tail of the list as follows:
+```ocaml
+let rec length (l: singly_linked_list) : int = 
+    match l with
+    | Empty -> 0
+    | NonEmpty pair ->
+        let (head, tail) = pair in
+        ???
+```
+Then we can recursively compute the length of the tail, and add 1 to it. So `???` can be `1 + length tail`.
+
+A useful syntactic sugar is that if a product is contained in a tag, you can immediately unpack the product in the `match` statement:
+```ocaml
+...
+| NonEmpty (head, tail) -> 1 + length tail
+```
+instead of first naming the product, and then unpacking it.
+
+
