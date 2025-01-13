@@ -7,7 +7,7 @@
 ## Instructions
 
 1. Install OCaml following [these steps](https://github.com/fredfeng/CS162/tree/master/sections/sec01/install.md). Report any issues you encounter in the `#tech-support` channel on Slack.
-2. Download the content of this folder using this [link](TBD).
+2. Download the content of this folder using this [link](https://download-directory.github.io/?url=https://github.com/fredfeng/CS162/tree/master/homework/hw1).
 3. Run `opam install . --deps-only` in the root directory of this homework to install the necessary dependencies.
 4. Complete `part1.ml` through `part4.ml` by replacing the placeholders denoted by `todo ()` with your own code. You may add additional helper functions if you wish, but you must not change the type signatures of the original functions. Otherwise, your program will not compile. If you accidentally change the type signatures, you can refer to the corresponding `part<i>.mli` file to see what the expected type signatures are.
 5. Once you're done, submit `part1.ml` through `part4.ml` to Gradescope. If your program contains print statements, please remove them before submitting. You do not need to submit any other file, including any `.mli` file or test code. The autograder will automatically compile your code together with our testing infrastructure and run the tests.
