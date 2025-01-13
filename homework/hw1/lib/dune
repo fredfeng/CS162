@@ -1,0 +1,11 @@
+(env
+ (dev
+  (flags
+   (:standard -warn-error -A))))
+
+(library
+ (name hw1)
+ (libraries base fmt)
+ (preprocess
+  (pps ppx_deriving.show))
+ (modules util part1 part2 part3 part4))
