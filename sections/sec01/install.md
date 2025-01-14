@@ -130,7 +130,7 @@ print_endline "hello!"
 
 Now, open `utop` and load `hello.ml` with
 ```
-#use "hello.ml`;;
+#use "hello.ml";;
 ```
 
 You should see `hello!` printed on your console, along with
