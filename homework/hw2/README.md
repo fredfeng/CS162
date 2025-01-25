@@ -140,7 +140,7 @@ As an example, recall the [`lookup` function from HW1](https://github.com/fredfe
 ```ocaml
 let lookup (equal: 'k -> 'k -> bool) (key: 'k) (dict: ('k * 'v) list) : 'v option =
     List.fold_right 
-        (fun key' result -> if equal key key' then Some (snd key') else result)
+        (fun (key', value) result -> if equal key key' then Some value else result)
         dict
         None
 ```
