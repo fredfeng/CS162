@@ -129,7 +129,7 @@ There's a symmetric function called `List.fold_right` that folds the list from r
 val fold_right : ('a -> 'acc -> 'acc) -> 'a list -> 'acc -> 'acc
 ```
 
-On a piece of paper, write down a recursive implementation of `fold_right`. Once you're done, compare your solution with the implementation in the OCaml standard library. You can find the implementation [here](https://github.com/ocaml/ocaml/blob/5.1/stdlib/list.ml).
+On a piece of paper, write down a recursive implementation of `fold_right`. Once you're done, compare your solution with the implementation in the OCaml standard library. You can find the implementation [here](https://github.com/ocaml/ocaml/blob/c82ce40504f0875969bf86b22e4d6ec7e26b3153/stdlib/list.ml#L125).
 
 
 #### Problem 1.7 (📝)
