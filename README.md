@@ -16,7 +16,7 @@ Discussion sections (Friday):
 
 TAs:
 - Junrui Liu ([junrui@ucsb.edu](mailto:junrui@ucsb.edu))
-  - (**Tentative**) Office hours: Monday 3-4pm and Thursday 10:30-11:30am at TA Trailer Room 103 ([map](https://ucsb-cs8.github.io/w20/info/mentorPhotos/trailer-map.png))
+  - Office hours: Monday 3-4pm and Thursday 10:30-11:30am at TA Trailer Room 103 ([map](https://ucsb-cs8.github.io/w20/info/mentorPhotos/trailer-map.png))
 - Hongbo Wen ([hongbowen@ucsb.edu](mailto:hongbowen@ucsb.edu))
   - Office hours: Thursday 2-3pm at CSIL
 - Hanzhi Liu ([hanzhi@ucsb.edu](mailto:hanzhi@ucsb.edu))
@@ -34,13 +34,14 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 1/6              | Hello, World!                  | [lec1](lectures/lecture1.pdf) |                  |                        |     |
 | 1/8              | OCaml crash course I           | [lec2](lectures/lecture2.pdf) |                  |                        |     |
 | 1/13             | OCaml crash course II          | [lec3](lectures/lecture3.pdf) |                  | [hw1](./homework/hw1/) |     |
-| 1/15             | OCaml crash course III         | [lec4](lectures/lecture4.pdf)                      |                  |                        |     |
+| 1/15             | OCaml crash course III         | [lec4](lectures/lecture4.pdf) |                  |                        |     |
 | 1/20 (MLK)       | No class                       |                               |                  |                        |     |
-| 1/22             | Lambda Calculus I              | [lec5](lectures/lecture5.pdf)                        |                  | [hw2](./homework/hw2)  | hw1 |
+| 1/22             | Lambda Calculus I              | [lec5](lectures/lecture5.pdf) |                  | [hw2](./homework/hw2)  | hw1 |
 | 1/27             | Lambda Calculus II             | [lec6]                        | 8.1,8.2, 9.1-9.3 |                        |     |
 | 1/29             | λ<sup>+</sup>, Inference Rules |                               |                  |                        |     |
 | 2/3              | Operational Semantics I        | [lec7]                        |                  |                        |     |
-| 2/5              | Operational Semantics II       |                               | 10.3             | [hw3](./homework/hw3)  | hw2 |
+| 2/5              | Operational Semantics II       |                               | 10.3             |                        |     |
+| 2/7              |                                |                               |                  | [hw3](./homework/hw3)  | hw2 |
 | 2/10             | Operational Semantics III      | [lec8]                        |                  |                        |     |
 | 2/12             | Type Checking                  | [lec9]                        |                  |                        |     |
 | 2/17 (President) | No class                       |                               |                  |                        |     |
