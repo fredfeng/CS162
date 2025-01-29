@@ -29,30 +29,29 @@ Reader:
 Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Types-Programming-Languages-MIT-Press/dp/0262162091)
 
 # Schedule 
-| Date             | Topic                          | Slides                        | Read             | Out                    | Due |
-| ---------------- | ------------------------------ | ----------------------------- | ---------------- | ---------------------- | --- |
-| 1/6              | Hello, World!                  | [lec1](lectures/lecture1.pdf) |                  |                        |     |
-| 1/8              | OCaml crash course I           | [lec2](lectures/lecture2.pdf) |                  |                        |     |
-| 1/13             | OCaml crash course II          | [lec3](lectures/lecture3.pdf) |                  | [hw1](./homework/hw1/) |     |
-| 1/15             | OCaml crash course III         | [lec4](lectures/lecture4.pdf) |                  |                        |     |
-| 1/20 (MLK)       | No class                       |                               |                  |                        |     |
-| 1/22             | Lambda Calculus I              | [lec5](lectures/lecture5.pdf) |                  | [hw2](./homework/hw2)  | hw1 |
-| 1/27             | Lambda Calculus II             | [lec6]                        | 8.1,8.2, 9.1-9.3 |                        |     |
-| 1/29             | λ<sup>+</sup>, Inference Rules |                               |                  |                        |     |
-| 2/3              | Operational Semantics I        | [lec7]                        |                  |                        |     |
-| 2/5              | Operational Semantics II       |                               | 10.3             |                        |     |
-| 2/7              |                                |                               |                  | [hw3](./homework/hw3)  | hw2 |
-| 2/10             | Operational Semantics III      | [lec8]                        |                  |                        |     |
-| 2/12             | Type Checking                  | [lec9]                        |                  |                        |     |
-| 2/17 (President) | No class                       |                               |                  |                        |     |
-| 2/19             | Type Checking  (continued)     | [lec10]                       | 22.1-22.4        | [hw4](./homework/hw4)  | hw3 |
-| 2/24             | Type Inference                 | [lec11]                       |                  |                        |     |
-| 2/26             | Type Inference (continued)     |                               |                  |                        |     |
-| 3/3              | Polymorphism                   |                               |                  | [hw5](./homework/hw5)  | hw4 |
-| 3/5              | Polymorphism (continued)       |                               | 22.7             |                        |     |
-| 3/10             | TBD                            | [lec12]                       |                  |                        |     |
-| 3/12             | Final Review                   | [lec13]                       |                  |                        |     |
-| 3/18             | Final                          |                               |                  |                        | hw5 |
+| Date             | Topic                      | Slides                        | Read             | Out                    | Due |
+| ---------------- | -------------------------- | ----------------------------- | ---------------- | ---------------------- | --- |
+| 1/6              | Hello, World!              | [lec1](lectures/lecture1.pdf) |                  |                        |     |
+| 1/8              | OCaml crash course I       | [lec2](lectures/lecture2.pdf) |                  |                        |     |
+| 1/13             | OCaml crash course II      | [lec3](lectures/lecture3.pdf) |                  | [hw1](./homework/hw1/) |     |
+| 1/15             | OCaml crash course III     | [lec4](lectures/lecture4.pdf) |                  |                        |     |
+| 1/20 (MLK)       | No class                   |                               |                  |                        |     |
+| 1/22             | Lambda Calculus I          | [lec5](lectures/lecture5.pdf) |                  | [hw2](./homework/hw2)  | hw1 |
+| 1/27             | Lambda Calculus II         | [lec6]                        | 8.1,8.2, 9.1-9.3 |                        |     |
+| 1/29             | (Cancelled)                |                               |                  |                        |     |
+| 2/3              | λ<sup>+</sup>              | [lec7]                        |                  |                        |     |
+| 2/5              | Operational Semantics I    |                               | 10.3             |                        |     |
+| 2/10             | Operational Semantics II   | [lec8]                        |                  |                        |     |
+| 2/12             | Type Checking              | [lec9]                        |                  | [hw3](./homework/hw3)  | hw2 |
+| 2/17 (President) | No class                   |                               |                  |                        |     |
+| 2/19             | Type Checking  (continued) | [lec10]                       | 22.1-22.4        |                        |     |
+| 2/24             | Type Inference             | [lec11]                       |                  | [hw4](./homework/hw4)  | hw3 |
+| 2/26             | Type Inference (continued) |                               |                  |                        |     |
+| 3/3              | Polymorphism               |                               |                  |                        |     |
+| 3/5              | Polymorphism (continued)   |                               | 22.7             | [hw5](./homework/hw5)  | hw4 |
+| 3/10             | TBD                        | [lec12]                       |                  |                        |     |
+| 3/12             | Final Review               | [lec13]                       |                  |                        |     |
+| 3/18             | Final                      |                               |                  |                        | hw5 |
 
 # Grading
 

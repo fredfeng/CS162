@@ -1,6 +1,6 @@
 # Homework Assignment 2
 
-**Due Friday, Feb 7th at 11:59PM (Pacific Time)**
+**Due Wed, Feb 12th at 11:59PM (Pacific Time)**
 
 ## Overview
 
