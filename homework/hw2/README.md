@@ -24,7 +24,7 @@ This assignment consists of two parts:
 * Problems marked with `🧑‍💻` are programming tasks, and will be autograded on Gradescope. There are 8 of them in total. In solving those problems:
   * You are **not** allowed to use in built-in OCaml library functions in your solutions unless explicitly permitted. If you do, you will not be awarded any points. Note that language features like pattern-matching do not count as library functions. You may use library functions like `Format.printf` and `Int.equal` to test your code, but you must remove them before submitting.
   * You are **not** allowed to use any kind of imperative features, including mutable state (e.g. references and arrays), loops, etc. If you do, you will not be awarded any points.
-* Problems marked with `⭐️bonus⭐️` are optional. You will receive extra credit by solving them. You will not be tested on them in the midterm *unless we explicitly say so*.
+* Problems marked with `⭐️bonus⭐️` are optional. You will receive extra credit by solving them. You will not be tested on them in the final *unless we explicitly say so*.
 * Some parts of the next assignment will build on the concepts and the code you wrote in this assignment, so it's important to get them right!
 * If you are struggling, please do not hesitate to ask questions in the `#hw2` Slack channel or come to office hours.
 
