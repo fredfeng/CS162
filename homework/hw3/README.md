@@ -253,7 +253,7 @@ Your task is to implement `E1`, `E2`, and `Either` cases of your `eval` function
 
 ### Internal Choice (⭐️bonus⭐️, 2 points)
 
-The second language extension is internal choice, which is dual to external choice. Previously, when *given* an unknown external choice, we don't get to choose or influence the choice. In contrast, when *given* an internal choice expression `i`, we get to decide which choice to make, using the syntax `i.1` or `i.2`. To construct an internal choice object for someone else, we must present both choices to them, using the syntax `(e1, e2)` where `e1` and `e2` are expressions. In the AST, these syntactic forms are represented as `I1 of expr`, `I2 of expr`, and `Both of expr * expr`. As evident from the type, none of those constructors has any binding structure.
+The second language extension is internal choice, which is dual to external choice. Previously, when *given* an unknown external choice, we don't get to choose or influence the choice. In contrast, when *given* an internal choice expression `e`, we get to decide which choice to make, using the syntax `e.1` or `e.2`. To construct an internal choice object for someone else, we must present both choices to them, using the syntax `(e1, e2)` where `e1` and `e2` are expressions. In the AST, these syntactic forms are represented as `I1 of expr`, `I2 of expr`, and `Both of expr * expr`. As evident from the type, none of those constructors has any binding structure.
 
 The reference interpreter on CSIL (located at `~junrui/lamp`) implements internal choice. You will reverse-engineer their operational semantics by experimenting with different example expressions and observing the behavior of the interpreter.
 
