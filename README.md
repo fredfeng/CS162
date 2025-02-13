@@ -37,7 +37,7 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 1/15             | OCaml crash course III     | [lec4](lectures/lecture4.pdf) |                  |                        |     |
 | 1/20 (MLK)       | No class                   |                               |                  |                        |     |
 | 1/22             | Lambda Calculus I          | [lec5](lectures/lecture5.pdf) |                  | [hw2](./homework/hw2)  | hw1 |
-| 1/27             | Lambda Calculus II         | [lec6](lectures/lecture6.pdf)                       | 8.1,8.2, 9.1-9.3 |                        |     |
+| 1/27             | Lambda Calculus II         | [lec6](lectures/lecture6.pdf) | 8.1,8.2, 9.1-9.3 |                        |     |
 | 1/29             | (Cancelled)                |                               |                  |                        |     |
 | 2/3              | λ<sup>+</sup>              | [lec7]                        |                  |                        |     |
 | 2/5              | Operational Semantics I    |                               | 10.3             |                        |     |
@@ -45,10 +45,11 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 2/12             | Type Checking              | [lec9]                        |                  | [hw3](./homework/hw3)  | hw2 |
 | 2/17 (President) | No class                   |                               |                  |                        |     |
 | 2/19             | Type Checking  (continued) | [lec10]                       | 22.1-22.4        |                        |     |
-| 2/24             | Type Inference             | [lec11]                       |                  | [hw4](./homework/hw4)  | hw3 |
+| 2/21             | -                          |                               |                  | [hw4](./homework/hw4)  | hw3 |
+| 2/24             | Type Inference             | [lec11]                       |                  |                        |     |
 | 2/26             | Type Inference (continued) |                               |                  |                        |     |
-| 3/3              | Polymorphism               |                               |                  |                        |     |
-| 3/5              | Polymorphism (continued)   |                               | 22.7             | [hw5](./homework/hw5)  | hw4 |
+| 3/3              | Polymorphism               |                               |                  | [hw5](./homework/hw5)  | hw4 |
+| 3/5              | Polymorphism (continued)   |                               | 22.7             |                        |     |
 | 3/10             | TBD                        | [lec12]                       |                  |                        |     |
 | 3/12             | Final Review               | [lec13]                       |                  |                        |     |
 | 3/18             | Final                      |                               |                  |                        | hw5 |
