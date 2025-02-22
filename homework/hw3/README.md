@@ -1,7 +1,7 @@
 # Homework Assignment 3
 
 
-**Due Friday, Feb 21th at 11:59PM (Pacific Time)**
+**Due Monday, Feb 24th at 11:59PM (Pacific Time)**
 
 
 ## Overview
