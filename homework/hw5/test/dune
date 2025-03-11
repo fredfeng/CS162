@@ -1,0 +1,12 @@
+(env
+ (dev
+  (flags
+   (:standard -warn-error -A))))
+
+(test
+ (name hw5_test)
+ (libraries fmt alcotest lamp)
+ (preprocess
+  (pps ppx_jane ppx_deriving.show))
+ (deps
+  (source_tree examples)))

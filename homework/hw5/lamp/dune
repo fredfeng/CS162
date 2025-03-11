@@ -1,0 +1,15 @@
+(env
+ (dev
+  (flags
+   (:standard -warn-error -A))))
+
+(library
+ (name lamp)
+ (preprocess
+  (pps ppx_deriving.show ppx_jane ppx_sexp_conv))
+ (libraries base fmt nice_parser))
+
+(ocamllex lexer)
+
+(menhir
+ (modules menhir_parser))
