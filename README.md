@@ -47,10 +47,10 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 2/19             | Type Checking  (continued) | [lec10](lectures/lecture10.pdf) | 22.1-22.4        |                        |     |
 | 2/24             | Type Inference             | [lec11](lectures/lecture11.pdf) |                  | [hw4](./homework/hw4)  | hw3 |
 | 2/26             | Type Inference (continued) | [note](lectures/2-26-note.pdf)  |                  |                        |     |
-| 3/3              | Polymorphism               |                                 |                  |                        |     |
+| 3/3              | Polymorphism               | [lec12](lectures/lecture12.pdf)                                |                  |                        |     |
 | 3/5              | Polymorphism (continued)   |                                 | 22.7             | [hw5](./homework/hw5)  | hw4 |
-| 3/10             | TBD                        | [lec12]                         |                  |                        |     |
-| 3/12             | Final Review               | [lec13]                         |                  |                        |     |
+| 3/10             | Curry Howard isomorphism   | [CHI](lectures/CS162-Curry-Howard-Isomorphism.pdf)                         |                  |                        |     |
+| 3/12             | Final Review               | [review](lectures/CS162-Final-Review-Programming-Languages)                         |                  |                        |     |
 | 3/18             | Final                      |                                 |                  |                        |     |
 | 3/21             |                            |                                 |                  |                        | hw5 |
 
