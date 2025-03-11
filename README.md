@@ -50,7 +50,7 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 3/3              | Polymorphism               | [lec12](lectures/lecture12.pdf)                                |                  |                        |     |
 | 3/5              | Polymorphism (continued)   |                                 | 22.7             | [hw5](./homework/hw5)  | hw4 |
 | 3/10             | Curry Howard isomorphism   | [CHI](lectures/CS162-Curry-Howard-Isomorphism.pdf)                         |                  |                        |     |
-| 3/12             | Final Review               | [review](lectures/CS162-Final-Review-Programming-Languages)                         |                  |                        |     |
+| 3/12             | Final Review               | [review](lectures/CS162-Final-Review-Programming-Languages.pdf)                         |                  |                        |     |
 | 3/18             | Final                      |                                 |                  |                        |     |
 | 3/21             |                            |                                 |                  |                        | hw5 |
 
