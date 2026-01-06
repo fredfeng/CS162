@@ -3,27 +3,19 @@
 Programming Languages are the bricks, mortar and steel of the information age. Over the last thirty years, a variety of languages with diverse features have been developed, expressive radically different perspectives of the idea of computation. CS 162 is an introduction to these different perspectives, the fundamental concepts of languages, and how modern language techniques and idioms can be used to engineer software systems. For this purpose, we will learn how to build a new programming language, λ<sup>+</sup>, from scratch, including its operational semantics, type checking, type inference, and correctness.
 
 # Logistics
-Instructor: Yu Feng (yufeng@cs.ucsb.edu)
-- Office hour: Tue, 9am-10am (HFH 2157)
+Instructor: Yu Feng (yufeng@UCSBCS)
+- Office hour: Tue, 3:30pm-4:30pm (HFH 2157)
 
-Class: Mon, Wed, 5pm, Theater & Dance West, 1701 
+Class: Tue, Thur, 5pm, Theater & Dance West, 1701 
+
+
+
+TA:
+- Hanzhi Liu ([hanzhi@ucsb.edu](mailto:hanzhi@ucsb.edu))
+  - Office hours: Friday 1:50-3pm at CSIL
 
 Discussion sections (Friday):
-- 10-10:50am, GIRV 2128
-- 11-11:50am, GIRV 2128
-- 12-12:50pm, GIRV 1115
-- 1-1:50pm, GIRV 1112
-
-TAs:
-- Junrui Liu ([junrui@ucsb.edu](mailto:junrui@ucsb.edu))
-  - Office hours: Monday 3-4pm and Thursday 10:30-11:30am at TA Trailer Room 103 ([map](https://ucsb-cs8.github.io/w20/info/mentorPhotos/trailer-map.png))
-- Hongbo Wen ([hongbowen@ucsb.edu](mailto:hongbowen@ucsb.edu))
-  - Office hours: Thursday 2-3pm at CSIL
-- Hanzhi Liu ([hanzhi@ucsb.edu](mailto:hanzhi@ucsb.edu))
-  - Office hours: Thursday 3-4pm at CSIL
-
-Reader:
-- Jiaming Shan
+- 1pm-1:50pm, GIRV 2128
 
 
 Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Types-Programming-Languages-MIT-Press/dp/0262162091)
@@ -31,33 +23,33 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 # Schedule 
 | Date             | Topic                      | Slides                          | Read             | Out                    | Due |
 | ---------------- | -------------------------- | ------------------------------- | ---------------- | ---------------------- | --- |
-| 1/6              | Hello, World!              | [lec1](lectures/lecture1.pdf)   |                  |                        |     |
-| 1/8              | OCaml crash course I       | [lec2](lectures/lecture2.pdf)   |                  |                        |     |
-| 1/13             | OCaml crash course II      | [lec3](lectures/lecture3.pdf)   |                  | [hw1](./homework/hw1/) |     |
-| 1/15             | OCaml crash course III     | [lec4](lectures/lecture4.pdf)   |                  |                        |     |
-| 1/20        | Lambda Calculus I class                   |                                 |                  |                        |     |
-| 1/22             | Lambda Calculus II          | [lec5](lectures/lecture5.pdf)   |                  | [hw2](./homework/hw2)  | hw1 |
-| 1/27             | Exam I         | [lec6](lectures/lecture6.pdf)   | 8.1,8.2, 9.1-9.3 |                        |     |
-| 1/29             | TBD(Cancelled)                |                                 |                  |                        |     |
+| 1/6              | Hello, World!              | [lec1](#)   |                  |                        |     |
+| 1/8              | OCaml crash course I       | [lec2](#)   |                  |                        |     |
+| 1/13             | OCaml crash course II      | [lec3](#)   |                  | [hw1](./homework/hw1/) |     |
+| 1/15             | OCaml crash course III     | [lec4](#)   |                  |                        |     |
+| 1/20        | Lambda Calculus I                    |                                 |                  |                        |     |
+| 1/22             | Lambda Calculus II          | [lec5](#)   |                  | [hw2](./homework/hw2)  | hw1 |
+| 1/27             | Exam I         |    | 8.1,8.2, 9.1-9.3 |                        |     |
+| 1/29             | TBD                |                                 |                  |                        |     |
 | 2/3              | λ<sup>+</sup>              |                                 |                  |                        |     |
-| 2/5              | Operational Semantics I    | [lec7](lectures/lecture7.pdf)   | 10.3             |                        |     |
-| 2/10             | Operational Semantics II   | [lec8](lectures/lecture8.pdf)   |                  |                        |     |
-| 2/12             | Type Checking              | [lec9](lectures/lecture9.pdf)   |                  | [hw3](./homework/hw3)  | hw2 |
+| 2/5              | Operational Semantics I    | [lec7](#)   | 10.3             |                        |     |
+| 2/10             | Operational Semantics II   | [lec8](#)   |                  |                        |     |
+| 2/12             | Type Checking              | [lec9](#)   |                  | [hw3](./homework/hw3)  | hw2 |
 | 2/17  | Type Checking  (continued)                   |                                 |                  |                        |     |
-| 2/19             | Exam II | [lec10](lectures/lecture10.pdf) | 22.1-22.4        |                        |     |
-| 2/24             | Type Inference             | [lec11](lectures/lecture11.pdf) |                  | [hw4](./homework/hw4)  | hw3 |
-| 2/26             | Type Inference (continued) | [note](lectures/2-26-note.pdf)  |                  |                        |     |
-| 3/3              | Polymorphism               | [lec12](lectures/lecture12.pdf)                                |                  |                        |     |
+| 2/19             | Exam II |  | 22.1-22.4        |                        |     |
+| 2/24             | Type Inference             | [lec11](#) |                  | [hw4](./homework/hw4)  | hw3 |
+| 2/26             | Type Inference (continued) | [note](#)  |                  |                        |     |
+| 3/3              | Polymorphism               | [lec12](#)                                |                  |                        |     |
 | 3/5              | Polymorphism (continued)   |                                 | 22.7             | [hw5](./homework/hw5)  | hw4 |
-| 3/10             | Curry Howard isomorphism   | [CHI](lectures/CS162-Curry-Howard-Isomorphism.pdf)                         |                  |                        |     |
-| 3/12             | Exam III               | [lecture](lectures/CS162-Final-Review-Programming-Languages.pdf)                         |                  |                        |     |
+| 3/10             | Curry Howard isomorphism   | [CHI](#)                         |                  |                        |     |
+| 3/12             | Exam III               |                         |                  |                        |     |
 | 3/21             |                            |                                 |                  |                        | hw5 |
 
 # Grading
 
-1. 5 Programming Assignments: 60%
-2. Final Exam: 40%
-3. Class Participation：1%
+1. 5 Programming Assignments: 55%
+2. Exams: 40%
+3. Class Participation：5%
 
 Below is the grading system used by CS162 (No curving).
 
