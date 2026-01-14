@@ -1,7 +1,0 @@
-(test
- (name hw3_test)
- (libraries fmt alcotest lamp)
- (preprocess
-  (pps ppx_jane ppx_deriving.show))
- (deps
-  (source_tree examples)))

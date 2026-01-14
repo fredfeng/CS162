@@ -1,6 +1,6 @@
 # Homework Assignment 1
 
-**Due Wednesday, January 22, 2025 at 11:59pm (Pacific Time)**
+**Due Wednesday, January 22, 2026 at 11:59pm (Pacific Time)**
 
 
 
