@@ -23,10 +23,10 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 # Schedule 
 | Date             | Topic                      | Slides                          | Read             | Out                    | Due |
 | ---------------- | -------------------------- | ------------------------------- | ---------------- | ---------------------- | --- |
-| 1/6              | Hello, World!              | [lec1](#)   |                  |                        |     |
-| 1/8              | OCaml crash course I       | [lec2](#)   |                  |                        |     |
-| 1/13             | OCaml crash course II      | [lec3](#)   |                  | [hw1](./homework/hw1/) |     |
-| 1/15             | OCaml crash course III     | [lec4](#)   |                  |                        |     |
+| 1/6              | Hello, World!              | [lec1](./lectures/lecture1.pdf)   |                  |                        |     |
+| 1/8              | OCaml crash course I       | [lec2](./lectures/lecture2.pdf)   |                  |                        |     |
+| 1/13             | OCaml crash course II      | [lec3](./lectures/lecture3.pdf)   |                  | [hw1](./homework/hw1/) |     |
+| 1/15             | OCaml crash course III     | [lec4](./lectures/lecture4.pdf)   |                  |                        |     |
 | 1/20        | Lambda Calculus I                    |                                 |                  |                        |     |
 | 1/22             | Lambda Calculus II          | [lec5](#)   |                  | [hw2](./homework/hw2)  | hw1 |
 | 1/27             | Exam I         |    | 8.1,8.2, 9.1-9.3 |                        |     |
