@@ -1,0 +1,7 @@
+(test
+ (name hw2_test)
+ (libraries fmt base alcotest part1 lamp)
+ (preprocess
+  (pps ppx_jane))
+ (deps
+  (source_tree ../lib/part4)))

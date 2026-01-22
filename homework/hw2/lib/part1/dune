@@ -1,0 +1,7 @@
+(env
+ (dev
+  (flags
+   (:standard -warn-error -A))))
+
+(library
+ (name part1))

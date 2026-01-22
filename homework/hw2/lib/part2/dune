@@ -1,0 +1,24 @@
+; Build configuration
+
+; Treat warnings as non-fatal
+
+(env
+ (dev
+  (flags
+   (:standard -warn-error -A))))
+
+(data_only_dirs examples)
+
+; ---------------
+; lamp main files
+
+(library
+ (name lamp)
+ (preprocess
+  (pps ppx_jane ppx_deriving.show))
+ (libraries base fmt)
+ (modules ast scanner parser parse_util vars eval err))
+
+(ocamllex scanner)
+
+(ocamlyacc parser)
