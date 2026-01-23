@@ -29,8 +29,8 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 1/15             | OCaml crash course III     | [lec4](./lectures/lecture4.pdf)   |                  |                        |     |
 | 1/20        | Lambda Calculus I                    |  [lec5](./lectures/lecture5.pdf)                               |                  |                        |     |
 | 1/22             | Lambda Calculus II          | [lec6](./lectures/lecture6.pdf)   |                  | [hw2](./homework/hw2)  | hw1 |
-| 1/27             | Exam I         |    | 8.1,8.2, 9.1-9.3 |                        |     |
-| 1/29             | TBD                |                                 |                  |                        |     |
+| 1/27             | Exam I         |    |  |                        |     |
+| 1/29             | No Class                |                                 |                  |                        |     |
 | 2/3              | λ<sup>+</sup>              |                                 |                  |                        |     |
 | 2/5              | Operational Semantics I    | [lec7](#)   | 10.3             |                        |     |
 | 2/10             | Operational Semantics II   | [lec8](#)   |                  |                        |     |
