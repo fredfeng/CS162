@@ -32,9 +32,9 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 | 1/27             | Exam I         |    |  |                        |     |
 | 1/29             | No Class                |                                 |                  |                        |     |
 | 2/3              | λ<sup>+</sup>              |                                 |                  |                        |     |
-| 2/5              | Operational Semantics I    | [lec7](#)   | 10.3             |                        |     |
+| 2/5              | Operational Semantics I    | [lec7](#)   | 10.3             |    [hw3](./homework/hw3)                  |     |
 | 2/10             | Operational Semantics II   | [lec8](#)   |                  |                        |     |
-| 2/12             | Type Checking              | [lec9](#)   |                  | [hw3](./homework/hw3)  | hw2 |
+| 2/12             | Type Checking              | [lec9](#)   |                  |   | hw2 |
 | 2/17  | Type Checking  (continued)                   |                                 |                  |                        |     |
 | 2/19             | Exam II |  | 22.1-22.4        |                        |     |
 | 2/24             | Type Inference             | [lec11](#) |                  | [hw4](./homework/hw4)  | hw3 |
