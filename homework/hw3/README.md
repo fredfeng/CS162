@@ -120,7 +120,7 @@ type expr =
     ```
 - For recursion, the `Fix` constructor represents the fixed-point operator. `Fix` also has a binding structure: it declares the name of the recursive function to be in-scope in the function definition. This is why the `Fix` constructor takes an `expr binder` as its argument. For example, `fix f is lambda x. f x` is represented abstract as `Fix ("f", Lambda ("x", App (Var "f", Var "x")))`
 
-**Problem (📝)**: Manually parse the following expressions in concrete syntax into ASTs. Use the reference interpreter on CSIL (`~junrui/lamp`) to check your answers.
+**Problem (📝)**: Manually parse the following expressions in concrete syntax into ASTs. Use the reference interpreter on CSIL (`~hanzhi/lamp`) to check your answers.
 1. `if if 3=10 then Nil else false then if true then lambda x.x else false else 1`
 2. `1::(Nil::true)::lambda x.x`
 3. `fun rec length with xs = match xs with Nil -> 0 | _::xs' -> 1 + length xs' end in length (1::2::3::Nil)`
@@ -255,7 +255,7 @@ Your task is to implement `E1`, `E2`, and `Either` cases of your `eval` function
 
 The second language extension is internal choice, which is dual to external choice. Previously, when *given* an unknown external choice, we don't get to choose or influence the choice. In contrast, when *given* an internal choice expression `e`, we get to decide which choice to make, using the syntax `e.1` or `e.2`. To construct an internal choice object for someone else, we must present both choices to them, using the syntax `(e1, e2)` where `e1` and `e2` are expressions. In the AST, these syntactic forms are represented as `I1 of expr`, `I2 of expr`, and `Both of expr * expr`. As evident from the type, none of those constructors has any binding structure.
 
-The reference interpreter on CSIL (located at `~junrui/lamp`) implements internal choice. You will reverse-engineer their operational semantics by experimenting with different example expressions and observing the behavior of the interpreter.
+The reference interpreter on CSIL (located at `~hanzhi/lamp`) implements internal choice. You will reverse-engineer their operational semantics by experimenting with different example expressions and observing the behavior of the interpreter.
 
 Your task is to implement `Both`, `I1`, and `I2` cases of your `eval` function. You will be scored based on whether the semantics you infer is identical to the semantics of internal choice implemented by the reference interpreter. The autograder output will be hidden until the submission portal is closed, so you will not be able to see how many autograder tests you passed.
 

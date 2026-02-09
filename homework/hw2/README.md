@@ -435,8 +435,8 @@ dune exec bin/repl.exe -- <path-to-file>
 ```
 We provided some example programs in `lib/part2/examples`.
 
-We also wrote a reference interpreter located on CSIL at `~junrui/lamp` which you can use to compare the output of your interpreter. 
-To run the reference interpreter, simply run `~junrui/lamp` (interactive mode) or `~junrui/lamp <path-to-file>` (file mode). 
+We also wrote a reference interpreter located on CSIL at `~hanzhi/lamp` which you can use to compare the output of your interpreter. 
+To run the reference interpreter, simply run `~hanzhi/lamp` (interactive mode) or `~hanzhi/lamp <path-to-file>` (file mode). 
 
 > If you discovered any bug in the reference interpreter, please let us know!
 
