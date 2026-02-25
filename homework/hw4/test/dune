@@ -1,0 +1,7 @@
+(test
+ (name hw4_test)
+ (libraries fmt alcotest lamp)
+ (preprocess
+  (pps ppx_deriving.show ppx_jane))
+ (deps
+  (source_tree examples)))
