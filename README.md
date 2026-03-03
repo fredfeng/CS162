@@ -47,8 +47,8 @@ Textbook (optional): [Types and Programming Languages](https://www.amazon.com/Ty
 
 # Grading
 
-1. 5 Programming Assignments: 55%
-2. Exams: 40%
+1. 5 Programming Assignments: 50%
+2. Exams: 45%
 3. Class Participation：5%
 
 Below is the grading system used by CS162 (No curving).
